@@ -28,11 +28,9 @@
 </head>
 
 <body>
-
 	<!-- **************** MAIN CONTENT START **************** -->
 	<main>
 		<section class="p-0 d-flex align-items-center position-relative overflow-hidden">
-
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-12  col-lg-9 m-auto">
@@ -42,9 +40,8 @@
 								<span class="mb-0 fs-1">👋</span>
 								<h1 class="fs-2 text-center">Create Account !</h1>
 								<!-- <p class="lead mb-4">Nice to see you! Please log in with your account.</p> -->
-
 								<!-- Form START -->
-								<form action="../../controllers/signup/create_user.controller.php" method="post">
+								<form action="../../controllers/authentication/create_user.controller.php" method="post">
 									<!-- Username -->
 									<div class="mb-4">
 										<label for="exampleInputEmail1" class="form-label">Username *</label>
@@ -94,7 +91,6 @@
 		</section>
 	</main>
 	<!-- **************** MAIN CONTENT END **************** -->
-
 	<!-- Back to top -->
 	<div class="back-top"><i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle"></i></div>
 

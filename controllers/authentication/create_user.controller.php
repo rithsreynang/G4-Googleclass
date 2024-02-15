@@ -14,16 +14,19 @@
             foreach($emails as $mail){
                 if ($mail['email'] == $email){
                     $signupAlready = true;
-                    echo "<script>alert('Email have use!')</script>";
-                    header("Location: ../../views/signup/signup.view.php");
+                    echo "<script>alert('Email have already use!')</script>";
+                    header("Location: ../../views/authentication/signup.view.php");
                 };
             }
             if (!$signupAlready){
                 $password_hash = password_hash($password, PASSWORD_BCRYPT);
                 createUser($username, $email, $password_hash);
                 echo "<script>alert('Create Successful!!!')</script>";
-
             }
+        }
+        else{
+            echo "<script>alert('Create Successful!!!')</script>";
+            header("Location: ../../views/authentication/signup.view.php");
         }
     }
 ?>
