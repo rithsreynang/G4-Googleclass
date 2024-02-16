@@ -6,7 +6,6 @@ $routes = [
     '/user-signup' => 'controllers/authentication/signup.controller.php',
     '/user-signout' => 'controllers/authentication/signout.controller.php',
 ];
-
 if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];
 } else {

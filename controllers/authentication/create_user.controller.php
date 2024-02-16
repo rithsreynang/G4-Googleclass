@@ -10,21 +10,14 @@
             $username = htmlspecialchars($_POST['username']);
             $email = htmlspecialchars($_POST['email']);
             $password = htmlspecialchars($_POST['password']);
-            $signupAlready = false;
-            foreach($emails as $mail){
-                if ($mail['email'] == $email){
-                    $signupAlready = true;
-                    echo "<script>alert('Email have already use!')</script>";
-                    header("Location: /user-signup");
-                };
-            }
-            if (!$signupAlready){
-                $password_hash = password_hash($password, PASSWORD_BCRYPT);
-                createUser($username, $email, $password_hash);
-                echo "<script>alert('Create Successful!!!')</script>";
-            }
-            else{
-                echo"<script>alert('Emails have already use!!!')</script>";
+            $password_encrypt = password_hash($password, PASSWORD_BCRYPT);
+            $user = accountExist($email);
+            if (count($user) == 0){
+                createAccount($username, $email, $password_encrypt);
+                header("Location: /home");
+                $_SESSION['success'] = "Account Created successfully";
+            }else{
+                echo "Account already exists";
             }
         }
         else{
