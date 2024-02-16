@@ -36,7 +36,6 @@
 							</div>
 							<!-- SVG Image -->
 							<img src="assets/images/element/04.svg" class="mt-7" alt="">
-
 						</div>
 					</div>
 					<!-- Right -->
