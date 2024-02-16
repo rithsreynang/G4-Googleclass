@@ -47,7 +47,7 @@
           <!-- Right -->
           <div class="col-12 col-lg-6 m-auto">
             <div class="row my-5">
-              <div class="col-sm-10 col-xl-8 m-auto">
+              <div class="col-sm-10 col-xl-8 m-auto border rounded p-3">
                 <!-- Title -->
                 <h1 class="fs-2">Create Account !</h1>
                 <!-- <p class="lead mb-4">Nice to see you! Please log in with your account.</p> -->
@@ -90,7 +90,7 @@
                 <!-- Form END -->
                 <!-- Sign up link -->
                 <div class="mt-4 text-center">
-                  <span> Have an account? <a href=" /user-signin">Login here</a></span>
+                  <span>Have Account Already? <a href=" /user-signin">Login</a></span>
                 </div>
               </div>
             </div> <!-- Row END -->

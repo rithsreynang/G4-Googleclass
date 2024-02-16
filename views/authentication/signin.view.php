@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>E - Classroom</title>
 	<!-- Meta Tags -->
@@ -19,67 +20,72 @@
 	<!-- Theme CSS -->
 	<link id="style-switch" rel="stylesheet" type="text/css" href="vendor/css/style.css">
 </head>
+
 <body>
-<!-- **************** MAIN CONTENT START **************** -->
-<main>
-	<section class="p-0 d-flex align-items-center position-relative overflow-hidden">
-		<div class="container-fluid">
-			<div class="row">
-				<!-- Right -->
-				<div class="col-12 col-lg-10 m-auto">
-					<div class=" row my-5">
-						<div class="col-sm-10  col-xl-8 m-auto border rounded">
+	<!-- **************** MAIN CONTENT START **************** -->
+	<main>
+		<section class="p-0 d-flex align-items-center position-relative overflow-hidden">
+			<div class="container-fluid">
+				<div class="row">
+					<!-- left -->
+					<div class="col-12 col-lg-6 d-md-flex align-items-center justify-content-center bg-primary bg-opacity-10 vh-lg-100">
+						<div class="p-3 p-lg-5">
 							<!-- Title -->
-							<span class="mb-0 fs-1">👋</span>
-							<h1 class="fs-2">Login into Eduport!</h1>
-							<p class="lead mb-4">Nice to see you! Please log in with your account.</p>
-							<!-- Form START -->
-							<form action="../../\controllers\authentication\check_login.controller.php" method='POST'>
-								<!-- Email -->
-								<div class="mb-4">
-									<label for="exampleInputEmail1" class="form-label">Email address *</label>
-									<div class="input-group input-group-lg">
-										<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="bi bi-envelope-fill"></i></span>
-										<input type="email" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1" name='email'>
-									</div>
-								</div>
-								<!-- Password -->
-								<div class="mb-4">
-									<label for="inputPassword5" class="form-label">Password *</label>
-									<div class="input-group input-group-lg">
-										<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-lock"></i></span>
-										<input type="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="password" id="inputPassword5" name='password'>
-									</div>
-								</div>
-								<div class="align-items-center mt-0">
-									<div class="d-grid">
-										<button class="btn btn-primary mb-0" type="submit">Login</button>
-									</div>
-								</div>
-							</form>
-							<!-- Form END -->
-
-							<!-- Sign up link -->
-							<div class="mt-4 text-center">
-								<span>Have account already? <a href="/user-signup">Signup here</a></span>
+							<div class="text-center">
+								<h2 class="fw-bold">Welcome to E - Classroom</h2>
 							</div>
+							<!-- SVG Image -->
+							<img src="assets/images/element/04.svg" class="mt-7" alt="">
+
 						</div>
-					</div> <!-- Row END -->
-				</div>
-			</div> <!-- Row END -->
-		</div>
-	</section>
-</main>
-<!-- **************** MAIN CONTENT END **************** -->
+					</div>
+					<!-- Right -->
+					<div class="col-12 col-lg-6 m-auto">
+						<div class="row my-5">
+							<div class="col-sm-10 col-xl-8 m-auto border rounded  ">
+								<!-- Title -->
+								<h1 class="fs-2 mt-3">Login Account</h1>
+								<!-- Form START -->
+								<form action="../../controllers/authentication/check_login.controller.php" method='POST'>
+									<!-- Email -->
+									<div class="mb-4">
+										<label for="exampleInputEmail1" class="form-label">Email address *</label>
+										<div class="input-group input-group-lg">
+											<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="bi bi-envelope-fill"></i></span>
+											<input type="email" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1" name='email'>
+										</div>
+									</div>
 
-<!-- Back to top -->
-<div class="back-top"><i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle"></i></div>
+									<div class="align-items-center mt-0">
+										<div class="d-grid mb-3">
+											<button class="btn btn-success mb-0" type="submit">Login</button>
+										</div>
+									</div>
+								</form>
+								<!-- Form END -->
 
-<!-- Bootstrap JS -->
-<script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+								<!-- Sign up link -->
+								<div class="mt-4 text-center">
+									<span>Don't have account yet ? <a href="/user-signup"> Signup</a></span>
+								</div>
+							</div>
+						</div> <!-- Row END -->
+					</div>
+				</div> <!-- Row END -->
+			</div>
+		</section>
+	</main>
+	<!-- **************** MAIN CONTENT END **************** -->
 
-<!-- Template Functions -->
-<script src="vendor/js/functions.js"></script>
+	<!-- Back to top -->
+	<div class="back-top"><i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle"></i></div>
+
+	<!-- Bootstrap JS -->
+	<script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Template Functions -->
+	<script src="vendor/js/functions.js"></script>
 
 </body>
+
 </html>
