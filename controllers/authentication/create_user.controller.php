@@ -1,7 +1,7 @@
 <?php
+    session_start();
     require "../../models/signup.model.php";
     require "../../database/database.php";
-    // require "../../layouts/header.php";
     $statement = $connection->prepare("select * from users");
     $statement->execute();
     $emails = $statement->fetchAll();
@@ -15,7 +15,7 @@
                 if ($mail['email'] == $email){
                     $signupAlready = true;
                     echo "<script>alert('Email have already use!')</script>";
-                    header("Location: ../../views/authentication/signup.view.php");
+                    header("Location: /user-signup");
                 };
             }
             if (!$signupAlready){
@@ -23,10 +23,13 @@
                 createUser($username, $email, $password_hash);
                 echo "<script>alert('Create Successful!!!')</script>";
             }
+            else{
+                echo"<script>alert('Emails have already use!!!')</script>";
+            }
         }
         else{
-            echo "<script>alert('Create Successful!!!')</script>";
-            header("Location: ../../views/authentication/signup.view.php");
+            echo "<script>alert('Missing!!')</script>";
+            header("Location:  /user-signup");
         }
     }
 ?>

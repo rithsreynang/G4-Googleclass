@@ -1,11 +1,17 @@
 <?php
     require "../../database/database.php";
-    require "../../models/signin.model.php";
+    $statement = $connection->prepare("select * from users");
+    $statement->execute();
+    $users = $statement->fetchAll();
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $email = htmlspecialchars($_POST['email']);
-        $password = htmlspecialchars($_POST['password']);
-        $users = checkUser($email, $password);
-        
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        echo $email. $password;
+        foreach ($users as $value){
+            if ($value['email'] == $email && password_verify($password, $value['password'] )){
+                echo "successful";
+            };
+        }
     }
 ?>
 
