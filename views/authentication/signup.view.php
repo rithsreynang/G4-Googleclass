@@ -1,8 +1,16 @@
+<?php
+session_start();
+// Check if the user is already logged in, redirect to the dashboard
+if (isset($_SESSION['user_id'])) {
+  header("Location: /home");
+  exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>Eduport - LMS, Education and Course Theme</title>
+  <title>E - Classroom</title>
 
   <!-- Meta Tags -->
   <meta charset="utf-8">
@@ -26,10 +34,6 @@
   <link id="style-switch" rel="stylesheet" type="text/css" href="vendor/css/style.css">
 
 </head>
-<?php
-echo '<script>alert("Please complete Your name, email and password to create account with E-Classroom Correctly!!")</script>';
-
-?>
 
 <body>
   <!-- **************** MAIN CONTENT START **************** -->
@@ -63,9 +67,6 @@ echo '<script>alert("Please complete Your name, email and password to create acc
                     <div class="input-group input-group-lg">
                       <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fa fa-user"></i></span>
                       <input type="username" name="username" class="form-control border-0 bg-light rounded-end ps-1" placeholder="username" id="exampleInputUsername">
-                      <div id="passwordHelpBlock" class="form-text">
-                      Must have username
-                    </div>
                     </div>
                   </div>
                   <!-- Email -->
@@ -75,9 +76,7 @@ echo '<script>alert("Please complete Your name, email and password to create acc
                       <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="bi bi-envelope-fill"></i></span>
                       <input type="email" name='email' class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1">
                     </div>
-                    <div id="passwordHelpBlock" class="form-text">
-                      Can not create with email that have create before!
-                    </div>
+
                   </div>
                   <!-- Password -->
                   <div class="mb-4">
@@ -85,10 +84,6 @@ echo '<script>alert("Please complete Your name, email and password to create acc
                     <div class="input-group input-group-lg">
                       <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-key"></i></span>
                       <input type="password" name="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="password" id="inputPassword5">
-
-                    </div>
-                    <div id="passwordHelpBlock" class="form-text">
-                      Your password must be 8 characters at least
                     </div>
                   </div>
                   <!-- Button -->

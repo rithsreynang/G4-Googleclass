@@ -1,3 +1,12 @@
+<?php
+session_start();
+// Check if the user is already logged in, redirect to the dashboard
+if (isset($_SESSION['user_id'])) {
+    header("Location: /home");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,6 +63,13 @@
 											<input type="email" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1" name='email'>
 										</div>
 									</div>
+									<div class="mb-4">
+										<label for="inputPassword5" class="form-label">Password *</label>
+										<div class="input-group input-group-lg">
+											<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-key"></i></span>
+											<input type="password" name="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="password" id="inputPassword5">
+										</div>
+									</div>
 
 									<div class="align-items-center mt-0">
 										<div class="d-grid mb-3">
@@ -75,13 +91,10 @@
 		</section>
 	</main>
 	<!-- **************** MAIN CONTENT END **************** -->
-
 	<!-- Back to top -->
 	<div class="back-top"><i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle"></i></div>
-
 	<!-- Bootstrap JS -->
 	<script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
 	<!-- Template Functions -->
 	<script src="vendor/js/functions.js"></script>
 

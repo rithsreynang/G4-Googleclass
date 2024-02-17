@@ -2,9 +2,8 @@
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $page = "";
 $routes = [
-    '/' => 'controllers/home/home.controller.php',
+    '/' => 'controllers/welcome/welcome.controller.php',
     '/home' => 'controllers/home/home.controller.php',
-    '/trainers' => 'controllers/trainers/trainer.controller.php',
 ];
 
 if (array_key_exists($uri, $routes)) {
