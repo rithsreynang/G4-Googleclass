@@ -2,9 +2,9 @@
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $page = "";
 $routes = [
-    '/user-signin' => 'controllers/authentication/signin.controller.php',
-    '/user-signup' => 'controllers/authentication/signup.controller.php',
-    '/user-signout' => 'controllers/authentication/signout.controller.php',
+    '/user-signin' => 'controllers/user/signin.controller.php',
+    '/user-signup' => 'controllers/user/signup.controller.php',
+    '/user-signout' => 'controllers/user/signout.controller.php',
 ];
 if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];

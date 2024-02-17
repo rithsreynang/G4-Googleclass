@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	if (isset($_SESSION['success'])){
+		header("Location: /home");
+		exit;
+	}
+?>
 <!-- **************** MAIN CONTENT START **************** -->
 <main>
 <!-- =======================
@@ -163,7 +170,7 @@ Main Banner START -->
 					<!-- Button -->
 					<a href="#" class="btn btn-lg btn-danger-soft me-2 mb-4 mb-sm-0">Get Started</a>
 					<!-- Video button -->
-          <a data-glightbox data-gallery="office-tour" href="https://www.youtube.com/embed/tXHviS-4ygo" class="ms-0 ms-sm-4 d-block">
+          			<a data-glightbox data-gallery="office-tour" href="https://www.youtube.com/embed/tXHviS-4ygo" class="ms-0 ms-sm-4 d-block">
 						<div class="btn btn-round btn-primary-shadow mb-0 me-3 align-middle d-inline-block"> <i class="fas fa-play"></i></div>
 						<div class="align-middle d-inline-block">
 							<h6 class="mb-0 fw-normal">Watch video</h6>

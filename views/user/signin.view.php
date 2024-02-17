@@ -1,7 +1,7 @@
 <?php
 session_start();
 // Check if the user is already logged in, redirect to the dashboard
-if (isset($_SESSION['user_id'])) {
+if (isset($_SESSION['success'])) {
     header("Location: /home");
     exit;
 }
@@ -54,7 +54,7 @@ if (isset($_SESSION['user_id'])) {
 								<!-- Title -->
 								<h1 class="fs-2 mt-3">Login Account</h1>
 								<!-- Form START -->
-								<form action="../../controllers/authentication/check_login.controller.php" method='POST'>
+								<form action="../../controllers/user/check_login.controller.php" method='POST'>
 									<!-- Email -->
 									<div class="mb-4">
 										<label for="exampleInputEmail1" class="form-label">Email address *</label>

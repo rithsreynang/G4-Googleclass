@@ -11,17 +11,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $password_encrypt = password_hash($password, PASSWORD_BCRYPT);
         if (count($user) == 0) {
             createAccount($username, $email, $password_encrypt);
-            $_SESSION["user_id"] = $user['user_id'];
-            $_SESSION["email"] = $user['email'];
-            $_SESSION["password"] = $user['password'];
             header("Location: /home");
-            exit();
+            $_SESSION['success'] = "Account successfully created";
+            exit;
         } else {
             echo "<script>alert('Email already use. Please Create again!!!'); window.location.href='/user-signup'</script>";
-            exit();
+            exit;
         }
     } else {
         echo "<script>alert('Require all data from your input!!!'); window.location.href='/user-signup'</script>";
-        exit();
+        exit;
     }
 }

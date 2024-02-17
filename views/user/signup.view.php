@@ -1,7 +1,7 @@
 <?php
 session_start();
 // Check if the user is already logged in, redirect to the dashboard
-if (isset($_SESSION['user_id'])) {
+if (isset($_SESSION['success'])) {
   header("Location: /home");
   exit;
 }
@@ -60,7 +60,7 @@ if (isset($_SESSION['user_id'])) {
                 <h1 class="fs-2">Create Account !</h1>
                 <!-- <p class="lead mb-4">Nice to see you! Please log in with your account.</p> -->
                 <!-- Form START -->
-                <form action="../../controllers/authentication/create_user.controller.php" method="post">
+                <form action="../../controllers/user/create_user.controller.php" method="post">
                   <!-- Usernam -->
                   <div class="mb-4">
                     <label for="InputUsername" class="form-label">Username *</label>
