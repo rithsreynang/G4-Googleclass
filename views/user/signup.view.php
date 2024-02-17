@@ -61,7 +61,7 @@ if (isset($_SESSION['success'])) {
                 <!-- <p class="lead mb-4">Nice to see you! Please log in with your account.</p> -->
                 <!-- Form START -->
                 <form action="../../controllers/user/create_user.controller.php" method="post">
-                  <!-- Usernam -->
+                  <!-- Username -->
                   <div class="mb-4">
                     <label for="InputUsername" class="form-label">Username *</label>
                     <div class="input-group input-group-lg">

@@ -63,6 +63,7 @@ if (isset($_SESSION['success'])) {
 											<input type="email" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1" name='email'>
 										</div>
 									</div>
+									<!-- Password -->
 									<div class="mb-4">
 										<label for="inputPassword5" class="form-label">Password *</label>
 										<div class="input-group input-group-lg">
@@ -70,7 +71,7 @@ if (isset($_SESSION['success'])) {
 											<input type="password" name="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="password" id="inputPassword5">
 										</div>
 									</div>
-
+									<!-- Button  -->
 									<div class="align-items-center mt-0">
 										<div class="d-grid mb-3">
 											<button class="btn btn-success mb-0" type="submit">Login</button>
