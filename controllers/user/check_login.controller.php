@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (count($user) > 0) {
         if (password_verify($password, $user['password'])) {
             $_SESSION['success'] = "Login successful";
-            $_SESSION['user'] = [$user['id'], $user['name'], $user['email'], $user['password']];
+            $_SESSION['user'] = [$user['user_id'], $user['username'], $user['email'], $user['password']];
             header("Location: /home");
             exit;
         } else {
