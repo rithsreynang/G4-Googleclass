@@ -4,5 +4,5 @@
     header("Location: /user-signin");
     exit;
   }
+  print_r($_SESSION['user'][0]);
 ?>
-<a class='btn btn-primary' href="/user-signout">Sign out</a>

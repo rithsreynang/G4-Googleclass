@@ -2,7 +2,10 @@
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $page = "";
 $routes = [
-    '/home' => 'controllers/home/home.controller.php',
+    '/user-signin' => 'controllers/user/signin.controller.php',
+    '/user-signup' => 'controllers/user/signup.controller.php',
+    '/user-signout' => 'controllers/user/signout.controller.php',
+    
 ];
 if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];
@@ -10,7 +13,4 @@ if (array_key_exists($uri, $routes)) {
    http_response_code(404);
    $page = 'views/errors/404.php';
 }
-require "./layouts/user_layouts/header.php";
-require "./layouts/user_layouts/navbar.php";
 require $page;
-require "./layouts/user_layouts/footer.php";
