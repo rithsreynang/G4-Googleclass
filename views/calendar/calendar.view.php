@@ -1,7 +1,7 @@
 <!-- Right sidebar END -->
 
 <!-- Main content START -->
-<div class="col-xl-9">
+<div class="col-xl-9" style='margin-left:230px'>
 	<!-- Card START -->
 	<div class="card border rounded-3">
 		<!-- Card header START -->

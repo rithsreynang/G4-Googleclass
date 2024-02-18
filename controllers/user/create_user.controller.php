@@ -12,7 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (count($user) == 0) {
             createAccount($username, $email, $password_encrypt);
             $_SESSION['success'] = "Account successfully created";
-            exit;
             header("Location: /home");
         } else {
             $_SESSION['error'] = "Email already used";
