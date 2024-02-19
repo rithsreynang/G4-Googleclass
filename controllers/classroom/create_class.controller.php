@@ -1,5 +1,7 @@
 <?php
 session_start();
+require "../../database/database.php";
+require "../../models/classroom/create_classroom.model.php";
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if (!empty($_POST['className'])){
         $classname = $_POST['className'];
@@ -7,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $subject = $_POST['subject'];
         $room = $_POST['room'];
         $email = $_SESSION['user'][2];
-        echo $email;
+        createClassroom($classname, $section, $subject, $room, $email);
     }
 }
 ?>
