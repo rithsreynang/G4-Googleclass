@@ -1,3 +1,6 @@
+//router for user to manage account
+
+
 <?php
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $page = "";
