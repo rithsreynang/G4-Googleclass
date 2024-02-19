@@ -1,5 +1,37 @@
+<?php
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+if ($uri == '/home'){
+	$home = ['bg-light', 'black'];
+}
+else{
+	$home = ['',''];
+}
+if ($uri == '/calendar'){
+	$calendar = ['bg-light', 'black'];
+}
+else{
+	$calendar = ['',''];
+}
+if ($uri == '/enrollment'){
+	$enrollment = ['bg-light', 'black'];
+}
+else{
+	$enrollment = ['', ''];
+}
+if ($uri == '/teach'){
+	$teach = ['bg-light', 'black'];
+}
+else{
+	$teach = ['', ''];
+}
+if ($uri == '/todo'){
+	$to_do = ['bg-light', 'black'];
+}else{
+	$to_do = ['', ''];
+}
+?>
 <!-- Sidebar -->
-<ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav position-fixed bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 	<!-- Sidebar - Brand -->
 	<a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
 		<div class="sidebar-brand-icon rotate-n-15">
@@ -12,37 +44,37 @@
 	<hr class="sidebar-divider">
 
 	<!-- Nav Item - Pages Collapse Menu -->
-	<li class="nav-item">
-		<a class="nav-link" href="#">
+	<li class="nav-item  ">
+		<a class="nav-link rounded-0 <?= $home[0] ?>" href="/home">
 			<i class="fas fa-fw fa-cog"></i>
-			<span>Home</span>
+			<span style='font-size: 17px;color:<?= $home[1] ?>'>Home</span>
 		</a>
 	</li>
 	<!-- Nav Item - Charts -->
 	<li class="nav-item ">
-		<a class="nav-link" href="/calendar">
+		<a class="nav-link rounded-0 <?= $calendar[0] ?> "  href="/calendar">
 			<i class="fas fa-fw fa-shopping-cart"></i>
-			<span>Calendar</span>
+			<span style='font-size: 17px;color:<?= $calendar[1] ?>'>Calendar</span>
 		</a>
 	</li>
 	<!-- Nav Item - Charts -->
 	<li class="nav-item">
-		<a class="nav-link" href="/to-do">
+		<a class="nav-link rounded-0 <?= $to_do[0] ?>" href="/todo">
 			<i class="fas fa-fw fa-shopping-cart"></i>
-			<span>To do</span>
+			<span style='font-size: 17px;color:<?= $to_do[1] ?>' >To do</span>
 		</a>
 	</li>
 	<!-- Nav Item - Tables -->
 	<li class="nav-item">
-		<a class="nav-link" href="/users">
+		<a class="nav-link rounded-0 <?= $teach[0] ?>" href="/teach">
 			<i class="fas fa-fw fa-users"></i>
-			<span>Teaching</span>
+			<span style='font-size: 17px;color:<?= $teach[1] ?>'>Teaching</span>
 		</a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link" href="/enrollment">
+		<a class="nav-link rounded <?= $enrollment[0] ?>" href="/enrollment">
 			<i class="fas fa-fw fa-chart-area"></i>
-			<span>Enrollment</span>
+			<span style='font-size: 17px;color:<?= $enrollment[1] ?>'>Enrollment</span>
 		</a>
 	</li>
 	<!-- Divider -->

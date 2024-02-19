@@ -17,8 +17,15 @@
 
     <!-- Custom styles for this template-->
     <link href="vendor/custom/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <style>
+        body::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+
 </head>
 
-<body id="page-top">
+<body id="page-top" >
     <!-- Page Wrapper -->
     <div id="wrapper">
