@@ -7,6 +7,8 @@ $routes = [
     '/todo' => 'controllers/todo/todo.controller.php',
     '/teach' => 'controllers/teach/teach.controller.php',
     '/enrollment' => 'controllers/enrollment/enrollment.controller.php',
+    '/join-class' => 'controllers/classroom/join_classroom.controller.php',
+    '/create-class' => 'controllers/classroom/create_classroom.controller.php',
 ];
 if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];
@@ -16,5 +18,5 @@ if (array_key_exists($uri, $routes)) {
 }
 require "./layouts/user_layouts/header.php";
 require "./layouts/user_layouts/navbar.php";
-require $page;
+require './'.$page;
 require "./layouts/user_layouts/footer.php";
