@@ -149,7 +149,7 @@ Main Banner START -->
                     <h1 class="mb-0 display-8">Follow up your learning at E-
                         <span class="position-relative">Classroom
                             <!-- SVG START -->
-                            <span class="position-absolute top-50 start-50 translate-middle ms-3 z-index-n1">
+                            <span class="position-absolute top-50 start-50 translate-middle z-index-n1">
                                 <svg width="350px" height="62.1px" enable-background="new 0 0 366 62.1"
                                     viewBox="0 0 366 62.1" xmlns="http://www.w3.org/2000/svg">
                                     <path class="fill-warning"
@@ -202,12 +202,12 @@ Main Banner START -->
                     </figure>
 
                     <!-- SVG decoration -->
-                    <!-- <figure class="position-absolute bottom-0 start-50 translate-middle-x mb-n5 z-index-9">
+                    <figure class="position-absolute bottom-0 start-50 translate-middle-x mb-n5 z-index-9">
                         <svg width="686px" height="298px">
                             <path class="fill-body"
                                 d="M60.971,0.000 L-0.000,0.000 C-0.000,0.000 80.068,266.854 184.934,294.154 C184.934,294.154 568.841,306.828 588.786,286.150 C588.786,286.150 698.888,112.106 684.750,0.000 L611.777,0.000 C611.777,0.000 569.027,161.864 505.816,209.110 C505.816,209.110 394.427,296.341 195.930,203.102 C195.930,203.102 66.072,143.180 60.971,0.000 Z" />
                         </svg>
-                    </figure> -->
+                    </figure>
 
                     <!-- SVG decoration -->
                     <figure class="position-absolute top-50 start-50 translate-middle mt-n7">
@@ -247,9 +247,9 @@ Main Banner START -->
                         class="p-2 bg-white shadow rounded-3 position-absolute top-50 start-0 translate-middle-y mt-n7 d-none d-sm-block">
                         <img src="assets/images/client/science.svg" alt="Icon">
                     </div>
-                    <!-- <div class="p-2 bg-white shadow rounded-3 position-absolute top-0 end-0 me-5">
+                    <div class="p-2 bg-white shadow rounded-3 position-absolute top-0 end-0 me-5">
                         <img src="assets/images/client/angular.svg" alt="Icon">
-                    </div> -->
+                    </div>
                     <div
                         class="p-2 bg-white shadow rounded-3 position-absolute top-50 end-0 translate-middle-y mt-5 ms-5 d-none d-lg-block z-index-9">
                         <img src="assets/images/client/figma.svg" alt="Icon">

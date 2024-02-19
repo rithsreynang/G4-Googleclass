@@ -1,5 +1,4 @@
-<!-- =======================
-Footer START -->
+<!-- Footer START -->
 <footer class="pt-5">
     <div class="container">
         <!-- Row START -->
@@ -12,7 +11,8 @@ Footer START -->
                     <img class="light-mode-item h-40px" src="assets/images/logo.svg" alt="logo">
                     <!-- <img class="dark-mode-item h-40px" src="assets/images/logo-light.svg" alt="logo"> -->
                 </a>
-                <p class="my-3">E-classroom education theme, built specifically for the education centers which is dedicated to teaching and involve learners to get a real skills.</p>
+                <p class="my-3">E-classroom education theme, built specifically for the education centers
+                    which is dedicated to teaching and involve learners to get a real skills.</p>
                 <!-- Social media icon -->
                 <ul class="list-inline mb-0 mt-3">
                     <li class="list-inline-item"> <a class="btn btn-white btn-sm shadow px-2 text-facebook" href="#"><i
@@ -53,18 +53,18 @@ Footer START -->
                 </p>
 
                 <p class="mb-0">Email:<span class="h6 fw-light ms-2">noreply@seanghuk.com</span></p>
-
-                <div class="row g-2 mt-2">
+                </div>
+                <!-- <div class="row g-2 mt-2"> -->
                     <!-- Google play store button -->
-                    <div class="col-6 col-sm-4 col-md-3 col-lg-6">
+                    <!-- <div class="col-6 col-sm-4 col-md-3 col-lg-6">
                         <a href="#"> <img src="assets/images/client/google-play.svg" alt=""> </a>
-                    </div>
+                    </div> -->
                     <!-- App store button -->
-                    <div class="col-6 col-sm-4 col-md-3 col-lg-6">
+                    <!-- <div class="col-6 col-sm-4 col-md-3 col-lg-6">
                         <a href="#"> <img src="assets/images/client/app-store.svg" alt="app-store"> </a>
-                    </div>
-                </div> <!-- Row END -->
-            </div>
+                    </div> -->
+                <!-- </div> Row END -->
+            <!-- </div> -->
             <!-- Widget 3 END -->
         </div><!-- Row END -->
 
@@ -76,14 +76,16 @@ Footer START -->
             <div class="container px-0">
                 <div class="d-md-flex justify-content-between align-items-center py-3 text-center text-md-left">
                     <!-- copyright text -->
-                    <div class="text-primary-hover"> Origenal<a href="#" class="text-body">©2024 E-Classroom</a>. All
+                    <div class="text-primary-hover"> Origenal<a href="#" class="text-body">©2024
+                            E-Classroom</a>. All
                         rights reserved. </div>
                     <!-- copyright links-->
                     <div class=" mt-3 mt-md-0">
                         <ul class="list-inline mb-0">
-                            
+
                             <li class="list-inline-item"><a class="nav-link" href="#">Terms of use</a></li>
-                            <li class="list-inline-item"><a class="nav-link pe-0" href="#">Privacy policy</a></li>
+                            <li class="list-inline-item"><a class="nav-link pe-0" href="#">Privacy
+                                    policy</a></li>
                         </ul>
                     </div>
                 </div>
