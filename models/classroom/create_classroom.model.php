@@ -1,10 +1,29 @@
 <?php
-function createClassroom($classname, $section, $subject, $room, $email): bool
+function createClassroom($className, $section, $subject, $room, $user_id, $role, $classCode):bool
 {
     global $connection;
-    $user = $connection->prepare("INSERT INTO classroom (classroom_name, section,subject, room, user_id, role) values (:name, :email, :password);");
-    $user->execute([
-        
+    $classroom = $connection->prepare("INSERT INTO classroom (classroom_name, section,subject, room, user_id, role, class_code) values (:className, :section, :subject, :room, :user_id, :role, :classCode );");
+    $classroom->execute([
+        ':className' => $className,
+        ':section' => $section,
+        ':subject' => $subject,
+        ':room' => $room,
+        ':user_id' => $user_id,
+        ':role' => $role,
+        ':classCode' => $classCode,
     ]);
-    return $user->rowCount() > 0;
+    return $classroom->rowCount();
+};
+
+function  classCodeExist(string $classCode): array
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT * FROM classroom where class_code =:classCode");
+    $statement->execute([':classCode' => $classCode]);
+    if ($statement->rowCount() > 0) {
+        return $statement->fetch();
+    } else {
+        return [];
+    }
 }
+?>

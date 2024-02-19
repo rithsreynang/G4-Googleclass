@@ -85,7 +85,7 @@ if ($uri == '/todo'){
 	</div>
 </ul>
 <!-- Content Wrapper -->
-<div id="content-wrapper" class="d-flex flex-column">
+<div id="content-wrapper " class="d-flex flex-column position-fixe">
 	<!-- Main Content -->
 	<div id="content">
 		<div class="d-flex justify-content-end align-items-center mt-2">
