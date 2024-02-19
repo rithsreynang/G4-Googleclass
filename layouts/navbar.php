@@ -7,7 +7,7 @@
             <a class="navbar-brand" href="/">
                 <h3>
                     <span class="text-danger display-6 ">E</span>
-                    <span class="text-danger display-7">-Classroom</span>
+                    <span class="text-danger">-Classroom</span>
                 </h3>
                 <!-- <img class="light-mode-item navbar-brand-item" src="assets/images/logo.svg" alt="logo"> -->
                 <!-- <img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo"> -->
