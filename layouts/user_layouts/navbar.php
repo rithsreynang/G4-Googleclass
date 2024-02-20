@@ -35,7 +35,6 @@ if ($uri == '/todo') {
 		</div>
 		<div class="sidebar-brand-text mx-4">E-Classroom</div>
 	</a>
-
 	<!-- Divider -->
 	<hr class="sidebar-divider">
 
@@ -81,7 +80,8 @@ if ($uri == '/todo') {
 	</div>
 </ul>
 <!-- Content Wrapper -->
-<div id="content-wrapper " class="d-flex flex-column">
+</div>
+<div id="content-wrapper " class="d-flex flex-column col-10" style='margin-left: 225px'>
 	<!-- Main Content -->
 	<div>
 		<div class="d-flex justify-content-end align-items-center mt-2">

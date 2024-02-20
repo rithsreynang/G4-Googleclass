@@ -1,42 +1,41 @@
-<div class="col d-flex flex-wrap" style='margin-left:230px'>
-	<div class="row row-cols-1 row-cols-md-3 g-4">
-		<div class="col-4">
-			<a href="#" style="text-decoration: none; color: black">
-				<div class="card " style="width:260px;">
-					<img class="card-image-top rounded-top" src="../../assets/images/courses/4by3/01.jpg" alt="...">
-					<div class="card-body">
-						<h5 class="card-title d-flex align-items-between">
-							<span>Title</span>
-						</h5>
-						<?php
-						require "database/database.php";
-						require "models/classroom/get_user.model.php";
-						require "models/classroom/select_classrooms.model.php";
-						session_start();
-						$email = $_SESSION['user'][2];
-						$user_id = getUserID($email)['user_id'];
-						$classroom = getClassrooms($user_id);
-						print_r($classroom);
-						?>
-						<p class="card-text">Section</p>
-						<p class="card-text">Room</p>
-					</div>
+<?php
+	require "database/database.php";
+	require "models/classroom/delete_classroom.model.php";
+	if (!empty($_GET['classroom_id'])){
+		$id = $_GET['classroom_id'];
+		echo $id;
+		echo 'gek';
+		deleteClass($id);
+	}
+?>
+
+<div class="d-flex flex-wrap" >
+	<?php
+		require "database/database.php";
+		require "models/classroom/get_user.model.php";
+		require "models/classroom/select_classrooms.model.php";
+		session_start();
+		$email = $_SESSION['user'][2];
+		$user_id = getUserID($email)['user_id'];
+		$classroom = getClassrooms($user_id);
+		foreach($classroom as $class):
+		?>	
+			<div class="card m-3" style="width:245px;">
+				<img class="card-image-top rounded-top" src="../../assets/images/courses/4by3/01.jpg" alt="...">
+				<div class="card-body">
+				<a href="/class?classroom_id=<?= $class['classroom_id'] ?>" style="text-decoration: none; color: black;">
+					<h5 class="card-title d-flex align-items-between">Class name : <?= $class['classroom_name'] ?></h5></a>
+					<p class="card-text">Section : <?= $class['section'] ?></p>
+					<p class="card-text">Room : <?= $class['room'] ?></p>
 				</div>
-				<!-- <div class="card">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-					</div>
-					<div class="card-footer">
-						<small class="text-muted">Last updated 3 mins ago</small>
-					</div>
-				</div> -->
-		</div>
-		</a>
-	</div>
-</div>
-</div>
-</div>
+				<div class="card-footer p-1 d-flex justify-content-between">
+					<a href="/class?classroom_id=<?= $class['classroom_id'] ?>" class='btn btn-secondary'><i class="bi bi-pen-fill"></i></a>
+					<a href="/class?classroom_id=<?= $class['classroom_id'] ?>" class='btn btn-secondary'><i class="bi bi-image-fill"></i></a>
+					<a href="/class?classroom_id=<?= $class['classroom_id'] ?>" class='btn btn-secondary'><i class="bi bi-archive"></i></a>
+					<a href="/class?classroom_id=<?= $class['classroom_id'] ?>" class='btn btn-secondary'><i class="bi bi-link"></i></a>
+					<a href="#?classroom_id=<?= $class['classroom_id'] ?>" class='btn btn-danger '><i class="bi bi-trash-fill"></i></a>
+				</div>
+			</div>
+	<?php endforeach; ?>
 </div>
 
-<!-- **************** MAIN CONTENT END **************** -->
