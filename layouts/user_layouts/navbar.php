@@ -1,32 +1,28 @@
 <?php
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-if ($uri == '/home'){
+if ($uri == '/home') {
 	$home = ['bg-light', 'black'];
+} else {
+	$home = ['', ''];
 }
-else{
-	$home = ['',''];
-}
-if ($uri == '/calendar'){
+if ($uri == '/calendar') {
 	$calendar = ['bg-light', 'black'];
+} else {
+	$calendar = ['', ''];
 }
-else{
-	$calendar = ['',''];
-}
-if ($uri == '/enrollment'){
+if ($uri == '/enrollment') {
 	$enrollment = ['bg-light', 'black'];
-}
-else{
+} else {
 	$enrollment = ['', ''];
 }
-if ($uri == '/teach'){
+if ($uri == '/teach') {
 	$teach = ['bg-light', 'black'];
-}
-else{
+} else {
 	$teach = ['', ''];
 }
-if ($uri == '/todo'){
+if ($uri == '/todo') {
 	$to_do = ['bg-light', 'black'];
-}else{
+} else {
 	$to_do = ['', ''];
 }
 ?>
@@ -52,7 +48,7 @@ if ($uri == '/todo'){
 	</li>
 	<!-- Nav Item - Charts -->
 	<li class="nav-item ">
-		<a class="nav-link rounded-0 <?= $calendar[0] ?> "  href="/calendar">
+		<a class="nav-link rounded-0 <?= $calendar[0] ?> " href="/calendar">
 			<i class="fas fa-fw fa-shopping-cart"></i>
 			<span style='font-size: 17px;color:<?= $calendar[1] ?>'>Calendar</span>
 		</a>
@@ -61,7 +57,7 @@ if ($uri == '/todo'){
 	<li class="nav-item">
 		<a class="nav-link rounded-0 <?= $to_do[0] ?>" href="/todo">
 			<i class="fas fa-fw fa-shopping-cart"></i>
-			<span style='font-size: 17px;color:<?= $to_do[1] ?>' >To do</span>
+			<span style='font-size: 17px;color:<?= $to_do[1] ?>'>To do</span>
 		</a>
 	</li>
 	<!-- Nav Item - Tables -->
@@ -85,9 +81,9 @@ if ($uri == '/todo'){
 	</div>
 </ul>
 <!-- Content Wrapper -->
-<div id="content-wrapper " class="d-flex flex-column position-fixe">
+<div id="content-wrapper " class="d-flex flex-column">
 	<!-- Main Content -->
-	<div id="content">
+	<div>
 		<div class="d-flex justify-content-end align-items-center mt-2">
 			<a class="nav-link" href="#">
 				<img class="img-profile rounded-circle" style="width: 40px;" src="assets/images/user.png">
@@ -96,4 +92,4 @@ if ($uri == '/todo'){
 		</div>
 		<hr class="sidebar-divider" style="margin-top: 5px;">
 	</div>
-<!-- End of Topbar -->
+	<!-- End of Topbar -->
