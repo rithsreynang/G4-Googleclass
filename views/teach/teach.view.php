@@ -21,7 +21,7 @@ if (!empty($_GET['classroom_id'])) {
 	foreach ($classroom as $class) :
 	?>
 		<div class="card m-3" style="width:245px;">
-			<img class="card-image-top rounded-top" src="../../assets/images/courses/4by3/01.jpg" alt="...">
+			<img class="card-image-top rounded-top" src="../../assets/images/courses/4by3/22.jpg" alt="...">
 			<div class="card-body p-2">
 				<div class="nav-list d-flex justify-content-between">
 					<a href="/class?classroom_id=<?= $class['classroom_id'] ?>" style="text-decoration: none; color: black;">
@@ -37,7 +37,7 @@ if (!empty($_GET['classroom_id'])) {
 									<a class="dropdown-item" href="/class?classroom_id=<?= $class['classroom_id'] ?>">Edit</a>
 									<a class="dropdown-item" href="/class?classroom_id=<?= $class['classroom_id'] ?>">Class Code</a>
 									<a class="dropdown-item" href="/class?classroom_id=<?= $class['classroom_id'] ?>">Delete</a>
-									<a class="dropdown-item" href="/class?classroom_id=<?= $class['classroom_id'] ?>">Chane Banner</a>
+									<a class="dropdown-item" href="/change-banner-class">Change Banner</a>
 									<a class="dropdown-item" href="/class?classroom_id=<?= $class['classroom_id'] ?>">Archive</a>
 								</div>
 							</li>
