@@ -15,14 +15,10 @@
                     which is dedicated to teaching and involve learners to get a real skills.</p>
                 <!-- Social media icon -->
                 <ul class="list-inline mb-0 mt-3">
-                    <li class="list-inline-item"> <a class="btn btn-white btn-sm shadow px-2 text-facebook" href="#"><i
-                                class="fab fa-fw fa-facebook-f"></i></a> </li>
-                    <li class="list-inline-item"> <a class="btn btn-white btn-sm shadow px-2 text-instagram" href="#"><i
-                                class="fab fa-fw fa-instagram"></i></a> </li>
-                    <li class="list-inline-item"> <a class="btn btn-white btn-sm shadow px-2 text-twitter" href="#"><i
-                                class="fab fa-fw fa-twitter"></i></a> </li>
-                    <li class="list-inline-item"> <a class="btn btn-white btn-sm shadow px-2 text-linkedin" href="#"><i
-                                class="fab fa-fw fa-linkedin-in"></i></a> </li>
+                    <li class="list-inline-item"> <a class="btn btn-white btn-sm shadow px-2 text-facebook" href="#"><i class="fab fa-fw fa-facebook-f"></i></a> </li>
+                    <li class="list-inline-item"> <a class="btn btn-white btn-sm shadow px-2 text-instagram" href="#"><i class="fab fa-fw fa-instagram"></i></a> </li>
+                    <li class="list-inline-item"> <a class="btn btn-white btn-sm shadow px-2 text-twitter" href="#"><i class="fab fa-fw fa-twitter"></i></a> </li>
+                    <li class="list-inline-item"> <a class="btn btn-white btn-sm shadow px-2 text-linkedin" href="#"><i class="fab fa-fw fa-linkedin-in"></i></a> </li>
                 </ul>
             </div>
             <!-- Widget 1 END -->
@@ -53,17 +49,17 @@
                 </p>
 
                 <p class="mb-0">Email:<span class="h6 fw-light ms-2">noreply@seanghuk.com</span></p>
-                </div>
-                <!-- <div class="row g-2 mt-2"> -->
-                    <!-- Google play store button -->
-                    <!-- <div class="col-6 col-sm-4 col-md-3 col-lg-6">
+            </div>
+            <!-- <div class="row g-2 mt-2"> -->
+            <!-- Google play store button -->
+            <!-- <div class="col-6 col-sm-4 col-md-3 col-lg-6">
                         <a href="#"> <img src="assets/images/client/google-play.svg" alt=""> </a>
                     </div> -->
-                    <!-- App store button -->
-                    <!-- <div class="col-6 col-sm-4 col-md-3 col-lg-6">
+            <!-- App store button -->
+            <!-- <div class="col-6 col-sm-4 col-md-3 col-lg-6">
                         <a href="#"> <img src="assets/images/client/app-store.svg" alt="app-store"> </a>
                     </div> -->
-                <!-- </div> Row END -->
+            <!-- </div> Row END -->
             <!-- </div> -->
             <!-- Widget 3 END -->
         </div><!-- Row END -->
@@ -101,12 +97,12 @@ Footer END -->
 
 <!-- Bootstrap JS -->
 <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <!-- Vendors -->
 <script src="vendor/tiny-slider/tiny-slider.js"></script>
 <script src="vendor/purecounterjs/dist/purecounter_vanilla.js"></script>
-
-<!-- Template Functions -->
 <script src="vendor/js/functions.js"></script>
 
 </body>
