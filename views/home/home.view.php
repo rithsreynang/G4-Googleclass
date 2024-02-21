@@ -44,7 +44,7 @@ $banner = '01.jpg';
 									More
 								</a>
 								<div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownProfile">
-									<a class="dropdown-item" href="../../controllers/classroom/update_classroom.controller.php?<?='&classroom_name='. $class['classroom_name'] . '&section='. $class['section']. '&subject=' . $class['subject'] . '&room=' . $class['room']?>">Edit</a>
+									<a class="dropdown-item" href="../../controllers/classroom/update_classroom.controller.php?id=<?= $class['classroom_id'] .'&classroom_name='. $class['classroom_name'] . '&section='. $class['section']. '&subject=' . $class['subject'] . '&room=' . $class['room']?>">Edit</a>
 									<a class="dropdown-item" href="/class?classroom_id=<?= $class['classroom_id'] ?>">Class Code</a>
 									<a class="dropdown-item" href="../../controllers//classroom//update_classroom.controller.php?<?= $class['classroom_id'] ?>">Delete</a>
 									<a class="dropdown-item" href="../../controllers/classroom/change_banner.controller.php?classroom_id=<?= $class['classroom_id'] ?>">Chane Banner</a>
