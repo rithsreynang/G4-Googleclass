@@ -31,7 +31,7 @@ $banner = '01.jpg';
 	foreach ($classroom as $class) :
 	?>
 		<div class="card m-3" style="width:245px;">
-			<img class="card-image-top rounded-top" src="../../assets/images/courses/4by3/<?= $banner ?>" alt="...">
+			<img class="card-image-top rounded-top" src="../../assets/images/courses/4by3/<?= $class['banner'] ?>" alt="...">
 			<div class="card-body p-2">
 				<div class="nav-list d-flex justify-content-between">
 					<a href="/class?classroom_id=<?= $class['classroom_id'] ?>" style="text-decoration: none; color: black;">

@@ -9,6 +9,7 @@ $routes = [
     '/enrollment' => 'controllers/enrollment/enrollment.controller.php',
     '/join-class' => 'controllers/classroom/join_classroom.controller.php',
     '/create-class' => 'controllers/classroom/create_classroom.controller.php',
+    '/change-banner-class' => 'controllers/classroom/change_banner.controller.php',
 ];
 if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];
