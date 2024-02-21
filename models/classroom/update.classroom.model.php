@@ -1,5 +1,6 @@
 <?php
 require "../../database/database.php";
+
 function updateClassroom($id, $name , $section, $subject, $room)
 {
     global $connection;
