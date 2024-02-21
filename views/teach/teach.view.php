@@ -1,14 +1,7 @@
 <?php
 require "database/database.php";
 require "models/classroom/delete_classroom.model.php";
-if (!empty($_GET['classroom_id'])) {
-	$id = $_GET['classroom_id'];
-	echo $id;
-	echo 'gek';
-	deleteClass($id);
-}
 ?>
-
 <div class="d-flex flex-wrap">
 	<?php
 	require "database/database.php";
@@ -37,7 +30,7 @@ if (!empty($_GET['classroom_id'])) {
 									<a class="dropdown-item" href="/class?classroom_id=<?= $class['classroom_id'] ?>">Edit</a>
 									<a class="dropdown-item" href="/class?classroom_id=<?= $class['classroom_id'] ?>">Class Code</a>
 									<a class="dropdown-item" href="/class?classroom_id=<?= $class['classroom_id'] ?>">Delete</a>
-									<a class="dropdown-item" href="/class?classroom_id=<?= $class['classroom_id'] ?>">Chane Banner</a>
+									<a class="dropdown-item" href="/controllers/classroom/change_banner.controller.php?classroom_id=<?= $class['classroom_id'] ?>">Chane Banner</a>
 									<a class="dropdown-item" href="/class?classroom_id=<?= $class['classroom_id'] ?>">Archive</a>
 								</div>
 							</li>
