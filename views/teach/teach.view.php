@@ -34,9 +34,9 @@ if (!empty($_GET['classroom_id'])) {
 									More
 								</a>
 								<div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownProfile">
-									<a class="dropdown-item" href="/class?classroom_id=<?= $class['classroom_id'] ?>">Edit</a>
+									<a class="dropdown-item" href="controllers/classroom/edite_class.controller.php?classroom_id=<?= $class['classroom_id'] ?>">Edit</a>
 									<a class="dropdown-item" href="/class?classroom_id=<?= $class['classroom_id'] ?>">Class Code</a>
-									<a class="dropdown-item" href="/class?classroom_id=<?= $class['classroom_id'] ?>">Delete</a>
+									<a class="dropdown-item" href="controllers/classroom/delete_class.controller.php?classroom_id=<?= $class['classroom_id'] ?>">Delete</a>
 									<a class="dropdown-item" href="/class?classroom_id=<?= $class['classroom_id'] ?>">Chane Banner</a>
 									<a class="dropdown-item" href="/class?classroom_id=<?= $class['classroom_id'] ?>">Archive</a>
 								</div>
