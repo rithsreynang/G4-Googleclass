@@ -2,7 +2,10 @@
 require "../../layouts/user_layouts/header.php";
 ?>
 <div class="card col-xl-12 d-flex flex-column justify-content-center align-items-center">
-    <h3 class="text-center text-primary  p-4">Selete Banner</h3>
+    <div class="d-flex justify-content-center align-items-center">
+        <a href="/home" class="btn btn-primary">Cancel</a>
+        <h3 class="text-center text-primary  p-4">Selete Banner</h3>
+    </div>
     <div class="container-fluid d-flex flex-wrap">
         <a href="../../models/classroom/change_banner_class.model.php?classroom_id=<?=$classroom_id?>&img_id=01.jpg">
             <img src="../../assets/images/courses/4by3/01.jpg" class="m-3 rounded" style="width: 400px;">
