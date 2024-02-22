@@ -7,15 +7,14 @@
 	</nav>
 
 <?php
-require "database/database.php";
-require "models/classroom/delete_classroom.model.php";
-
 if (isset($_GET['classroom_id'])) {
 	$id = $_GET['classroom_id'];
 	die();
 }
 $banner = '01.jpg';
 ?>
+
+
 
 <div class="d-flex flex-wrap">
 	<?php
@@ -43,8 +42,7 @@ $banner = '01.jpg';
 								</a>
 								<div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownProfile">
 									<a class="dropdown-item" href="/class?classroom_id=<?= $class['classroom_id'] ?>">Edit</a>
-									<a class="dropdown-item" href="/class?classroom_id=<?= $class['classroom_id'] ?>">Class Code</a>
-									<a class="dropdown-item" href="controllers/classroom/delete_class.controller.php?classroom_id=<?= $class['classroom_id'] ?>" id="delete">Delete</a>
+									<a class="dropdown-item" href="../../controllers/classroom/delete.class.controller.php?classroom_id=<?= $class['classroom_id']?>">Delete</a>
 									<a class="dropdown-item" href="../../controllers/home/change_banner.controller.php?classroom_id=<?= $class['classroom_id'] ?>">Chane Banner</a>
 									<a class="dropdown-item" href="/class?classroom_id=<?= $class['classroom_id'] ?>">Archive</a>
 								</div>
