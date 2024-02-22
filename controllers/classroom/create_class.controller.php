@@ -13,10 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $email = $_SESSION['user'][2];
         $user_id = getUserID($email)['user_id'];
         $classroom = createClassroom($className, $section, $subject, $room, $user_id, 'teacher', $classCode);
-        header("Location: /teach");
+        header("Location: /home");
     }
 }
-
 function randomClassCode()
 {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';

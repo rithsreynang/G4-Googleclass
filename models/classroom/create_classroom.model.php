@@ -2,7 +2,7 @@
 function createClassroom($className, $section, $subject, $room, $user_id, $role, $classCode):bool
 {
     global $connection;
-    $classroom = $connection->prepare("INSERT INTO classroom (classroom_name, section,subject, room, user_id, role, class_code) values (:className, :section, :subject, :room, :user_id, :role, :classCode );");
+    $classroom = $connection->prepare("INSERT INTO classroom (classroom_name, section,subject, room, user_id, role, class_code, banner) values (:className, :section, :subject, :room, :user_id, :role, :classCode, :banner );");
     $classroom->execute([
         ':className' => $className,
         ':section' => $section,
@@ -11,6 +11,8 @@ function createClassroom($className, $section, $subject, $room, $user_id, $role,
         ':user_id' => $user_id,
         ':role' => $role,
         ':classCode' => $classCode,
+        ':banner' => '01.jpg'
+
     ]);
     return $classroom->rowCount();
 };
