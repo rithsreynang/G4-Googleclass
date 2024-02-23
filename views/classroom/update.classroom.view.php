@@ -1,5 +1,5 @@
 <?php
-require "../../layouts/user_layouts/header.php";
+require "../../layouts/user/header.php";
 
 ?>
 <div class="card col-xl-12 d-flex flex-column justify-content-center align-items-center" style="position: fixed; top:0px; left:0;  height:100vh; width:100%; background-color: rgba(0,0,0,0.75); z-index:10;">
@@ -20,5 +20,5 @@ require "../../layouts/user_layouts/header.php";
 </div>
 
 <?php
-require "../../layouts/user_layouts/footer.php";
+require "../../layouts/user/footer.php";
 ?>

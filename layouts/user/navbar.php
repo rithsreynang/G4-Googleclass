@@ -88,7 +88,7 @@ if ($uri == '/todo') {
 			<a class="nav-link" href="#">
 				<img class="img-profile rounded-circle" style="width: 40px;" src="assets/images/user.png">
 			</a>
-			<a class='btn btn-success mr-3' href="/user-signout">Sign out</a>
+			<a class='btn btn-success mr-3' href="signout">Sign out</a>
 		</div>
 		<hr class="sidebar-divider" style="margin-top: 5px;">
 	</div>
