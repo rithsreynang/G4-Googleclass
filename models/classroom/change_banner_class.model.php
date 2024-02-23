@@ -13,5 +13,5 @@ function changeBanner($banner, $id)
     ]);
     header("Location: /home");
 };
-changeBanner($img_id, $classroom_id);
+changeBanner($img_id,  $classroom_id);
 ?>
