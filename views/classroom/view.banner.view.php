@@ -1,5 +1,5 @@
 <?php
-require "../../layouts/user_layouts/header.php";
+require "../../layouts/user/header.php";
 ?>
 <div class="card col-xl-12 d-flex flex-column justify-content-center align-items-center">
     <div class="d-flex justify-content-center align-items-center">
