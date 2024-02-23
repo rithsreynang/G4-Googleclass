@@ -1,4 +1,5 @@
 <?php
+require "../../database/database.php";
     function deleteClass($id)
     {
         global $connection;
