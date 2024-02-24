@@ -38,7 +38,7 @@ if ($uri == '/todo') {
 }
 ?>
 <!-- Sidebar -->
-<ul class="navbar-nav position-fixed bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav  bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 	<!-- Sidebar - Brand -->
 	<a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
 		<div class="sidebar-brand-text mx-4">E-Classroom</div>
@@ -73,10 +73,16 @@ if ($uri == '/todo') {
 			<i class='fas fa-chalkboard-teacher' style="color: <?= $item['teach'][1] ?>;"></i>
 			<span style='font-size: 17px;color:<?= $item['teach'][1] ?>'>Teaching</span>
 		</a>
-		<div id="listTeach"  class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+		<div id="listTeach" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-				<a class="collapse-item" href="#">Node j</a>
-				<a class="collapse-item" href="/teach">Class </a>
+				<?php
+				$email = $_SESSION['user'][2];
+				$user_id = getUser($email)[0];
+				$classroom = getClassrooms($user_id);
+				foreach($classroom as $class){
+				?>
+				<a class="collapse-item" href="/teach"><?= $class['classroom_name'] ?> </a>
+				<?php } ?>
 			</div>
 		</div>
 	</li>
@@ -102,7 +108,7 @@ if ($uri == '/todo') {
 </ul>
 <!-- Content Wrapper -->
 </div>
-<div id="content-wrapper " class="d-flex flex-column col-10" style='margin-left: 225px'>
+<div id="content-wrapper " class="d-flex flex-column col-10">
 	<div class="dropdown ms-1 ms-lg-0 d-flex justify-content-end">
 		<a href="/signout">sign out</a>
 		<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
