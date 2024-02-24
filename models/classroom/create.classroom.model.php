@@ -12,9 +12,8 @@ function createClassroom($className, $section, $subject, $room, $user_id, $role,
         ':role' => $role,
         ':classCode' => $classCode,
         ':banner' => '01.jpg'
-
     ]);
-    return $classroom->rowCount();
+    return $classroom->rowCount() > 0;
 };
 
 function  classCodeExist(string $classCode): array

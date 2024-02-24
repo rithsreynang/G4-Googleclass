@@ -1,2 +1,2 @@
 <?php
-require "views/classroom/join_classroom.view.php";
+require "views/classroom/join.classroom.view.php";

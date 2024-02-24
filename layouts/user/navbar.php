@@ -1,30 +1,38 @@
 <?php
 session_start();
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+$item = [
+	'home' => [],
+	'calendar' => [],
+	'enrollment' => [],
+	'teach' => [],
+	'todo' => [],
+];
 if ($uri == '/home') {
-	$home = ['bg-light', 'black'];
-} else {
-	$home = ['', ''];
+	$item['home'] = ['bg-light', 'black'];
+}else{
+	$item['home'] = ['', ''];
 }
 if ($uri == '/calendar') {
-	$calendar = ['bg-light', 'black'];
-} else {
-	$calendar = ['', ''];
+	$item['calendar'] = ['bg-light', 'black'];
+}else{
+	$item['calendar'] = ['', ''];
 }
 if ($uri == '/enrollment') {
-	$enrollment = ['bg-light', 'black'];
-} else {
-	$enrollment = ['', ''];
+	$item['enrollment'] = ['bg-light', 'black'];
+}
+else{
+	$item['enrollment'] = ['', ''];
 }
 if ($uri == '/teach') {
-	$teach = ['bg-light', 'black'];
-} else {
-	$teach = ['', ''];
+	$item['teach']= ['bg-light', 'black'];
+} else{
+	$item['teach']= ['', ''];
 }
 if ($uri == '/todo') {
-	$to_do = ['bg-light', 'black'];
-} else {
-	$to_do = ['', ''];
+	$item['todo'] = ['bg-light', 'black'];
+}else {
+	$item['todo'] = ['', ''];
 }
 ?>
 <!-- Sidebar -->
@@ -41,36 +49,36 @@ if ($uri == '/todo') {
 
 	<!-- Nav Item - Pages Collapse Menu -->
 	<li class="nav-item  ">
-		<a class="nav-link rounded-0 <?= $home[0] ?>" href="/home">
+		<a class="nav-link rounded-0 <?= $item['home'][0] ?>" href="/home">
 			<i class="fas fa-fw fa-cog"></i>
-			<span style='font-size: 17px;color:<?= $home[1] ?>'>Home</span>
+			<span style='font-size: 17px;color:<?= $item['home'][1] ?>'>Home</span>
 		</a>
 	</li>
 	<!-- Nav Item - Charts -->
 	<li class="nav-item ">
-		<a class="nav-link rounded-0 <?= $calendar[0] ?> " href="/calendar">
+		<a class="nav-link rounded-0 <?= $item['calendar'][0] ?> " href="/calendar">
 			<i class="fas fa-fw fa-shopping-cart"></i>
-			<span style='font-size: 17px;color:<?= $calendar[1] ?>'>Calendar</span>
+			<span style='font-size: 17px;color:<?= $item['calendar'][1] ?>'>Calendar</span>
 		</a>
 	</li>
 	<!-- Nav Item - Charts -->
 	<li class="nav-item">
-		<a class="nav-link rounded-0 <?= $to_do[0] ?>" href="/todo">
+		<a class="nav-link rounded-0 <?= $item['todo'][0] ?>" href="/todo">
 			<i class="fas fa-fw fa-shopping-cart"></i>
-			<span style='font-size: 17px;color:<?= $to_do[1] ?>'>To do</span>
+			<span style='font-size: 17px; color:<?= $item['todo'][1] ?>'>To do</span>
 		</a>
 	</li>
 	<!-- Nav Item - Tables -->
 	<li class="nav-item">
-		<a class="nav-link rounded-0 <?= $teach[0] ?>" href="/teach">
+		<a class="nav-link <?= $item['teach'][0] ?>" href="/teach">
 			<i class="fas fa-fw fa-users"></i>
-			<span style='font-size: 17px;color:<?= $teach[1] ?>'>Teaching</span>
+			<span style='font-size: 17px; color:<?= $item['teach'][1] ?>'>Teaching</span>
 		</a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link rounded <?= $enrollment[0] ?>" href="/enrollment">
+		<a class="nav-link  <?= $item['enrollment'][0] ?>" href="/enrollment">
 			<i class="fas fa-fw fa-chart-area"></i>
-			<span style='font-size: 17px;color:<?= $enrollment[0] ?>'>Enrollment</span>
+			<span style="font-size: 17px;  color:<?= $item['enrollment'][1] ?>">Enrollment</span>
 		</a>
 	</li>
 	<!-- Divider -->

@@ -76,5 +76,5 @@ require "../../layouts/user/header.php";
     </div>
 </div>
 <?php
-require "../../layouts/user_layouts/footer.php";
+require "../../layouts/user/footer.php";
 ?>

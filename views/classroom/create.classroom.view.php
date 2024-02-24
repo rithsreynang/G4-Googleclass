@@ -1,8 +1,7 @@
 <?php
-
 require "database/database.php";
-require "models/classroom/create_classroom.model.php";
-require "models/classroom/get_user.model.php";
+require "models/classroom/create.classroom.model.php";
+require "models/classroom/get.user.model.php";
 $nameError = '';
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if (!empty($_POST['className'])){
@@ -14,7 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $email = $_SESSION['user'][2];
         $user_id = getUserID($email)['user_id'];
         $classroom = createClassroom($className, $section, $subject, $room, $user_id, 'teacher', $classCode);
-        header("Location: /home");
+        if ($classroom){
+            echo "<script> location.replace('/home'); </script>";
+        }
     }
     else{
         $nameError = 'Place complete name of class room';
@@ -24,7 +25,7 @@ function randomClassCode()
 {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $random = '';
-    for ($i = 0; $i < 16; $i ++){
+    for ($i = 0; $i < 8; $i ++){
         $random .= $characters[rand(0, strlen($characters))];
     }
     $class = classCodeExist($random);

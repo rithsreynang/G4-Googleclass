@@ -1,7 +1,8 @@
 <div class="col-xml-12">
 	<nav class="navbar " style="border-width: 3px; border-color: gray;">
 		<div style="gap: 10px;">
-			<a href="/join-class" class="btn btn-success">Join class</a>
+			<a href="/join-class" class="btn btn-primary">Join class</a>
+			
 			<a href="/create-class" class="btn btn-success">Create Classroom</a>
 		</div>
 	</nav>
@@ -14,9 +15,8 @@
 	<div class="d-flex flex-wrap">
 		<?php
 		require "database/database.php";
-		require "models/classroom/get_user.model.php";
-		require "models/classroom/select_classrooms.model.php";
-		
+		require "models/classroom/get.user.model.php";
+		require "models/classroom/select.classrooms.model.php";
 		$email = $_SESSION['user'][2];
 		$user_id = getUserID($email)['user_id'];
 		$classroom = getClassrooms($user_id);
