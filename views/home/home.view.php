@@ -16,7 +16,7 @@
 		require "database/database.php";
 		require "models/classroom/get_user.model.php";
 		require "models/classroom/select_classrooms.model.php";
-		session_start();
+		
 		$email = $_SESSION['user'][2];
 		$user_id = getUserID($email)['user_id'];
 		$classroom = getClassrooms($user_id);

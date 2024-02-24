@@ -1,4 +1,5 @@
 <?php
+session_start();
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 if ($uri == '/home') {
 	$home = ['bg-light', 'black'];
@@ -69,7 +70,7 @@ if ($uri == '/todo') {
 	<li class="nav-item">
 		<a class="nav-link rounded <?= $enrollment[0] ?>" href="/enrollment">
 			<i class="fas fa-fw fa-chart-area"></i>
-			<span style='font-size: 17px;color:<?= $enrollment[1] ?>'>Enrollment</span>
+			<span style='font-size: 17px;color:<?= $enrollment[0] ?>'>Enrollment</span>
 		</a>
 	</li>
 	<!-- Divider -->
@@ -82,14 +83,38 @@ if ($uri == '/todo') {
 <!-- Content Wrapper -->
 </div>
 <div id="content-wrapper " class="d-flex flex-column col-10" style='margin-left: 225px'>
-	<!-- Main Content -->
-	<div>
-		<div class="d-flex justify-content-end align-items-center mt-2">
-			<a class="nav-link" href="#">
-				<img class="img-profile rounded-circle" style="width: 40px;" src="assets/images/user.png">
-			</a>
-			<a class='btn btn-success mr-3' href="signout">Sign out</a>
-		</div>
-		<hr class="sidebar-divider" style="margin-top: 5px;">
-	</div>
-	<!-- End of Topbar -->
+	<div class="dropdown ms-1 ms-lg-0 d-flex justify-content-end">
+		<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+			<img class="avatar-img rounded-circle" src="assets/images/avatar/01.jpg" alt="avatar" style='width: 55px'>
+		</a>
+		<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
+		<!-- Profile info -->
+		<li class="px-3">
+			<div class="d-flex align-items-center">
+			<div class="avatar me-3">
+				<img class="avatar-img rounded-circle shadow" src="assets/images/avatar/01.jpg" alt="avatar">
+			</div>
+			<div>
+				<a class="h6" href="#">Lori Ferguson</a>
+				<p class="small m-0">example@gmail.com</p>
+			</div>
+			<hr>
+		</li>
+					<!-- Links -->
+		<li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
+		<li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
+		<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
+		<li><a class="dropdown-item bg-danger-soft-hover" href="#"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
+		<li> <hr class="dropdown-divider"></li>	
+		<li>
+			<div class="modeswitch-wrap" id="darkModeSwitch">
+				<div class="modeswitch-item">
+					<div class="modeswitch-icon"></div>
+				</div>
+				<span>Dark mode</span>
+			</div>
+		</li> 
+          <!-- Dark mode switch END -->
+		</ul>
+</div>
+			<!-- Profile START -->

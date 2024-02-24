@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 require "database/database.php";
 require "models/classroom/create_classroom.model.php";
 require "models/classroom/get_user.model.php";
