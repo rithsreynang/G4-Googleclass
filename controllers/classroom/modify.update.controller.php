@@ -1,7 +1,8 @@
 <?php
-    require"../../models/classroom/update.classroom.model.php";
+require_once "../../models/classroom/update.classroom.model.php";
+require_once "../../database/database.php";
+    $id = $_GET['classroom_id'];
     if (isset($_POST['className'])){
-        $id = $_POST['id'];
         $name = $_POST['className'];
         $section = $_POST['section'];
         $subject = $_POST['subject'];

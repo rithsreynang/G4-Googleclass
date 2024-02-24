@@ -1,7 +1,6 @@
 <?php
-require "database/database.php";
-require "models/classroom/create.classroom.model.php";
-require "models/classroom/get.user.model.php";
+require_once "models/classroom/get.user.model.php";
+require_once "models/classroom/create.classroom.model.php";
 $nameError = '';
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if (!empty($_POST['className'])){
@@ -11,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $room = $_POST['room'];
         $classCode = randomClassCode();
         $email = $_SESSION['user'][2];
-        $user_id = getUserID($email)['user_id'];
+        $user_id = getUser($email)['user_id'];
         $classroom = createClassroom($className, $section, $subject, $room, $user_id, 'teacher', $classCode);
         if ($classroom){
             echo "<script> location.replace('/home'); </script>";
@@ -25,7 +24,7 @@ function randomClassCode()
 {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $random = '';
-    for ($i = 0; $i < 8; $i ++){
+    for ($i = 0; $i < 7; $i ++){
         $random .= $characters[rand(0, strlen($characters))];
     }
     $class = classCodeExist($random);

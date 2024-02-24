@@ -1,6 +1,6 @@
 <?php
-require 'utils/url.php';
-require 'database/database.php';
+require_once 'utils/url.php';
+require_once 'database/database.php';
 if (urlIs('/signin') || urlIs('/signup') || urlIs('/signout')) {
     require "account.router.php";
 } else if (urlIs('/home') || urlIs('/calendar') || urlIs('/todo') || urlIs('/teach') || urlIs('/enrollment')) {

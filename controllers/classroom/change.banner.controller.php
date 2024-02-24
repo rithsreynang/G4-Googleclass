@@ -1,4 +1,4 @@
 <?php
     $classroom_id = $_GET['classroom_id'];
-    require "../../views/classroom/view.banner.view.php";
+    require_once "../../views/classroom/view.banner.view.php";
 ?>
