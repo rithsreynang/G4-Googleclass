@@ -3,7 +3,6 @@ session_start();
 if (isset($_SESSION['user'])){
 	header("Location: /home");
 	exit;
-	echo "<script>alert('hello')</script>";
 }
 ?>
 <section class="position-relative overflow-hidden pt-5 pt-lg-3">
