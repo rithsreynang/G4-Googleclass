@@ -8,5 +8,3 @@ if (urlIs("/trainer-classroom") || urlIs("/trainer-student") || urlIs("/trainer-
 }else{
     require 'router.php';
 }
-// RITH SREYNANG
-
