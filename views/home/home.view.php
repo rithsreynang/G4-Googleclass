@@ -2,7 +2,7 @@
 	<nav class="navbar " style="border-width: 3px; border-color: gray; margin-bottom: 30px">
 		<div style="gap: 10px;">
 			<a href="/join-class" class="btn btn-primary">Join class</a>
-			<a href="/create-class" class="btn btn-success">Create Classroom</a>
+			<a href="/create-class" class="btn btn-success">Add Class</a>
 		</div>
 	</nav>
 	<?php
@@ -59,7 +59,7 @@
 					</div>
 					<div class="card-body p-2">
 						<div class="nav-list d-flex justify-content-between">
-							<a href="/class?classroom_id=<?= $class['classroom_id'] ?>" style="text-decoration: none; color: black;">
+							<a href="../../controllers/classroom/class.view.php">
 								<p class="card-title"><?= $class['classroom_name'] ?></p>
 							</a>
 						</div>
