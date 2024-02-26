@@ -117,9 +117,9 @@ if ($uri == '/todo') {
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<img class="avatar-img rounded-circle" src="assets/images/profile/<?= $profileName ?>" alt="avatar" style="width: 40px; margin-top: 20px">
+							<img class="avatar-img rounded-circle" src="assets/images/profile/<?= $profileName ?>" alt="avatar" style="width: 40px; ">
 						</a>
-						<div class="dropdown-menu dropdown-menu-right pt-3" aria-labelledby="navbarDropdownProfile" style="background: #040720;">
+						<div class="dropdown-menu dropdown-menu-right pt-3" aria-labelledby="navbarDropdownProfile" style="background: #040720; margin-top: 30px;">
 							<ul style="list-style: none; width: 250px; height: 200px; background: white;" class="p-2">
 								<li>
 									<div class="d-flex align-items-center flex-column">
