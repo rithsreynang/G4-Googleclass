@@ -55,7 +55,7 @@ if ($uri == '/todo') {
 	</li>
 	<!-- Nav Item - Charts -->
 	<li class="nav-item ">
-		<a class="nav-link rounded-0 <?= $item['calendar'][0] ?> " href="/calendar">
+		<a class="nav-link rounded-0 <?= $item['calendar'][0] ?> " href="../../controllers/calendar/calendar.controller.php">
 			<i class='far fa-calendar-alt' ​​​ style="color: <?= $item['calendar'][1] ?>"></i>
 			<span style='font-size: 17px;color:<?= $item['calendar'][1] ?>'>Calendar</span>
 		</a>
