@@ -59,7 +59,7 @@
 					</div>
 					<div class="card-body p-2">
 						<div class="nav-list d-flex justify-content-between">
-							<a href="../../controllers/classroom/class.view.php">
+							<a href="../../controllers/classroom/class.controller.php">
 								<p class="card-title"><?= $class['classroom_name'] ?></p>
 							</a>
 						</div>
