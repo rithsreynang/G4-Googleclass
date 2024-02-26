@@ -10,7 +10,7 @@
 		$id = $_GET['classroom_id'];
 		die();
 	}
-	$email = $_SESSION['user'][2];
+	$email = $_SESSION['user'][1];
 	$user = getUser($email);
 	$user_id = $user['user_id'];
 	$classroom = getClassrooms($user_id);
