@@ -38,7 +38,7 @@ if ($uri == '/todo') {
 }
 ?>
 <!-- Sidebar -->
-<ul class="navbar-nav  bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav  bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar" style="background: #040720;">
 	<!-- Sidebar - Brand -->
 	<a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
 		<div class="sidebar-brand-text mx-4">E-Classroom</div>
@@ -77,7 +77,9 @@ if ($uri == '/todo') {
 			<div class="bg-white py-2 collapse-inner rounded">
 				<?php
 				$email = $_SESSION['user'][1];
-				$user_id = getUser($email)[0];
+				$user = getUser($email);
+				$user_id = $user[0];
+				$profileName = $user[4];
 				$classroom = getClassrooms($user_id);
 				foreach ($classroom as $class) {
 				?>
@@ -108,41 +110,33 @@ if ($uri == '/todo') {
 </ul>
 <!-- Content Wrapper -->
 </div>
-<div id="content-wrapper " class="d-flex flex-column col-10">
+<div id="content-wrapper " class="d-flex flex-column col-10" style="background: #F5F5F5;">
 	<div class="d-flex justify-content-end flex-column">
 		<div class="d-flex justify-content-end align-items-center m-3">
 			<div class="navbar  navbar-expand-lg navbar-light p-1 h-1" style="height: 30px;">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<img class="avatar-img rounded-circle" src="assets/images/avatar/01.jpg" alt="avatar" style="width: 40px; margin-top: 10px">
+							<img class="avatar-img rounded-circle" src="assets/images/profile/<?= $profileName ?>" alt="avatar" style="width: 40px; margin-top: 20px">
 						</a>
-						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-							<ul style="list-style: none;" class="p-2">
+						<div class="dropdown-menu dropdown-menu-right pt-3" aria-labelledby="navbarDropdownProfile" style="background: #040720;">
+							<ul style="list-style: none; width: 250px; height: 200px; background: white;" class="p-2">
 								<li>
-									<div class="d-flex align-items-center">
+									<div class="d-flex align-items-center flex-column">
 										<!-- Avatar -->
 										<div class="avatar me-3 mr-1">
-											<img class="avatar-img rounded-circle shadow" src="assets/images/avatar/01.jpg" alt="avatar" style="width: 40px;">
+											<img class="avatar-img rounded-circle shadow" src="assets/images/profile/<?= $profileName ?>" alt="avatar" style="width: 40px;">
 										</div>
 										<div>
-											<a class="h6" href="#"><?= $_SESSION['user'][0] ?></a>
-											<p class="small m-0"><?= $_SESSION['user'][1] ?></p>
+											<p class="h6 text-center" href="#"><?= $_SESSION['user'][0] ?></p>
+											<p class="small h5 m-0"><?= $_SESSION['user'][1] ?></p>
 										</div>
 									</div>
 									<hr>
 								</li>
 								<!-- Links -->
-								<li>
-									<a class="dropdown-item nav-link dropdown-toggle" href="#" id="#updateprofile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										<i class="bi bi-person fa-fw me-2"></i>
-										Edit Profile
-									</a>
-									<div class="dropdown-menu bg-danger" style="width: 100px;" aria-labelledby="updateprofile">
-										<h1>Edit profile name</h1>
-									</div>
-								</li>
-								<li><a class="dropdown-item bg-danger-soft-hover" href="/signout"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
+								<li><a class="dropdown-item bg-danger-soft-hover" href="../../views/user/edit.profile.view.php"> <li><i class="fas fa-fw fa-user mr-2"></i>Edit Profile</a></li>
+								<li><a class="dropdown-item bg-danger-soft-hover" href="/signout"><i class="fas fa-fw fa-sign-out-alt mr-2"></i>Sign Out</a></li>
 							</ul>
 						</div>
 					</li>
