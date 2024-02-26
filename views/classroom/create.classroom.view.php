@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $subject = $_POST['subject'];
         $room = $_POST['room'];
         $classCode = randomClassCode();
-        $email = $_SESSION['user'][2];
+        $email = $_SESSION['user'][1];
         $user_id = getUser($email)['user_id'];
         $classroom = createClassroom($className, $section, $subject, $room, $user_id, 'teacher', $classCode);
         if ($classroom){

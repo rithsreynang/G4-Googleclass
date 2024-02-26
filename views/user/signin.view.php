@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		if ($isEmail) {
 			if (password_verify($_POST['password'], $user['password'])) {
 				$_SESSION['success'] = "Login successful";
-				$_SESSION['user'] = [$user['user_id'], $user['username'], $user['email'], $user['password']];
+				$_SESSION['user'] = [$user['username'], $user['email'], $user['password']];
 				header("Location: /home");
 			} else {
 				$error['password'] = 'Wrong password';

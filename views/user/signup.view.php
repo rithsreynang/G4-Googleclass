@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $isEmail = true;
       $value['email'] = $_POST['email'];
     } else {
-      $error['email'] = 'Email already use';
+      $error['email'] = 'Email already used';
       $_SESSION['error'] = "Email already used";
     }
   } else {
@@ -59,9 +59,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
 };
 if ($isUsername && $isEmail && $isPassword) {
-  createAccount($username, $email, $password_encrypt);
+  createAccount($value['username'], $email, $password_encrypt);
   $_SESSION['success'] = "Account successfully created";
-  $_SESSION['user'] = [$user['user_id'] = $username, $user['username'] = $username, $user['email'] = $email, $user['password'] = $password];
+  $_SESSION['user'] = [$value['username'], $value['email'], $password_encrypt];
   header("Location: /home");
 }
 
@@ -126,7 +126,7 @@ if ($isUsername && $isEmail && $isPassword) {
                     <label for="InputUsername" class="form-label">Username *</label>
                     <div class="input-group input-group-lg">
                       <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fa fa-user"></i></span>
-                      <input type="username" name="username" value="<?= $value['username']?>" class="form-control border-0 bg-light rounded-end ps-1 <?= $userBorder ?>" placeholder="username" id="exampleInputUsername"><br>
+                      <input type="username" name="username" value="<?= $value['username'] ?>" class="form-control border-0 bg-light rounded-end ps-1 <?= $userBorder ?>" placeholder="username" id="exampleInputUsername"><br>
                     </div>
                     <small class="form-text text-danger"><?= $error['username'] ?></small>
                   </div>
@@ -135,7 +135,7 @@ if ($isUsername && $isEmail && $isPassword) {
                     <label for="exampleInputEmail1" class="form-label">Email address *</label>
                     <div class="input-group input-group-lg">
                       <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="bi bi-envelope-fill"></i></span>
-                      <input type="email" name='email' value="<?= $value['email']?>" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1">
+                      <input type="email" name='email' value="<?= $value['email'] ?>" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1">
                     </div>
                     <small class="form-text text-danger"><?= $error['email'] ?></small>
                   </div>
