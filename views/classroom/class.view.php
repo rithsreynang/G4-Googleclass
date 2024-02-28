@@ -1,15 +1,16 @@
 <?php
 require_once "../../layouts/class/header.php";
 require_once "../../layouts/class/navbar.php";
+$id = $_GET['classroom_id']
 ?>
 
 <div class="">
     <div class=" p-2 d-flex flex-row  justify-content-between border-bottom  border-top border-secondary ">
         <div class='nav-item'>
             <a href="#" class="p-2 my-2  text-dark text-decoration-none " style="border-bottom: 3px solid black; ">Stream</a>
-            <a href="../../controllers/classroom/classwork.controller.php" class="p-4 my-2 pb-0 text-dark text-decoration-none border-0 ">Classwork</a>
-            <a href="../../controllers/classroom/people.controller.php" class="p-4 my-2 pb-0 text-dark text-decoration-none border-0 ">People</a>
-            <a href="../../controllers/classroom/grades.controller.php" class="p-4 my-2 pb-0 text-dark text-decoration-none border-0 ">Grades</a>
+            <a href="../../controllers/classroom/classwork.controller.php?classroom_id=<?= $id ?>" class="p-4 my-2 pb-0 text-dark text-decoration-none border-0 ">Classwork</a>
+            <a href="../../controllers/classroom/people.controller.php?classroom_id=<?= $id ?>" class="p-4 my-2 pb-0 text-dark text-decoration-none border-0 ">People</a>
+            <a href="../../controllers/classroom/grades.controller.php?classroom_id=<?= $id ?>" class="p-4 my-2 pb-0 text-dark text-decoration-none border-0 ">Grades</a>
         </div>
         <div style="padding-right: 50px;">
             <i class="fa fa-gear" style="font-size:25px; padding-right: 25px;"></i>

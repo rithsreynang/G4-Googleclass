@@ -4,6 +4,11 @@ require_once "../../database/database.php";
 require_once "../../models/classroom/get.user.model.php";
 require_once "../../models/classroom/select.classrooms.model.php";
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+$email = $_SESSION['user'][1];
+$user = getUser($email);
+$user_id = $user[0];
+$profileName = $user['profile'];
+$classroom = getClassroomsUnarchive($user_id);
 $item = [
 	'home' => [],
 	'calendar' => [],
@@ -76,15 +81,10 @@ if ($uri == '/todo') {
 		<div id="listTeach" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<?php
-				$email = $_SESSION['user'][1];
-				$user = getUser($email);
-				$user_id = $user[0];
-				$profileName = $user['profile'];
-				print_r($profileName);
-				$classroom = getClassroomsUnarchive($user_id);
+
 				foreach ($classroom as $class) {
 				?>
-					<a class="collapse-item" href="../../controllers/teach/teach.controller.php?classroom_id=<?= $class['classroom_id'] ?>"><?= $class['classroom_name'] ?> </a>
+					<a class="collapse-item" href="../../controllers/classroom/class.controller.php?classroom_id=<?= $class['classroom_id'] ?>"> <?= $class['classroom_name'] ?></a>
 				<?php } ?>
 			</div>
 		</div>
@@ -101,7 +101,6 @@ if ($uri == '/todo') {
 			</div>
 		</div>
 	</li>
-
 	<!-- Divider -->
 	<hr class="sidebar-divider d-none d-md-block">
 	<!-- Sidebar Toggler (Sidebar) -->

@@ -89,7 +89,7 @@ if ($uri == '/archive') {
 				$classroom = getClassroomsUnarchive($user_id);
 				foreach ($classroom as $class) {
 				?>
-					<a class="collapse-item" href="/teach?classroom_id=<?= $class['classroom_id'] ?>"><?= $class['classroom_name'] ?> </a>
+					<a class="collapse-item" href="../../controllers/classroom/class.controller.php?classroom_id=<?= $class['classroom_id'] ?>"><?= $class['classroom_name'] ?> </a>
 				<?php } ?>
 			</div>
 		</div>
