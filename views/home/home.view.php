@@ -60,7 +60,7 @@
 					</div>
 					<div class="card-body p-2">
 						<div class="nav-list d-flex justify-content-between">
-							<a href="/class?classroom_id=<?= $class['classroom_id'] ?>" style="text-decoration: none; color: black;">
+							<a href="../../controllers?= $class['classroom_id'] ?>" style="text-decoration: none; color: black;">
 								<p class="card-title"><?= $class['classroom_name'] ?></p>
 							</a>
 						</div>
