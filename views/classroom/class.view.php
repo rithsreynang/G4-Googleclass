@@ -7,9 +7,9 @@ require_once "../../layouts/class/navbar.php";
     <div class=" p-2 d-flex flex-row  justify-content-between border-bottom  border-top border-secondary ">
         <div class='nav-item'>
             <a href="#" class="p-2 my-2  text-dark text-decoration-none " style="border-bottom: 3px solid black; ">Stream</a>
-            <a href="classwork.php" class="p-4 my-2 pb-0 text-dark text-decoration-none border-0 ">Classwork</a>
-            <a href="people.php" class="p-4 my-2 pb-0 text-dark text-decoration-none border-0 ">People</a>
-            <a href="grades.php" class="p-4 my-2 pb-0 text-dark text-decoration-none border-0 ">Grades</a>
+            <a href="../../controllers/classroom/classwork.controller.php" class="p-4 my-2 pb-0 text-dark text-decoration-none border-0 ">Classwork</a>
+            <a href="../../controllers/classroom/people.controller.php" class="p-4 my-2 pb-0 text-dark text-decoration-none border-0 ">People</a>
+            <a href="../../controllers/classroom/grades.controller.php" class="p-4 my-2 pb-0 text-dark text-decoration-none border-0 ">Grades</a>
         </div>
         <div style="padding-right: 50px;">
             <i class="fa fa-gear" style="font-size:25px; padding-right: 25px;"></i>
@@ -38,13 +38,13 @@ require_once "../../layouts/class/navbar.php";
             <div style="width: 63%;">
                 <div class="  shadow p-3 mt-4 mb-4 bg-body border" style="border-radius: 15px;" id="mydiv">
                     <div href="" class="d-flex flex-row  ">
-                        <img src="teacher.jpg" alt="" class="rounded-circle" style="width: 50px; height: 50px;">
+                        <img src="../../assets/images/classroom/04.jpg" alt="" class="rounded-circle" style="width: 50px; height: 50px;">
                         <p style=" padding: 10px; padding-left:20px;">Announce something to your class</p>
                         <i class="fa fa-retweet" style="font-size:25px; color: grey; margin-left: 60%; padding-top:15px;"></i>
                     </div>
                 </div>
                 <div class="border d-flex flex-row rounded">
-                    <img src="dog.png" alt="" width=200px; height=200px;>
+                    <img src="../../assets/images/classroom/03.jpg" alt="" width=300px; height=300px;>
                     <div class="mt-5">
                         <p style="font-size: 30px;">This is where you can talk to your class</p>
                         <p>Use the stream to share announcements, post assignments, and respond o student questions</p>
