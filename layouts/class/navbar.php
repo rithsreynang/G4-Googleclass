@@ -76,9 +76,9 @@ if ($uri == '/todo') {
 		<div id="listTeach" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<?php
-				$email = $_SESSION['user'][2];
+				$email = $_SESSION['user'][1];
 				$user_id = getUser($email)[0];
-				$classroom = getClassrooms($user_id);
+				$classroom = getClassroomsUnarchive($user_id);
 				foreach($classroom as $class){
 				?>
 				<a class="collapse-item" href="../../controllers/teach/teach.controller.php?classroom_id=<?= $class['classroom_id'] ?>"><?= $class['classroom_name'] ?> </a>
@@ -110,9 +110,8 @@ if ($uri == '/todo') {
 </div>
 <div id="content-wrapper " class="d-flex flex-column col-10">
 	<div class="dropdown ms-1 ms-lg-0 d-flex justify-content-end">
-		<a href="/signout">sign out</a>
-		<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-			<img class="avatar-img rounded-circle" src="assets/images/avatar/01.jpg" alt="avatar" style='width: 55px'>
+		<a class="avatar avatar-sm m-2 p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+			<img class="avatar-img rounded-circle" src="../../assets/images/avatar/01.jpg" alt="avatar" style='width: 55px'>
 		</a>
 		<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
 			<!-- Profile info -->

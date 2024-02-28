@@ -112,7 +112,6 @@ if ($uri == '/archive') {
 			<span style="font-size: 17px;  color:<?= $item['archive'][1] ?>">Archive</span>
 		</a>
 	</li>
-	</li>
 	<!-- Divider -->
 	<hr class="sidebar-divider d-none d-md-block">
 	<!-- Sidebar Toggler (Sidebar) -->
