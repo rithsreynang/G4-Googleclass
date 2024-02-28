@@ -13,7 +13,7 @@
 	$email = $_SESSION['user'][1];
 	$user = getUser($email);
 	$user_id = $user['user_id'];
-	$classroom = getClassrooms($user_id);
+	$classroom = getClassroomsUnarchive($user_id);
 	if (count($classroom) > 0) {
 	?>
 		<div class="d-flex flex-wrap">
@@ -53,6 +53,7 @@
 									</div>
 									<a href="../controllers/classroom/delete.class.controller.php?classroom_id=<?= $class['classroom_id'] ?>" class='dropdown-item nav-link'>Delete</a>
 									<a href="../../controllers/classroom/change.banner.controller.php?classroom_id=<?= $class['classroom_id'] ?>" class='dropdown-item nav-link'>Change banner</a>
+									<a href="../../controllers/archive/modify.archive.controller.php?classroom_id=<?= $class['classroom_id'] ?>" class='dropdown-item nav-link'>Archive</a>
 								</div>
 							</li>
 						</ul>

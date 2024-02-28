@@ -6,6 +6,7 @@ $routes = [
     '/calendar' => 'controllers/calendar/calendar.controller.php',
     '/todo' => 'controllers/todo/todo.controller.php',
     '/teach' => 'controllers/teach/teach/controller.php',
+    '/archive' => 'controllers/archive/archive.class.controller.php',
     '/enrollment' => 'controllers/enrollment/enrollment.controller.php',
     '/join-class' => 'controllers/classroom/join.classroom.controller.php',
     '/create-class' => 'controllers/classroom/create.classroom.controller.php',
