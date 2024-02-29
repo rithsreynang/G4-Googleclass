@@ -20,15 +20,13 @@ $id = $_GET['classroom_id']
     <!-- CONTENT FOR SHOW IMAGE AND SOMTHING IN THE CLASSROOM -->
     <div>
         <!-- BANNER IN CLASS -->
-        <img src="../../assets/images/classroom/01.jpg" style="width: 96%;" class="mt-2 ml-3 rounded">
+        <img src="../../assets/images/classroom/01.jpg"style="width: 96%;" class="mt-2 ml-3 rounded">
         <!-- CONTENT FOR SHOW MEETING, CLASS CODE AND UPCOMMING -->
         <div class="d-flex flex-row justify-content-between p-3">
             <div class=" d-flex flex-column" style="width: 18%;">
                 <div class="p-2 border  rounded">
                     <h6>Class code</h6>
-                    <div class="d-flex">
-                        <h5 class="text-success">q6mma4a</h5>
-                    </div>
+                    <h5 class="text-success">q6mma4a</h5>
                 </div>
                 <div class=" mt-4 border  rounded-3">
                     <h6 style="margin-left: 20px; margin-top: 15px">Upcoming</h6>
