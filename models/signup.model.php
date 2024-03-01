@@ -2,11 +2,12 @@
 function createAccount($name, $email, $password): bool
 {
     global $connection;
-    $user = $connection->prepare("INSERT INTO users (username, email, password) values (:name, :email, :password);");
+    $user = $connection->prepare("INSERT INTO users (username, email, password, profile) values (:name, :email, :password, :profile);");
     $user->execute([
         ':name' => $name,
         ':email' => $email,
-        ':password' => $password
+        ':password' => $password,
+        ':profile' => 'user.png',
     ]);
     return $user->rowCount() > 0;
 }

@@ -89,7 +89,7 @@ if ($uri == '/archive') {
 				$classroom = getClassroomsUnarchive($user_id);
 				foreach ($classroom as $class) {
 				?>
-					<a class="collapse-item" href="/teach?classroom_id=<?= $class['classroom_id'] ?>"><?= $class['classroom_name'] ?> </a>
+					<a class="collapse-item" href="../../controllers/classroom/class.controller.php?classroom_id=<?= $class['classroom_id'] ?>"><?= $class['classroom_name'] ?> </a>
 				<?php } ?>
 			</div>
 		</div>
@@ -112,7 +112,6 @@ if ($uri == '/archive') {
 			<span style="font-size: 17px;  color:<?= $item['archive'][1] ?>">Archive</span>
 		</a>
 	</li>
-	</li>
 	<!-- Divider -->
 	<hr class="sidebar-divider d-none d-md-block">
 	<!-- Sidebar Toggler (Sidebar) -->
@@ -129,7 +128,7 @@ if ($uri == '/archive') {
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<img class="avatar-img rounded-circle" src="assets/images/profile/<?= $profileName ?>" alt="avatar" style="width: 40px; ">
+							<img class="avatar-img rounded-circle" src="assets/images/profile/<?= $profileName ?>" alt="avatar" style="width: 50px; ">
 						</a>
 						<div class="dropdown-menu dropdown-menu-right pt-3" aria-labelledby="navbarDropdownProfile" style="background: #040720; margin-top: 30px;">
 							<ul style="list-style: none; width: 250px; height: 200px; background: white;" class="p-2">
