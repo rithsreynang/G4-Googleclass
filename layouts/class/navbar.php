@@ -9,6 +9,12 @@ $user = getUser($email);
 $user_id = $user[0];
 $profileName = $user['profile'];
 $classroom = getClassroomsUnarchive($user_id);
+$class_name = "";
+if (isset($_GET['classroom_id'])){
+	$id = $_GET['classroom_id'];
+	$class = getClassroom($id) ;
+	$class_name = $class['classroom_name'];
+}
 $item = [
 	'home' => [],
 	'calendar' => [],
@@ -111,7 +117,8 @@ if ($uri == '/todo') {
 </div>
 <div id="content-wrapper " class="d-flex flex-column col-10">
 	<div class="d-flex justify-content-end flex-column">
-		<div class="d-flex justify-content-end align-items-center m-3">
+		<div class="d-flex justify-content-between align-items-center m-3">
+			<h2><?= $class_name ?></h2>
 			<div class="navbar  navbar-expand-lg navbar-light p-1 h-1" style="height: 30px;">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item dropdown">
