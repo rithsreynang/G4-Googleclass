@@ -68,13 +68,7 @@ $class_code = $class['class_code'];
             const classCodeElement = document.getElementById('textBoard');
             const classCode = classCodeElement.innerText;
 
-            navigator.clipboard.writeText(classCode)
-                .then(() => {
-                    alert('Class code copied to clipboard!');
-                })
-                .catch((error) => {
-                    console.error('Failed to copy class code: ', error);
-                });
+            navigator.clipboard.writeText(classCode)                
         };
         const buttonCopy = document.getElementById('button-copy');
         buttonCopy.addEventListener('click', () => {
