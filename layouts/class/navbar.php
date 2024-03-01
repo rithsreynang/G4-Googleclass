@@ -15,32 +15,39 @@ $item = [
 	'enrollment' => [],
 	'teach' => [],
 	'todo' => [],
+	'archive' => [],
 ];
-if ($uri == '/home') {
-	$item['home'] = ['bg-white', 'black'];
-} else {
-	$item['home'] = ['', ''];
-}
-if ($uri == '/calendar') {
-	$item['calendar'] = ['bg-white', 'black'];
-} else {
-	$item['calendar'] = ['', ''];
-}
-if ($uri == '/enrollment') {
-	$item['enrollment'] = ['bg-white', 'black'];
-} else {
-	$item['enrollment'] = ['', ''];
-}
-if ($uri == '/teach') {
-	$item['teach'] = ['bg-white', 'black'];
-} else {
-	$item['teach'] = ['', ''];
-}
-if ($uri == '/todo') {
-	$item['todo'] = ['bg-white', 'black'];
-} else {
-	$item['todo'] = ['', ''];
-}
+	if ($uri == '/home') {
+		$item['home'] = ['#FBFCFC', 'black'];
+	} else {
+		$item['home'] = ['', ''];
+	}
+	if ($uri == '/calendar') {
+		$item['calendar'] = ['#FBFCFC', 'black'];
+	} else {
+		$item['calendar'] = ['', ''];
+	}
+	if ($uri == '/enrollment') {
+		$item['enrollment'] = ['#FBFCFC', 'black'];
+	} else {
+		$item['enrollment'] = ['', ''];
+	}
+	if ($uri == '/teach') {
+		$item['teach'] = ['#FBFCFC', 'black'];
+	} else {
+		$item['teach'] = ['', ''];
+	}
+	if ($uri == '/todo') {
+		$item['todo'] = ['#FBFCFC', 'black'];
+	} else {
+		$item['todo'] = ['', ''];
+	}
+	if ($uri == '/archive') {
+		$item['archive'] = ['#FBFCFC', 'black'];
+	} else {
+		$item['archive'] = ['', ''];
+	}
+	
 ?>
 <!-- Sidebar -->
 <ul class="navbar-nav  bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar" style="background: #040720;">
@@ -74,7 +81,7 @@ if ($uri == '/todo') {
 	</li>
 	<!-- Nav Item - Tables -->
 	<li class="nav-item <?= $item['teach'][0] ?>">
-		<a class="nav-link collapsed " href="/teach" data-toggle="collapse" data-target="#listTeach" aria-expanded="true" aria-controls="listTeach">
+		<a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#listTeach" aria-expanded="true" aria-controls="listTeach">
 			<i class='fas fa-chalkboard-teacher' style="color: <?= $item['teach'][1] ?>;"></i>
 			<span style='font-size: 17px;color:<?= $item['teach'][1] ?>'>Teaching</span>
 		</a>
@@ -84,22 +91,32 @@ if ($uri == '/todo') {
 
 				foreach ($classroom as $class) {
 				?>
-					<a class="collapse-item" href="../../controllers/classroom/class.controller.php?classroom_id=<?= $class['classroom_id'] ?>"> <?= $class['classroom_name'] ?></a>
+					<a class="collapse-item" href="../../controllers/teach/class.controller.php?classroom_id=<?= $class['classroom_id'] ?>"> <?= $class['classroom_name'] ?></a>
 				<?php } ?>
 			</div>
 		</div>
 	</li>
 	<li class="nav-item <?= $item['enrollment'][0] ?>">
-		<a class="nav-link  <?= $item['enrollment'][0] ?>" href="/enrollment" data-toggle="collapse" data-target="#listenroll" aria-expanded="true" aria-controls="listenroll">
+		<a class="nav-link  <?= $item['enrollment'][0] ?>" href="#" data-toggle="collapse" data-target="#listenroll" aria-expanded="true" aria-controls="listenroll">
 			<i class='fas fa-chalkboard-teacher' style="color: <?= $item['enrollment'][1] ?>;"></i>
 			<span style="font-size: 17px;  color:<?= $item['enrollment'][1] ?>">Enrollment</span>
 		</a>
 		<div id="listenroll" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-				<a class="collapse-item" href="#">To review</a>
-				<a class="collapse-item" href="/enrollment">Node js </a>
+				<?php
+				$classes = getClasses($user_id);
+				foreach ($classes as $class) {
+				?>
+					<a class="collapse-item" href="../../controllers/enrollment/enrollment.controller.php?classroom_id=<?= $class[0] ?>"><?= $class[1] ?></a>
+				<?php  } ?>
 			</div>
 		</div>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link rounded-0" style="background:<?= $item['archive'][0] ?>" href="/archive">
+			<i class='fas fa-archive' style="color: <?= $item['archive'][1] ?>;"></i>
+			<span style="font-size: 17px;  color:<?= $item['archive'][1] ?>">Archive</span>
+		</a>
 	</li>
 	<!-- Divider -->
 	<hr class="sidebar-divider d-none d-md-block">

@@ -1,3 +1,3 @@
 <?php
-    require "views/enrollment/enrollment.view.php";
+    require "../../views/enrollment/enrollment.view.php";
 ?>

@@ -1,5 +1,7 @@
 <div class="col-xml-12">
 	<?php
+	require_once "models/classroom/select.classrooms.model.php";
+	require_once "models/classroom/join.class.model.php";
 	if (isset($_GET['classroom_id'])) {
 		$id = $_GET['classroom_id'];
 		die();
@@ -7,13 +9,49 @@
 	$email = $_SESSION['user'][1];
 	$user = getUser($email);
 	$user_id = $user['user_id'];
+	if (isset($_POST['classCode'])){
+		$classCode = $_POST['classCode'];
+		$classes = getAllClassrooom($user_id);
+		foreach($classes as $class){
+			if ($class['class_code'] == $classCode){
+				$storeClass = classExit( $user_id, $class['classroom_id']);
+				if (count($storeClass) == 0){
+					enrollClass($user_id, $class['classroom_id']);
+				}else{
+					echo "<script> confirm('Classroom Already Join')</script>";
+				}
+			}
+		}
+	};
+	$email = $_SESSION['user'][1];
+	$user = getUser($email);
+	$user_id = $user['user_id'];
 	$classroom = getClassroomsUnarchive($user_id);
 	if (count($classroom) > 0) {
 	?>
 		<nav class="navbar " style="border-width: 3px; border-color: gray; margin-bottom: 30px">
-			<div style="gap: 10px;">
-				<a href="/join-class" class="btn btn-primary">Join class</a>
-				<a href="/create-class" class="btn btn-success">Add Class</a>
+			<div style="gap: 10px; ">
+				<ul style="list-style-type: none" class="d-flex ">
+					<li class="mr-1">
+						<a class="btn btn-primary nav-link collapsed " href="/" data-toggle="collapse" data-target="#joinClass" aria-expanded="true" aria-controls="joinClass">Join class</a>
+						<div id="joinClass" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+							<div class="card col-xl-12 d-flex flex-column justify-content-center align-items-center" style="position: fixed; top:0px; left:0;  height:100vh; width:100%; background-color: rgba(0,0,0,0.1); z-index:10;">
+								<div class="p-3 col-xl-5 bg-white rounded d-flex flex-column justify-content-center align-items-center">
+									<form action="#" method="post">
+										<h4 class="text-primary text-center mt-1">Join Class</h4>
+										<input type="text" class="form-control mt-3" name="classCode" placeholder="Class Code">
+										<!-- <small class="text-danger">Error Class Code</small> -->
+										<div class="d-flex justify-content-center mt-2">
+											<a href="/home" class="btn btn-light mr-2">cancal</a>
+											<button class="btn btn-primary" type="submit">Join Now</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</li>
+					<a href="/create-class" class="btn btn-success">Add Class</a>
+				</ul>
 			</div>
 		</nav>
 		<div class="d-flex flex-wrap">
@@ -60,7 +98,7 @@
 					</div>
 					<div class="card-body p-2">
 						<div class="nav-list d-flex justify-content-between">
-							<a href="../../controllers/classroom/class.controller.php?classroom_id=<?= $class['classroom_id'] ?>">
+							<a href="../../controllers/teach/class.controller.php?classroom_id=<?= $class['classroom_id'] ?>">
 								<p class="card-title"><?= $class['classroom_name'] ?></p>
 							</a>
 						</div>

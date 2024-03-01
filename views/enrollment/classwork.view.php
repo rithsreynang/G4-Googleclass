@@ -5,10 +5,10 @@
 ?>
         <div class="p-2 d-flex flex-row  justify-content-between border-bottom  border-top border-secondary ">
            <div>
-               <a href="../../controllers/classroom/class.controller.php?classroom_id=<?= $id ?>" class="p-4 my-2 pb-0 text-dark text-decoration-none border-0 " >Stream</a>
+               <a href="../../controllers/teach/class.controller.php?classroom_id=<?= $id ?>" class="p-4 my-2 pb-0 text-dark text-decoration-none border-0 " >Stream</a>
                <a href="#" class="p-2 my-2  text-dark text-decoration-none "  style="border-bottom: 3px solid black; ">Classwork</a>
-               <a href="../../controllers/classroom/people.controller.php?classroom_id=<?= $id ?>" class="p-4 my-2 pb-0 text-dark text-decoration-none border-0 ">People</a>
-               <a href="../../controllers/classroom/grades.controller.php?classroom_id=<?= $id ?>" class="p-4 my-2 pb-0 text-dark text-decoration-none border-0 ">Grades</a>
+               <a href="../../controllers/teach/people.controller.php?classroom_id=<?= $id ?>" class="p-4 my-2 pb-0 text-dark text-decoration-none border-0 ">People</a>
+               <a href="../../controllers/teach/grades.controller.php?classroom_id=<?= $id ?>" class="p-4 my-2 pb-0 text-dark text-decoration-none border-0 ">Grades</a>
            </div>
            <div style="padding-right: 50px;">
                 <i class="fa fa-gear" style="font-size:25px; padding-right: 25px;"></i>
