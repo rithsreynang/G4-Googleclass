@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $allowed = array('jpg', 'png', 'jpeg');
     if (in_array($fileActualExt, $allowed)) {
         if ($fileError === 0) {
-            if ($fileSize < 1000000) {
+            if ($fileSize < 10000000) {
                 $fileNameNew = uniqid('', true) . '.' . $fileActualExt;
                 $fileDestination = '../../assets/images/profile/' . $fileNameNew;
                 move_uploaded_file($fileTemName, $fileDestination);

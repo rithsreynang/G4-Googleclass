@@ -10,6 +10,7 @@ $item = [
 	'enrollment' => [],
 	'teach' => [],
 	'todo' => [],
+	'archive' => [],
 ];
 if ($uri == '/home') {
 	$item['home'] = ['bg-white', 'black'];
@@ -35,6 +36,11 @@ if ($uri == '/todo') {
 	$item['todo'] = ['bg-white', 'black'];
 } else {
 	$item['todo'] = ['', ''];
+}
+if ($uri == '/archive') {
+	$item['archive'] = ['bg-white', 'black'];
+} else {
+	$item['archive'] = ['', ''];
 }
 ?>
 <!-- Sidebar -->
@@ -80,10 +86,10 @@ if ($uri == '/todo') {
 				$user = getUser($email);
 				$user_id = $user[0];
 				$profileName = $user[4];
-				$classroom = getClassrooms($user_id);
+				$classroom = getClassroomsUnarchive($user_id);
 				foreach ($classroom as $class) {
 				?>
-					<a class="collapse-item" href="/teach?classroom_id=<?= $class['classroom_id'] ?>"><?= $class['classroom_name'] ?> </a>
+					<a class="collapse-item" href="../../controllers/classroom/class.controller.php?classroom_id=<?= $class['classroom_id'] ?>"><?= $class['classroom_name'] ?> </a>
 				<?php } ?>
 			</div>
 		</div>
@@ -100,7 +106,12 @@ if ($uri == '/todo') {
 			</div>
 		</div>
 	</li>
-
+	<li class="nav-item" >
+		<a class="nav-link rounded-0 <?= $item['archive'][0]?>" href="/archive">
+			<i class='fas fa-archive' style="color: <?= $item['archive'][1] ?>;"></i>
+			<span style="font-size: 17px;  color:<?= $item['archive'][1] ?>">Archive</span>
+		</a>
+	</li>
 	<!-- Divider -->
 	<hr class="sidebar-divider d-none d-md-block">
 	<!-- Sidebar Toggler (Sidebar) -->
@@ -117,7 +128,7 @@ if ($uri == '/todo') {
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<img class="avatar-img rounded-circle" src="assets/images/profile/<?= $profileName ?>" alt="avatar" style="width: 40px; ">
+							<img class="avatar-img rounded-circle" src="assets/images/profile/<?= $profileName ?>" alt="avatar" style="width: 50px; ">
 						</a>
 						<div class="dropdown-menu dropdown-menu-right pt-3" aria-labelledby="navbarDropdownProfile" style="background: #040720; margin-top: 30px;">
 							<ul style="list-style: none; width: 250px; height: 200px; background: white;" class="p-2">
@@ -135,7 +146,8 @@ if ($uri == '/todo') {
 									<hr>
 								</li>
 								<!-- Links -->
-								<li><a class="dropdown-item bg-danger-soft-hover" href="../../views/user/edit.profile.view.php"> <li><i class="fas fa-fw fa-user mr-2"></i>Edit Profile</a></li>
+								<li><a class="dropdown-item bg-danger-soft-hover" href="../../views/user/edit.profile.view.php">
+								<li><i class="fas fa-fw fa-user mr-2"></i>Edit Profile</a></li>
 								<li><a class="dropdown-item bg-danger-soft-hover" href="/signout"><i class="fas fa-fw fa-sign-out-alt mr-2"></i>Sign Out</a></li>
 							</ul>
 						</div>

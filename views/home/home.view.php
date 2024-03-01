@@ -1,10 +1,4 @@
 <div class="col-xml-12">
-	<nav class="navbar " style="border-width: 3px; border-color: gray; margin-bottom: 30px">
-		<div style="gap: 10px;">
-			<a href="/join-class" class="btn btn-primary">Join class</a>
-			<a href="/create-class" class="btn btn-success">Create Classroom</a>
-		</div>
-	</nav>
 	<?php
 	if (isset($_GET['classroom_id'])) {
 		$id = $_GET['classroom_id'];
@@ -13,9 +7,15 @@
 	$email = $_SESSION['user'][1];
 	$user = getUser($email);
 	$user_id = $user['user_id'];
-	$classroom = getClassrooms($user_id);
+	$classroom = getClassroomsUnarchive($user_id);
 	if (count($classroom) > 0) {
 	?>
+		<nav class="navbar " style="border-width: 3px; border-color: gray; margin-bottom: 30px">
+			<div style="gap: 10px;">
+				<a href="/join-class" class="btn btn-primary">Join class</a>
+				<a href="/create-class" class="btn btn-success">Add Class</a>
+			</div>
+		</nav>
 		<div class="d-flex flex-wrap">
 			<?php
 			foreach ($classroom as $class) :
@@ -32,7 +32,7 @@
 								</a>
 								<div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownProfile" style='margin-top: -140px; margin-left: 50px'>
 									<a class="dropdown-item nav-link " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#?id=<?= $class['classroom_id'] . '&classroom_name=' . $class['classroom_name'] . '&section=' . $class['section'] . '&subject=' . $class['subject'] . '&room=' . $class['room'] ?>">
-									Edit
+										Edit
 									</a>
 									<div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownProfile">
 										<div class="card col-xl-12 d-flex flex-column justify-content-center align-items-center" style="position: fixed; top:0px; left:0;  height:100vh; width:100%; background-color: rgba(0,0,0,0.2); z-index:10;">
@@ -53,13 +53,14 @@
 									</div>
 									<a href="../controllers/classroom/delete.class.controller.php?classroom_id=<?= $class['classroom_id'] ?>" class='dropdown-item nav-link'>Delete</a>
 									<a href="../../controllers/classroom/change.banner.controller.php?classroom_id=<?= $class['classroom_id'] ?>" class='dropdown-item nav-link'>Change banner</a>
+									<a href="../../controllers/archive/modify.archive.controller.php?classroom_id=<?= $class['classroom_id'] ?>" class='dropdown-item nav-link'>Archive</a>
 								</div>
 							</li>
 						</ul>
 					</div>
 					<div class="card-body p-2">
 						<div class="nav-list d-flex justify-content-between">
-							<a href="/class?classroom_id=<?= $class['classroom_id'] ?>" style="text-decoration: none; color: black;">
+							<a href="../../controllers/classroom/class.controller.php?classroom_id=<?= $class['classroom_id'] ?>">
 								<p class="card-title"><?= $class['classroom_name'] ?></p>
 							</a>
 						</div>
@@ -69,8 +70,8 @@
 				</div>
 			<?php endforeach; ?>
 		</div>
-	<?php }else{ ?>
-		
+	<?php } else { ?>
+
 		<div class=" col-10 d-flex flex-column align-items-center">
 			<img src="../../assets/images/about/nothing.png" style="width: 300px;">
 			<p>Add a new class to get started</p>
@@ -79,6 +80,6 @@
 				<a href="/join-class" class="btn btn-primary">Join class</a>
 			</div>
 		</div>
-	</nav>
+		</nav>
 	<?php } ?>
 </div>
