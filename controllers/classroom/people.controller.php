@@ -1,3 +1,3 @@
 <?php   
-    require_once"../../views/classroom/people.view.php";
+    require_once "../../views/classroom/people.view.php";
 ?>
