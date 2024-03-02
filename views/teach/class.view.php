@@ -1,7 +1,10 @@
 <?php
 require_once "../../layouts/class/header.php";
 require_once "../../layouts/class/navbar.php";
-$id = $_GET['classroom_id']
+require_once "../../models/classroom/select.classrooms.model.php";
+$id = $_GET['classroom_id'];
+$class = getClassroom($id);
+$class_code = $class['class_code'];
 ?>
 
 <div class="">
@@ -20,23 +23,25 @@ $id = $_GET['classroom_id']
     <!-- CONTENT FOR SHOW IMAGE AND SOMTHING IN THE CLASSROOM -->
     <div>
         <!-- BANNER IN CLASS -->
-        <img src="../../assets/images/classroom/01.jpg"style="width: 96%;" class="mt-2 ml-3 rounded">
+        <img src="../../assets/images/classroom/01.jpg" style="width: 96%;" class="mt-2 ml-3 rounded">
         <!-- CONTENT FOR SHOW MEETING, CLASS CODE AND UPCOMMING -->
         <div class="d-flex flex-row justify-content-between p-3">
             <div class=" d-flex flex-column" style="width: 18%;">
                 <div class="p-2 border  rounded">
                     <h6>Class code</h6>
-                    <h5 class="text-success">q6mma4a</h5>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="text-success" id="textBoard"><?= $class_code ?></h5>
+                        <button class="btn btn-light" id="button-copy"><i class="fas fa-copy"></i></button>
+                    </div>
                 </div>
                 <div class=" mt-4 border  rounded-3">
                     <h6 style="margin-left: 20px; margin-top: 15px">Upcoming</h6>
                     <p style="margin-left: 20px; margin-top: 25px">No work due soon</p>
                     <a href="view.php" class="p-4 my-3 pb-0 text-dark text-decoration-none border-0 " style="margin-left: 45%; font-weight: bold;">View all</a>
                 </div>
-
             </div>
             <!-- CONTENT FOR SHOW ALL LESSON AND CREATE LESSON -->
-            <div style="width: 63%;">
+            <div style="width: 80%;">
                 <div class="  shadow p-3 mt-4 mb-4 bg-body border" style="border-radius: 15px;" id="mydiv">
                     <div href="" class="d-flex flex-row  ">
                         <img src="../../assets/images/classroom/04.jpg" alt="" class="rounded-circle" style="width: 50px; height: 50px;">
@@ -53,14 +58,23 @@ $id = $_GET['classroom_id']
 
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
-
 </div>
 
+<script>
+    const copyToClipboard = () => {
+        const classCodeElement = document.getElementById('textBoard');
+        const classCode = classCodeElement.innerText;
+
+        navigator.clipboard.writeText(classCode)
+    };
+    const buttonCopy = document.getElementById('button-copy');
+    buttonCopy.addEventListener('click', () => {
+        copyToClipboard();
+    });
+</script>
 
 <?php
 require_once "../../layouts/class/footer.php";

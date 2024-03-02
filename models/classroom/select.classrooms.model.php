@@ -21,7 +21,7 @@ function getClassroomsArchive($user_id): array
         return [];
     };
 }
-
+//get all the class and compare with new class code
 function  getAllClassrooom($id)
 {
     global $connection;
@@ -45,3 +45,16 @@ function getClasses($id):array
         return [];
     };
 }
+function getClassroom($classroom_id) {
+    global $connection;
+    $classroom = $connection->prepare("SELECT * FROM classroom  WHERE classroom_id = :classroom_id;");
+    $classroom->execute([':classroom_id' => $classroom_id]);
+    if ($classroom->rowCount() > 0){
+        return $classroom->fetch();
+    }
+    else{
+        return [];
+    };
+}
+
+?>
