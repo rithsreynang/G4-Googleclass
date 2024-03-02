@@ -3,12 +3,12 @@
    require_once "../../layouts/class/navbar.php"; 
    $id = $_GET['classroom_id'];
 ?>
-        <div class="p-2 d-flex flex-row  justify-content-between border-bottom  border-top border-secondary ">
+        <div class="d-flex flex-row ml-3 border-secondary" style="margin-top: -10px;">
            <div>
-               <a href="../../controllers/teach/class.controller.php?classroom_id=<?= $id ?>" class="p-4 my-2 pb-0 text-dark text-decoration-none border-0 " >Stream</a>
-               <a href="#" class="p-2 my-2  text-dark text-decoration-none "  style="border-bottom: 3px solid black; ">Classwork</a>
-               <a href="../../controllers/teach/people.controller.php?classroom_id=<?= $id ?>" class="p-4 my-2 pb-0 text-dark text-decoration-none border-0 ">People</a>
-               <a href="../../controllers/teach/grades.controller.php?classroom_id=<?= $id ?>" class="p-4 my-2 pb-0 text-dark text-decoration-none border-0 ">Grades</a>
+               <a href="../../controllers/teach/class.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  " >Stream</a>
+               <a href="#" class="text-dark text-decoration-none border-0 btn btn-warning">Classwork</a>
+               <a href="../../controllers/teach/people.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">People</a>
+               <a href="../../controllers/teach/grades.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">Grades</a>
            </div>
            <div style="padding-right: 50px;">
                 <i class="fa fa-gear" style="font-size:25px; padding-right: 25px;"></i>

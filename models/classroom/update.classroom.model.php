@@ -12,4 +12,5 @@ function updateClassroom($id, $name , $section, $subject, $room)
     ]);
     header("Location: /home");
 };
+
 ?>

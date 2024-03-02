@@ -33,7 +33,7 @@
 			<div style="gap: 10px; ">
 				<ul style="list-style-type: none" class="d-flex ">
 					<li class="mr-1">
-						<a class="btn btn-primary nav-link collapsed " href="/" data-toggle="collapse" data-target="#joinClass" aria-expanded="true" aria-controls="joinClass">Join class</a>
+						<a class="btn btn-warning nav-link collapsed " href="/" data-toggle="collapse" data-target="#joinClass" aria-expanded="true" aria-controls="joinClass">Join class</a>
 						<div id="joinClass" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 							<div class="card col-xl-12 d-flex flex-column justify-content-center align-items-center" style="position: fixed; top:0px; left:0;  height:100vh; width:100%; background-color: rgba(0,0,0,0.1); z-index:10;">
 								<div class="p-3 col-xl-5 bg-white rounded d-flex flex-column justify-content-center align-items-center">
@@ -43,7 +43,7 @@
 										<!-- <small class="text-danger">Error Class Code</small> -->
 										<div class="d-flex justify-content-center mt-2">
 											<a href="/home" class="btn btn-light mr-2">cancal</a>
-											<button class="btn btn-primary" type="submit">Join Now</button>
+											<button class="btn btn-warning" type="submit">Join Now</button>
 										</div>
 									</form>
 								</div>

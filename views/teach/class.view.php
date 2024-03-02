@@ -7,12 +7,12 @@ $class = getClassroom($id);
 $class_code = $class['class_code'];
 ?>
 <div class="">
-    <div class=" p-2 d-flex flex-row  justify-content-between border-bottom  border-top border-secondary ">
+    <div class="d-flex flex-row ml-3 border-secondary" style="margin-top: -10px;">
         <div class='nav-item'>
-            <a href="#" class="p-2 my-2  text-dark text-decoration-none " style="border-bottom: 3px solid black; ">Stream</a>
-            <a href="../../controllers/teach/classwork.controller.php?classroom_id=<?= $id ?>" class="p-4 my-2 pb-0 text-dark text-decoration-none border-0 ">Classwork</a>
-            <a href="../../controllers/teach/people.controller.php?classroom_id=<?= $id ?>" class="p-4 my-2 pb-0 text-dark text-decoration-none border-0 ">People</a>
-            <a href="../../controllers/teach/grades.controller.php?classroom_id=<?= $id ?>" class="p-4 my-2 pb-0 text-dark text-decoration-none border-0 ">Grades</a>
+            <a href="#" class="text-dark text-decoration-none border-0 btn btn-warning">Stream</a>
+            <a href="../../controllers/teach/classwork.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light ">Classwork</a>
+            <a href="../../controllers/teach/people.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light ">People</a>
+            <a href="../../controllers/teach/grades.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light ">Grades</a>
         </div>
         <div style="padding-right: 50px;">
             <i class="fa fa-gear" style="font-size:25px; padding-right: 25px;"></i>
@@ -22,30 +22,32 @@ $class_code = $class['class_code'];
     <!-- CONTENT FOR SHOW IMAGE AND SOMTHING IN THE CLASSROOM -->
     <div>
         <!-- BANNER IN CLASS -->
-        <img src="../../assets/images/classroom/01.jpg" style="width: 96%;" class="mt-2 ml-3 rounded">
+        <img src="../../assets/images/classroom/01.jpg" style="width: 96%;" class="mt-4 ml-3 rounded">
         <!-- CONTENT FOR SHOW MEETING, CLASS CODE AND UPCOMMING -->
         <div class="d-flex flex-row justify-content-between p-3">
             <div class=" d-flex flex-column" style="width: 18%;">
-                <div class="p-2 border  rounded">
+                <div class="p-3 border shadow rounded">
                     <h6>Class code</h6>
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="text-success" id="textBoard"><?= $class_code ?></h5>
+                        <h5 class="text-warning" id="textBoard"><?= $class_code ?></h5>
                         <button class="btn btn-light" id="button-copy"><i class="fas fa-copy"></i></button>
                     </div>
                 </div>
-                <div class=" mt-4 border  rounded-3">
-                    <h6 style="margin-left: 20px; margin-top: 15px">Upcoming</h6>
-                    <p style="margin-left: 20px; margin-top: 25px">No work due soon</p>
-                    <a href="view.php" class="p-4 my-3 pb-0 text-dark text-decoration-none border-0 " style="margin-left: 45%; font-weight: bold;">View all</a>
+                <div class="mt-3 border rounded">
+                    <div class="pl-3 ">
+                        <h6 class=" mt-3">Upcoming</h6>
+                        <p class="">No work due soon</p>
+                        <a href="view.php" class="my-3 text-warning text-decoration-none btn p-1 btn-light">View all</a>
+                    </div>
                 </div>
             </div>
             <!-- CONTENT FOR SHOW ALL LESSON AND CREATE LESSON -->
-            <div style="width: 80%;">
-                <div class="  shadow p-3 mt-4 mb-4 bg-body border" style="border-radius: 15px;" id="mydiv">
-                    <div href="" class="d-flex flex-row  ">
+            <div style="width: 79%;">
+                <div class="shadow p-3 mb-3 bg-body rounded border" id="mydiv">
+                    <div href="" class="d-flex flex-row align-items-center">
                         <img src="../../assets/images/classroom/04.jpg" alt="" class="rounded-circle" style="width: 50px; height: 50px;">
-                        <p style=" padding: 10px; padding-left:20px;">Announce something to your class</p>
-                        <i class="fa fa-retweet" style="font-size:25px; color: grey; margin-left: 60%; padding-top:15px;"></i>
+                        <p class="ml-2 mt-3">Announce something to your class</p>
+                        <!-- <i class="fa fa-retweet" style="font-size:25px; color: grey; margin-left: 60%; padding-top:15px;"></i> -->
                     </div>
                 </div>
                 <div class="border d-flex flex-row rounded">
@@ -54,7 +56,6 @@ $class_code = $class['class_code'];
                         <p style="font-size: 30px;">This is where you can talk to your class</p>
                         <p>Use the stream to share announcements, post assignments, and respond o student questions</p>
                         <i class="fa fa-gear" style="padding: 10px; border: 1px solid grey; border-radius: 5px; margin-left:73%; margin-top:10px;"><span class="p-2">Stream settings</span></i>
-
                     </div>
                 </div>
             </div>
