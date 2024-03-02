@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
     <title>E - CLASSROOM</title>
     <!-- Bootstrap icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
@@ -18,12 +20,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <!-- Custom styles for this template-->
     <link href="../../vendor/custom/css/sb-admin-2.min.css" rel="stylesheet">
+
     <style>
         body::-webkit-scrollbar {
             display: none;
         }
     </style>
 </head>
+
 <body id="page-top" class='d-flex'>
     <div id="wrapper" class='nav-left'>
-        
