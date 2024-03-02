@@ -67,8 +67,7 @@ $class_code = $class['class_code'];
     const copyToClipboard = () => {
         const classCodeElement = document.getElementById('textBoard');
         const classCode = classCodeElement.innerText;
-
-        navigator.clipboard.writeText(classCode)
+        navigator.clipboard.writeText(classCode);
     };
     const buttonCopy = document.getElementById('button-copy');
     buttonCopy.addEventListener('click', () => {
