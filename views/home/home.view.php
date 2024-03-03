@@ -109,31 +109,33 @@
 			<?php endforeach; ?>
 		</div>
 	<?php } else { ?>
-		<nav class="navbar " style="border-width: 3px; border-color: gray; margin-bottom: 30px">
-			<div style="gap: 10px; ">
-				<ul style="list-style-type: none" class="d-flex ">
-					<li class="mr-1">
-						<a class="btn btn-warning nav-link collapsed " href="/" data-toggle="collapse" data-target="#joinClass" aria-expanded="true" aria-controls="joinClass">Join class</a>
-						<div id="joinClass" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-							<div class="card col-xl-12 d-flex flex-column justify-content-center align-items-center" style="position: fixed; top:0px; left:0;  height:100vh; width:100%; background-color: rgba(0,0,0,0.1); z-index:10;">
-								<div class="p-3 col-xl-5 bg-white rounded d-flex flex-column justify-content-center align-items-center">
-									<form action="#" method="post">
-										<h4 class="text-primary text-center mt-1">Join Class</h4>
-										<input type="text" class="form-control mt-3" name="classCode" placeholder="Class Code">
-										<!-- <small class="text-danger">Error Class Code</small> -->
-										<div class="d-flex justify-content-center mt-2">
-											<a href="/home" class="btn btn-light mr-2">cancal</a>
-											<button class="btn btn-warning" type="submit">Join Now</button>
-										</div>
-									</form>
+		<div class="d-flex justify-content-center" style="height: 70vh;">
+			<nav class="navbar d-flex flex-column" style="border-width: 3px; border-color: gray; margin-bottom: 30px">
+				<img src="../../assets/images/classroom/05.png" style="width: 300px;">
+				<div style="gap: 10px; ">
+					<ul style="list-style-type: none" class="d-flex ">
+						<li class="mr-1">
+							<a class="btn btn-warning nav-link collapsed " href="/" data-toggle="collapse" data-target="#joinClass" aria-expanded="true" aria-controls="joinClass">Join class</a>
+							<div id="joinClass" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+								<div class="card col-xl-12 d-flex flex-column justify-content-center align-items-center" style="position: fixed; top:0px; left:0;  height:100vh; width:100%; background-color: rgba(0,0,0,0.1); z-index:10;">
+									<div class="p-3 col-xl-5 bg-white rounded d-flex flex-column justify-content-center align-items-center">
+										<form action="#" method="post">
+											<h4 class="text-primary text-center mt-1">Join Class</h4>
+											<input type="text" class="form-control mt-3" name="classCode" placeholder="Class Code">
+											<!-- <small class="text-danger">Error Class Code</small> -->
+											<div class="d-flex justify-content-center mt-2">
+												<a href="/home" class="btn btn-light mr-2">cancal</a>
+												<button class="btn btn-warning" type="submit">Join Now</button>
+											</div>
+										</form>
+									</div>
 								</div>
 							</div>
-						</div>
-					</li>
-					<a href="/create-class" class="btn btn-light">Add Class</a>
-				</ul>
-			</div>
-		</nav>
-
+						</li>
+						<a href="/create-class" class="btn btn-light">Add Class</a>
+					</ul>
+				</div>
+			</nav>
+		</div>
 	<?php } ?>
 </div>
