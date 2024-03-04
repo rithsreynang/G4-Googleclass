@@ -1,7 +1,7 @@
 <?php
    require_once "../../layouts/class/header.php";
    require_once "../../layouts/class/navbar.php"; 
-   $id = $_GET['classroom_id'];
+   $id = $_GET['classroom_id'];   
 ?>
 
 <body>
@@ -21,7 +21,7 @@
         </div>
         
         <div>
-            <div class="mt-5 d-flex flex-row justify-content-between  w-75" style="margin-left: 12.5%; border-bottom: 1px solid black;">
+            <div class="mt-5 d-flex flex-row justify-content-between  w-75" style="margin-left: 12.5%; border-top: 1px solid black;">
                 <p style="font-size: 35px;">Teachers</p>
                 <i class="fa fa-user-plus" style="font-size: 20px; padding-top: 20px; "></i>
             </div>
@@ -30,8 +30,11 @@
         </div>
 
         <div class="mt-5 d-flex flex-row justify-content-between  w-75" style="margin-left: 12.5%; border-bottom: 1px solid black;">
-            <h2>Students</h2>
-            <i class="fa fa-user-plus" style="font-size: 20px;"></i>
+            <h2>Students</h2>    
+            <a href="../../controllers/classroom/invite.student.controller.php?classroom_id=<?= $id ?>">
+                <i class="fa fa-user-plus" style="font-size: 20px;"></i>
+            </a>
+               
         </div>
     </div> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
