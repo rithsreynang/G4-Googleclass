@@ -19,9 +19,9 @@
 				if (count($storeClass) == 0) {
 					$class_id = $class['classroom_id'];
 					$enroll = enrollClass($user_id, $class_id);
-					require_once "../../controllers/enrollment/enrollment.controller.php?classroom_id=$class_id";
+					echo "<script> location.reload() </script>";
 				} else {
-					// echo "<script>confirm('Classroom Already Join')</script>";
+					echo "<script>confirm('Classroom Already Join')</script>";
 				}
 			}
 		}

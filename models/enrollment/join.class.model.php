@@ -9,12 +9,12 @@ function  enrollClass($user_id, $classroom_id)
         ":classroom_id" => $classroom_id
     ]);
 }
-function  classExit(int $user_id, int $classroom_id): array
+function  classExit($user_id, $class_id): array
 {
     global $connection;
-    $statement = $connection->prepare("SELECT * FROM classroom_enroll where $classroom_id = :classroom_id and $user_id=:user_id");
+    $statement = $connection->prepare("SELECT * FROM classroom_enroll where classroom_id = :classroom_id and user_id=:user_id");
     $statement->execute([
-        ':classroom_id' => $classroom_id,
+        ':classroom_id' => $class_id,
         ':user_id' => $user_id
     ]);
     if ($statement->rowCount() > 0) {
