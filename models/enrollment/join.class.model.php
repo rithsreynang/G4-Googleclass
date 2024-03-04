@@ -1,5 +1,4 @@
 <?php
-
 function  enrollClass($user_id, $classroom_id)
 {
     global $connection;
@@ -9,7 +8,6 @@ function  enrollClass($user_id, $classroom_id)
         ":role" => "student",
         ":classroom_id" => $classroom_id
     ]);
-    
 }
 function  classExit(int $user_id, int $classroom_id): array
 {

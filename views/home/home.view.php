@@ -1,7 +1,7 @@
 <div class="col-xml-12">
 	<?php
 	require_once "models/classroom/select.classrooms.model.php";
-	require_once "models/classroom/join.class.model.php";
+	require_once "models/enrollment/join.class.model.php";
 	if (isset($_GET['classroom_id'])) {
 		$id = $_GET['classroom_id'];
 		die();
@@ -9,6 +9,7 @@
 	$email = $_SESSION['user'][1];
 	$user = getUser($email);
 	$user_id = $user['user_id'];
+	$join = '';
 	if (isset($_POST['classCode'])) {
 		$classCode = $_POST['classCode'];
 		$classes = getAllClassrooom($user_id);
@@ -16,9 +17,11 @@
 			if ($class['class_code'] == $classCode) {
 				$storeClass = classExit($user_id, $class['classroom_id']);
 				if (count($storeClass) == 0) {
-					enrollClass($user_id, $class['classroom_id']);
+					$class_id = $class['classroom_id'];
+					$enroll = enrollClass($user_id, $class_id);
+					require_once "../../controllers/enrollment/enrollment.controller.php?classroom_id=$class_id";
 				} else {
-					echo "<script> confirm('Classroom Already Join')</script>";
+					// echo "<script>confirm('Classroom Already Join')</script>";
 				}
 			}
 		}
@@ -40,6 +43,7 @@
 									<form action="#" method="post">
 										<h4 class="text-primary text-center mt-1">Join Class</h4>
 										<input type="text" class="form-control mt-3" name="classCode" placeholder="Class Code">
+										<small class="text-danger"><?= $join ?></small>
 										<!-- <small class="text-danger">Error Class Code</small> -->
 										<div class="d-flex justify-content-center mt-2">
 											<a href="/home" class="btn btn-light mr-2">cancal</a>
@@ -122,6 +126,7 @@
 										<form action="#" method="post">
 											<h4 class="text-primary text-center mt-1">Join Class</h4>
 											<input type="text" class="form-control mt-3" name="classCode" placeholder="Class Code">
+											<small class="text-danger"><?= $join ?></small>
 											<!-- <small class="text-danger">Error Class Code</small> -->
 											<div class="d-flex justify-content-center mt-2">
 												<a href="/home" class="btn btn-light mr-2">cancal</a>
