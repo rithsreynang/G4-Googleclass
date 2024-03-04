@@ -26,7 +26,30 @@ $students = listStudents($id);
         <div>
             <div class="d-flex mt-5 flex-row justify-content-between" style="margin-left: 150px; border-bottom: 1px solid black; width: 70%">
                 <p style="font-size: 35px;">Teachers</p>
-                <i class="fa fa-user-plus" style="font-size: 20px; padding-top: 20px; padding-left: 15px; "></i>
+                <a data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                    <i class="fa fa-user-plus" style="font-size: 20px; padding-top: 20px; padding-left: 15px; "></i>
+                </a>
+            </div>
+            <div class="row" style="width: 900px; ">
+                <div class="col">
+                    <div class="collapse multi-collapse" id="multiCollapseExample1">
+                        <div class="card rounded col-xl-12 d-flex flex-column justify-content-center align-items-center" style="position: fixed; top:0px; left:0;border:none;  height:100vh; width:100%; background-color: rgba(0,0,0,0.2); z-index:15;">
+                            <div class="bg-white rounded p-3 col-xl-4">
+                                <form action="../../controllers/teach/invite.teacher.controller.php?classroom_id=<?= $id ?>" method="post" enctype="multipart/form-data">
+                                    <h4 class="text-success mt-1 mb-4 border-bottom">Invite link</h4>
+                                    <div class="text-success mt-1 mb-4  ">
+                                        <a href="">http://localhost:3000/controllers/classroom/people.controller.php</a>
+                                    </div>
+                                    <input type="email" class="form-control mt-3" name="email" placeholder="email">
+                                    <div class="d-flex justify-content-end mt-2">
+                                        <a href="" class="btn mr-1 btn-light">cancel</a>
+                                        <button type="submit" class="​ml-1 btn btn-primary">Invite</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div>
