@@ -9,38 +9,51 @@ $user = getUser($email);
 $user_id = $user[0];
 $profileName = $user['profile'];
 $classroom = getClassroomsUnarchive($user_id);
+$class_name = "";
+if (isset($_GET['classroom_id'])){
+	$id = $_GET['classroom_id'];
+	$class = getClassroom($id) ;
+	$class_name = $class['classroom_name'];
+}
 $item = [
 	'home' => [],
 	'calendar' => [],
 	'enrollment' => [],
 	'teach' => [],
 	'todo' => [],
+	'archive' => [],
 ];
-if ($uri == '/home') {
-	$item['home'] = ['bg-white', 'black'];
-} else {
-	$item['home'] = ['', ''];
-}
-if ($uri == '/calendar') {
-	$item['calendar'] = ['bg-white', 'black'];
-} else {
-	$item['calendar'] = ['', ''];
-}
-if ($uri == '/enrollment') {
-	$item['enrollment'] = ['bg-white', 'black'];
-} else {
-	$item['enrollment'] = ['', ''];
-}
-if ($uri == '/teach') {
-	$item['teach'] = ['bg-white', 'black'];
-} else {
-	$item['teach'] = ['', ''];
-}
-if ($uri == '/todo') {
-	$item['todo'] = ['bg-white', 'black'];
-} else {
-	$item['todo'] = ['', ''];
-}
+	if ($uri == '/home') {
+		$item['home'] = ['#FBFCFC', 'black'];
+	} else {
+		$item['home'] = ['', ''];
+	}
+	if ($uri == '/calendar') {
+		$item['calendar'] = ['#FBFCFC', 'black'];
+	} else {
+		$item['calendar'] = ['', ''];
+	}
+	if ($uri == '/enrollment') {
+		$item['enrollment'] = ['#FBFCFC', 'black'];
+	} else {
+		$item['enrollment'] = ['', ''];
+	}
+	if ($uri == '/teach') {
+		$item['teach'] = ['#FBFCFC', 'black'];
+	} else {
+		$item['teach'] = ['', ''];
+	}
+	if ($uri == '/todo') {
+		$item['todo'] = ['#FBFCFC', 'black'];
+	} else {
+		$item['todo'] = ['', ''];
+	}
+	if ($uri == '/archive') {
+		$item['archive'] = ['#FBFCFC', 'black'];
+	} else {
+		$item['archive'] = ['', ''];
+	}
+	
 ?>
 <!-- Sidebar -->
 <ul class="navbar-nav  bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar" style="background: #040720;">
@@ -74,32 +87,41 @@ if ($uri == '/todo') {
 	</li>
 	<!-- Nav Item - Tables -->
 	<li class="nav-item <?= $item['teach'][0] ?>">
-		<a class="nav-link collapsed " href="/teach" data-toggle="collapse" data-target="#listTeach" aria-expanded="true" aria-controls="listTeach">
+		<a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#listTeach" aria-expanded="true" aria-controls="listTeach">
 			<i class='fas fa-chalkboard-teacher' style="color: <?= $item['teach'][1] ?>;"></i>
 			<span style='font-size: 17px;color:<?= $item['teach'][1] ?>'>Teaching</span>
 		</a>
 		<div id="listTeach" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<?php
-
 				foreach ($classroom as $class) {
 				?>
-					<a class="collapse-item" href="../../controllers/classroom/class.controller.php?classroom_id=<?= $class['classroom_id'] ?>"> <?= $class['classroom_name'] ?></a>
+					<a class="collapse-item" href="../../controllers/teach/class.controller.php?classroom_id=<?= $class['classroom_id'] ?>"> <?= $class['classroom_name'] ?></a>
 				<?php } ?>
 			</div>
 		</div>
 	</li>
 	<li class="nav-item <?= $item['enrollment'][0] ?>">
-		<a class="nav-link  <?= $item['enrollment'][0] ?>" href="/enrollment" data-toggle="collapse" data-target="#listenroll" aria-expanded="true" aria-controls="listenroll">
+		<a class="nav-link  <?= $item['enrollment'][0] ?>" href="#" data-toggle="collapse" data-target="#listenroll" aria-expanded="true" aria-controls="listenroll">
 			<i class='fas fa-chalkboard-teacher' style="color: <?= $item['enrollment'][1] ?>;"></i>
 			<span style="font-size: 17px;  color:<?= $item['enrollment'][1] ?>">Enrollment</span>
 		</a>
 		<div id="listenroll" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-				<a class="collapse-item" href="#">To review</a>
-				<a class="collapse-item" href="/enrollment">Node js </a>
+				<?php
+				$classes = getClasses($user_id);
+				foreach ($classes as $class) {
+				?>
+					<a class="collapse-item" href="../../controllers/enrollment/enrollment.controller.php?classroom_id=<?= $class[0] ?>"><?= $class[1] ?></a>
+				<?php  } ?>
 			</div>
 		</div>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link rounded-0" style="background:<?= $item['archive'][0] ?>" href="/archive">
+			<i class='fas fa-archive' style="color: <?= $item['archive'][1] ?>;"></i>
+			<span style="font-size: 17px;  color:<?= $item['archive'][1] ?>">Archive</span>
+		</a>
 	</li>
 	<!-- Divider -->
 	<hr class="sidebar-divider d-none d-md-block">
@@ -112,12 +134,13 @@ if ($uri == '/todo') {
 </div>
 <div id="content-wrapper " class="d-flex flex-column col-10">
 	<div class="d-flex justify-content-end flex-column">
-		<div class="d-flex justify-content-end align-items-center m-3">
+		<div class="d-flex justify-content-between align-items-center m-3">
+			<h2><?= $class_name ?></h2>
 			<div class="navbar  navbar-expand-lg navbar-light p-1 h-1" style="height: 30px;">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<img class="avatar-img rounded-circle" src="../../assets/images/profile/<?= $profileName ?>" alt="avatar" style='height: 60px'>
+							<img class="avatar-img rounded-circle" src="../../assets/images/profile/<?= $profileName ?>" alt="avatar" style='height: 50px'>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right pt-3" aria-labelledby="navbarDropdownProfile" style="background: #040720; margin-top: 30px;">
 							<ul style="list-style: none; width: 250px; height: 200px; background: white;" class="p-2">
@@ -125,7 +148,7 @@ if ($uri == '/todo') {
 									<div class="d-flex align-items-center flex-column">
 										<!-- Avatar -->
 										<div class="avatar me-3 mr-1">
-											<img class="avatar-img rounded-circle shadow" src="assets/images/profile/<?= $profileName ?>" alt="avatar" style="width: 40px;">
+											<img class="avatar-img rounded-circle shadow" src="../../assets/images/profile/<?= $profileName ?>" alt="avatar" style="width: 50px;">
 										</div>
 										<div>
 											<p class="h6 text-center" href="#"><?= $_SESSION['user'][0] ?></p>

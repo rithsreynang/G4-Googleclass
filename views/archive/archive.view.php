@@ -9,12 +9,13 @@
 	$user = getUser($email);
 	$user_id = $user['user_id'];
 	$classroom = getClassroomsArchive($user_id);
+	if (count($classroom) > 0){
 	?>
 	<div class="d-flex flex-wrap">
 		<?php
 		foreach ($classroom as $class) :
 		?>
-			<div class="card m-2" style="width:225px;">
+			<div class="card m-3" style="width:225px;">
 				<img class="card-image-top rounded-top" src="../../assets/images/courses/4by3/<?= $class['banner'] ?>">
 				<div class="navbar  navbar-expand-lg navbar-light p-1 h-1" style="height: 20px;">
 					<ul class="navbar-nav mr-auto">
@@ -50,7 +51,7 @@
 				</div>
 				<div class="card-body p-2">
 					<div class="nav-list d-flex justify-content-between">
-						<a href="/class?classroom_id=<?= $class['classroom_id'] ?>" style="text-decoration: none; color: black;">
+						<a href="../../controllers/teach/class.controller.php?classroom_id=<?=$class['classroom_id'] ?>" style="text-decoration: none; color: black;">
 							<p class="card-title"><?= $class['classroom_name'] ?></p>
 						</a>
 					</div>
@@ -60,5 +61,11 @@
 			</div>
 		<?php endforeach; ?>
 	</div>
-
+	<?php }else{?>
+		<div class="d-flex  justify-content-center" style="height: 200px;">
+			<div class="d-flex align-items-center">
+				<h2>No Archive Class Here</h2>
+			</div>
+		</div>
+	<?php }?>
 </div>
