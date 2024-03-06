@@ -1,7 +1,7 @@
 <div class="col-xml-12">
 	<?php
 	require_once "models/classroom/select.classrooms.model.php";
-	require_once "models/classroom/join.class.model.php";
+	require_once "models/enrollment/join.class.model.php";
 	if (isset($_GET['classroom_id'])) {
 		$id = $_GET['classroom_id'];
 		die();
@@ -9,6 +9,7 @@
 	$email = $_SESSION['user'][1];
 	$user = getUser($email);
 	$user_id = $user['user_id'];
+	$join = '';
 	if (isset($_POST['classCode'])) {
 		$classCode = $_POST['classCode'];
 		$classes = getAllClassrooom($user_id);
@@ -16,9 +17,11 @@
 			if ($class['class_code'] == $classCode) {
 				$storeClass = classExit($user_id, $class['classroom_id']);
 				if (count($storeClass) == 0) {
-					enrollClass($user_id, $class['classroom_id']);
+					$class_id = $class['classroom_id'];
+					$enroll = enrollClass($user_id, $class_id);
+					echo "<script> location.reload() </script>";
 				} else {
-					echo "<script> confirm('Classroom Already Join')</script>";
+					echo "<script>confirm('Classroom Already Join')</script>";
 				}
 			}
 		}
@@ -27,6 +30,7 @@
 	$user = getUser($email);
 	$user_id = $user['user_id'];
 	$classroom = getClassroomsUnarchive($user_id);
+	$classenroll = getClasses($user_id);;
 	if (count($classroom) > 0) {
 	?>
 		<nav class="navbar " style="border-width: 3px; border-color: gray; margin-bottom: 30px">
@@ -40,6 +44,7 @@
 									<form action="#" method="post">
 										<h4 class="text-primary text-center mt-1">Join Class</h4>
 										<input type="text" class="form-control mt-3" name="classCode" placeholder="Class Code">
+										<small class="text-danger"><?= $join ?></small>
 										<!-- <small class="text-danger">Error Class Code</small> -->
 										<div class="d-flex justify-content-center mt-2">
 											<a href="/home" class="btn btn-light mr-2">cancal</a>
@@ -106,6 +111,47 @@
 						<p class="card-text">Room : <?= $class['room'] ?></p>
 					</div>
 				</div>
+			<?php endforeach;
+			foreach ($classenroll as $class) :
+			?>
+				<div class="card m-3" style="width:225px;">
+					<img class="card-image-top rounded-top" src="../../assets/images/courses/4by3/<?= $class['banner'] ?>">
+					<div class="navbar  navbar-expand-lg navbar-light p-1 h-1" style="height: 20px;">
+						<ul class="navbar-nav mr-auto">
+							<li class="nav-item dropdown">
+								<a class="nav-link bg-white rounded-circle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: -170px; margin-left:180px; height:30px; width: 30px">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical d-flex justify-content-center mr-5" viewBox="0 0 16 16">
+										<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
+									</svg>
+								</a>
+								<div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownProfile" style='margin-top: -140px; margin-left: 50px'>
+									<a class="dropdown-item nav-link " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#?id=<?= $class['classroom_id'] . '&classroom_name=' . $class['classroom_name'] . '&section=' . $class['section'] . '&subject=' . $class['subject'] . '&room=' . $class['room'] ?>">
+										Unenroll
+									</a>
+									<div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownProfile">
+										<div class="card d-flex flex-column justify-content-center align-items-center" style="position: fixed; top:0px; left:0;  height:100vh; width:100%; background-color: rgba(0,0,0,0.1); z-index:10;">
+											<div class="bg-white p-1 d-flex justify-content-center align-items-center col-xl-2 rounded">
+												<div class="d-flex justify-content-end">
+													<a href="/#" class="btn btn-light">Cancal</a>
+													<a href="../../controllers/enrollment/unenroll.controller.php?classroom_id=<?= $class['classroom_id']?>&user_id=<?= $user_id ?>" class="btn btn-danger ml-1">Unenroll</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="card-body p-2">
+						<div class="nav-list d-flex justify-content-between">
+							<a href="../../controllers/enrollment/enrollment.controller.php?classroom_id=<?= $class['classroom_id']?>">
+								<p class="card-title"><?= $class['classroom_name'] ?></p>
+							</a>
+						</div>
+						<p class="card-text">Section : <?= $class['section'] ?></p>
+						<p class="card-text">Room : <?= $class['room'] ?></p>
+					</div>
+				</div>
 			<?php endforeach; ?>
 		</div>
 	<?php } else { ?>
@@ -122,6 +168,7 @@
 										<form action="#" method="post">
 											<h4 class="text-primary text-center mt-1">Join Class</h4>
 											<input type="text" class="form-control mt-3" name="classCode" placeholder="Class Code">
+											<small class="text-danger"><?= $join ?></small>
 											<!-- <small class="text-danger">Error Class Code</small> -->
 											<div class="d-flex justify-content-center mt-2">
 												<a href="/home" class="btn btn-light mr-2">cancal</a>
