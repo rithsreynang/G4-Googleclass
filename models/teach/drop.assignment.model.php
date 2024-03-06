@@ -16,5 +16,4 @@ function createAssignment($title, $post_date, $classroom_id, $dateline, $descrip
         ":dateline" => $dateline,
     ]);
 }
-require_once "../../controllers/teach/classwork.controller.php";
 
