@@ -1,5 +1,6 @@
 <?php
 $id = $_GET['classroom_id'];
+$user_id = $_GET['user_id'];
 ?>
 
 
@@ -24,7 +25,7 @@ $id = $_GET['classroom_id'];
     <p>Create Assignment</p>
   </div>
   <div class="m-3">
-    <form action="../../controllers/teach/drop.assignment.controller.php?classroom_id=<?= $id ?>" class="d-flex justify-content-center align-items-center" method="post" enctype="multipart/form-data">
+    <form action="../../controllers/teach/drop.assignment.controller.php?classroom_id=<?= $id ?>&user_id=<?=$user_id ?>" id="createAssignment" class="d-flex justify-content-center align-items-center" method="post" enctype="multipart/form-data">
       <div class="col-9">
         <div class="form-group p-3 bg-light rounded mt-3">
           <label for="title">Title:</label>
