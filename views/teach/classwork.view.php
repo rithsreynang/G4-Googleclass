@@ -50,7 +50,14 @@ $allAssignments = getAllAssignment($id);
                         <p class="ml-2 mt-3"><?= $assignment['title'] ?></p>
                     </div>
                     <div class="d-flex align-items-center justify-content-between">
-                        <p class="mt-3 mr-2"> Due <?= $assignment['dateline'] ?></p>
+                        <p class="mt-3 mr-2">
+                            <?php if (!empty($assignment['dateline'])) {
+                                echo $assignment['dateline'];
+                            } else {
+                                echo "No due date";
+                            }
+                            ?>
+                        </p>
                         <div class="dropdown " style="color: info">
                             <svg xmlns="http://www.w3.org/2000/svg" class="dropdown-toggle" type="button" id="dropdownMenuassignment" data-bs-toggle="dropdown" aria-expanded="false" width="22" height="22" fill="currentColor" class="bi bi-three-dots-vertical d-flex justify-content-center mr-5" viewBox="0 0 16 16">
                                 <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />

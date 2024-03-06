@@ -3,7 +3,6 @@ require_once "../../database/database.php";
 function createAssignment($title, $post_date, $classroom_id, $dateline, $description, $file_name, $user_id, $limit_score)
 {
     global $connection;
-    echo $title . $post_date . $classroom_id . $dateline . $description . $file_name . $user_id . $limit_score;
     $statement = $connection->prepare("INSERT INTO assignments (title, description, user_id, post_date, file, score, classroom_id, dateline)
     values(:title, :description, :user_id, :post_date, :file,:score, :classroom_id, :dateline)");
     $statement->execute([
