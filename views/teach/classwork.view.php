@@ -4,6 +4,9 @@ require_once "../../layouts/class/navbar.php";
 require_once "../../models/teach/get.assignments.model.php";
 $id = $_GET['classroom_id'];
 $allAssignments = getAllAssignment($id);
+$email = $_SESSION['user'][1];
+$user = getUser($email);
+$user_id = $user[0];
 ?>
 <div class="d-flex flex-row ml-3 border-secondary" style="margin-top: -10px;">
     <div>
@@ -25,7 +28,7 @@ $allAssignments = getAllAssignment($id);
             <i class="fa fa-plus" style=" color: white; font-size:20px; "><span class="p-2">Create</span></i>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="../../controllers/teach/create.assignment.controller.php?classroom_id=<?= $id ?>">Assignment</a></li>
+            <li><a class="dropdown-item" href="../../controllers/teach/create.assignment.controller.php?classroom_id=<?= $id ?>&user_id=<?= $user_id ?>">Assignment</a></li>
             <li><a class="dropdown-item" href="../../controllers/enrollment/create.material.controller.php?classroom_id=<?= $id ?>">Material</a></li>
             <li><a class="dropdown-item" href="#">Quiz assignments</a></li>
             <li><a class="dropdown-item" href="#">Reuse post</a></li>
