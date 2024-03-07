@@ -64,7 +64,7 @@ $students = listStudents($id);
                                         $date = date_create($assignment['dateline']);
                                         echo "Due " . date_format($date, "M - d , H:i");
                                         $hour =  date_format($date, "H");
-                                        if ($hour > 12) {
+                                        if ($hour > 11) {
                                             echo "pm";
                                         } else {
                                             echo "am";
@@ -94,7 +94,7 @@ $students = listStudents($id);
                                 $post = date_create($assignment['post_date']);
                                 echo date_format($post, "M - d , H:i");
                                 $hour =  date_format($post, "H");
-                                if ($hour > 12) {
+                                if ($hour > 11) {
                                     echo "pm";
                                 } else {
                                     echo "am";
