@@ -2,6 +2,8 @@
 require_once "../../layouts/class/header.php";
 require_once "../../layouts/class/navbar.php";
 require_once "../../models/teach/get.assignments.model.php";
+require_once "../../models/teach/delete.assignment.model.php";
+
 $id = $_GET['classroom_id'];
 $allAssignments = getAllAssignment($id);
 ?>
@@ -64,7 +66,7 @@ $allAssignments = getAllAssignment($id);
                             </svg>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuassignment">
                                 <li><a class="dropdown-item" href="../../controllers/teach/update.assignment.controller.php?classroom_id=<?= $id ?>&assignment_id=<?= $assignment['assignment_id'] ?>">Edit</a></li>
-                                <li><a class="dropdown-item" href="../../controllers/enrollment/create.material.controller.php?classroom_id=<?= $id ?>">Delete</a></li>
+                                <li><a class="dropdown-item" href="../../controllers/teach/delete.assignment.controller.php?classroom_id=<?= $id ?>&assignment_id=<?= $assignment['assignment_id'] ?>">Delete</a></li>
                                 <li><a class="dropdown-item" href="#">Copy Link</a></li>
                             </ul>
                         </div>
@@ -93,3 +95,4 @@ $allAssignments = getAllAssignment($id);
 </body>
 
 </html>
+
