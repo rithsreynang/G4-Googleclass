@@ -26,7 +26,7 @@ $allAssignments = getAllAssignment($id);
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li><a class="dropdown-item" href="../../controllers/teach/create.assignment.controller.php?classroom_id=<?= $id ?>">Assignment</a></li>
-            <li><a class="dropdown-item" href="../../controllers/enrollment/create.material.controller.php?classroom_id=<?= $id ?>">Material</a></li>
+            <li><a class="dropdown-item" href="../../controllers/teach/material/create.material.controller.php?classroom_id=<?= $id ?>">Material</a></li>
             <li><a class="dropdown-item" href="#">Quiz assignments</a></li>
             <li><a class="dropdown-item" href="#">Reuse post</a></li>
             <li>
