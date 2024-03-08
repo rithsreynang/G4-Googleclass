@@ -11,7 +11,7 @@ $id = $_GET['classroom_id'];
                 <a href="../../controllers/teach/class.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light p-1">Stream</a>
                 <a href="../../controllers/teach/classwork.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">Classwork</a>
                 <a href="../../controllers/teach/people.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">People</a>
-                <a href="#" class="text-dark text-decoration-none border-0 btn btn-warning">Grades</a>
+                <a href="#" class="text-white text-decoration-none border-0 btn btn-primary">Grades</a>
             </div>
             <div style="padding-right: 50px;">
                 <i class="fa fa-gear" style="font-size:25px; padding-right: 25px;"></i>

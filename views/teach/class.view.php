@@ -6,11 +6,10 @@ $id = $_GET['classroom_id'];
 $class = getClassroom($id);
 $class_code = $class['class_code'];
 ?>
-
 <div class="">
     <div class="d-flex flex-row ml-3 border-secondary" style="margin-top: -10px;">
         <div class='nav-item'>
-            <a href="#" class="text-dark text-decoration-none border-0 btn btn-warning">Stream</a>
+            <a href="#" class="text-white text-decoration-none border-0 btn btn-primary">Stream</a>
             <a href="../../controllers/teach/classwork.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light ">Classwork</a>
             <a href="../../controllers/teach/people.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light ">People</a>
             <a href="../../controllers/teach/grades.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light ">Grades</a>

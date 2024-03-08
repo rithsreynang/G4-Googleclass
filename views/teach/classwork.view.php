@@ -14,7 +14,7 @@ $students = listStudents($id);
 <div class="d-flex flex-row ml-3 border-secondary" style="margin-top: -10px;">
     <div>
         <a href="../../controllers/teach/class.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">Stream</a>
-        <a href="#" class="text-dark text-decoration-none border-0 btn btn-warning">Classwork</a>
+        <a href="#" class="text-white text-decoration-none border-0 btn btn-primary" >Classwork</a>
         <a href="../../controllers/teach/people.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">People</a>
         <a href="../../controllers/teach/grades.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">Grades</a>
     </div>
@@ -27,7 +27,7 @@ $students = listStudents($id);
 <div class="mt-4" style="margin-left: 15%;">
 
     <div class="dropdown">
-        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa fa-plus" style=" color: white; font-size:20px; "><span class="p-2">Create</span></i>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
