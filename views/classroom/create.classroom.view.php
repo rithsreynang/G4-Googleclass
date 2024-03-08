@@ -39,7 +39,7 @@ function randomClassCode()
 <div class="card col-xl-12 d-flex flex-column justify-content-center align-items-center" style="position: fixed; top:0px; left:0;border:none;  height:100vh; width:100%; background-color: rgba(0,0,0,0.3); z-index:15;">
     <div class="bg-white p-3 col-xl-6">
         <form action="#" method="post">
-            <h4 class="text-success mt-1">Crate class</h4>
+            <h4 class="text-success mt-1" >Crate class</h4>
             <input type="text" class="form-control mt-3" name="className" placeholder="Class name">
             <small class="text-danger"><?= $nameError ?></small>
             <input type="text" class="form-control mt-3" name="section" placeholder="Section">

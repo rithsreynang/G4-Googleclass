@@ -142,7 +142,7 @@ if ($uri == '/archive') {
 									<div class="d-flex align-items-center flex-column">
 										<!-- Avatar -->
 										<div class="avatar me-3 mr-1">
-											<img class="avatar-img rounded-circle shadow" src="assets/images/profile/<?= $profileName ?>" alt="avatar" style="width: 40px;">
+											<img class="avatar-img rounded-circle shadow" src="assets/images/profile/<?= $profileName ?>" alt="avatar" style="width: 50px;">
 										</div>
 										<div>
 											<p class="h6 text-center" href="#"><?= $_SESSION['user'][0] ?></p>

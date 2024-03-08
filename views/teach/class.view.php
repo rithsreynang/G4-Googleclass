@@ -6,6 +6,7 @@ $id = $_GET['classroom_id'];
 $class = getClassroom($id);
 $class_code = $class['class_code'];
 ?>
+
 <div class="">
     <div class="d-flex flex-row ml-3 border-secondary" style="margin-top: -10px;">
         <div class='nav-item'>
