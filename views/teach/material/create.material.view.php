@@ -17,7 +17,7 @@
 
   <div class="pt-3 d-flex flex-row border-bottom" style="font-size:20px;background: #FFFF;">
 
-      <a href="../../controllers/teach/classwork.controller.php?classroom_id=<?= $id ?>" class="ml-5 text-dark text-decoration-none border-0 " style=" margin-right: 25px;"><i class="fa fa-close"></i></a>
+      <a href="../../../controllers/teach/classwork.controller.php?classroom_id=<?= $id ?>" class="ml-5 text-dark text-decoration-none border-0 " style=" margin-right: 25px;"><i class="fa fa-close"></i></a>
       <i class="fa fa-file-text-o" style=" margin-right: 25px; margin-top: 8px;"></i>
       <p>Meterial</p>
   </div>

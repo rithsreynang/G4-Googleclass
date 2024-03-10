@@ -221,7 +221,7 @@ $students = listStudents($id);
                             d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
                     </svg>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuassignment">
-                        <li><a class="dropdown-item" href="#">Edit</a></li>
+                        <li><a class="dropdown-item" href="../../../controllers/teach/material/upload.material.controller.php?classroom_id=<?= $id ?>&material_id=<?= $material['material_id'] ?>">Edit</a></li>
                         <li><a class="dropdown-item" href="#">Delete</a></li>
                         <li><a class="dropdown-item" href="#">Copy Link</a></li>
                     </ul>
