@@ -23,12 +23,12 @@ if ($uri == "/home") {
 <!-- Sidebar -->
 <ul class="navbar-nav sidebar sidebar-dark  accordion" id="accordionSidebar">
 	<!-- Sidebar - Brand -->
-	<a class="sidebar-brand d-flex border-bottom align-items-center justify-content-center" style="margin-bottom: -17px;" href="/">
-		<img src="../../assets/images/logo.svg" style="width: 150px;">
-		<!-- <div class="sidebar-brand-text mx-4 text-primary">E-Classroom</div> -->
+	<a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+		<img src="../../assets/images/logo.svg" class="sidebar-brand-text mx-4" style="width: 150px;">
+		<!-- <div class=" text-primary">E-Classroom</div> -->
 	</a>
 	<!-- Divider -->
-	<hr class="sidebar-divider">
+	<hr class="sidebar-divider border-dark">
 
 	<!-- Nav Item - Pages Collapse Menu -->
 	<li class="nav-item  ">
@@ -95,42 +95,42 @@ if ($uri == "/home") {
 		</a>
 	</li>
 	<!-- Divider -->
-	<hr class="sidebar-divider d-none d-md-block">
+	<hr class="sidebar-divider bg-dark d-none d-md-block">
 	<!-- Sidebar Toggler (Sidebar) -->
 	<div class="text-center d-none d-md-inline">
-		<button class="rounded-circle border-0" id="sidebarToggle"></button>
+		<button class="rounded-circle border" style="background-color: gray;" id="sidebarToggle"></button>
 	</div>
 </ul>
 <!-- Content Wrapper -->
 </div>
-<div id="content-wrapper " class="d-flex border-left flex-column col-10" style="background: #FFFFFE;">
+<div id="content-wrapper " class="d-flex border-left shadow-sm flex-column col-10" style="background: #FFFFFE;">
 	<div class="d-flex justify-content-end flex-column">
 		<div class="d-flex justify-content-end align-items-center m-3">
 			<div class="navbar  navbar-expand-lg p-1 h-1" style="height: 30px;">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<img class="avatar-img rounded-circle" src="assets/images/profile/<?= $profileName ?>" alt="avatar" style="width: 40px; ">
+							<img class="rounded-circle"  src="assets/images/profile/<?= $profileName ?>" alt="avatar" style="height: 50px;">
 						</a>
-						<div class="dropdown-menu dropdown-menu-right pt-3" aria-labelledby="navbarDropdownProfile" style="background: #040720; margin-top: 30px;">
-							<ul style="list-style: none; width: 250px; height: 200px; background: white;" class="p-2">
+						<div class="dropdown-menu dropdown-menu-right p-1 shadow-sm" aria-labelledby="navbarDropdownProfile">
+							<ul class=" nav navbar bg-white d-flex justify-content-center">
 								<li>
-									<div class="d-flex align-items-center flex-column">
+									<div class="d-flex flex-column justify-content-center align-items-center" style="width: 150px;">
 										<!-- Avatar -->
-										<div class="avatar me-3 mr-1">
-											<img class="avatar-img rounded-circle shadow" src="assets/images/profile/<?= $profileName ?>" alt="avatar" style="width: 40px;">
+										<div class="avatar me-3 m-1">
+											<img class="avatar-img rounded-circle shadow-sm" src="assets/images/profile/<?= $profileName ?>" alt="avatar" style="width: 40px;">
 										</div>
 										<div>
 											<p class="h6 text-center" href="#"><?= $_SESSION['user'][0] ?></p>
-											<p class="small h5 m-0"><?= $_SESSION['user'][1] ?></p>
+											<p class=" m-0"><?= $_SESSION['user'][1] ?></p>
 										</div>
 									</div>
 									<hr>
 								</li>
 								<!-- Links -->
-								<li><a class="dropdown-item bg-danger-soft-hover" href="../../views/user/edit.profile.view.php">
-								<li><i class="fas fa-fw fa-user mr-2"></i>Edit Profile</a></li>
-								<li><a class="dropdown-item bg-danger-soft-hover" href="/signout"><i class="fas fa-fw fa-sign-out-alt mr-2"></i>Sign Out</a></li>
+								<li><a class="dropdown-item bg-danger-soft-hover rounded" href="../../views/user/edit.profile.view.php">
+								<li><i class="fas fa-fw fa-user bg-light-soft-hover shadow"></i>Edit Profile</a></li>
+								<li><a class="dropdown-item bg-danger text-white rounded"  href="/signout"><i class="fas fa-fw fa-sign-out-alt"></i>Sign Out</a></li>
 							</ul>
 						</div>
 					</li>

@@ -15,8 +15,8 @@
 		<?php
 		foreach ($classroom as $class) :
 		?>
-			<div class="card m-3" style="width:225px;">
-				<img class="card-image-top rounded-top" src="../../assets/images/courses/4by3/<?= $class['banner'] ?>">
+			<div class="card shadow-sm m-3" style="width:225px;">
+				<img class="card-image-top rounded m-2" src="../../assets/images/courses/4by3/<?= $class['banner'] ?>">
 				<div class="navbar  navbar-expand-lg navbar-light p-1 h-1" style="height: 20px;">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item dropdown">

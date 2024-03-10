@@ -13,7 +13,7 @@ $students = listStudents($id);
 
 <div class="d-flex flex-row ml-3 border-secondary" style="margin-top: -10px;">
     <div>
-        <a href="../../controllers/enrollment/class.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">Stream</a>
+        <a href="../../controllers/enrollment/enrollment.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">Stream</a>
         <a href="#" class="text-white text-decoration-none border-0 btn btn-primary">Classwork</a>
         <a href="../../controllers/enrollment/people.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">People</a>
     </div>

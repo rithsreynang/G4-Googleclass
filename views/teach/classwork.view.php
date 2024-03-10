@@ -28,20 +28,13 @@ $index = 0;
 </div>
 
 <div class="mt-4" style="margin-left: 15%;">
-
     <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa fa-plus" style=" color: white; font-size:20px; "><span class="p-2">Create</span></i>
         </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <ul class="dropdown-menu shadow-sm" aria-labelledby="dropdownMenuButton1">
             <li><a class="dropdown-item" href="../../../controllers/teach/assignment/create.assignment.controller.php?classroom_id=<?= $id ?>&user_id=<?= $user_id ?>">Assignment</a></li>
             <li><a class="dropdown-item" href="../../controllers/teach/material/create.material.controller.php?classroom_id=<?= $id ?>">Material</a></li>
-            <li><a class="dropdown-item" href="#">Quiz assignments</a></li>
-            <li><a class="dropdown-item" href="#">Reuse post</a></li>
-            <li>
-                <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
         </ul>
     </div>
     <div class="d-flex flex-column ">
@@ -50,8 +43,8 @@ $index = 0;
                 echo "<h4 class='mt-5'>Assignments</h4> <hr class='dropdown-divider border-primary' style='width: 790px;'>    ";
             foreach ($allAssignments as $assignment) {
         ?>
-                <div class="card p-0 rounded border-0 mt-3 col-10">
-                    <div class="d-flex align-items-center border card-header p-0  justify-content-between col-12">
+                <div class="card p-0 rounded-1 mt-3 col-10">
+                    <div class="d-flex align-items-center card-header  p-0  justify-content-between col-12">
                         <div class=" d-flex flex-row justify-content-between col-11" data-bs-toggle="collapse" href="#collapse<?= $assignment['assignment_id'] ?>" role="button" aria-expanded="false" aria-controls="collapse<?= $assignment['assignment_id'] ?>">
                             <div class="d-flex align-items-center">
                                 <div class="rounded-circle d-flex" style="background-color: #289AE3 ; padding: 7px; color: white">
