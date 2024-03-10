@@ -12,10 +12,10 @@ $students = listStudents($id);
 <div class="">
     <div class=" d-flex flex-row ml-3  border-secondary" style="margin-top: -10px;">
         <div>
-            <a href="../../controllers/teach/class.controller.php?classroom_id=<?= $id ?>" class=" text-dark text-decoration-none border-0 btn btn-light ">Stream</a>
-            <a href="../../controllers/teach/classwork.controller.php?classroom_id=<?= $id ?>" class=" text-dark text-decoration-none border-0 btn btn-light ">Classwork</a>
+            <a href="../../controllers/teach/class.controller.php?classroom_id=<?= $id ?>" class=" text-dark text-decoration-none border-primary btn btn-light ">Stream</a>
+            <a href="../../controllers/teach/classwork.controller.php?classroom_id=<?= $id ?>" class=" text-dark text-decoration-none border-primary btn btn-light ">Classwork</a>
             <a href="#" class="text-white text-decoration-none btn btn-primary text-white">People</a>
-            <a href="../../controllers/teach/grades.controller.php?classroom_id=<?= $id ?>" class=" text-dark text-decoration-none border-0 btn btn-light ">Grades</a>
+            <a href="../../controllers/teach/grades.controller.php?classroom_id=<?= $id ?>" class=" text-dark text-decoration-none border-primary btn btn-light ">Grades</a>
         </div>
         <div style="padding-right: 50px;">
             <i class="fa fa-gear" style="font-size:25px; padding-right: 25px;"></i>

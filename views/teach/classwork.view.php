@@ -13,13 +13,12 @@ $user_name = getUser($email)['username'];
 $user_id = $user[0];
 $students = listStudents($id);
 ?>
-
 <div class="d-flex flex-row ml-3 border-secondary" style="margin-top: -10px;">
     <div>
-        <a href="../../controllers/teach/class.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">Stream</a>
-        <a href="#" class="text-white text-decoration-none border-0 btn btn-primary">Classwork</a>
-        <a href="../../controllers/teach/people.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">People</a>
-        <a href="../../controllers/teach/grades.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">Grades</a>
+        <a href="../../controllers/teach/class.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-1 border-primary btn btn-light ">Stream</a>
+        <a href="#" class="text-white text-decoration-none btn btn-primary border-1 border-primary">Classwork</a>
+        <a href="../../controllers/teach/people.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-1 border-primary btn btn-light   ">People</a>
+        <a href="../../controllers/teach/grades.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-1 border-primary btn btn-light   ">Grades</a>
     </div>
     <div style="padding-right: 50px;">
         <i class="fa fa-gear" style="font-size:25px; padding-right: 25px;"></i>
@@ -44,13 +43,13 @@ $students = listStudents($id);
             <li><a class="dropdown-item" href="#">Something else here</a></li>
         </ul>
     </div>
-    <h4 class="mt-4">Assignments</h4>
     <div class="d-flex flex-column ">
         <?php
         if (count($allAssignments) > 0 or count($allMaterials) > 0) {
+            echo "<h4 class='mt-4'>Assignments</h4>";
             foreach ($allAssignments as $assignment) {
         ?>
-                <div class="card p-0 rounded mt-3 col-10">
+                <div class="card p-0 rounded border border-primary mt-3 col-10">
                     <div class="d-flex align-items-center card-header p-0  justify-content-between col-12">
                         <div class=" d-flex flex-row justify-content-between col-11" data-bs-toggle="collapse" href="#collapse<?= $assignment['assignment_id'] ?>" role="button" aria-expanded="false" aria-controls="collapse<?= $assignment['assignment_id'] ?>">
                             <div class="d-flex align-items-center">
@@ -143,11 +142,15 @@ $students = listStudents($id);
             <?php
             }
             ?>
-            <h4 class="mt-4">Materials</h4>
             <?php
+            if (count($allMaterials) > 0){
+                ?>
+                <h4 class="mt-4">Materials</h4>
+            <?php
+            }
             foreach ($allMaterials as $material) {
             ?>
-                <div class="card p-0 rounded mt-3 col-10">
+                <div class="card p-0 rounded border border-primary mt-3 col-10">
                     <div class="d-flex align-items-center card-header p-0  justify-content-between col-12">
                         <div class=" d-flex flex-row justify-content-between col-11" data-bs-toggle="collapse" href="#collapse<?= trim($material['title']) ?>" role="button" aria-expanded="false" aria-controls="collapse<?= trim($material['title']) ?>">
                             <div class="d-flex align-items-center">
