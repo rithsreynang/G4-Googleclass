@@ -14,7 +14,7 @@ $students = listStudents($id);
 <div class="d-flex flex-row ml-3 border-secondary" style="margin-top: -10px;">
     <div>
         <a href="../../controllers/teach/class.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">Stream</a>
-        <a href="#" class="text-white text-decoration-none border-0 btn btn-primary" >Classwork</a>
+        <a href="#" class="text-white text-decoration-none border-0 btn btn-primary">Classwork</a>
         <a href="../../controllers/teach/people.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">People</a>
         <a href="../../controllers/teach/grades.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">Grades</a>
     </div>
@@ -41,7 +41,8 @@ $students = listStudents($id);
             <li><a class="dropdown-item" href="#">Something else here</a></li>
         </ul>
     </div>
-    <div class="d-flex flex-column mt-4">
+    <h4 class="mt-4">Assignments</h4>
+    <div class="d-flex flex-column ">
         <?php
         if (count($allAssignments) > 0) {
             foreach ($allAssignments as $assignment) {
@@ -114,7 +115,7 @@ $students = listStudents($id);
                                         <h2><?= count($students) ?></h2>
                                         <p>Assign</p>
                                     </div>
-                                        <div class="border-left col">
+                                    <div class="border-left col">
                                         <h2>0</h2>
                                         <p>Grades</p>
                                     </div>

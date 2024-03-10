@@ -1,0 +1,40 @@
+Sprint 1
+1. as a developer, I want to create environment.
+	. create repository in Github
+	. invite members to Github
+	. create project in jira
+	. invite members to 
+	. design 
+
+. 2. as a user, I want to manage my account.
+	. create account 
+	. login account 
+	. log out account
+	. update account
+	. list all my classrooms
+	. list all my enrollment
+	. to list all my students
+ 	. list all my review(feedback to teacher)
+
+3. as an admin, I want to manage my system.
+	. list all users	
+	. list all course
+	. create new category course
+
+4. as a user, I want to mange my classroom.
+	. create classroom
+	. update classroom
+	. delete classroom
+	. limit student
+	. list all student join classroom
+
+5. as a user, I want to join classroom.
+	. show lectures
+	. show duration
+6. as a developer, I want to to design interface.
+	. login
+	. log out
+	. 
+	
+7. as a user, I want to enroll on classroom.
+	. show lesson in classroom
