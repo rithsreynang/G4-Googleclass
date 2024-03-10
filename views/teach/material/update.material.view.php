@@ -27,7 +27,7 @@ $material_id = $_GET['material_id'];
             <div class="col-9">
                 <div class="form-group p-3 bg-light rounded mt-3">
                     <label for="title">Title:</label>
-                    <input type="text" class="form-control" value="<?= $material['title'] ?>" id="title" placeholder="Title of material" name="title">
+                    <input type="text" class="form-control" value="<?= $materials['title'] ?>" id="title" placeholder="Title of material" name="title">
                 </div>
                 <div class="form-group p-3 bg-light rounded">
                     <label for="description">Description:</label>
