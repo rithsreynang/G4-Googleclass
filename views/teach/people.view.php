@@ -15,7 +15,7 @@ $students = listStudents($id);
         <div>
             <a href="../../controllers/teach/class.controller.php?classroom_id=<?= $id ?>" class=" text-dark text-decoration-none border-0 btn btn-light ">Stream</a>
             <a href="../../controllers/teach/classwork.controller.php?classroom_id=<?= $id ?>" class=" text-dark text-decoration-none border-0 btn btn-light ">Classwork</a>
-            <a href="#" class="text-dark text-decoration-none btn btn-warning text-white">People</a>
+            <a href="#" class="text-white text-decoration-none btn btn-primary text-white">People</a>
             <a href="../../controllers/teach/grades.controller.php?classroom_id=<?= $id ?>" class=" text-dark text-decoration-none border-0 btn btn-light ">Grades</a>
         </div>
         <div style="padding-right: 50px;">
