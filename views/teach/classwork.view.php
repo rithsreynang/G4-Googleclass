@@ -16,13 +16,10 @@ $students = listStudents($id);
 
 <div class="d-flex flex-row ml-3 border-secondary" style="margin-top: -10px;">
     <div>
-        <a href="../../controllers/teach/class.controller.php?classroom_id=<?= $id ?>"
-            class="text-dark text-decoration-none border-0 btn btn-light  ">Stream</a>
-        <a href="#" class="text-dark text-decoration-none border-0 btn btn-warning">Classwork</a>
-        <a href="../../controllers/teach/people.controller.php?classroom_id=<?= $id ?>"
-            class="text-dark text-decoration-none border-0 btn btn-light  ">People</a>
-        <a href="../../controllers/teach/grades.controller.php?classroom_id=<?= $id ?>"
-            class="text-dark text-decoration-none border-0 btn btn-light  ">Grades</a>
+        <a href="../../controllers/teach/class.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">Stream</a>
+        <a href="#" class="text-white text-decoration-none border-0 btn btn-primary">Classwork</a>
+        <a href="../../controllers/teach/people.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">People</a>
+        <a href="../../controllers/teach/grades.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">Grades</a>
     </div>
     <div style="padding-right: 50px;">
         <i class="fa fa-gear" style="font-size:25px; padding-right: 25px;"></i>
@@ -33,8 +30,7 @@ $students = listStudents($id);
 <div class="mt-4" style="margin-left: 15%;">
 
     <div class="dropdown">
-        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-            aria-expanded="false">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa fa-plus" style=" color: white; font-size:20px; "><span class="p-2">Create</span></i>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -52,7 +48,8 @@ $students = listStudents($id);
             <li><a class="dropdown-item" href="#">Something else here</a></li>
         </ul>
     </div>
-    <div class="d-flex flex-column mt-4">
+    <h4 class="mt-4">Assignments</h4>
+    <div class="d-flex flex-column ">
         <?php
         if (count($allAssignments) > 0) {
             foreach ($allAssignments as $assignment) {
@@ -134,13 +131,21 @@ $students = listStudents($id);
                                 <h2>0</h2>
                                 <p>Turn in</p>
                             </div>
-                            <div class="border-left col">
-                                <h2><?= count($students) ?></h2>
-                                <p>Assign</p>
-                            </div>
-                            <div class="border-left col">
-                                <h2>0</h2>
-                                <p>Grades</p>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="border-left col">
+                                        <h2>0</h2>
+                                        <p>Turn in</p>
+                                    </div>
+                                    <div class="border-left col">
+                                        <h2><?= count($students) ?></h2>
+                                        <p>Assign</p>
+                                    </div>
+                                    <div class="border-left col">
+                                        <h2>0</h2>
+                                        <p>Grades</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
