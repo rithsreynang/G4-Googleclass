@@ -8,6 +8,7 @@ $id = $_GET['classroom_id'];
 $teachers = getTeacher($id);
 $teacherCreateClass = getTeacherInclass($id);
 $students = listStudents($id);
+$studentNumber = count($students);
 ?>
 
 <div class="">
@@ -27,8 +28,31 @@ $students = listStudents($id);
         <div>
             <div class="d-flex mt-5 flex-row justify-content-between" style="margin-left: 150px; border-bottom: 1px solid black; width: 70%">
                 <p style="font-size: 35px;">Teachers</p>
-                <i class="fa fa-user-plus" style="font-size: 20px; padding-top: 20px; padding-left: 15px; "></i>
+                <a data-bs-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                    <i class="fa fa-user-plus" style="font-size: 20px; padding-top: 20px; padding-left: 15px; "></i>
+                </a>
             </div>
+            <div class="row" style="width: 900px; ">
+            <div class="col">
+                <div class="collapse multi-collapse" id="multiCollapseExample2">
+                    <div class="card col-xl-12 d-flex flex-column justify-content-center align-items-center" style="position: fixed; top:0px; left:0;border:none;  height:100vh; width:100%; background-color: rgba(0,0,0,0.3); z-index:15;">
+                        <div class="bg-white p-3 col-xl-6 " style="width:35%; height:60vh;">
+                            <form action="../../controllers/email/email.controller.php?classroom_id=<?= $_GET['classroom_id'] ?>" method="post" enctype="multipart/form-data">
+                                <p class="mt-1 mb-4 border-bottom">Invite teachers</p>
+                                <div class="text-success mt-1 mb-4">
+                                </div>
+                                <input type="email" class="form-control mt-5" name="email" placeholder="Type an email">
+                                <p class="border-top" style="font-size: 14px; margin-top:90px">Teachers you add can do everything you can, except delete the class.</p>
+                                <div class="d-flex justify-content-end">
+                                    <a href="" class="btn btn-light">cancel</a>
+                                    <button type="submit" class="btn btn-primary">Send</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
         <div>
             <?php
@@ -36,7 +60,7 @@ $students = listStudents($id);
             ?>
                 <div class="d-flex justify-content-between mt-2" style="margin-left: 100px; width: 79%">
                     <div class="ml-5">
-                        <img src="../../assets/images/profile/<?= $teacher['profile'] ?>" alt="profile " class="rounded-circle" style="width: 50px; height: 50px;">
+                        <img src="../../assets/images/profile/<?= $teacher['profile'] ?>" alt="profile " class="rounded-circle" style="width: 40px; height: 40px;">
                         <span style="padding-left: 15px;"><?= $teacher['username'] ?></span>
                     </div>
                     <a href="https://mail.google.com/mail/u/1/?view=cm&fs=1&to=<?= $teacher['email'] ?>&tf=1" target="_blank" class='d-flex align-items-center ml-4 justify-content-end pr-5 w-60'>
@@ -50,7 +74,7 @@ $students = listStudents($id);
             ?>
                 <div class="d-flex justify-content-between mt-2" style="margin-left: 100px; width: 79%">
                     <div class=" ml-5">
-                        <img src="../../assets/images/profile/<?= $teacher['profile'] ?>" alt="profile " class="rounded-circle" style="width: 50px; height: 50px;">
+                        <img src="../../assets/images/profile/<?= $teacher['profile'] ?>" alt="profile " class="rounded-circle" style="width: 40px; height: 40px;">
                         <span style="padding-left: 15px;"><?= $teacher['username'] ?></span>
                     </div>
                     <div class="d-flex align-items-center justify-content-center">
@@ -72,9 +96,9 @@ $students = listStudents($id);
     </div>
     <div class="container">
         <div class="mt-5 d-flex flex-row justify-content-between" style="margin-left: 150px; border-bottom: 1px solid black; width: 70%">
-            <p style="font-size: 35px;">Student</p>
+            <p style="font-size: 35px;">Students</p>
             <a data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
-                <i class="fa fa-user-plus" style="font-size: 20px; padding-top: 20px; padding-left: 15px; "></i>
+                <p style="font-size: 20px;"><?= $studentNumber . " students" ?><i class="fa fa-user-plus" style="font-size: 20px; padding-top: 20px; padding-left: 15px; "></i></p>
             </a>
         </div>
         <div class="row" style="width: 900px; ">
@@ -83,19 +107,13 @@ $students = listStudents($id);
                     <div class="card col-xl-12 d-flex flex-column justify-content-center align-items-center" style="position: fixed; top:0px; left:0;border:none;  height:100vh; width:100%; background-color: rgba(0,0,0,0.3); z-index:15;">
                         <div class="bg-white p-3 col-xl-6 " style="width:35%; height:60vh;">
                             <form action="../../controllers/email/email.controller.php?classroom_id=<?= $_GET['classroom_id'] ?>" method="post" enctype="multipart/form-data">
-                                <h4 class="text-success mt-1 mb-4 border-bottom">Invite link</h4>
-                                <div class="text-success mt-1 mb-4  border-bottom">
-                                    <?php
-                                    if (isset($_SESSION['linkURL'])) {
-                                        echo '<p>Invite link</p>';
-                                        echo '<a href=""> ' . $links . '</a>';
-                                    }
-                                    ?>
+                                <p class="mt-1 mb-4">Invite students</p>
+                                <div class="text-success mt-1 mb-4">
                                 </div>
                                 <input type="email" class="form-control mt-3" name="email" placeholder="Type an email">
-                                <div class="d-flex justify-content-end mt-2">
-                                    <a href="" class="btn btn-light">cancel</a>
-                                    <button type="submit" class="btn btn-primary">Send</button>
+                                <div class="d-flex justify-content-end border-top" style="margin-top: 120px;">
+                                    <a href="" class="btn btn-light" style="margin-top: 15px;">cancel</a>
+                                    <button type="submit" class="btn btn-primary" style="margin-top: 15px;">Send</button>
                                 </div>
                             </form>
                         </div>
@@ -107,7 +125,7 @@ $students = listStudents($id);
             <?php foreach ($students as $student) { ?>
                 <div class="d-flex align-items-center mt-2 justify-content-between" style="margin-left: 147px; width: 70%">
                     <div>
-                        <img src="../../assets/images/profile/<?= $student["profile"] ?>" alt="profile " class="rounded-circle" style="width: 50px; height: 50px;">
+                        <img src="../../assets/images/profile/<?= $student["profile"] ?>" alt="profile " class="rounded-circle" style="width: 40px; height: 40px;">
                         <span style="padding-left: 15px;"><?= $student["username"] ?></span>
                     </div>
                     <div class="d-flex align-items-center justify-content-between" style="width: 65px;">
