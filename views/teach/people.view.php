@@ -14,10 +14,10 @@ $studentNumber = count($students);
 <div class="">
     <div class=" d-flex flex-row ml-3  border-secondary" style="margin-top: -10px;">
         <div>
-            <a href="../../controllers/teach/class.controller.php?classroom_id=<?= $id ?>" class=" text-dark text-decoration-none border-0 btn btn-light ">Stream</a>
-            <a href="../../controllers/teach/classwork.controller.php?classroom_id=<?= $id ?>" class=" text-dark text-decoration-none border-0 btn btn-light ">Classwork</a>
+            <a href="../../controllers/teach/class.controller.php?classroom_id=<?= $id ?>" class=" text-dark text-decoration-none border-primary btn btn-light ">Stream</a>
+            <a href="../../controllers/teach/classwork.controller.php?classroom_id=<?= $id ?>" class=" text-dark text-decoration-none border-primary btn btn-light ">Classwork</a>
             <a href="#" class="text-white text-decoration-none btn btn-primary text-white">People</a>
-            <a href="../../controllers/teach/grades.controller.php?classroom_id=<?= $id ?>" class=" text-dark text-decoration-none border-0 btn btn-light ">Grades</a>
+            <a href="../../controllers/teach/grades.controller.php?classroom_id=<?= $id ?>" class=" text-dark text-decoration-none border-primary btn btn-light ">Grades</a>
         </div>
         <div style="padding-right: 50px;">
             <i class="fa fa-gear" style="font-size:25px; padding-right: 25px;"></i>
@@ -26,7 +26,7 @@ $studentNumber = count($students);
     </div>
     <div class="container">
         <div>
-            <div class="d-flex mt-5 flex-row justify-content-between" style="margin-left: 150px; border-bottom: 1px solid black; width: 70%">
+            <div class="d-flex mt-5 flex-row border-bottom border-primary justify-content-between" style="margin-left: 150px; width: 70%">
                 <p style="font-size: 35px;">Teachers</p>
                 <a data-bs-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
                     <i class="fa fa-user-plus" style="font-size: 20px; padding-top: 20px; padding-left: 15px; "></i>
@@ -95,8 +95,13 @@ $studentNumber = count($students);
         </div>
     </div>
     <div class="container">
+<<<<<<< HEAD
         <div class="mt-5 d-flex flex-row justify-content-between" style="margin-left: 150px; border-bottom: 1px solid black; width: 70%">
             <p style="font-size: 35px;">Students</p>
+=======
+        <div class="mt-5 d-flex flex-row justify-content-between border-bottom border-primary" style="margin-left: 150px; width: 70%">
+            <p style="font-size: 35px;">Student</p>
+>>>>>>> develop
             <a data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
                 <p style="font-size: 20px;"><?= $studentNumber . " students" ?><i class="fa fa-user-plus" style="font-size: 20px; padding-top: 20px; padding-left: 15px; "></i></p>
             </a>

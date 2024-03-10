@@ -12,17 +12,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['email'])) {
         $email = $_POST['email'];
         $mail = new PHPMailer(true);
-
         try {
             $mail->isSMTP();
             $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'entheun7@gmail.com';
-            $mail->Password   = 'gayj ybvm mvtf opdv';
+            $mail->Username   = 'senghak.chhun@student.passerellsenumeriques.org';
+            $mail->Password   = 'cpfm pjlh yihy wlqu';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port       = 465;
 
-            $mail->setFrom('entheun7@gmail.com', 'ET HERO');
+            $mail->setFrom('senghak.chhun@student.passerellsenumeriques.org', 'ET HERO');
             $mail->addAddress($email, 'THEUN ET');
 
             $mail->isHTML(true);

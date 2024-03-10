@@ -17,7 +17,7 @@
 
   <div class="pt-3 d-flex flex-row border-bottom" style="font-size:20px;background: #FFFF;">
 
-      <a href="../../controllers/enrollment/classwork.controller.php?classroom_id=<?= $id ?>" class="ml-5 text-dark text-decoration-none border-0 " style=" margin-right: 25px;"><i class="fa fa-close"></i></a>
+      <a href="../../controllers/teach/classwork.controller.php?classroom_id=<?= $id ?>" class="ml-5 text-dark text-decoration-none border-0 " style=" margin-right: 25px;"><i class="fa fa-close"></i></a>
       <i class="fa fa-file-text-o" style=" margin-right: 25px; margin-top: 8px;"></i>
       <p>Meterial</p>
   </div>
@@ -39,12 +39,7 @@
     <div class="form-group">
       <label for="files">Choose Files:</label>
       <input type="file" class="form-control-file border p-2 rounded " id="files" name="files" multiple accept=".pdf, .doc, .docx" required>
-      
-    </div>
-    <div class="form-group bg-light rounded p-3">
-        <label for="post_date">DateLine:</label>
-        <input type="post_date" class="form-control" id="date" name="post_date">
-    </div>
+
 
 
     <!-- <a href="controllers/enrollment/enrollment.controller.php"> -->

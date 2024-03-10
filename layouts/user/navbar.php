@@ -5,84 +5,60 @@ require_once "models/classroom/get.user.model.php";
 require_once "models/classroom/select.classrooms.model.php";
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $item = [
-	'home' => [],
-	'calendar' => [],
-	'enrollment' => [],
-	'teach' => [],
-	'todo' => [],
-	'archive' => [],
+	'home' => "",
+	'calendar' => "",
+	'enrollment' => "",
+	'teach' => "",
+	'todo' => "",
+	'archive' => "",
 ];
-if ($uri == '/home') {
-	$item['home'] = ['#FBFCFC', 'black'];
-} else {
-	$item['home'] = ['', ''];
+if ($uri == "/home") {
+	$item['home'] = "bg-light";
+} else if ($uri == "/archive") {
+	$item['archive'] = "bg-light";
+} else if ($uri == "/todo") {
+	$item['todo'] = "bg-light";
 }
-if ($uri == '/calendar') {
-	$item['calendar'] = ['#FBFCFC', 'black'];
-} else {
-	$item['calendar'] = ['', ''];
-}
-if ($uri == '/enrollment') {
-	$item['enrollment'] = ['#FBFCFC', 'black'];
-} else {
-	$item['enrollment'] = ['', ''];
-}
-if ($uri == '/teach') {
-	$item['teach'] = ['#FBFCFC', 'black'];
-} else {
-	$item['teach'] = ['', ''];
-}
-if ($uri == '/todo') {
-	$item['todo'] = ['#FBFCFC', 'black'];
-} else {
-	$item['todo'] = ['', ''];
-}
-if ($uri == '/archive') {
-	$item['archive'] = ['#FBFCFC', 'black'];
-} else {
-	$item['archive'] = ['', ''];
-}
-
-
 ?>
 <!-- Sidebar -->
-<ul class="navbar-nav  bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar" style="background: #040720;">
+<ul class="navbar-nav sidebar sidebar-dark  accordion" id="accordionSidebar">
 	<!-- Sidebar - Brand -->
-	<a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-		<div class="sidebar-brand-text mx-4">E-Classroom</div>
+	<a class="sidebar-brand d-flex border-bottom align-items-center justify-content-center" style="margin-bottom: -17px;" href="/">
+		<img src="../../assets/images/logo.svg" style="width: 150px;">
+		<!-- <div class="sidebar-brand-text mx-4 text-primary">E-Classroom</div> -->
 	</a>
 	<!-- Divider -->
 	<hr class="sidebar-divider">
 
 	<!-- Nav Item - Pages Collapse Menu -->
 	<li class="nav-item  ">
-		<a class="nav-link rounded-0" style="background: <?= $item['home'][0] ?>;" href="/home">
-			<i class='fas fa-home' style="color: <?= $item['home'][1] ?>"></i>
-			<span style='font-size: 17px;color:<?= $item['home'][1] ?>'>Home</span>
+		<a class="nav-link rounded-0 <?= $item['home'] ?>" href="/home">
+			<i class='fas fa-home text-dark'></i>
+			<span style='font-size: 17px;' class="text-dark"><b>Home</b></span>
 		</a>
 	</li>
 	<!-- Nav Item - Charts -->
 	<li class="nav-item ">
-		<a class="nav-link rounded-0" style="background: <?= $item['calendar'][0] ?> " href="../../controllers/calendar/calendar.controller.php">
-			<i class='far fa-calendar-alt' ​​​ style="color: <?= $item['calendar'][1] ?>"></i>
-			<span style='font-size: 17px;color:<?= $item['calendar'][1] ?>'>Calendar</span>
+		<a class="nav-link rounded-0" href="../../controllers/calendar/calendar.controller.php">
+			<i class='far fa-calendar-alt text-dark' ​​></i>
+			<span style='font-size: 17px' class="text-dark"><b>Calendar</b></span>
 		</a>
 	</li>
 	<!-- Nav Item - Charts -->
 	<li class="nav-item">
-		<a class="nav-link rounded-0" style="background: <?= $item['todo'][0] ?>" href="/todo">
-			<i class='fas fa-book' style="color: <?= $item['todo'][1] ?>;"></i>
-			<span style='font-size: 17px; color:<?= $item['todo'][1] ?>'>To do</span>
+		<a class="nav-link rounded-0 <?= $item['todo'] ?>" href="/todo">
+			<i class='fas fa-book text-dark'></i>
+			<span style='font-size: 17px' class="text-dark"><b>To do</b></span>
 		</a>
 	</li>
 	<!-- Nav Item - Tables -->
-	<li class="nav-item <?= $item['teach'][0] ?>">
+	<li class="nav-item">
 		<a class="nav-link collapsed " href="/#" data-toggle="collapse" data-target="#listTeach" aria-expanded="true" aria-controls="listTeach">
-			<i class='fas fa-chalkboard-teacher' style="color: <?= $item['teach'][1] ?>;"></i>
-			<span style='font-size: 17px;color:<?= $item['teach'][1] ?>'>Teaching</span>
+			<i class='fas fa-chalkboard-teacher text-dark'></i>
+			<span style='font-size: 17px' class="text-dark"><b>Teaching</b></span>
 		</a>
 		<div id="listTeach" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-			<div class="bg-white py-2 collapse-inner rounded">
+			<div class="bg-light py-2 collapse-inner rounded">
 				<?php
 				$email = $_SESSION['user'][1];
 				$user = getUser($email);
@@ -97,12 +73,12 @@ if ($uri == '/archive') {
 		</div>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link" style="background:<?= $item['enrollment'][0] ?>" href="/#" data-toggle="collapse" data-target="#listenroll" aria-expanded="true" aria-controls="listenroll">
-			<i class='fas fa-chalkboard-teacher' style="color: <?= $item['enrollment'][1] ?>;"></i>
-			<span style="font-size: 17px;  color:<?= $item['enrollment'][1] ?>">Enrollment</span>
+		<a class="nav-link" href="/#" data-toggle="collapse" data-target="#listenroll" aria-expanded="true" aria-controls="listenroll">
+			<i class='fas fa-chalkboard-teacher text-dark'></i>
+			<span style="font-size: 17px" class="text-dark"><b>Enrollment</b></span>
 		</a>
-		<div id="listenroll" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-			<div class="bg-white py-2 collapse-inner rounded">
+		<div id="listenroll" class="collapse " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+			<div class="bg-light py-2 collapse-inner rounded">
 				<?php
 				$classroom = getClasses($user_id);
 				foreach ($classroom as $class) {
@@ -113,9 +89,9 @@ if ($uri == '/archive') {
 		</div>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link rounded-0" style="background:<?= $item['archive'][0] ?>" href="/archive">
-			<i class='fas fa-archive' style="color: <?= $item['archive'][1] ?>;"></i>
-			<span style="font-size: 17px;  color:<?= $item['archive'][1] ?>">Archive</span>
+		<a class="nav-link rounded-0 <?= $item['archive'] ?>" href="/archive">
+			<i class='fas fa-archive text-dark'></i>
+			<span style="font-size: 17px" class="text-dark"><b>Archive</b></span>
 		</a>
 	</li>
 	<!-- Divider -->
@@ -127,10 +103,10 @@ if ($uri == '/archive') {
 </ul>
 <!-- Content Wrapper -->
 </div>
-<div id="content-wrapper " class="d-flex flex-column col-10" style="background: #FBFCFC;">
+<div id="content-wrapper " class="d-flex border-left flex-column col-10" style="background: #FFFFFE;">
 	<div class="d-flex justify-content-end flex-column">
 		<div class="d-flex justify-content-end align-items-center m-3">
-			<div class="navbar  navbar-expand-lg navbar-light p-1 h-1" style="height: 30px;">
+			<div class="navbar  navbar-expand-lg p-1 h-1" style="height: 30px;">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
