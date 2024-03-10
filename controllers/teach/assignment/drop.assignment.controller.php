@@ -18,19 +18,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $fileType = $file['type'];
     $fileExt = explode('.', $fileName);
     $fileActualExt = strtolower(end($fileExt));
-    $allowed = array('jpg', 'png', 'jpeg', 'pdf', 'pptx', 'zip');
+    $allowed = array('jpg', 'png', 'jpeg', 'pdf', 'pptx', 'zip', 'txt', 'docx', 'gif', 'xlsx', 'html', 'json', 'js', 'css');
     $postDate = date("Y-m-d h:i:sa");
     if ($file) {
         if (in_array($fileActualExt, $allowed)) {
             if ($fileError == 0) {
-                if ($fileSize < 10000000) {
-                    $fileDestination = '../../assets/files/' . $fileName;
+                if ($fileSize < 100000000) {
+                    $fileNameNew = uniqid('', 'true') . "." . $fileActualExt;
+                    $fileDestination = '../../../assets/files/' . $fileNameNew;
                     move_uploaded_file($fileTemName, $fileDestination);
+                    print_r($fileName);
+                    print_r($fileDestination);
                 }
             }
+        } else {
+            echo "<script> alert('can not upload this file') </script>";
         }
     }
-    createAssignment($title, $postDate, $classroom_id, $dateline, $description, $fileDestination, $user_id, $score);
+    createAssignment($title, $postDate, $classroom_id, $dateline, $description, $fileDestination, $user_id, $score, $fileName);
     header("location: ../classwork.controller.php?classroom_id=$classroom_id");
 };
 ?>

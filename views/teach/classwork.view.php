@@ -16,13 +16,10 @@ $students = listStudents($id);
 
 <div class="d-flex flex-row ml-3 border-secondary" style="margin-top: -10px;">
     <div>
-        <a href="../../controllers/teach/class.controller.php?classroom_id=<?= $id ?>"
-            class="text-dark text-decoration-none border-0 btn btn-light  ">Stream</a>
-        <a href="#" class="text-dark text-decoration-none border-0 btn btn-warning">Classwork</a>
-        <a href="../../controllers/teach/people.controller.php?classroom_id=<?= $id ?>"
-            class="text-dark text-decoration-none border-0 btn btn-light  ">People</a>
-        <a href="../../controllers/teach/grades.controller.php?classroom_id=<?= $id ?>"
-            class="text-dark text-decoration-none border-0 btn btn-light  ">Grades</a>
+        <a href="../../controllers/teach/class.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">Stream</a>
+        <a href="#" class="text-white text-decoration-none border-0 btn btn-primary">Classwork</a>
+        <a href="../../controllers/teach/people.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">People</a>
+        <a href="../../controllers/teach/grades.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">Grades</a>
     </div>
     <div style="padding-right: 50px;">
         <i class="fa fa-gear" style="font-size:25px; padding-right: 25px;"></i>
@@ -33,8 +30,7 @@ $students = listStudents($id);
 <div class="mt-4" style="margin-left: 15%;">
 
     <div class="dropdown">
-        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-            aria-expanded="false">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa fa-plus" style=" color: white; font-size:20px; "><span class="p-2">Create</span></i>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -52,7 +48,8 @@ $students = listStudents($id);
             <li><a class="dropdown-item" href="#">Something else here</a></li>
         </ul>
     </div>
-    <div class="d-flex flex-column mt-4">
+    <h4 class="mt-4">Assignments</h4>
+    <div class="d-flex flex-column ">
         <?php
         if (count($allAssignments) > 0) {
             foreach ($allAssignments as $assignment) {
@@ -71,7 +68,7 @@ $students = listStudents($id);
                                     d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1z" />
                             </svg>
                         </div>
-                        <p class="ml-2 mt-3 text-dark"><?= $assignment['title'] ?></p>
+                        <p class="ml-2 mt-3 text-dark">You post a new assignment: <?= $assignment['title'] ?></p>
                     </div>
                     <div class="d-flex align-items-center justify-content-between">
                         <p class="mt-3 fw-bold" style="margin-right: -20px;">
@@ -134,13 +131,21 @@ $students = listStudents($id);
                                 <h2>0</h2>
                                 <p>Turn in</p>
                             </div>
-                            <div class="border-left col">
-                                <h2><?= count($students) ?></h2>
-                                <p>Assign</p>
-                            </div>
-                            <div class="border-left col">
-                                <h2>0</h2>
-                                <p>Grades</p>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="border-left col">
+                                        <h2>0</h2>
+                                        <p>Turn in</p>
+                                    </div>
+                                    <div class="border-left col">
+                                        <h2><?= count($students) ?></h2>
+                                        <p>Assign</p>
+                                    </div>
+                                    <div class="border-left col">
+                                        <h2>0</h2>
+                                        <p>Grades</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -189,7 +194,7 @@ $students = listStudents($id);
                                 d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1z" />
                         </svg>
                     </div>
-                    <p class="ml-2 mt-3 text-dark"><?= $user_name ?> posted a new material: <?= $material['title'] ?></p>
+                    <p class="ml-2 mt-3 text-dark">You posted a new material: <?= $material['title'] ?></p>
                 </div>
                 <div class="d-flex align-items-center justify-content-between">
                         <p class="mt-3 fw-bold" style="margin-right: -20px;">
