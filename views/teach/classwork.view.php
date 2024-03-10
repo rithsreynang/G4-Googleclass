@@ -12,6 +12,7 @@ $user = getUser($email);
 $user_name = getUser($email)['username'];
 $user_id = $user[0];
 $students = listStudents($id);
+$index = 0;
 ?>
 <div class="d-flex flex-row ml-3 border-secondary" style="margin-top: -10px;">
     <div>
@@ -46,11 +47,11 @@ $students = listStudents($id);
     <div class="d-flex flex-column ">
         <?php
         if (count($allAssignments) > 0 or count($allMaterials) > 0) {
-            echo "<h4 class='mt-4'>Assignments</h4>";
+                echo "<h4 class='mt-5'>Assignments</h4> <hr class='dropdown-divider border-primary' style='width: 790px;'>    ";
             foreach ($allAssignments as $assignment) {
         ?>
-                <div class="card p-0 rounded border border-primary mt-3 col-10">
-                    <div class="d-flex align-items-center card-header p-0  justify-content-between col-12">
+                <div class="card p-0 rounded border-0 mt-3 col-10">
+                    <div class="d-flex align-items-center border card-header p-0  justify-content-between col-12">
                         <div class=" d-flex flex-row justify-content-between col-11" data-bs-toggle="collapse" href="#collapse<?= $assignment['assignment_id'] ?>" role="button" aria-expanded="false" aria-controls="collapse<?= $assignment['assignment_id'] ?>">
                             <div class="d-flex align-items-center">
                                 <div class="rounded-circle d-flex" style="background-color: #289AE3 ; padding: 7px; color: white">
@@ -98,7 +99,7 @@ $students = listStudents($id);
                             </div>
                         </div>
                     </div>
-                    <div class="collapse border-top p-3 card-body " id="collapse<?= $assignment['assignment_id'] ?>">
+                    <div class="collapse border rounded-bottom p-3 card-body " id="collapse<?= $assignment['assignment_id'] ?>">
                         <p>Post <?php
                                 $post = date_create($assignment['post_date']);
                                 echo date_format($post, "M - d , H:i");
@@ -145,14 +146,15 @@ $students = listStudents($id);
             <?php
             if (count($allMaterials) > 0){
                 ?>
-                <h4 class="mt-4">Materials</h4>
+                <h4 class="mt-5">Materials</h4>
+                <hr class="dropdown-divider border-primary " style="width: 790px;">
             <?php
             }
             foreach ($allMaterials as $material) {
             ?>
-                <div class="card p-0 rounded border border-primary mt-3 col-10">
-                    <div class="d-flex align-items-center card-header p-0  justify-content-between col-12">
-                        <div class=" d-flex flex-row justify-content-between col-11" data-bs-toggle="collapse" href="#collapse<?= trim($material['title']) ?>" role="button" aria-expanded="false" aria-controls="collapse<?= trim($material['title']) ?>">
+                <div class="card p-0 rounded border-0 mt-3 col-10">
+                    <div class="d-flex align-items-center border card-header p-0 justify-content-between col-12">
+                        <div class=" d-flex flex-row justify-content-between col-11" data-bs-toggle="collapse" href="#collapse<?= $index ?>" role="button" aria-expanded="false" aria-controls="collapse<?=  $index ?>">
                             <div class="d-flex align-items-center">
                                 <div class="rounded-circle d-flex" style="background-color: #289AE3 ; padding: 7px; color: white">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-text-fill" viewBox="0 0 16 16">
@@ -194,11 +196,12 @@ $students = listStudents($id);
 
                         </div>
                     </div>
-                    <div class="collapse border-top p-3 card-body " id="collapse<?= trim($material['title']) ?>">
-                        <a href="../../controllers/teach/assignment.detail/instructions.controller.php" class="btn btn-primary">View Instruction</a>
+                    <div class="collapse border rounded-bottom p-3 card-body " id="collapse<?=  $index ?>">
+                        <a href="../../controllers/teach/assignment.detail/instructions.controller.php" class="btn btn-primary">View Material</a>
                     </div>
                 </div>
             <?php
+            $index--;
             }
             ?>
     </div>
@@ -212,6 +215,7 @@ $students = listStudents($id);
     </div>
 <?php
         }
+        
 ?>
 </div>
 

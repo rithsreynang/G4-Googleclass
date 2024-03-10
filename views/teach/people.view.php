@@ -25,7 +25,7 @@ $students = listStudents($id);
     </div>
     <div class="container">
         <div>
-            <div class="d-flex mt-5 flex-row justify-content-between" style="margin-left: 150px; border-bottom: 1px solid black; width: 70%">
+            <div class="d-flex mt-5 flex-row border-bottom border-primary justify-content-between" style="margin-left: 150px; width: 70%">
                 <p style="font-size: 35px;">Teachers</p>
                 <i class="fa fa-user-plus" style="font-size: 20px; padding-top: 20px; padding-left: 15px; "></i>
             </div>
@@ -71,7 +71,7 @@ $students = listStudents($id);
         </div>
     </div>
     <div class="container">
-        <div class="mt-5 d-flex flex-row justify-content-between" style="margin-left: 150px; border-bottom: 1px solid black; width: 70%">
+        <div class="mt-5 d-flex flex-row justify-content-between border-bottom border-primary" style="margin-left: 150px; width: 70%">
             <p style="font-size: 35px;">Student</p>
             <a data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
                 <i class="fa fa-user-plus" style="font-size: 20px; padding-top: 20px; padding-left: 15px; "></i>
