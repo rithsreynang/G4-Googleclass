@@ -3,6 +3,7 @@ require_once "../../layouts/class/header.php";
 require_once "../../layouts/class/navbar.php";
 require_once "../../models/classroom/select.teacher.model.php";
 require_once "../../models/classroom/select.student.model.php";
+
 $id = $_GET['classroom_id'];
 $teachers = getTeacher($id);
 $teacherCreateClass = getTeacherInclass($id);
@@ -72,7 +73,35 @@ $students = listStudents($id);
     <div class="container">
         <div class="mt-5 d-flex flex-row justify-content-between" style="margin-left: 150px; border-bottom: 1px solid black; width: 70%">
             <p style="font-size: 35px;">Student</p>
-            <i class="fa fa-user-plus" style="font-size: 20px; padding-top: 20px; padding-left: 15px; "></i>
+            <a data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                <i class="fa fa-user-plus" style="font-size: 20px; padding-top: 20px; padding-left: 15px; "></i>
+            </a>
+        </div>
+        <div class="row" style="width: 900px; ">
+            <div class="col">
+                <div class="collapse multi-collapse" id="multiCollapseExample1">
+                    <div class="card col-xl-12 d-flex flex-column justify-content-center align-items-center" style="position: fixed; top:0px; left:0;border:none;  height:100vh; width:100%; background-color: rgba(0,0,0,0.3); z-index:15;">
+                        <div class="bg-white p-3 col-xl-6 " style="width:35%; height:60vh;">
+                            <form action="../../controllers/email/email.controller.php?classroom_id=<?= $_GET['classroom_id'] ?>" method="post" enctype="multipart/form-data">
+                                <h4 class="text-success mt-1 mb-4 border-bottom">Invite link</h4>
+                                <div class="text-success mt-1 mb-4  border-bottom">
+                                    <?php
+                                    if (isset($_SESSION['linkURL'])) {
+                                        echo '<p>Invite link</p>';
+                                        echo '<a href=""> ' . $links . '</a>';
+                                    }
+                                    ?>
+                                </div>
+                                <input type="email" class="form-control mt-3" name="email" placeholder="Type an email">
+                                <div class="d-flex justify-content-end mt-2">
+                                    <a href="" class="btn btn-light">cancel</a>
+                                    <button type="submit" class="btn btn-primary">Send</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div>
             <?php foreach ($students as $student) { ?>
