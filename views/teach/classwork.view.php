@@ -16,10 +16,10 @@ $index = 0;
 ?>
 <div class="d-flex flex-row ml-3 border-secondary" style="margin-top: -10px;">
     <div>
-        <a href="../../controllers/teach/class.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-1 border-primary btn btn-light ">Stream</a>
-        <a href="#" class="text-white text-decoration-none btn btn-primary border-1 border-primary">Classwork</a>
-        <a href="../../controllers/teach/people.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-1 border-primary btn btn-light   ">People</a>
-        <a href="../../controllers/teach/grades.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-1 border-primary btn btn-light   ">Grades</a>
+        <a href="../../controllers/teach/class.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none  btn btn-light ">Stream</a>
+        <a href="#" class="text-white text-decoration-none btn btn-primary ">Classwork</a>
+        <a href="../../controllers/teach/people.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none  btn btn-light   ">People</a>
+        <a href="../../controllers/teach/grades.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none  btn btn-light   ">Grades</a>
     </div>
     <div style="padding-right: 50px;">
         <i class="fa fa-gear" style="font-size:25px; padding-right: 25px;"></i>
@@ -40,7 +40,7 @@ $index = 0;
     <div class="d-flex flex-column ">
         <?php
         if (count($allAssignments) > 0 or count($allMaterials) > 0) {
-                echo "<h4 class='mt-5'>Assignments</h4> <hr class='dropdown-divider border-primary' style='width: 790px;'>    ";
+            echo "<h4 class='mt-5'>Assignments</h4> <hr class='dropdown-divider border-primary' style='width: 790px;'>    ";
             foreach ($allAssignments as $assignment) {
         ?>
                 <div class="card p-0 rounded-1 mt-3 col-10">
@@ -103,9 +103,17 @@ $index = 0;
                                     echo "am";
                                 }
                                 ?></p>
-                        <div class="row">
-                            <div class="col">
+                        <div class="row d-flex align-items-center">
+                            <div class="col ">
                                 <p><?= $assignment['description'] ?></p>
+                                <a href="<?= $assignment['path_file'] ?>" target="_blank">
+                                    <div class="d-flex rounded mb-3 shadow-sm" style="border: 1px solid #EDEAE0;">
+                                        <img src="../../assets/files/file.png" height="60px" class="border-right p-2">
+                                        <div class="card-title p-1" style="font-size: 15px;"><?= $assignment['file'] ?></div>
+                                    </div>
+                                </a>
+                                <div class="card col-5 d-flex">
+                                </div>
                             </div>
                             <div class="col">
                                 <div class="row">
@@ -128,7 +136,7 @@ $index = 0;
                                 </div>
                             </div>
                         </div>
-                        <div class="card-footer p-1 mt-1">
+                        <div class="p-1 mt-1">
                             <a href="../../controllers/teach/assignment.detail/instructions.controller.php" class="btn btn-primary">View Instruction</a>
                         </div>
                     </div>
@@ -137,8 +145,8 @@ $index = 0;
             }
             ?>
             <?php
-            if (count($allMaterials) > 0){
-                ?>
+            if (count($allMaterials) > 0) {
+            ?>
                 <h4 class="mt-5">Materials</h4>
                 <hr class="dropdown-divider border-primary " style="width: 790px;">
             <?php
@@ -147,7 +155,7 @@ $index = 0;
             ?>
                 <div class="card p-0 rounded border-0 mt-3 col-10">
                     <div class="d-flex align-items-center border card-header p-0 justify-content-between col-12">
-                        <div class=" d-flex flex-row justify-content-between col-11" data-bs-toggle="collapse" href="#collapse<?= $index ?>" role="button" aria-expanded="false" aria-controls="collapse<?=  $index ?>">
+                        <div class=" d-flex flex-row justify-content-between col-11" data-bs-toggle="collapse" href="#collapse<?= $index ?>" role="button" aria-expanded="false" aria-controls="collapse<?= $index ?>">
                             <div class="d-flex align-items-center">
                                 <div class="rounded-circle d-flex" style="background-color: #289AE3 ; padding: 7px; color: white">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-text-fill" viewBox="0 0 16 16">
@@ -189,12 +197,22 @@ $index = 0;
 
                         </div>
                     </div>
-                    <div class="collapse border rounded-bottom p-3 card-body " id="collapse<?=  $index ?>">
+                    <div class="collapse border rounded-bottom p-3 card-body " id="collapse<?= $index ?>">
+                        <div class="col ">
+                            <a href="<?= $material['path_file'] ?>" target="_blank">
+                                <div class="d-flex rounded mb-3 shadow-sm" style="border: 1px solid #EDEAE0;">
+                                    <img src="../../assets/files/file.png" height="60px" class="border-right p-2">
+                                    <div class="card-title p-1" style="font-size: 15px;"><?= $material['title'] ?></div>
+                                </div>
+                            </a>
+                            <div class="card col-5 d-flex">
+                            </div>
+                        </div>
                         <a href="../../controllers/teach/assignment.detail/instructions.controller.php" class="btn btn-primary">View Material</a>
                     </div>
                 </div>
             <?php
-            $index--;
+                $index--;
             }
             ?>
     </div>
@@ -208,7 +226,7 @@ $index = 0;
     </div>
 <?php
         }
-        
+
 ?>
 </div>
 

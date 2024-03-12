@@ -3,41 +3,54 @@ require_once "../../../models/teach/assignment/drop.assignment.model.php";
 require_once "../../../models/classroom/get.user.model.php";
 $fileDestination = "";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    //set time in phonm penh
     date_default_timezone_set("Asia/Phnom_Penh");
-    $classroom_id = $_GET['classroom_id'];
-    $user_id = $_GET['user_id'];
-    $title = $_POST['title'];
-    $description = $_POST['description'];
-    $score = $_POST['fullscore'];
-    $dateline = $_POST['dateline'];
-    $file = $_FILES['file'];
-    $fileName = $file['name'];
-    $fileTemName = $_FILES['file']['tmp_name'];
-    $fileSize = $file['size'];
-    $fileError = $file['error'];
-    $fileType = $file['type'];
-    $fileExt = explode('.', $fileName);
-    $fileActualExt = strtolower(end($fileExt));
+
+    //get asssignment info
+    $classroom_id = htmlspecialchars($_GET['classroom_id']);
+    $user_id = htmlspecialchars($_GET['user_id']);
+    $title = htmlspecialchars($_POST['title']);
+    $description = htmlspecialchars($_POST['description']);
+    $score = htmlspecialchars($_POST['fullscore']);
+
+    //get datetime of assignment
+    $dateline = htmlspecialchars($_POST['dateline']);
+
+
+    $targetDir = "../../../assets/files/"; // Corrected target directory
+    $targetFile = $targetDir . basename($_FILES["file"]["name"]);
+    $uploadOk = 1;
+    $fileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
     $allowed = array('jpg', 'png', 'jpeg', 'pdf', 'pptx', 'zip', 'txt', 'docx', 'gif', 'xlsx', 'html', 'json', 'js', 'css');
-    $postDate = date("Y-m-d h:i:sa");
-    if ($file) {
-        if (in_array($fileActualExt, $allowed)) {
-            if ($fileError == 0) {
-                if ($fileSize < 100000000) {
-                    $fileNameNew = uniqid('', 'true') . "." . $fileActualExt;
-                    $fileDestination = '../../../assets/files/' . $fileNameNew;
-                    move_uploaded_file($fileTemName, $fileDestination);
-                    print_r($fileName);
-                    print_r($fileDestination);
-                }
-            }
+
+    // Check file size
+    if ($_FILES["file"]["size"] > 5000000) { // Adjust the size limit as needed (5MB in this case)
+        echo "Sorry, your file is too large.";
+        $uploadOk = 0;
+    }
+    if (!in_array($fileType, $allowed)) {
+        echo "Sorry, only PDF, DOCX, and XLSX files are allowed.";
+        $uploadOk = 0;
+    }
+    if ($uploadOk == 0) {
+        echo "Sorry, your file was not uploaded.";
+    } else {
+        if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFile)) {
+            $filename = basename($_FILES["file"]["name"]);
+            $filepath = $targetFile;
+            print_r($filename);
         } else {
-            echo "<script> alert('can not upload this file') </script>";
+            echo "Sorry, there was an error uploading your file.";
         }
     }
-    createAssignment($title, $postDate, $classroom_id, $dateline, $description, $fileDestination, $user_id, $score, $fileName);
+    $postDate = date("Y-m-d h:i:sa");
+    createAssignment($title, $postDate, $classroom_id, $dateline, $description, $filename, $user_id, $score, $filepath);
     header("location: ../classwork.controller.php?classroom_id=$classroom_id");
 };
+
+
+
+
 ?>
 <script>
     $("#createAssignment").submit(function(e) {
