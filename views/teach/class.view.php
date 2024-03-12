@@ -32,7 +32,7 @@ $students = listStudents($id);
 
     <div>
         <div class="d-flex flex-row justify-content-between p-3">
-            <div class=" d-flex flex-column" >
+            <div class=" d-flex flex-column">
                 <div class="p-3 border shadow-sm rounded">
                     <h6>Class code</h6>
                     <div class="d-flex justify-content-between align-items-center">
@@ -54,8 +54,7 @@ $students = listStudents($id);
                     <?php
                     if (count($allMaterials) > 0 && count($allAssignments) > 0) {
                         foreach ($allMaterials as $material) {
-                    ?>
-                            <div class="card p-0 rounded mt-3 col-10">
+                    ?> <div class="card p-0 rounded mt-3 col-10">
                                 <div class="d-flex align-items-center card-header p-0  justify-content-between col-12">
                                     <div class=" d-flex flex-row justify-content-between col-11" data-bs-toggle="collapse" href="#collapse<?= $material['material_id'] ?>" role="button" aria-expanded="false" aria-controls="collapse<?= $material['material_id'] ?>">
                                         <div class="d-flex align-items-center">
@@ -151,74 +150,26 @@ $students = listStudents($id);
                                         </div>
                                     </div>
                                 </div>
-                                <div class="collapse border rounded-bottom p-3 card-body " id="collapse<?= $assignment['assignment_id'] ?>">
-                                    <p>Post <?php
-                                            $post = date_create($assignment['post_date']);
-                                            echo date_format($post, "M - d , H:i");
-                                            $hour =  date_format($post, "H");
-                                            if ($hour > 11) {
-                                                echo "pm";
-                                            } else {
-                                                echo "am";
-                                            }
-                                            ?></p>
-                                    <div class="row d-flex align-items-center">
-                                        <div class="col ">
-                                            <p><?= $assignment['description'] ?></p>
-                                            <a href="<?= $assignment['path_file'] ?>" target="_blank">
-                                                <div class="d-flex rounded mb-3 shadow-sm" style="border: 1px solid #EDEAE0;">
-                                                    <img src="../../assets/files/file.png" height="60px" class="border-right p-2">
-                                                    <div class="card-title p-1" style="font-size: 15px;"><?= $assignment['file'] ?></div>
-                                                </div>
-                                            </a>
-                                            <div class="card col-5 d-flex">
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="row">
-                                                        <div class="border-left col">
-                                                            <h2>0</h2>
-                                                            <p>Turn in</p>
-                                                        </div>
-                                                        <div class="border-left col">
-                                                            <h2><?= count($students) ?></h2>
-                                                            <p>Assign</p>
-                                                        </div>
-                                                        <div class="border-left col">
-                                                            <h2>0</h2>
-                                                            <p>Grades</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="p-1 mt-1">
-                                        <a href="../../controllers/teach/assignment.detail/instructions.controller.php" class="btn btn-primary">View Instruction</a>
-                                    </div>
-                                </div>
                             </div>
                         <?php
                         }
                         ?>
-                        
+
                 </div>
-                <?php
-                    }else{
-                    ?>
-                    <div class="border d-flex flex-row rounded col-10">
-                        <img src="../../assets/images/classroom/03.jpg" alt="" width=300px; height=300px;>
-                        <div class="mt-5">
-                            <p style="font-size: 30px;">This is where you can talk to your class</p>
-                            <p>Use the stream to share announcements, post assignments, and respond o student questions</p>
-                            <i class="fa fa-gear" style="padding: 10px; border: 1px solid grey; border-radius: 5px; margin-left:73%; margin-top:10px;"><span class="p-2">Stream settings</span></i>
-                        </div>
+            <?php
+                    } else {
+            ?>
+                <div class="border d-flex flex-row rounded col-10">
+                    <img src="../../assets/images/classroom/03.jpg" alt="" width=300px; height=300px;>
+                    <div class="mt-5">
+                        <p style="font-size: 30px;">This is where you can talk to your class</p>
+                        <p>Use the stream to share announcements, post assignments, and respond o student questions</p>
+                        <i class="fa fa-gear" style="padding: 10px; border: 1px solid grey; border-radius: 5px; margin-left:73%; margin-top:10px;"><span class="p-2">Stream settings</span></i>
                     </div>
-                    <?php
+                </div>
+            <?php
                     }
-                    ?>
+            ?>
             </div>
 
         </div>
