@@ -28,17 +28,17 @@
 
     <div class="form-group">
       <label for="title">Title:</label>
-      <input type="text" class="form-control" id="title" name="title" required>
+      <input type="text" class="form-control" id="title" name="title" placeholder="Enter the title of material...">
     </div>
 
     <div class="form-group">
       <label for="description">Description:</label>
-      <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+      <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter the description of the material.. "></textarea>
     </div>
 
     <div class="form-group">
       <label for="files">Choose Files:</label>
-      <input type="file" class="form-control-file border p-2 rounded " id="files" name="files" multiple accept=".pdf, .doc, .docx" required>
+      <input type="file" class="form-control-file border p-2 rounded " id="files" name="files" multiple accept=".pdf, .doc, .docx" ">
 
 
 

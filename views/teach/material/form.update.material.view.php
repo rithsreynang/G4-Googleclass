@@ -1,9 +1,10 @@
 
 <?php
-require_once "../../../models/teach/assignment/get.an.assignment.model.php";
+require_once "../../../models/teach/material/get.an.meterial.model.php";
 $classroom_id = $_GET['classroom_id'];
 $material_id = $_GET['material_id'];
-// $material = getAllMaterials($classroom_id, $material_id);
+$material = getMaterial($classroom_id, $material_id);
+// print_r ($material);
 
 
 ?>
@@ -23,11 +24,11 @@ $material_id = $_GET['material_id'];
         <p>Update Material</p>
     </div>
     <div class="m-3">
-        <form action="../../../?classroom_id=<?= $classroom_id ?>&material_id=<?= $material_id ?>" class="d-flex justify-content-center align-items-center" method="post" enctype="multipart/form-data">
+        <form action="../../../controllers/teach/material/confirm.update.material.controller.php?classroom_id=<?= $classroom_id ?>&material_id=<?= $material_id ?>" class="d-flex justify-content-center align-items-center" method="post" enctype="multipart/form-data">
             <div class="col-9">
                 <div class="form-group p-3 bg-light rounded mt-3">
                     <label for="title">Title:</label>
-                    <input type="text" class="form-control" value="<?= $materials['title'] ?>" id="title" placeholder="Title of material" name="title">
+                    <input type="text" class="form-control" value="<?= $material['title'] ?>" id="title" placeholder="Title of material" name="title">
                 </div>
                 <div class="form-group p-3 bg-light rounded">
                     <label for="description">Description:</label>
@@ -36,6 +37,10 @@ $material_id = $_GET['material_id'];
                 <div class="form-group​ p-3 bg-light rounded">
                     <label for="files">Choose Files:</label>
                     <input type="file" class="form-control-file border p-2 rounded" value="<?= $material['file'] ?>" id="files" name="file">
+                </div>
+                <div class="d-flex justify-content-end mt-3">
+                    <a onclick="history.back()" class="ml-5 btn btn-light border border-primary text-dark text-decoration-none border-0 " style=" margin-right: 25px;">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </div>
             </div>
            
