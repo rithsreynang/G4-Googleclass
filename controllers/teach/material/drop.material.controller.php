@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $discription = $_POST['description'];
 
     //get file info
-    $targetDir = "../../../assets/files/"; // Corrected target directory
+    $targetDir = "../../../assets/files/"; 
     $targetFile = $targetDir . basename($_FILES["file"]["name"]);
     $uploadOk = 1;
     $fileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));

@@ -9,11 +9,7 @@ $id = $_GET['classroom_id'];
 $class = getClassroom($id);
 $class_code = $class['class_code'];
 $allAssignments = getAllAssignment($id);
-<<<<<<< HEAD
-$allMaterials= getAllMaterials($id);
-=======
 $allMaterials = getAllMaterials($id);
->>>>>>> bf100a9b9921662ce5dc5cecb0216292140b92ed
 $email = $_SESSION['user'][1];
 $user = getUser($email);
 $user_name = getUser($email)['username'];
@@ -229,198 +225,10 @@ $students = listStudents($id);
                         ?>
 
                 </div>
-<<<<<<< HEAD
-
-                <div class="p-3 d-flex flex-column mt-4 w-100 " style="margin-left: 8%;">
-                <?php
-                    if (count($allMaterials) > 0) {
-                        foreach ($allMaterials as $material) {
-                        
-                ?>
-                    <div class="card shadow-sm p-0 rounded mt-3" style="width: 84%;">
-                        <div class="d-flex align-items-center card-header p-0  justify-content-between col-12">
-                            <div class=" d-flex flex-row justify-content-between col-11" data-bs-toggle="collapse"
-                                href="#collapse<?= $material['material_id'] ?>" role="button" aria-expanded="false"
-                                aria-controls="collapse<?= $material['material_id'] ?>">
-                                <div class="d-flex align-items-center">
-                                    <div class="rounded-circle d-flex" style="background-color: #289AE3 ; padding: 7px; color: white">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                            class="bi bi-file-earmark-text-fill" viewBox="0 0 16 16">
-                                            <path
-                                                d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1z" />
-                                        </svg>
-                                    </div>
-                                    <p class="ml-2 mt-3 text-dark"><?= $user_name ?> posted a new material: <?= $material['title'] ?></p>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-between">
-                                        <p class="mt-3 fw-bold" style="margin-right: -20px;">
-                                            <?php if (!empty($material['date_post'])) {
-                                                        // echo $material['date_post'];
-                                                        $date = date_create($material['date_post']);
-                                                        echo date_format($date, "M - d , H:i");
-                                                        $hour =  date_format($date, "H");
-                                                        if ($hour > 11) {
-                                                            echo "pm";
-                                                        } else {
-                                                            echo "am";
-                                                        }
-                                                    } else {
-                                                        echo "No due date";
-                                                    }
-                                                    ?>
-                                        </p>
-                                    </div>
-
-                            </div>
-                            <div style="margin-right: 20px;">
-                                <div class="dropdown" style="color: blue">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="dropdown-toggle" type="button"
-                                        id="dropdownMenuassignment" data-bs-toggle="dropdown" aria-expanded="false" width="22"
-                                        height="22" fill="currentColor"
-                                        class="bi bi-three-dots-vertical d-flex justify-content-center mr-5" viewBox="0 0 16 16">
-                                        <path
-                                            d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
-                                    </svg>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuassignment">
-                                        <li><a class="dropdown-item" href="#">Edit</a></li>
-                                        <li><a class="dropdown-item" href="#">Delete</a></li>
-                                        <li><a class="dropdown-item" href="#">Copy Link</a></li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </div>
-                    
-                    </div>
-                <?php
-                }
-                ?>
-            <?php
-                    }
-            ?>
-            </div>           
-
-            <div class="d-flex flex-column  " style=" margin-left: -5%; margin-top: -1%">
-                    <?php
-                    if (count($allAssignments) > 0) {
-                        foreach ($allAssignments as $assignment) {
-                    ?>
-                    <div class="card shadow-sm p-0 rounded mt-3 " style="margin-left: 13.8%; width:77.5%;">
-                        <div class="d-flex align-items-center card-header p-0  justify-content-between col-12">
-                            <div class=" d-flex flex-row justify-content-between col-11" data-bs-toggle="collapse"
-                                href="#collapse<?= $assignment['assignment_id'] ?>" role="button" aria-expanded="false"
-                                aria-controls="collapse<?= $assignment['assignment_id'] ?>">
-                                <div class="d-flex align-items-center">
-                                    <div class="rounded-circle d-flex"
-                                        style="background-color: #289AE3 ; padding: 7px; color: white">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                            class="bi bi-file-earmark-text-fill" viewBox="0 0 16 16">
-                                            <path
-                                                d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1z" />
-                                        </svg>
-                                    </div>
-                                    <p class="ml-2 mt-3 text-dark">You post a new assignment: <?= $assignment['title'] ?></p>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <p class="mt-3 fw-bold" style="margin-right: -20px;">
-                                        <?php if (!empty($assignment['dateline'])) {
-                                                    // echo $assignment['dateline'];
-                                                    $date = date_create($assignment['dateline']);
-                                                    echo "Due " . date_format($date, "M - d , H:i");
-                                                    $hour =  date_format($date, "H");
-                                                    if ($hour > 11) {
-                                                        echo "pm";
-                                                    } else {
-                                                        echo "am";
-                                                    }
-                                                } else {
-                                                    echo "No due date";
-                                                }
-                                                ?>
-                                    </p>
-                                </div>
-                            </div>
-                            <div style="margin-right: 20px;">
-                                <div class="dropdown" style="color: blue">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="dropdown-toggle" type="button"
-                                        id="dropdownMenuassignment" data-bs-toggle="dropdown" aria-expanded="false" width="22"
-                                        height="22" fill="currentColor"
-                                        class="bi bi-three-dots-vertical d-flex justify-content-center mr-5" viewBox="0 0 16 16">
-                                        <path
-                                            d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
-                                    </svg>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuassignment">
-                                        <li><a class="dropdown-item"
-                                                href="../../../controllers/teach/assignment/update.assignment.controller.php?classroom_id=<?= $id ?>&assignment_id=<?= $assignment['assignment_id'] ?>">Edit</a>
-                                        </li>
-                                        <li><a class="dropdown-item"
-                                                href="../../controllers/enrollment/create.material.controller.php?classroom_id=<?= $id ?>">Delete</a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="#">Copy Link</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="collapse border-top p-3 card-body " id="collapse<?= $assignment['assignment_id'] ?>">
-                            <p>Post <?php
-                                            $post = date_create($assignment['post_date']);
-                                            echo date_format($post, "M - d , H:i");
-                                            $hour =  date_format($post, "H");
-                                            if ($hour > 11) {
-                                                echo "pm";
-                                            } else {
-                                                echo "am";
-                                            }
-                                            ?></p>
-                            <div class="row">
-                                <div class="col">
-                                    <p><?= $assignment['description'] ?></p>
-                                </div>
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="border-left col">
-                                            <h2>0</h2>
-                                            <p>Turn in</p>
-                                        </div>
-                                        <div class="col">
-                                            <div class="row">
-                                                <div class="border-left col">
-                                                    <h2>0</h2>
-                                                    <p>Turn in</p>
-                                                </div>
-                                                <div class="border-left col">
-                                                    <h2><?= count($students) ?></h2>
-                                                    <p>Assign</p>
-                                                </div>
-                                                <div class="border-left col">
-                                                    <h2>0</h2>
-                                                    <p>Grades</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-footer p-1 mt-1">
-                                <a href="../../controllers/teach/assignment.detail/instructions.controller.php"
-                                    class="btn btn-primary">View Instruction</a>
-                            </div>
-                        </div>
-                    </div>
-                    <?php
-                        }
-                    ?>
-            </div>
-            <?php
-                    } else {
-            ?>
-            <div class="border d-flex flex-row rounded">
-=======
                 <?php
                     } else {
             ?>
                 <div class="border d-flex flex-row rounded col-10">
->>>>>>> bf100a9b9921662ce5dc5cecb0216292140b92ed
                     <img src="../../assets/images/classroom/03.jpg" alt="" width=300px; height=300px;>
                     <div class="mt-5">
                         <p style="font-size: 30px;">This is where you can talk to your class</p>
@@ -430,21 +238,12 @@ $students = listStudents($id);
                             style="padding: 10px; border: 1px solid grey; border-radius: 5px; margin-left:73%; margin-top:10px;"><span
                                 class="p-2">Stream settings</span></i>
                     </div>
-<<<<<<< HEAD
-            </div>
-            <?php
-                    }
-            ?>
-            </div>               
-            
-=======
                 </div>
                 <?php
                     }
             ?>
             </div>
 
->>>>>>> bf100a9b9921662ce5dc5cecb0216292140b92ed
         </div>
     </div>
 </div>

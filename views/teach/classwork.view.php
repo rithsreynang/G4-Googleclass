@@ -43,27 +43,6 @@ $index = 0;
             echo "<h4 class='mt-5'>Assignments</h4> <hr class='dropdown-divider border-primary' style='width: 790px;'>    ";
             foreach ($allAssignments as $assignment) {
         ?>
-<<<<<<< HEAD
-        <div class="card shadow-sm p-0 rounded mt-3 col-10">
-            <div class="d-flex align-items-center card-header p-0  justify-content-between col-12">
-                <div class=" d-flex flex-row justify-content-between col-11" data-bs-toggle="collapse"
-                    href="#collapse<?= $assignment['assignment_id'] ?>" role="button" aria-expanded="false"
-                    aria-controls="collapse<?= $assignment['assignment_id'] ?>">
-                    <div class="d-flex align-items-center">
-                        <div class="rounded-circle d-flex"
-                            style="background-color: #289AE3 ; padding: 7px; color: white">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                class="bi bi-file-earmark-text-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1z" />
-                            </svg>
-                        </div>
-                        <p class="ml-2 mt-3 text-dark">You post a new assignment: <?= $assignment['title'] ?></p>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <p class="mt-3 fw-bold" style="margin-right: -20px;">
-                            <?php if (!empty($assignment['dateline'])) {
-=======
                 <div class="card p-0 rounded-1 mt-3 col-10">
                     <div class="d-flex align-items-center card-header  p-0  justify-content-between col-12">
                         <div class=" d-flex flex-row justify-content-between col-11" data-bs-toggle="collapse" href="#collapse<?= $assignment['assignment_id'] ?>" role="button" aria-expanded="false" aria-controls="collapse<?= $assignment['assignment_id'] ?>">
@@ -78,7 +57,6 @@ $index = 0;
                             <div class="d-flex align-items-center justify-content-between">
                                 <p class="mt-3 fw-bold" style="margin-right: -20px;">
                                     <?php if (!empty($assignment['dateline'])) {
->>>>>>> bf100a9b9921662ce5dc5cecb0216292140b92ed
                                         // echo $assignment['dateline'];
                                         $date = date_create($assignment['dateline']);
                                         echo "Due " . date_format($date, "M - d , H:i");
@@ -174,29 +152,6 @@ $index = 0;
             <?php
             }
             foreach ($allMaterials as $material) {
-<<<<<<< HEAD
-               
-        ?>
-    <div class="card shadow-sm p-0 rounded mt-3" style="width: 84%;">
-        <div class="d-flex align-items-center card-header p-0  justify-content-between col-12">
-            <div class=" d-flex flex-row justify-content-between col-11" data-bs-toggle="collapse"
-                href="#collapse<?= $material['material_id'] ?>" role="button" aria-expanded="false"
-                aria-controls="collapse<?= $material['material_id'] ?>">
-                <div class="d-flex align-items-center">
-                    <div class="rounded-circle d-flex" style="background-color: #289AE3 ; padding: 7px; color: white">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                            class="bi bi-file-earmark-text-fill" viewBox="0 0 16 16">
-                            <path
-                                d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1z" />
-                        </svg>
-                    </div>
-                    <p class="ml-2 mt-3 text-dark">You posted a new material: <?= $material['title'] ?></p>
-                </div>
-                <div class="d-flex align-items-center justify-content-between">
-                        <p class="mt-3 fw-bold" style="margin-right: -20px;">
-                            <?php if (!empty($material['date_post'])) {
-                                        // echo $material['date_post'];
-=======
             ?>
                 <div class="card p-0 rounded border-0 mt-3 col-10">
                     <div class="d-flex align-items-center border card-header p-0 justify-content-between col-12">
@@ -212,7 +167,6 @@ $index = 0;
                             <div class="d-flex align-items-center justify-content-between">
                                 <p class="mt-3 fw-bold" style="margin-right: -20px;">Posted
                                     <?php if (!empty($material['date_post'])) {
->>>>>>> bf100a9b9921662ce5dc5cecb0216292140b92ed
                                         $date = date_create($material['date_post']);
                                         echo date_format($date, "M - d , H:i");
                                         $hour =  date_format($date, "H");
@@ -256,8 +210,6 @@ $index = 0;
                         </div>
                         <a href="../../controllers/teach/assignment.detail/instructions.controller.php" class="btn btn-primary">View Material</a>
                     </div>
-<<<<<<< HEAD
-=======
 
             </div>
             <div style="margin-right: 20px;">
@@ -274,7 +226,6 @@ $index = 0;
                         <li><a class="dropdown-item" href="#">Delete</a></li>
                         <li><a class="dropdown-item" href="#">Copy Link</a></li>
                     </ul>
->>>>>>> update-material
                 </div>
             <?php
                 $index--;

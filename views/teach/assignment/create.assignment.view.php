@@ -36,7 +36,7 @@ $user_id = $_GET['user_id'];
         </div>
         <div class="form-group border border-primary mt-3 p-3 bg-light rounded">
           <label for="files" class="text-primary">Choose Files:</label>
-          <input type="file" class="form-control-file border-none p-2 rounded" id="files" name="file">
+          <input type="file" class="form-control-file border-none p-2 rounded" id="file" name="file">
         </div>
         <div class="d-flex bg-light border border-primary rounded justify-center-between mt-2">
           <div class="form-group p-3 col-6 bg-light rounded">
