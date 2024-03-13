@@ -24,15 +24,7 @@ $students = listStudents($id);
 </div>
 
 <div class="mt-4" style="margin-left: 15%;">
-
-    <div class="dropdown">
-        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa fa-plus" style=" color: white; font-size:20px; "><span class="p-2">View all Assignment</span></i>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="../../controllers/enrollment/detail.instruction.controller.php?classroom_id=<?= $id ?>">Assignment</a></li>
-        </ul>
-    </div>
+    <i class="fa fa-plus" style=" color: white; font-size:20px; "><a class="btn btn-primary" href="../../controllers/enrollment/detail.assignment.controller.php?classroom_id=<?= $id ?>" style="width: 200px;">View all assignment</a></i>
     <h4 class="mt-4">Assignments</h4>
     <div class="d-flex flex-column ">
         <?php
@@ -113,7 +105,7 @@ $students = listStudents($id);
                             </div>
                         </div>
                         <div class="card-footer p-1 mt-1">
-                            <a href="../../controllers/teach/assignment.detail/instructions.controller.php" class="btn btn-primary">View Instruction</a>
+                            <a href="../../controllers/enrollment/instruction.controller.php" class="btn btn-primary">View Instruction</a>
                         </div>
                     </div>
                 </div>

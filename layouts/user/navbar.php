@@ -110,7 +110,7 @@ if ($uri == "/home") {
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<img class="rounded-circle"  src="assets/images/profile/<?= $profileName ?>" alt="avatar" style="height: 50px;">
+							<img class="rounded-circle"  src="assets/images/profile/<?= $profileName ?>" alt="avatar" style="height: 40px;">
 						</a>
 						<div class="dropdown-menu dropdown-menu-right p-1 shadow-sm" aria-labelledby="navbarDropdownProfile">
 							<ul class=" nav navbar bg-white d-flex justify-content-center">
