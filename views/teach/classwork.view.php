@@ -190,7 +190,7 @@ $index = 0;
                                 </svg>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuassignment">
                                     <li><a class="dropdown-item" href="#">Edit</a></li>
-                                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                                    <li><a class="dropdown-item" href="../../controllers/teach/material/delete.material.controller.php?material_id=<?= $material['material_id'] ?>&classroom_id=<?= $material['classroom_id']?>">Delete</a></li>
                                     <li><a class="dropdown-item" href="#">Copy Link</a></li>
                                 </ul>
                             </div>

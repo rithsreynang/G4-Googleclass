@@ -87,7 +87,7 @@ $students = listStudents($id);
                 </div>
             </div>
             <!-- CONTENT FOR SHOW ALL LESSON AND CREATE LESSON -->
-            <div class="">
+            <div class="mt-4">
                 <div class="d-flex flex-column" style="margin-left: 140px">
                     <?php
                     if (count($allMaterials) > 0 && count($allAssignments) > 0) {
