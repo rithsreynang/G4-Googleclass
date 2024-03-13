@@ -10,6 +10,8 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
     <title>E - CLASSROOM</title>
+    <link rel="shortcut icon" href="../assets/images/favicon.ico">
+
     <!-- Bootstrap icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">

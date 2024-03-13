@@ -1,47 +1,51 @@
 <?php
-// Import PHPMailer classes into the global namespace
-// These must be at the top of your script, not inside a function
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-// Load Composer's autoloader
-require '../../vendor/autoload.php';
+$id = $_GET["classroom_id"];
+$url = '../../views/teach/send.email.invite/join.view.email.php?classroom_id=' . $id;
+require_once '../../vendor/autoload.php';
 
-// Get values from input
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['email'])) {
         $email = $_POST['email'];
-
-        // Create an instance; passing `true` enables exceptions
         $mail = new PHPMailer(true);
-
         try {
-            // Server settings
-            $mail->isSMTP();                                      // Send using SMTP
-            $mail->Host       = 'smtp.gmail.com';                 // Set the SMTP server to send through
-            $mail->SMTPAuth   = true;                             // Enable SMTP authentication
-            $mail->Username   = 'entheun7@gmail.com';           // SMTP username (your Gmail address)
-            $mail->Password   = 'gayj ybvm mvtf opdv';            // SMTP password (your Gmail password)
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;      // Enable implicit TLS encryption
-            $mail->Port       = 465;                              // TCP port to connect to; use 587 if you have set SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS
+            $mail->isSMTP();
+            $mail->Host       = 'smtp.gmail.com';
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'senghak.chhun@student.passerellsenumeriques.org';
+            $mail->Password   = 'cpfm pjlh yihy wlqu';
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+            $mail->Port       = 465;
 
-            // Recipients
-            $mail->setFrom('entheun7@gmail.com', 'ET HERO');
-            $mail->addAddress($email, 'THEUN ET');             // Add a recipient
+            $mail->setFrom('senghak.chhun@student.passerellsenumeriques.org', 'ET HERO');
+            $mail->addAddress($email, 'THEUN ET');
 
-            // Content
-            $mail->isHTML(true);                                  // Set email format to HTML
-            $mail->Subject = 'Here is the subject';
-            $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+            $mail->isHTML(true);
+            $mail->Subject = 'Class invitation: Join Classroom';
+            $mail->Body = '
+                <div class="card" style="background:#FFFFF4; width: 80%;">
+                    <div class="card-body" style="padding: 10px; color: purple;">
+                        <h3 class="card-title" style="text-align: center;">Hello Student!!</h3>
+                        <h3 class="card-title" style="text-align: center;">Welcome to my classroom</h3>
+                        <p class="card-text text-center">From: ' . "ET Name" . '</p>
+                        <p class="card-text text-center">To: ' . $email . '</p>
+                        <p class="card-text text-center">Class link: <a href="' . $class_code . '">' . $class_code . '</a></p>
+                    </div>
+                </div>';
             $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
             $mail->send();
-            echo 'Message has been send successfully';
+
+            // Email sent successfully, show alert message
+            echo "<script>alert('Email sent successfully.');</script>";
+            header("location: ../../views/teach/people.view.php?classroom_id=$id");
+            exit();
         } catch (Exception $e) {
-            echo "Message couldn't sent to client. Mailer Error: {$mail->ErrorInfo}";
+            echo "Message couldn't be sent to the client. Mailer Error: {$mail->ErrorInfo}";
         }
     }
 }
-?>
-

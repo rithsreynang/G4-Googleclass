@@ -1,22 +1,16 @@
 <?php
-require_once "../../../models/teach/assignment/drop.assignment.model.php";
+$classroom_id = $_GET['classroom_id'];
+require_once "../../../models/teach/material/drop.material.model.php";
 require_once "../../../models/classroom/get.user.model.php";
 $fileDestination = "";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    //set time in phonm penh
     date_default_timezone_set("Asia/Phnom_Penh");
 
-    //get asssignment info
-    $classroom_id = htmlspecialchars($_GET['classroom_id']);
-    $user_id = htmlspecialchars($_GET['user_id']);
-    $title = htmlspecialchars($_POST['title']);
-    $description = htmlspecialchars($_POST['description']);
-    $score = htmlspecialchars($_POST['fullscore']);
+    //get title, description
+    $title = $_POST['title'];
+    $discription = $_POST['description'];
 
-    //get datetime of assignment
-    $dateline = htmlspecialchars($_POST['dateline']);
-
-
+    //get file info
     $targetDir = "../../../assets/files/"; // Corrected target directory
     $targetFile = $targetDir . basename($_FILES["file"]["name"]);
     $uploadOk = 1;
@@ -38,35 +32,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFile)) {
             $filename = basename($_FILES["file"]["name"]);
             $filepath = $targetFile;
-            print_r($filename);
         } else {
             echo "Sorry, there was an error uploading your file.";
         }
     }
     $postDate = date("Y-m-d h:i:sa");
-    createAssignment($title, $postDate, $classroom_id, $dateline, $description, $filename, $user_id, $score, $filepath);
-    header("location: ../classwork.controller.php?classroom_id=$classroom_id");
-};
-
-
-
-
-?>
-<script>
-    $("#createAssignment").submit(function(e) {
-
-        e.preventDefault(); // avoid to execute the actual submit of the form which will reload the page
-
-        var form = $(this); //get the form
-
-        $.ajax({
-            type: "POST",
-            url: "The php script posting the form to",
-            data: form.serialize(), // serializes the form's elements.
-            success: function(data) {
-                // show response from the php script.
-            }
-        });
-
-    });
-</script>
+    $material = createMaterial($filename, $discription, $title, $postDate, $classroom_id, $filepath);
+    if ($material) {
+        header("Location: ../classwork.controller.php?classroom_id=$classroom_id");
+    } else {
+        header("Location: ./create.material.view.php?classroom_id=$classroom_id");
+    }
+}
