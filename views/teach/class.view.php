@@ -231,7 +231,7 @@ $students = listStudents($id);
                 </div>
 <<<<<<< HEAD
 
-                <div class="d-flex flex-column mt-4" style="margin-left: 15%;">
+                <div class="p-3 d-flex flex-column mt-4 w-100 " style="margin-left: 8%;">
                 <?php
                     if (count($allMaterials) > 0) {
                         foreach ($allMaterials as $material) {
@@ -300,12 +300,12 @@ $students = listStudents($id);
             ?>
             </div>           
 
-            <div class="d-flex flex-column ">
+            <div class="d-flex flex-column  " style=" margin-left: -5%; margin-top: -1%">
                     <?php
                     if (count($allAssignments) > 0) {
                         foreach ($allAssignments as $assignment) {
                     ?>
-                    <div class="card shadow-sm p-0 rounded mt-3 " style="margin-left: 15%; width:71.5%;">
+                    <div class="card shadow-sm p-0 rounded mt-3 " style="margin-left: 13.8%; width:77.5%;">
                         <div class="d-flex align-items-center card-header p-0  justify-content-between col-12">
                             <div class=" d-flex flex-row justify-content-between col-11" data-bs-toggle="collapse"
                                 href="#collapse<?= $assignment['assignment_id'] ?>" role="button" aria-expanded="false"

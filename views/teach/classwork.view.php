@@ -256,6 +256,25 @@ $index = 0;
                         </div>
                         <a href="../../controllers/teach/assignment.detail/instructions.controller.php" class="btn btn-primary">View Material</a>
                     </div>
+<<<<<<< HEAD
+=======
+
+            </div>
+            <div style="margin-right: 20px;">
+                <div class="dropdown" style="color: blue">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="dropdown-toggle" type="button"
+                        id="dropdownMenuassignment" data-bs-toggle="dropdown" aria-expanded="false" width="22"
+                        height="22" fill="currentColor"
+                        class="bi bi-three-dots-vertical d-flex justify-content-center mr-5" viewBox="0 0 16 16">
+                        <path
+                            d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
+                    </svg>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuassignment">
+                        <li><a class="dropdown-item" href="../../controllers/teach/material/upload.material.controller.php?classroom_id=<?= $id ?>&material_id=<?= $material['material_id'] ?>">Edit</a></li>
+                        <li><a class="dropdown-item" href="#">Delete</a></li>
+                        <li><a class="dropdown-item" href="#">Copy Link</a></li>
+                    </ul>
+>>>>>>> update-material
                 </div>
             <?php
                 $index--;
