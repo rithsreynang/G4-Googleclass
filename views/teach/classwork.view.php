@@ -83,7 +83,7 @@ $index = 0;
                                         <a class="dropdown-item" href="../../../controllers/teach/assignment/update.assignment.controller.php?classroom_id=<?= $id ?>&assignment_id=<?= $assignment['assignment_id'] ?>">Edit</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="../../controllers/enrollment/create.material.controller.php?classroom_id=<?= $id ?>">Delete</a>
+                                        <a class="dropdown-item" href="../../controllers/teach/assignment/delete.assignment.controller.php?classroom_id=<?= $id ?>&assing_id =<?= $assignment['assignment_id'] ?>">Delete</a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="#">Copy Link</a>
