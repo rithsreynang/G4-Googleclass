@@ -22,8 +22,8 @@ $studentNumber = count($students);
             <i class="fa fa-gear" style="font-size:25px; padding-right: 25px;"></i>
             <i class="fa fa-calendar-o" style="font-size:20px; padding-right: 15px;"></i>
         </div>
-    </div>
-    <div class="container">
+    </div>        
+    <div class="container border-8 shadow-sm">
         <div>
             <div class="d-flex mt-5 flex-row justify-content-between" style="margin-left: 150px; border-bottom: 1px solid black; width: 70%">
                 <p style="font-size: 35px;">Teachers</p>
