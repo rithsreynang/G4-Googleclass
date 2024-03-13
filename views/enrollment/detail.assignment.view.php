@@ -23,10 +23,10 @@ $students = listStudents($id);
 
 <div class="mt-4" style="margin-left: 5%; border-top: 1px solid grey; width:85%">
 <div class="dropdown mt-4">
-    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="width:180px;">
-        <span id="selectedText">Select an option</span>
+    <button class="btn border border-8 shadow-sm" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="width: 250px">
+        <span class="p-2" id="selectedText">Select your option</span>
     </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="width:250px;">
         <li><a class="dropdown-item" href="#" onclick="updateSelectedText('All')">All</a></li>
         <li><a class="dropdown-item" href="#" onclick="updateSelectedText('Assigned')">Assigned</a></li>
         <li><a class="dropdown-item" href="#" onclick="updateSelectedText('Turned in')">Turned in</a></li>
@@ -37,7 +37,7 @@ $students = listStudents($id);
 <style>
     .dropdown-toggle {
         display: flex;
-        justify-content: flex-end;
+        justify-content: flex-start;
         align-items: center;
     }
     

@@ -85,7 +85,7 @@ require_once "../../layouts/class/navbar.php";
                             <div class="bg-white p-3 col-xl-4 " style="width:30%; height:20vh; border-radius:10px;">
                                 <form action="" method="post" enctype="multipart/form-data">
                                     <p class="mt-1 mb-4">Make as done?</p>
-                                    <p class="mt-4" style="font-size: 14px;">You didn't attach work for "Career Plan Report", so your teacher will just see it's done.</p>
+                                    <p class="mt-4" style="font-size: 14px;">You didn't attach work for "ET HOMEWORK", so your teacher will just see it's done.</p>
                                     <div class="d-flex justify-content-end" style="margin-top: 20px;">
                                         <a href="" class="btn btn-light">cancel</a>
                                         <button type="submit" class="btn btn-light"><span style="color:teal;">Make as done</span></button>
