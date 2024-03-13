@@ -7,14 +7,16 @@ $id = $_GET['classroom_id'];
 $teachers = getTeacher($id);
 $teacherCreateClass = getTeacherInclass($id);
 $students = listStudents($id);
+$studentNumber = count($students);
+
 ?>
 
 <div class="">
     <div class=" d-flex flex-row ml-3  border-secondary" style="margin-top: -10px;">
         <div>
-            <a href="../../controllers/enrollment/classwork.controller.php?classroom_id=<?= $id ?>" class=" text-dark text-decoration-none border-0 btn btn-light ">Stream</a>
+            <a href="../../controllers/enrollment/enrollment.controller.php?classroom_id=<?= $id ?>" class=" text-dark text-decoration-none border-0 btn btn-light ">Stream</a>
             <a href="../../controllers/enrollment/classwork.controller.php?classroom_id=<?= $id ?>" class=" text-dark text-decoration-none border-0 btn btn-light ">Classwork</a>
-            <a href="#" class="text-dark text-decoration-none btn btn-warning text-white">People</a>
+            <a href="#" class="text-white text-decoration-none btn btn-primary text-white">People</a>
         </div>
         <div style="padding-right: 50px;">
             <i class="fa fa-gear" style="font-size:25px; padding-right: 25px;"></i>
@@ -25,7 +27,6 @@ $students = listStudents($id);
         <div>
             <div class="d-flex mt-5 flex-row justify-content-between" style="margin-left: 150px; border-bottom: 1px solid black; width: 70%">
                 <p style="font-size: 35px;">Teachers</p>
-                <i class="fa fa-user-plus" style="font-size: 20px; padding-top: 20px; padding-left: 15px; "></i>
             </div>
         </div>
         <div>
@@ -34,7 +35,7 @@ $students = listStudents($id);
             ?>
                 <div class="d-flex justify-content-between mt-2" style="margin-left: 100px; width: 79%">
                     <div class="ml-5">
-                        <img src="../../assets/images/profile/<?= $teacher['profile'] ?>" alt="profile " class="rounded-circle" style="width: 50px; height: 50px;">
+                        <img src="../../assets/images/profile/<?= $teacher['profile'] ?>" alt="profile " class="rounded-circle" style="width: 40px; height: 40px;">
                         <span style="padding-left: 15px;"><?= $teacher['username'] ?></span>
                     </div>
                     <a href="https://mail.google.com/mail/u/1/?view=cm&fs=1&to=<?= $teacher['email'] ?>&tf=1" target="_blank" class='d-flex align-items-center ml-4 justify-content-end pr-5 w-60'>
@@ -70,14 +71,14 @@ $students = listStudents($id);
     </div>
     <div class="container">
         <div class="mt-5 d-flex flex-row justify-content-between" style="margin-left: 150px; border-bottom: 1px solid black; width: 70%">
-            <p style="font-size: 35px;">Student</p>
-            <i class="fa fa-user-plus" style="font-size: 20px; padding-top: 20px; padding-left: 15px; "></i>
+            <p style="font-size: 35px;">Students</p>
+            <p style="font-size: 18px; padding-top: 20px; padding-left: 15px; "> <?= $studentNumber . " Students" ?></p>
         </div>
         <div>
             <?php foreach ($students as $student) { ?>
                 <div class="d-flex align-items-center mt-2 justify-content-between" style="margin-left: 147px; width: 70%">
                     <div>
-                        <img src="../../assets/images/profile/<?= $student["profile"] ?>" alt="profile " class="rounded-circle" style="width: 50px; height: 50px;">
+                        <img src="../../assets/images/profile/<?= $student["profile"] ?>" alt="profile " class="rounded-circle" style="width: 40px; height: 40px;">
                         <span style="padding-left: 15px;"><?= $student["username"] ?></span>
                     </div>
                     <div class="d-flex align-items-center justify-content-between" style="width: 65px;">

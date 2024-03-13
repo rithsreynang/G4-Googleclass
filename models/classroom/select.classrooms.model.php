@@ -45,9 +45,11 @@ function getClasses($id):array
         return [];
     };
 }
+
+
 function getClassroom($classroom_id) {
     global $connection;
-    $classroom = $connection->prepare("SELECT * FROM classroom  WHERE classroom_id = :classroom_id;");
+    $classroom = $connection->prepare("SELECT * FROM classroom INNER JOIN users on classroom.user_id = users.user_id WHERE classroom_id = :classroom_id;");
     $classroom->execute([':classroom_id' => $classroom_id]);
     if ($classroom->rowCount() > 0){
         return $classroom->fetch();
