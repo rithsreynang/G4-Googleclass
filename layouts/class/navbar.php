@@ -34,10 +34,11 @@ if ($uri == "/home"){
 <!-- Sidebar -->
 <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand border-bottom border-bottom-2 d-flex align-items-center justify-content-center" href="/">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
         <img src="../../assets/images/logo.svg" class="sidebar-brand-text mx-4" style="width: 150px;">
         <!-- <div class="sidebar-brand-text mx-4 text-primary">E-Classroom</div> -->
     </a>
+    <hr class="sidebar-divider bg-dark d-none d-md-block">
 
     <li class="nav-item  ">
         <a class="nav-link rounded-0 <?= $item['home'] ?>" href="/home">
@@ -110,6 +111,8 @@ if ($uri == "/home"){
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
     <!-- Sidebar Toggler (Sidebar) -->
+<hr class="sidebar-divider bg-dark d-none d-md-block">
+
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" style="background-color: gray;" id="sidebarToggle"></button>
     </div>
