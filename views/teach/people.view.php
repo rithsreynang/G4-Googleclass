@@ -96,9 +96,12 @@ $studentNumber = count($students);
     <div class="container​ card col-8 mt-3 shadow-sm" style="margin-left: 185px">
         <div class="pl-3 d-flex flex-row justify-content-between border-primary">
             <p style="font-size: 35px;">Student</p>
-            <a data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
-                <p style="font-size: 20px;"><?= $studentNumber . " students" ?><i class="fa fa-user-plus mr-3" style="font-size: 20px; padding-top: 20px; padding-left: 15px; "></i></p>
-            </a>
+            <div class="d-flex">
+                <p style="font-size: 20px; padding-top: 16px;"><?= $studentNumber . " students" ?></p>
+                <a data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                    <i class="fa fa-user-plus" style="font-size: 20px; padding-top: 20px; padding-left: 15px; "></i>
+                </a>
+            </div>
         </div>
         <div class="row">
             <div class="col ml-3">
