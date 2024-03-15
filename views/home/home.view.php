@@ -2,6 +2,7 @@
 	<?php
 	require_once "models/classroom/select.classrooms.model.php";
 	require_once "models/enrollment/join.class.model.php";
+	require_once "models/classroom/get.user.model.php";
 	if (isset($_GET['classroom_id'])) {
 		$id = $_GET['classroom_id'];
 		die();

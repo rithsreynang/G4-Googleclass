@@ -151,6 +151,7 @@ $index = 0;
                 <hr class="dropdown-divider border-primary " style="width: 790px;">
             <?php
             }
+            
             foreach ($allMaterials as $material) {
             ?>
                 <div class="card p-0 rounded border-0 mt-3 col-10">
