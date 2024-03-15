@@ -140,9 +140,7 @@ $index = 0;
                                 </div>
                             </div>
                         </div>
-                        <div class="card-footer p-1 mt-1">
-                            <a href="../../controllers/teach/instruction.view.controller.php" class="btn btn-primary">View Instruction</a>
-                        </div>
+                        <a href="../../controllers/teach/assignment.detail/instructions.controller.php" class="btn btn-primary mt-2">View Instruction</a>
                     </div>
                 </div>
             <?php
@@ -193,12 +191,11 @@ $index = 0;
                                     <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
                                 </svg>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuassignment">
-                                    <li><a class="dropdown-item" href="#">Edit</a></li>
+                                    <li><a class="dropdown-item" href="../../controllers/teach/material/upload.material.controller.php?classroom_id=<?= $id ?>&material_id=<?= $material['material_id'] ?>">Edit</a></li>
                                     <li><a class="dropdown-item" href="../../controllers/teach/material/delete.material.controller.php?material_id=<?= $material['material_id'] ?>&classroom_id=<?= $material['classroom_id'] ?>">Delete</a></li>
                                     <li><a class="dropdown-item" href="#">Copy Link</a></li>
                                 </ul>
                             </div>
-
                         </div>
                     </div>
                     <div class="collapse border rounded-bottom" id="collapse<?= $index ?>">

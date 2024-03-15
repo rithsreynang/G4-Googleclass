@@ -13,7 +13,7 @@ $class_name = "";
 if (isset($_GET['classroom_id'])){
 	$id = $_GET['classroom_id'];
 	$class = getClassroom($id) ;
-	$class_name = $class['classroom_name'];
+	// $class_name = $class['classroom_name'];
 }
 $item = [
 	'home' => "",
