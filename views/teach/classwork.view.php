@@ -111,7 +111,7 @@ $index = 0;
                                 ?>
                                     <a href="<?= $assignment['path_file'] ?>" target="_blank" style="text-decoration: none;">
                                         <div class="d-flex flex-1 align-items-center rounded shadow-sm" style="border: 1px solid #EDEAE0;">
-                                            <img src="../../assets/files/file.png" height="60px" class="border-right p-2">
+                                            <img src="../../assets/files/drive.png" height="60px" class="border-right p-2">
                                             <div class="card-title p-1" style="font-size: 15px;"><?= $assignment['file'] ?></div>
                                         </div>
                                     </a>
@@ -206,7 +206,7 @@ $index = 0;
                             <p class="mb-3"> <?= $material['description'] ?></p>
                             <a href="<?= $material['path_file'] ?>" target="_blank" style="text-decoration: none;">
                                 <div class="d-flex align-items-center rounded mb-3 shadow-sm">
-                                    <img src="../../assets/files/file.png" height="60px" class="border-right p-2">
+                                    <img src="../../assets/files/drive.png" height="60px" class="border-right p-2">
                                     <div class="card-title p-1" style="font-size: 15px;"><?= $material['file'] ?></div>
                                 </div>
                             </a>
