@@ -37,6 +37,7 @@ $assignment = getAssignment($classroom_id, $assignment_id);
                 <div class="form-group border shadow-sm bg-white mt-3 p-3  rounded">
                     <label for="files">Choose Files:</label>
                     <input type="file" class="form-control-file p-2 rounded" id="files" name="file">
+                    <small>choose file because when you update the old file will lost.</small>
                 </div>
                 <div class="d-flex bg-white border shadow-sm rounded justify-center-between mt-2">
                     <div class="form-group p-3 col-6  rounded">

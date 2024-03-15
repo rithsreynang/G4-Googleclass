@@ -31,6 +31,8 @@ $id = $_GET['classroom_id'];
       <div class="form-group">
         <label for="files">Choose Files:</label>
         <input type="file" class="form-control-file border p-2 rounded " id="files" name="file" multiple accept=".pdf, .doc, .docx" required>
+        <small>You need to input file here!</small>
+
         <!-- <a href="controllers/enrollment/enrollment.controller.php"> -->
         <button type="submit" class="btn btn-primary d-flex justify-content-end" style="margin-left: 94%;">Create</button>
         <!-- </a> -->
