@@ -4,7 +4,6 @@ require_once "../../../models/teach/material/get.an.meterial.model.php";
 $classroom_id = $_GET['classroom_id'];
 $material_id = $_GET['material_id'];
 $material = getMaterial($classroom_id, $material_id);
-// print_r ($material);
 
 
 ?>
@@ -34,10 +33,7 @@ $material = getMaterial($classroom_id, $material_id);
                     <label for="description">Description:</label>
                     <textarea class="form-control" id="description" name="description" rows="5" placeholder="Instruction (Option)"><?= $material['description']?></textarea>
                 </div>
-                <div class="form-group​ p-3 bg-light rounded">
-                    <label for="files">Choose Files:</label>
-                    <input type="file" class="form-control-file border p-2 rounded" value="<?= $material['file'] ?>" id="files" name="file">
-                </div>
+               
                 <div class="d-flex justify-content-end mt-3">
                     <a onclick="history.back()" class="ml-5 btn btn-light border border-primary text-dark text-decoration-none border-0 " style=" margin-right: 25px;">Cancel</a>
                     <button type="submit" class="btn btn-primary">Update</button>
