@@ -119,47 +119,39 @@ if ($uri == "/home"){
 </ul>
 <!-- Content Wrapper -->
 </div>
-<div id="content-wrapper" class="d-flex flex-column border-left col-10 shadow-sm" style="background-color: #FFFFFE;">
-    <div class="d-flex justify-content-end flex-column">
-        <div class="d-flex justify-content-between align-items-center m-3">
-            <h2><?= $class_name ?></h2>
-            <div class="navbar  navbar-expand-lg p-1 h-1" style="height: 30px;">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="rounded-circle" src="../../assets/images/profile/<?= $profileName ?>"
-                                alt="avatar" style="height: 50px;">
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right p-1 shadow-sm"
-                            aria-labelledby="navbarDropdownProfile">
-                            <ul class=" nav navbar bg-white d-flex justify-content-center">
-                                <li>
-                                    <div class="d-flex flex-column justify-content-center align-items-center"
-                                        style="width: 150px;">
-                                        <!-- Avatar -->
-                                        <div class="avatar me-3 m-1">
-                                            <img class="avatar-img rounded-circle shadow-sm"
-                                                src="../../assets/images/profile/<?= $profileName ?>" alt="avatar"
-                                                style="width: 40px;">
-                                        </div>
-                                        <div>
-                                            <p class="h6 text-center" href="#"><?= $_SESSION['user'][0] ?></p>
-                                            <p class=" m-0"><?= $_SESSION['user'][1] ?></p>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                </li>
-                                <!-- Links -->
-                                <li><a class="dropdown-item bg-danger-soft-hover rounded"
-                                        href="../../views/user/edit.profile.view.php">
-                                <li><i class="fas fa-fw fa-user bg-light-soft-hover shadow"></i>Edit Profile</a></li>
-                                <li><a class="dropdown-item bg-danger text-white rounded" href="/signout"><i
-                                            class="fas fa-fw fa-sign-out-alt"></i>Sign Out</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- End of Topbar -->
+<div id="content-wrapper" class="d-flex flex-column border-left col-10" style="background-color: #FFFFFE;">
+	<div class="d-flex justify-content-end flex-column">
+		<div class="d-flex justify-content-between align-items-center m-3">
+			<h2><?= $class_name ?></h2>
+			<div class="navbar  navbar-expand-lg p-1 h-1" style="height: 30px;">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<img class="rounded-circle"  src="../../assets/images/profile/<?= $profileName ?>" alt="avatar" style="height: 40px;">
+						</a>
+						<div class="dropdown-menu dropdown-menu-right p-1 shadow-sm" aria-labelledby="navbarDropdownProfile">
+							<ul class=" nav navbar bg-white d-flex justify-content-center">
+								<li>
+									<div class="d-flex flex-column justify-content-center align-items-center" style="width: 150px;">
+										<!-- Avatar -->
+										<div class="avatar me-3 m-1">
+											<img class="avatar-img rounded-circle shadow-sm" src="../../assets/images/profile/<?= $profileName ?>" alt="avatar" style="width: 40px;">
+										</div>
+										<div>
+											<p class="h6 text-center" href="#"><?= $_SESSION['user'][0] ?></p>
+											<p class=" m-0"><?= $_SESSION['user'][1] ?></p>
+										</div>
+									</div>
+									<hr>
+								</li>
+								<!-- Links -->
+								<li><a class="dropdown-item bg-danger-soft-hover rounded" href="../../views/user/edit.profile.view.php">
+								<li><i class="fas fa-fw fa-user bg-light-soft-hover shadow"></i>Edit Profile</a></li>
+								<li><a class="dropdown-item bg-danger text-white rounded"  href="/signout"><i class="fas fa-fw fa-sign-out-alt"></i>Sign Out</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- End of Topbar -->

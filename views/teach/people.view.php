@@ -93,31 +93,33 @@ $studentNumber = count($students);
             <?php } ?>
         </div>
     </div>
-    <div class="container​ card col-8 mt-3 shadow-sm" style="margin-left: 185px">
-        <div class="pl-3 d-flex flex-row justify-content-between border-primary">
-            <p style="font-size: 35px;">Student</p>
-            <div class="d-flex">
-                <p style="font-size: 20px; padding-top: 16px;"><?= $studentNumber . " students" ?></p>
-                <a data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
-                    <i class="fa fa-user-plus" style="font-size: 20px; padding-top: 20px; padding-left: 15px; "></i>
-                </a>
+    <div class="container card col-8 mt-3 shadow-sm">
+        <div>
+            <div class="d-flex flex-row justify-content-between">
+                <p style="font-size: 35px;">Students</p>
+                <div class="d-flex">
+                    <p style="font-size: 20px; padding-top: 16px;"><?= $studentNumber . " students" ?></p>
+                    <a data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                        <i class="fa fa-user-plus" style="font-size: 20px; padding-top: 20px; padding-left: 15px; "></i>
+                    </a>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col ml-3">
-                <div class="collapse multi-collapse" id="multiCollapseExample1">
-                    <div class="card col-xl-12 d-flex flex-column justify-content-center align-items-center" style="position: fixed; top:0px; left:0;border:none;  height:100vh; width:100%; background-color: rgba(0,0,0,0.3); z-index:15;">
-                        <div class="bg-white p-3 col-xl-6 " style="width:35%; height:60vh;">
-                            <form action="../../controllers/email/email.controller.php?classroom_id=<?= $_GET['classroom_id'] ?>" method="post" enctype="multipart/form-data">
-                                <p class="mt-1 mb-4">Invite students</p>
-                                <div class="text-success mt-1 mb-4">
-                                </div>
-                                <input type="email" class="form-control mt-3" name="email" placeholder="Type an email">
-                                <div class="d-flex justify-content-end border-top" style="margin-top: 120px;">
-                                    <a href="" class="btn btn-light" style="margin-top: 15px;">cancel</a>
-                                    <button type="submit" class="btn btn-primary" style="margin-top: 15px;">Send</button>
-                                </div>
-                            </form>
+            <div class="row " style="width: 900px; ">
+                <div class="col">
+                    <div class="collapse multi-collapse" id="multiCollapseExample1">
+                        <div class="card col-xl-12 d-flex flex-column justify-content-center align-items-center" style="position: fixed; top:0px; left:0;border:none;  height:100vh; width:100%; background-color: rgba(0,0,0,0.3); z-index:15;">
+                            <div class="bg-white p-3 col-xl-6 " style="width:35%; height:60vh;">
+                                <form action="../../controllers/email/email.controller.php?classroom_id=<?= $_GET['classroom_id'] ?>" method="post" enctype="multipart/form-data">
+                                    <p class="mt-1 mb-4 border-bottom">Invite students</p>
+                                    <div class="text-success mt-1 mb-4">
+                                    </div>
+                                    <input type="email" class="form-control mt-5" name="email" placeholder="Type an email">
+                                    <div class="d-flex justify-content-end" style="margin-top: 95px;">
+                                        <a href="" class="btn btn-light">cancel</a>
+                                        <button type="submit" class="btn btn-primary">Send</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
