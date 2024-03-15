@@ -83,7 +83,7 @@ $index = 0;
                                         <a class="dropdown-item" href="../../../controllers/teach/assignment/update.assignment.controller.php?classroom_id=<?= $id ?>&assignment_id=<?= $assignment['assignment_id'] ?>">Edit</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="../../controllers/teach/assignment/delete.assignment.controller.php?classroom_id=<?= $id ?>&assing_id =<?= $assignment['assignment_id'] ?>">Delete</a>
+                                        <a class="dropdown-item" href="../../controllers/teach/assignment/delete.assignment.controller.php?classroom_id=<?= $id ?>&assignment_id=<?= $assignment['assignment_id'] ?>">Delete</a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="#">Copy Link</a>
@@ -104,18 +104,22 @@ $index = 0;
                                 }
                                 ?></p>
                         <div class="row d-flex align-items-center">
-                            <div class="col ">
+                            <div class="col-8">
                                 <p><?= $assignment['description'] ?></p>
-                                <a href="<?= $assignment['path_file'] ?>" target="_blank">
-                                    <div class="d-flex rounded mb-3 shadow-sm" style="border: 1px solid #EDEAE0;">
-                                        <img src="../../assets/files/file.png" height="60px" class="border-right p-2">
-                                        <div class="card-title p-1" style="font-size: 15px;"><?= $assignment['file'] ?></div>
-                                    </div>
-                                </a>
-                                <div class="card col-5 d-flex">
-                                </div>
+                                <?php
+                                if (!empty($assignment['path_file'])) {
+                                ?>
+                                    <a href="<?= $assignment['path_file'] ?>" target="_blank" style="text-decoration: none;">
+                                        <div class="d-flex flex-1 align-items-center rounded shadow-sm" style="border: 1px solid #EDEAE0;">
+                                            <img src="../../assets/files/file.png" height="60px" class="border-right p-2">
+                                            <div class="card-title p-1" style="font-size: 15px;"><?= $assignment['file'] ?></div>
+                                        </div>
+                                    </a>
+                                <?php
+                                }
+                                ?>
                             </div>
-                            <div class="col">
+                            <div class="col-4">
                                 <div class="row">
                                     <div class="col">
                                         <div class="row">
@@ -136,9 +140,7 @@ $index = 0;
                                 </div>
                             </div>
                         </div>
-                        <div class="p-1 mt-1">
-                            <a href="../../controllers/teach/assignment.detail/instructions.controller.php" class="btn btn-primary">View Instruction</a>
-                        </div>
+                        <a href="../../controllers/teach/assignment.detail/instructions.controller.php" class="btn btn-primary mt-2">View Instruction</a>
                     </div>
                 </div>
             <?php
@@ -190,25 +192,25 @@ $index = 0;
                                 </svg>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuassignment">
                                     <li><a class="dropdown-item" href="#">Edit</a></li>
-                                    <li><a class="dropdown-item" href="../../controllers/teach/material/delete.material.controller.php?material_id=<?= $material['material_id'] ?>&classroom_id=<?= $material['classroom_id']?>">Delete</a></li>
+                                    <li><a class="dropdown-item" href="../../controllers/teach/material/delete.material.controller.php?material_id=<?= $material['material_id'] ?>&classroom_id=<?= $material['classroom_id'] ?>">Delete</a></li>
                                     <li><a class="dropdown-item" href="#">Copy Link</a></li>
                                 </ul>
                             </div>
 
                         </div>
                     </div>
-                    <div class="collapse border rounded-bottom p-3 card-body " id="collapse<?= $index ?>">
-                        <div class="col ">
-                            <a href="<?= $material['path_file'] ?>" target="_blank">
-                                <div class="d-flex rounded mb-3 shadow-sm" style="border: 1px solid #EDEAE0;">
+                    <div class="collapse border rounded-bottom" id="collapse<?= $index ?>">
+                        <div class="col card-body">
+                            <p class="mb-3"> <?= $material['description'] ?></p>
+                            <a href="<?= $material['path_file'] ?>" target="_blank" style="text-decoration: none;">
+                                <div class="d-flex align-items-center rounded mb-3 shadow-sm">
                                     <img src="../../assets/files/file.png" height="60px" class="border-right p-2">
-                                    <div class="card-title p-1" style="font-size: 15px;"><?= $material['title'] ?></div>
+                                    <div class="card-title p-1" style="font-size: 15px;"><?= $material['file'] ?></div>
                                 </div>
                             </a>
-                            <div class="card col-5 d-flex">
-                            </div>
+                            <a href="../../controllers/teach/assignment.detail/instructions.controller.php" class=" btn btn-primary">View Material</a>
                         </div>
-                        <a href="../../controllers/teach/assignment.detail/instructions.controller.php" class="btn btn-primary">View Material</a>
+
                     </div>
                 </div>
             <?php
@@ -234,4 +236,3 @@ $index = 0;
 </body>
 
 </html>
-
