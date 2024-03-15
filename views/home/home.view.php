@@ -31,7 +31,7 @@
 	$user_id = $user['user_id'];
 	$classroom = getClassroomsUnarchive($user_id);
 	$classenroll = getClasses($user_id);;
-	if (count($classroom) > 0) {
+	if (count($classroom) > 0 || count($classenroll) > 0) {
 	?>
 		<nav class="navbar" style="border-width: 3px; border-color: gray">
 			<div style="gap: 10px; ">
