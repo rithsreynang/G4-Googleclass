@@ -1,5 +1,5 @@
 <?php
-require_once "../../../database/database.php";
+require_once "database/database.php";
 function getMaterial($classroom_id, $material_id):array
 {
     global $connection;

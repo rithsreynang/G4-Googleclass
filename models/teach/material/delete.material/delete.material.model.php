@@ -1,5 +1,5 @@
 <?php
-require_once "../../../database/database.php";
+require_once "database/database.php";
 function  deleteMaterial($id) {
     global $connection;
     echo $id;

@@ -1,5 +1,5 @@
 <?php
-require "../../database/database.php";
+require "database/database.php";
 $classroom_id = $_GET['classroom_id'];
 $img_id = $_GET['img_id'];
 function changeBanner($banner, $id)

@@ -7,6 +7,12 @@ if (urlIs('/signin') || urlIs('/signup') || urlIs('/signout')) {
     require "user.router.php";
 } else if (urlIs('/join-class') || urlIs('/create-class') || urlIs('/change-banner-class')) {
     require "user.router.php";
+}else if(urlIs('/steam-teacher')|| urlIs('/classwork-teacher') || urlIs('/people-teacher') || urlIs('/grade-teacher')) {
+    require "user.router.php";
+}else if (urlIs('/steam-student') || (urlIs('/classwork-student')) || (urlIs('/people-student'))){
+    require "user.router.php";
+}else if(urlIs('/create-assignment') || (urlIs("/update-assignment"))  || (urlIs('/update-material'))){
+    require "classroom.router.php";
 } else {
     require 'router.php';
 }

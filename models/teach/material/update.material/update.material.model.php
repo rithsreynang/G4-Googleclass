@@ -1,7 +1,5 @@
 <?php
-
-require_once "../../../database/database.php";
-
+require_once "../../../../database/database.php";
 function updateMaterial($material_id, $title, $description): bool
 {
     global $connection;

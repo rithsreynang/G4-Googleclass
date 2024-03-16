@@ -17,4 +17,3 @@ function createAssignment($title, $post_date, $classroom_id, $dateline, $descrip
         ":path_file" => $file_path,
     ]);
 }
-

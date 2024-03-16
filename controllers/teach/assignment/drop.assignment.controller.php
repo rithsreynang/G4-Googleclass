@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     $postDate = date("Y-m-d h:i:sa");
     createAssignment($title, $postDate, $classroom_id, $dateline, $description, $filename, $user_id, $score, $filepath);
-    header("location: ../classwork.controller.php?classroom_id=$classroom_id");
+    header("location: /classwork-teacher");
 };
 
 
@@ -52,20 +52,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 ?>
 <script>
-    $("#createAssignment").submit(function(e) {
+$("#createAssignment").submit(function(e) {
 
-        e.preventDefault(); // avoid to execute the actual submit of the form which will reload the page
+    e.preventDefault(); // avoid to execute the actual submit of the form which will reload the page
 
-        var form = $(this); //get the form
+    var form = $(this); //get the form
 
-        $.ajax({
-            type: "POST",
-            url: "The php script posting the form to",
-            data: form.serialize(), // serializes the form's elements.
-            success: function(data) {
-                // show response from the php script.
-            }
-        });
-
+    $.ajax({
+        type: "POST",
+        url: "The php script posting the form to",
+        data: form.serialize(), // serializes the form's elements.
+        success: function(data) {
+            // show response from the php script.
+        }
     });
+
+});
 </script>

@@ -1,6 +1,5 @@
-
 <?php
-require_once "../../database/database.php";
+require_once "database/database.php";
 function getAllMaterials($id):array
 {
         global $connection;
@@ -11,7 +10,5 @@ function getAllMaterials($id):array
         } else {
             return [];
         }
-  
-
 }
 ?>

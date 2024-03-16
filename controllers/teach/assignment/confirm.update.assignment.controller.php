@@ -33,5 +33,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $assignment = updateAssignment($assignment_id, $title, $description, $fileDestination, $score, $dateline, $fileName);
         }
     }
-    header("Location: ../classwork.controller.php?classroom_id= $classroom_id");
+    header("Location: /classwork-teacher");
 }

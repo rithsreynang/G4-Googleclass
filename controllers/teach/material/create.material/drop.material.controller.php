@@ -1,17 +1,17 @@
 <?php
 $classroom_id = $_GET['classroom_id'];
-require_once "../../../models/teach/material/drop.material.model.php";
-require_once "../../../models/classroom/get.user.model.php";
+require_once "../../../../models/teach/material/create.material/drop.material.model.php";
+require_once "../../../../models/classroom/get.user.model.php";
 $fileDestination = "";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     date_default_timezone_set("Asia/Phnom_Penh");
 
     //get title, description
     $title = $_POST['title'];
-    $discription = $_POST['description'];
+    $description = $_POST['description'];
 
     //get file info
-    $targetDir = "../../../assets/files/"; // Corrected target directory
+    $targetDir = "../../../../assets/files/"; // Corrected target directory
     $targetFile = $targetDir . basename($_FILES["file"]["name"]);
     $uploadOk = 1;
     $fileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
@@ -37,10 +37,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
     $postDate = date("Y-m-d h:i:sa");
-    $material = createMaterial($filename, $discription, $title, $postDate, $classroom_id, $filepath);
+    $material = createMaterial($filename, $description, $title, $postDate, $classroom_id, $filepath);
     if ($material) {
-        header("Location: ../classwork.controller.php?classroom_id=$classroom_id");
+        header("Location: /classwork-teacher");
     } else {
-        header("Location: ./create.material.view.php?classroom_id=$classroom_id");
+        header("Location: ./create-assignment");
     }
 }

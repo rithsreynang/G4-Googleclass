@@ -1,5 +1,5 @@
 <?php
-require_once "../../../database/database.php";
+require_once "../../../../database/database.php";
 function createMaterial(string $file,string $discription, string $title, string $postDate, int $classroom_id, string $pathFile):bool
 {
     // $fileDestination, $discription, $title, $postDate, $classroom_id
@@ -15,4 +15,3 @@ function createMaterial(string $file,string $discription, string $title, string 
     ]);
     return $material->rowCount() > 0;
 };  
-
