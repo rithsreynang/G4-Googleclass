@@ -6,6 +6,7 @@ $routes = [
     '/update-assignment' => 'controllers/teach/assignment/update.assign.controller.php',
     '/create-material' => 'controllers/teach/material/create.material/create.material.form.controller.php',
     '/update-material' => 'controllers/teach/material/update.material/goto.form.update.material.controller.php',
+    '/change-banner-classroom' => 'controllers/classroom/change.banner/goto.banner.controller.php',
     
 ];
 if (array_key_exists($uri, $routes)) {

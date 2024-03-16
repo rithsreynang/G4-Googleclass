@@ -11,7 +11,7 @@ if (urlIs('/signin') || urlIs('/signup') || urlIs('/signout')) {
     require "user.router.php";
 }else if (urlIs('/steam-student') || (urlIs('/classwork-student')) || (urlIs('/people-student'))){
     require "user.router.php";
-}else if(urlIs('/create-assignment') || (urlIs("/update-assignment"))  || (urlIs('/update-material'))){
+}else if(urlIs('/create-assignment') || (urlIs("/update-assignment"))  || (urlIs('/update-material')) || (urlIs('/change-banner-classroom')) || (urlIs('/create-material'))){
     require "classroom.router.php";
 } else {
     require 'router.php';

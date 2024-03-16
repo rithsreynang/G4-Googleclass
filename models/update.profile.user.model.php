@@ -1,6 +1,6 @@
 <?php
-require "database/database.php";
-require "models/classroom/get.user.model.php";
+require "../../database/database.php";
+require "../../models/classroom/get.user.model.php";
 function  uploadProfile($profile, $email_user):bool
 {
     global $connection;

@@ -1,5 +1,5 @@
 <?php
-require_once "database/database.php";
+require_once "../../database/database.php";
 function  unarchive( int $id) {
     global $connection;
     $statement = $connection->prepare("UPDATE classroom SET status = 'unarchive' WHERE classroom_id=$id");
