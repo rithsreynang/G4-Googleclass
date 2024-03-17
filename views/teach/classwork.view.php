@@ -31,11 +31,7 @@ $index = 0;
             <i class="fa fa-plus" style=" color: white; font-size:20px; "><span class="p-2">Create</span></i>
         </button>
         <ul class="dropdown-menu shadow-sm" aria-labelledby="dropdownMenuButton1">
-<<<<<<< HEAD
-            <li><a class="dropdown-item" href="../../../controllers/teach/assignment/assign.get.id.controller.php?user_id=<?= $user_id ?>">Assignment</a>
-=======
             <li><a class="dropdown-item" href="../../../controllers/teach/assignment/create.assignment/assign.get.id.controller.php?user_id=<?= $user_id ?>">Assignment</a>
->>>>>>> 9eb1381216abbd7e6abe47d0afa0b2a57b896712
             </li>
             <li><a class="dropdown-item" href="../../controllers/teach/material/create.material/create.material.get.id.controller.php?classroom_id=<?= $id ?>">Material</a>
             </li>
@@ -84,17 +80,10 @@ $index = 0;
                                 </svg>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuassignment">
                                     <li>
-<<<<<<< HEAD
-                                        <a class="dropdown-item" href="../../../controllers/teach/assignment/update.assignment.controller.php?classroom_id=<?= $id ?>&assignment_id=<?= $assignment['assignment_id'] ?>">Edit</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="../../controllers/teach/assignment/delete.assignment.controller.php?classroom_id=<?= $id ?>&assignment_id=<?= $assignment['assignment_id'] ?>">Delete</a>
-=======
                                         <a class="dropdown-item" href="../../../controllers/teach/assignment/update.assignment/update.assignment.controller.php?classroom_id=<?= $id ?>&assignment_id=<?= $assignment['assignment_id'] ?>">Edit</a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="../../controllers/teach/assignment/delete.assignment/delete.assignment.controller.php?classroom_id=<?= $id ?>&assignment_id=<?= $assignment['assignment_id'] ?>">Delete</a>
->>>>>>> 9eb1381216abbd7e6abe47d0afa0b2a57b896712
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="#">Copy Link</a>
@@ -205,7 +194,7 @@ $index = 0;
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuassignment">
                                     <li><a class="dropdown-item" href="../../controllers/teach/material/update.material/get.material.id.controller.php?classroom_id=<?= $id ?>&material_id=<?= $material['material_id'] ?>">Edit</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="../../controllers/teach/material/delete.material.controller.php?material_id=<?= $material['material_id'] ?>&classroom_id=<?= $material['classroom_id'] ?>">Delete</a>
+                                    <li><a class="dropdown-item" href="../../controllers/teach/material/delete.material/delete.material.controller.php?material_id=<?= $material['material_id'] ?>&classroom_id=<?= $material['classroom_id'] ?>">Delete</a>
                                     </li>
                                     <li><a class="dropdown-item" href="#">Copy Link</a></li>
                                 </ul>
