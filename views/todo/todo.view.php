@@ -1,7 +1,13 @@
-<nav class="navbar navbar-sticky header-static">
-	<div class="navbar navbar-left">
-		<a href="">Assined</a>
-		<a href="">Missing</a>
-		<a href="">Done</a>
-	</div>
-</nav>
+
+<div class="border-bottom">
+    <div class="" style="margin-bottom:10px;">
+        <a href="../../controllers/todo/assigned.controller.php" class="text-dark text-decoration-none btn btn-light mt-2 link">Assigned</a>
+        <a href="../../controllers/todo/missing.controller.php" class="text-dark text-decoration-none btn btn-light mt-2 link">Missing</a>
+        <a href="#" class="text-white text-decoration-none btn btn-primary mt-2 link">Done</a>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
