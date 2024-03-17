@@ -88,7 +88,7 @@ if ($uri == "/home") {
 				foreach ($classroom as $class) {
 				?>
                 <a class="collapse-item"
-                    href="../../controllers/enrollment/enrollment.controller.php?classroom_id=<?= $class[0] ?>"><?= $class[1] ?></a>
+                    href="../../controllers/enrollment/steam/enrollment.controller.php?classroom_id=<?= $class[0] ?>"><?= $class[1] ?></a>
                 <?php  } ?>
             </div>
         </div>

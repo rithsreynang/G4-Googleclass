@@ -12,7 +12,7 @@ $studentNumber = count($students);
 <div class="">
     <div class=" d-flex flex-row ml-3  border-secondary" style="margin-top: -10px;">
         <div>
-            <a href="../../controllers/enrollment/enrollment.controller.php?classroom_id=<?= $id ?>"
+            <a href="../../controllers/enrollment/steam/enrollment.controller.php?classroom_id=<?= $id ?>"
                 class=" text-dark text-decoration-none border-0 btn btn-light ">Stream</a>
             <a href="../../controllers/enrollment/classwork/classwork.controller.php?classroom_id=<?= $id ?>"
                 class=" text-dark text-decoration-none border-0 btn btn-light ">Classwork</a>
