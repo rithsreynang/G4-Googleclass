@@ -9,6 +9,7 @@ $assign_id = 1;
 
 $id = $_GET['classroom_id'];
 $assignments = getAssignment($class_id, $assign_id);
+var_dump($assignments);
 $email = $_SESSION['user'][1];
 $user = getUser($email);
 $user_name = getUser($email)['username'];
