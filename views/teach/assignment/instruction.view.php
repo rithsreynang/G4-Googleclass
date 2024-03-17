@@ -1,21 +1,15 @@
 <?php
-require_once "../../layouts/class/header.php";
-require_once "../../layouts/class/navbar.php";
+    require_once "models/teach/assignment/get.an.assignment.model.php";
+    $assignment_id = $_SESSION['assignment_id'];
+    $assign = getAnAssignment($assignment_id);
 ?>
 
 <div class="border-bottom">
     <div class="" style="margin-bottom:10px;">
-        <a href="#" class="text-dark text-decoration-none btn btn-light mt-2 link">Instructions</a>
-        <a href="../../controllers/teach/student.work.controller.php" class="text-dark text-decoration-none btn btn-light mt-2 link">Student work</a>
+        <a href="#" class="text-white text-decoration-none btn btn-primary mt-2 link">Instructions</a>
+        <a href="controllers/teach/assignment/view.assignment/go.student.work.controller.php" class="text-dark text-decoration-none btn btn-light mt-2 link">Student work</a>
     </div>
 </div>
-<div class="d-flex flex-row ml-3 border-secondary" style="margin-top: -10px;">
-    <div style="padding-right: 50px;">
-        <i class="fa fa-gear" style="font-size:25px; padding-right: 25px;"></i>
-        <i class="fa fa-calendar-o" style="font-size:20px; padding-right: 15px;"></i>
-    </div>
-</div>
-
 <div class="mt-2" style="margin-left: 15%; display:flex; justify-content:space-between;">
     <div class="d-flex flex-column " style="width: 80%;">
         <div class="d-flex align-items-center card-header p-0  justify-content-between">
@@ -26,7 +20,7 @@ require_once "../../layouts/class/navbar.php";
                             <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1z" />
                         </svg>
                     </div>
-                    <p class="ml-2 mt-3">Homework for your</p>
+                    <p class="ml-2 mt-3"><?= $assign['title'] ?></p>
                 </div>
             </div>
             <div style="margin-right: 20px;">
@@ -49,19 +43,17 @@ require_once "../../layouts/class/navbar.php";
             </div>
         </div>
         <div class="ml-4 mt-2" style="border-bottom: 0.5px solid grey;">
-            <p>Theun En Mar 8</p>
-            <p>100point</p>
+            <p><?= "Post on". " " . $assign['post_date'] ?></p>
+            <p><?= $assign['score'] ?></p>
         </div>
         <div class="ml-4 mt-2">
-            <p>Assign to do this week</p>
+            <p><?= $assign['description'] ?></p>
         </div>
     </div>
 </div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
-<?php
-require_once "../../layouts/class/footer.php"
-?>

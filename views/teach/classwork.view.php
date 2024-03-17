@@ -140,7 +140,7 @@ $index = 0;
                                 </div>
                             </div>
                         </div>
-                        <a href="../../controllers/teach/assignment.detail/instructions.controller.php" class="btn btn-primary mt-2">View Instruction</a>
+                        <a href="../../controllers/teach/assignment/view.assignment/instruction.view.controller.php?assignment_id=<?= $assignment['assignment_id'] ?>" class="btn btn-primary mt-2">View Instruction</a>
                     </div>
                 </div>
             <?php

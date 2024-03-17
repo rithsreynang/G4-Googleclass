@@ -1,12 +1,12 @@
-<?php
-require_once "../../layouts/class/header.php";
-require_once "../../layouts/class/navbar.php";
-?>
+<?php 
 
+
+
+?>
 <div class="border-bottom">
     <div class="" style="margin-bottom:10px;">
-        <a href="../../controllers/teach/instruction.view.controller.php" class="text-dark text-decoration-none btn btn-light mt-2 link">Instructions</a>
-        <a href="#" class="text-dark text-decoration-none btn btn-light mt-2 link">Student work</a>
+        <a href="controllers/teach/assignment/view.assignment/go.instruction.contoller.php" class="text-dark text-decoration-none btn btn-light mt-2 link">Instructions</a>
+        <a href="#" class="text-white text-decoration-none btn btn-primary mt-2 link">Student work</a>
     </div>
 </div>
 <div class="border-bottom mt-2 mb-4 d-flex">
@@ -37,6 +37,7 @@ require_once "../../layouts/class/navbar.php";
                 <h4>0</h4>
                 <p>Turned in</p>
             </div>
+            <div class="border-right"></div>
             <div class="ml-4">
                 <h4>0</h4>
                 <p>Assigned</p>
@@ -71,6 +72,3 @@ require_once "../../layouts/class/navbar.php";
 </body>
 
 </html>
-<?php
-require_once "../../layouts/class/footer.php"
-?>
