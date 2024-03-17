@@ -38,7 +38,7 @@ $id = $_GET['classroom_id'];
       <label for="files">Choose Files:</label>
       <input type="file" class="form-control-file border p-2 rounded " id="files" name="file" multiple accept=".pdf, .doc, .docx" ">
 
-
+    </div>
 
     
       <button type="submit" class="btn btn-primary d-flex justify-content-end" style="margin-left: 94%;">Create</button>
