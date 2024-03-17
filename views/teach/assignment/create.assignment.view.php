@@ -22,7 +22,7 @@ $user_id = $_SESSION['user_id'];
             <h2 class="mt-2"><b>Create Assignment</b></h2>
         </div>
         <form
-            action="../../../controllers/teach/assignment/drop.assignment.controller.php?classroom_id=<?= $id ?>&user_id=<?= $user_id ?>"
+            action="../../../controllers/teach/assignment/create.assignment/drop.assignment.controller.php?classroom_id=<?= $id ?>&user_id=<?= $user_id ?>"
             class="d-flex justify-content-center align-items-center" method="post" enctype="multipart/form-data">
             <div class="col-7 p-3 shadow rounded">
                 <div class="d-flex bg-white border rounded justify-center-between">

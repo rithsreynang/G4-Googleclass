@@ -24,7 +24,7 @@ $assignment = getAssignment($classroom_id, $assignment_id);
             <h2 class="mt-2"><b>Update Assignment</b></h2>
         </div>
         <form
-            action="../../../controllers/teach/assignment/confirm.update.assignment.controller.php?classroom_id=<?= $classroom_id ?>&assignment_id=<?= $assignment_id ?>"
+            action="../../../controllers/teach/assignment/update.assignment/confirm.update.assignment.controller.php?classroom_id=<?= $classroom_id ?>&assignment_id=<?= $assignment_id ?>"
             class="d-flex justify-content-center align-items-center" method="post" enctype="multipart/form-data">
             <div class="col-7 bg-light shadow p-3 rounded">
                 <div class="d-flex border bg-white shadow-sm rounded justify-center-between">

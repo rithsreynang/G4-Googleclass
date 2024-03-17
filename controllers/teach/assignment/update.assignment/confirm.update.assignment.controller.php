@@ -1,5 +1,5 @@
 <?php
-require_once "../../../models/teach/assignment/update.assignment.model.php";
+require_once "../../../../models/teach/assignment/update.assignment.model.php";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $classroom_id = $_GET['classroom_id'];
     $assignment_id = $_GET['assignment_id'];
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if ($fileError == 0) {
                     if ($fileSize < 100000000) {
                         $fileNameNew = uniqid('', 'true') . "." . $fileActualExt;
-                        $fileDestination = '../../../assets/files/' . $fileNameNew;
+                        $fileDestination = '../../../../assets/files/' . $fileNameNew;
                         move_uploaded_file($fileTemName, $fileDestination);
                     }
                 }

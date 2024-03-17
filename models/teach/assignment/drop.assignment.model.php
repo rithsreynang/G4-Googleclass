@@ -1,5 +1,5 @@
 <?php
-require_once "../../../database/database.php";
+require_once "../../../../database/database.php";
 function createAssignment($title, $post_date, $classroom_id, $dateline, $description, $file, $user_id, $limit_score, $file_path)
 {
     global $connection;
