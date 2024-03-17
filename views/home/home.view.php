@@ -164,7 +164,7 @@
             <?php endforeach;
             foreach ($classEnroll as $class) :
             ?>
-                <div class="card m-3 shadow-sm rounded" style="width:225px;">
+                <div class="card m-3 shadow-sm rounded" style="width:245px;">
                     <img class="card-image-top rounded m-2" src="../../assets/images/courses/4by3/<?= $class['banner'] ?>">
                     <div class="navbar  navbar-expand-lg navbar-light p-1 h-1" style="height: 20px;">
                         <ul class="navbar-nav mr-auto">
@@ -198,8 +198,18 @@
                                     <p class="card-title"><?= $class['classroom_name'] ?></p>
                                 </a></b>
                         </div>
-                        <p class="card-text" style="margin-top: -5px;">Section : <?= $class['section'] ?></p>
-                        <p class="card-text" style="margin-top: -10px;">Room : <?= $class['room'] ?></p>
+                        <?php
+                        if (!empty($class['section'])) {
+                        ?>
+                            <p class="card-text" style="margin-top: -5px;">Section : <?= $class['section'] ?></p>
+                        <?php
+                        }
+                        if (!empty($class['room'])) {
+                        ?>
+                            <p class="card-text" style="margin-top: -10px;">Room : <?= $class['room'] ?></p>
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
             <?php endforeach; ?>
