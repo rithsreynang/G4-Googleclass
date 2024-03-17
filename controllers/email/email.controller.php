@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <h3 class="card-title" style="text-align: center;">Welcome to my classroom</h3>
                         <p class="card-text text-center">From: ' . "ET Name" . '</p>
                         <p class="card-text text-center">To: ' . $email . '</p>
-                        <p class="card-text text-center">Class link: <a href="' . $class_code . '">' . $class_code . '</a></p>
+                        <p class="card-text text-center">Class link: <a href="' . $url . '">' . $url . '</a></p>
                     </div>
                 </div>';
             $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';

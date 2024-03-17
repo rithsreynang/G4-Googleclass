@@ -1,5 +1,5 @@
 <?php
-require_once "../../database/database.php";
+require_once "database/database.php";
 function  getAllAssignment($id): array
 {
     global $connection;
@@ -11,5 +11,3 @@ function  getAllAssignment($id): array
         return [];
     }
 }
-
-

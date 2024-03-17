@@ -1,8 +1,6 @@
 <?php
-require_once "../../layouts/class/header.php";
-require_once "../../layouts/class/navbar.php";
-require_once "../../models/classroom/select.classrooms.model.php";
-$id = $_GET['classroom_id'];
+require_once "models/classroom/select.classrooms.model.php";
+$id = $_SESSION['classroom_id'];
 $class = getClassroom($id);
 $class_code = $class['class_code'];
 ?>
@@ -10,8 +8,10 @@ $class_code = $class['class_code'];
     <div class="d-flex flex-row ml-3 border-secondary" style="margin-top: -10px;">
         <div class='nav-item'>
             <a href="#" class="text-white text-decoration-none border-0 btn btn-primary">Stream</a>
-            <a href="../../controllers/enrollment/classwork.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light ">Classwork</a>
-            <a href="../../controllers/enrollment/people.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light ">People</a>
+            <a href="../../controllers/enrollment/classwork/classwork.controller.php?classroom_id=<?= $id ?>"
+                class="text-dark text-decoration-none border-0 btn btn-light ">Classwork</a>
+            <a href="../../controllers/enrollment/people/people.controller.php?classroom_id=<?= $id ?>"
+                class="text-dark text-decoration-none border-0 btn btn-light ">People</a>
         </div>
         <div style="padding-right: 50px;">
             <i class="fa fa-gear" style="font-size:25px; padding-right: 25px;"></i>
@@ -33,7 +33,8 @@ $class_code = $class['class_code'];
             <div style="width: 79%;">
                 <div class="shadow p-3 mb-3 bg-body rounded border" id="mydiv">
                     <div href="" class="d-flex flex-row align-items-center">
-                        <img src="../../assets/images/classroom/04.jpg" alt="" class="rounded-circle" style="width: 50px; height: 50px;">
+                        <img src="../../assets/images/classroom/04.jpg" alt="" class="rounded-circle"
+                            style="width: 50px; height: 50px;">
                         <p class="ml-2 mt-3">Announce something to your class</p>
                     </div>
                 </div>
@@ -42,14 +43,12 @@ $class_code = $class['class_code'];
                     <div class="mt-5">
                         <p style="font-size: 30px;">This is where you can talk to your class</p>
                         <p>Use the stream to share announcements, post assignments, and respond o student questions</p>
-                        <i class="fa fa-gear" style="padding: 10px; border: 1px solid grey; border-radius: 5px; margin-left:73%; margin-top:10px;"><span class="p-2">Stream settings</span></i>
+                        <i class="fa fa-gear"
+                            style="padding: 10px; border: 1px solid grey; border-radius: 5px; margin-left:73%; margin-top:10px;"><span
+                                class="p-2">Stream settings</span></i>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<?php
-require_once "../../layouts/class/footer.php";
-?>

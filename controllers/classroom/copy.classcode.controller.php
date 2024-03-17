@@ -17,4 +17,4 @@ if (isset($_GET['class_code'])) {
 
 <?php
 // header("Location: /home");
-?>
+?> 

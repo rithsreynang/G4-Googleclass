@@ -10,6 +10,13 @@ $routes = [
     '/enrollment' => 'controllers/enrollment/enrollment.controller.php',
     '/join-class' => 'controllers/classroom/join.classroom.controller.php',
     '/create-class' => 'controllers/classroom/create.classroom.controller.php',
+    '/steam-teacher' => 'controllers/teach/steam/steam.controller.php',
+    '/steam-student' => 'controllers/enrollment/steam/steam.controller.php',
+    '/people-teacher' => 'controllers/teach/people/people.controller.php',
+    '/people-student' => 'controllers/enrollment/people/goto.people.controller.php',
+    '/classwork-teacher' => 'controllers/teach/classwork/classwork.controller.php',
+    '/classwork-student' => 'controllers/enrollment/classwork/goto.classwork.controller.php',
+    '/grade-teacher' => 'controllers/teach/grade/grades.controller.php',
     '/change-banner-class' => 'controllers/classroom/change.banner.controller.php',
 ];
 if (array_key_exists($uri, $routes)) {

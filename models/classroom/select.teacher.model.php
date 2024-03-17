@@ -1,5 +1,5 @@
 <?php
-    require_once "../../database/database.php";
+    require_once "database/database.php";
     function getTeacher($classroom_id):array {
         global $connection;
         $statement = $connection->prepare("SELECT * from classroom_enroll 
