@@ -1,9 +1,4 @@
-<?php
-require_once "../../layouts/class/header.php";
-require_once "../../layouts/class/navbar.php";
-
-
-?>
+ 
 <div class="d-flex flex-row ml-3 border-secondary" style="margin-top: -10px;">
     <div style="padding-right: 50px;">
         <i class="fa fa-gear" style="font-size:25px; padding-right: 25px;"></i>

@@ -1,6 +1,6 @@
 <?php
-require_once "../../../models/teach/assignment/drop.assignment.model.php";
-require_once "../../../models/classroom/get.user.model.php";
+require_once "../../../../models/teach/assignment/drop.assignment.model.php";
+require_once "../../../../models/classroom/get.user.model.php";
 $fileDestination = "";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     //set time in phonm penh
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $filepath = "";
     // Check file size
     if (isset($_FILES['file'])) {
-        $targetDir = "../../../assets/files/"; // Corrected target directory
+        $targetDir = "../../../../assets/files/"; // Corrected target directory
         $targetFile = $targetDir . basename($_FILES["file"]["name"]);
         $uploadOk = 1;
         $fileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));

@@ -1,9 +1,11 @@
 <?php
-require_once "models/classroom/select.classrooms.model.php";
+require_once "models/teach/assignment/get.all.assignments.model.php";
+require_once "models/teach/material/get.material/get.all.material.model.php";
+require_once "models/classroom/select.student.model.php";
+
 $id = $_SESSION['classroom_id'];
 $class = getClassroom($id);
 $class_code = $class['class_code'];
-
 $allAssignments = getAllAssignment($id);
 $allMaterials = getAllMaterials($id);
 $email = $_SESSION['user'][1];
@@ -158,26 +160,13 @@ $index = 0;
                     <div class="mt-5">
                         <p style="font-size: 30px;">This is where you can talk to your class</p>
                         <p>Use the stream to share announcements, post assignments, and respond o student questions</p>
-<<<<<<< HEAD
-                        <i class="fa fa-gear"
-                            style="padding: 10px; border: 1px solid grey; border-radius: 5px; margin-left:73%; margin-top:10px;"><span
-                                class="p-2">Stream settings</span></i>
-                    </div>
-=======
                         <i class="fa fa-gear" style="padding: 10px; border: 1px solid grey; border-radius: 5px; margin-left:73%; margin-top:10px;"><span class="p-2">Stream settings</span></i>
->>>>>>> view-instruction-assignment
                 </div>
             </div>
             <?php } ?>
         </div>
     </div>
-<<<<<<< HEAD
-</div>
-=======
 </div>
 </div>
 
-<?php
-require_once "../../layouts/class/footer.php";
-?>
->>>>>>> view-instruction-assignment
+
