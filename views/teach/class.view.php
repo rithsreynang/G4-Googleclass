@@ -71,7 +71,7 @@ $index = 0;
                     foreach ($allAssignments as $assignment) {
                 
                     ?>
-                        <div class="card p-0 rounded-1 mt-3 col-10">
+                        <div class="card p-0 rounded-1 mt-3 col-10" >                         
                             <div class="d-flex align-items-center card-header  p-0  justify-content-between col-12">
                                 <div class=" d-flex flex-row justify-content-between col-11" data-bs-toggle="collapse" href="#collapse<?= $assignment['assignment_id'] ?>" role="button" aria-expanded="false" aria-controls="collapse<?= $assignment['assignment_id'] ?>">
                                     <div class="d-flex align-items-center">
@@ -80,7 +80,9 @@ $index = 0;
                                                 <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1z" />
                                             </svg>
                                         </div>
-                                        <p class="ml-2 mt-3 text-dark"> Assignment : <?= $assignment['title'] ?></p>
+                                        <!-- <a href="/instruction-assignment" class="ml-2 mt-3 text-dark"> Assignment : <?= $assignment['title'] ?></a> -->
+                                        <a href="../../controllers/teach/assignment/view.assignment/instruction.view.controller.php?assignment_id=<?= $assignment['assignment_id'] ?>" class="ml-2 mt-3 text-dark"> Assignment : <?= $assignment['title'] ?></a>
+
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between">
                                         <p class="mt-3 fw-bold" style="margin-right: -20px;">
