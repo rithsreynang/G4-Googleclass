@@ -19,6 +19,7 @@ $routes = [
     '/grade-teacher' => 'controllers/teach/grade/grades.controller.php',
     '/change-banner-class' => 'controllers/classroom/change.banner.controller.php',
     '/instruction-assignment' => 'controllers/teach/assignment/view.assignment/go.instruction.contoller.php',
+    '/view-instruction-assignment' => 'controllers/enrollment/view-assignment/go.instruction.assignment.controller.php',
     '/student-work' => 'controllers/teach/assignment/view.assignment/go.student.work.controller.php'
 ];
 if (array_key_exists($uri, $routes)) {
