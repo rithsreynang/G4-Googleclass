@@ -28,7 +28,7 @@ $index = 0;
 
 <div class="mt-4" style="margin-left: 15%;">
     <a class="btn btn-light border border-8 shadow-sm"
-        href="../../controllers/enrollment/detail.assignment.controller.php?classroom_id=<?= $id ?>"
+        href="../../controllers/enrollment/classwork/viewmywork.controller.php?classroom_id=<?= $id ?>"
         style="width: 200px;">View all assignment</a>
     <h4 class="mt-4">Assignments</h4>
     <div class="d-flex flex-column ">

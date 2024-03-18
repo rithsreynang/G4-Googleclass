@@ -11,6 +11,15 @@ function getUser($email):array
     }
 }
 
-
+function getUserId($id) {
+    global $connection;
+    $statement = $connection->prepare("SELECT * FROM users WHERE user_id=:id");
+    $statement->execute([":id" => $id]);
+    if ($statement->rowCount() > 0){
+        return $statement->fetch();
+    }else{
+        return [];
+    }
+}
 
 

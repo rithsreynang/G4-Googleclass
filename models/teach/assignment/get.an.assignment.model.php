@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
+require_once "../../database/database.php";
+=======
 require_once "database/database.php";
+>>>>>>> 8e81d08465795270b729c693db4196612175e421
 function getAssignment($class_id, $assign_id):array
 {
     global $connection;
