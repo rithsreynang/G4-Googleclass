@@ -1,5 +1,5 @@
 <?php
-require_once "../../../database/database.php";
+require_once "../../database/database.php";
 function getAssignment($class_id, $assign_id):array
 {
     global $connection;
