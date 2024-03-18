@@ -1,6 +1,5 @@
 <?php
-require_once "../../layouts/class/header.php";
-require_once "../../layouts/class/navbar.php";
+
 require_once "../../models/teach/assignment/get.all.assignments.model.php";
 require_once "../../models/classroom/select.student.model.php";
 
