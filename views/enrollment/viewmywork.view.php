@@ -1,37 +1,30 @@
 <?php
-// require_once "../../controllers/enrollment/classwork/viewmywork.controller.php";
- ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>viewmywork</title>
-</head>
+    require_once "models/classroom/get.user.model.php";
+    $user_id = $_SESSION['user_id'];
+    $student = getUserId($user_id);
+?>
 
-<body>
-    <div class="border-top pt-3 ">
-        <?php
-        foreach ($students as $student){
-      ?>
+<div class="p-3" style="margin: 0px 100px">
+    <div class="border-top border-dark">
         <div class="d-flex justify-content-between m-2">
-            <div class="">
+            <div class="d-flex align-items-center">
                 <img src="../../assets/images/profile/<?= $student['profile'] ?>" alt="profile " class="rounded-circle"
-                    style="width: 40px; height: 40px;">
-                <span style="padding-left: 15px;"><?= $student['username'] ?></span>
+                    style="width: 100px; height: 100px;">
+                <h2 style="padding-left: 15px;"><b><?= $student['username'] ?></b></h2>
             </div>
         </div>
-        <?php } ?>
     </div>
-    <div class="border-top pt-3 ">
-        <div class=" d-flex m-5">
-            <select class="form-select" aria-label="Default select example">
-                <option selected>All</option>
-                <option value="1">All</option>
-                <option value="2">Assignt</option>
-                <option value="3">Return</option>
-                <option value="3">Missing</option>
-            </select>
+    <div class="border-top  border-dark ">
+        <div class=" d-flex flex-column">
+            <div class="p-3">
+                <h3>Assigned</h3>
+            </div>
+            <div class="p-3">
+                <h3>Retured</h3>
+            </div>
+            <div class="p-3">
+                <h3>Missing</h3>
+            </div>
         </div>
     </div>
     <div class="detail">
@@ -60,6 +53,4 @@
         };
 ?>
     </div>
-</body>
-
-</html>
+</div>
