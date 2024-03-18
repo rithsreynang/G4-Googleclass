@@ -1,15 +1,17 @@
-<?php
-require_once "../../layouts/class/header.php";
-require_once "../../layouts/class/navbar.php";
+<?php 
+require_once "models/get.user.enroll/get.all.user.enroll.model.php";
+$assignment_id = $_SESSION['assignment_id'];
+$allStudentEnroll = getAllUserEnroller($_SESSION['classroom_id']);
+print_r($allStudentEnroll)
 ?>
-
 <div class="border-bottom">
     <div class="" style="margin-bottom:10px;">
-        <a href="../../controllers/teach/instruction.view.controller.php" class="text-dark text-decoration-none btn btn-light mt-2 link">Instructions</a>
-        <a href="#" class="text-dark text-decoration-none btn btn-light mt-2 link">Student work</a>
+        <a href="../../controllers/teach/assignment/view.assignment/instruction.view.controller.php?assignment_id=<?= $assignment_id ?>"
+            class="btn btn-primary mt-2">Instruction</a>
+        <a href="#" class="text-white text-decoration-none btn btn-primary mt-2 link">Student work</a>
     </div>
 </div>
-<div class="border-bottom mt-2 mb-4 d-flex">
+<!-- <div class="border-bottom mt-2 mb-4 d-flex">
     <div class="" style="margin-bottom:10px;">
         <a href="#" class="text-dark text-decoration-none btn btn-light link">Return</a>
         <a href="https://mail.google.com/mail/u/1/?view=cm&fs=1&to&tf=1" target="_blank">
@@ -21,14 +23,26 @@ require_once "../../layouts/class/navbar.php";
     <div class="mb-3 form-check" style="margin-left: 150px; width:150px;">
         <input type="number" class="form-control btn btn-light border border-8 shadow-sm" id="point" name="point">
     </div>
-</div>
+</div> -->
 <div class="d-flex justify-content-between">
     <div class="list-student" style="width:38%; background: white-light">
         <div class="d-flex">
             <i class='fas fa-user text-dark m-3'></i>
             <p class="" style="margin-top: 13px;">All students</p>
         </div>
-        <div class=""></div>
+        <div class="ml-2">
+            <?php
+        foreach($allStudentEnroll as $student){
+
+?>
+            <div class="border m-1 p-2 d-flex justify-content-center align-items-center   ">
+                <p>Hello</p>
+            </div>
+
+            <?php
+            }
+?>
+        </div>
     </div>
     <div class="submit-homework" style="margin-right: 20px; width:55%">
         <p style="font-size: 23px;">Homework 3</p>
@@ -37,6 +51,7 @@ require_once "../../layouts/class/navbar.php";
                 <h4>0</h4>
                 <p>Turned in</p>
             </div>
+            <div class="border-right"></div>
             <div class="ml-4">
                 <h4>0</h4>
                 <p>Assigned</p>
@@ -45,32 +60,29 @@ require_once "../../layouts/class/navbar.php";
     </div>
 </div>
 <div>
-    
+
 </div>
 
 
 
 <style>
-    .dropdown-toggle {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-    }
-    
-    .dropdown-toggle .fa-plus {
-        margin-right: 5px;
-    }
+.dropdown-toggle {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.dropdown-toggle .fa-plus {
+    margin-right: 5px;
+}
 </style>
 
 <script>
-    function updateSelectedText(text) {
-        document.getElementById('selectedText').innerText = text;
-    }
+function updateSelectedText(text) {
+    document.getElementById('selectedText').innerText = text;
+}
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
-<?php
-require_once "../../layouts/class/footer.php"
-?>

@@ -14,3 +14,16 @@ function getAssignment($class_id, $assign_id):array
         return [];
     }
 }
+function getAnAssignment($assign_id):array
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT * FROM assignments WHERE assignment_id=:assign_id");
+    $statement->execute([
+        ":assign_id" => $assign_id
+    ]);
+    if ($statement->rowCount() > 0){
+        return $statement->fetch();
+    }else{
+        return [];
+    }
+}

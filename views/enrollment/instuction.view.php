@@ -1,6 +1,7 @@
 <?php
-require_once "../../layouts/class/header.php";
-require_once "../../layouts/class/navbar.php";
+
+require_once "../../layouts/user/header.php";
+
 
 ?>
 <div class="d-flex flex-row ml-3 border-secondary" style="margin-top: -10px;">
@@ -58,7 +59,7 @@ require_once "../../layouts/class/navbar.php";
                     <div class="col">
                         <div class="collapse multi-collapse" id="multiCollapseExample3">
                             <div class="card col-xl-12 d-flex flex-column justify-content-center align-items-center" style="position: fixed; top:0px; left:0;border:none;  height:100vh; width:100%; background-color: rgba(0,0,0,0.3); z-index:15;">
-                                <div class="bg-white p-3 col-xl-4 " style="width:30%; height:20vh; border-radius:10px;">
+                                <div class="bg-white p-3 col-xl-4 " style="width:40%; height:33vh; border-radius:10px;">
                                     <form action="" method="post" enctype="multipart/form-data">
                                         <p class="mt-1 mb-4">Add link</p>
                                         <div class="form-floating">
@@ -82,7 +83,7 @@ require_once "../../layouts/class/navbar.php";
                 <div class="col">
                     <div class="collapse multi-collapse" id="multiCollapseExample2">
                         <div class="card col-xl-12 d-flex flex-column justify-content-center align-items-center" style="position: fixed; top:0px; left:0;border:none;  height:100vh; width:100%; background-color: rgba(0,0,0,0.3); z-index:15;">
-                            <div class="bg-white p-3 col-xl-4 " style="width:30%; height:20vh; border-radius:10px;">
+                            <div class="bg-white p-3 col-xl-4 " style="width:30%; height:33vh; border-radius:10px;">
                                 <form action="" method="post" enctype="multipart/form-data">
                                     <p class="mt-1 mb-4">Make as done?</p>
                                     <p class="mt-4" style="font-size: 14px;">You didn't attach work for "ET HOMEWORK", so your teacher will just see it's done.</p>

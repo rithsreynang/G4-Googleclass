@@ -3,6 +3,7 @@ require_once "models/classroom/select.classrooms.model.php";
 require_once "models/classroom/select.student.model.php";
 require_once "models/teach/material/get.material/get.all.material.model.php";
 require_once "models/teach/assignment/get.all.assignments.model.php";
+
 $id = $_SESSION['classroom_id'];
 $class = getClassroom($id);
 $class_code = $class['class_code'];
