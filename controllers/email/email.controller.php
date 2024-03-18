@@ -12,17 +12,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['email'])) {
         $email = $_POST['email'];
         $mail = new PHPMailer(true);
-
         try {
             $mail->isSMTP();
             $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'entheun7@gmail.com';
-            $mail->Password   = 'gayj ybvm mvtf opdv';
+            $mail->Username   = 'senghak.chhun@student.passerellsenumeriques.org';
+            $mail->Password   = 'cpfm pjlh yihy wlqu';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port       = 465;
 
-            $mail->setFrom('entheun7@gmail.com', 'ET HERO');
+            $mail->setFrom('senghak.chhun@student.passerellsenumeriques.org', 'ET HERO');
             $mail->addAddress($email, 'THEUN ET');
 
             $mail->isHTML(true);
@@ -34,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <h3 class="card-title" style="text-align: center;">Welcome to my classroom</h3>
                         <p class="card-text text-center">From: ' . "ET Name" . '</p>
                         <p class="card-text text-center">To: ' . $email . '</p>
-                        <p class="card-text text-center">Class link: <a href="' . $class_code . '">' . $class_code . '</a></p>
+                        <p class="card-text text-center">Class link: <a href="' . $url . '">' . $url . '</a></p>
                     </div>
                 </div>';
             $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';

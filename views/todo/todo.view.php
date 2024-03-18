@@ -1,12 +1,13 @@
-<!-- Right sidebar END -->
 
-<!-- Main content START -->
-<div class="col-xl-10  " style='margin-left:230px'>
-	<nav class="navbar border-bottom navbar-sticky header-static" style="border-width: 3px; border-color: gray;">
-		<div class="navbar navbar-left m-3" style="gap: 10px; color:black;">
-			<a href="" style="color:black; font-size: 20px;">Assined</a>
-			<a href="" style="color:black; font-size: 20px;">Missing</a>
-			<a href="" style="color:black; font-size: 20px;">Done</a>
-		</div>
-	</nav>
+<div class="border-bottom">
+    <div class="" style="margin-bottom:10px;">
+        <a href="../../controllers/todo/assigned.controller.php" class="text-dark text-decoration-none btn btn-light mt-2 link">Assigned</a>
+        <a href="../../controllers/todo/missing.controller.php" class="text-dark text-decoration-none btn btn-light mt-2 link">Missing</a>
+        <a href="#" class="text-white text-decoration-none btn btn-primary mt-2 link">Done</a>
+    </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

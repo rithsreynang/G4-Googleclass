@@ -1,7 +1,5 @@
 <?php
-
-require_once "../../../database/database.php";
-
+require_once "../../../../database/database.php";
 function updateAssignment($id, $title, $description, $path_file, $score, $dateline, $file_name): bool
 {
     global $connection;

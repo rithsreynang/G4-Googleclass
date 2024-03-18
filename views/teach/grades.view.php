@@ -1,17 +1,18 @@
 <?php
-require_once "../../layouts/class/header.php";
-require_once "../../layouts/class/navbar.php";
-$id = $_GET['classroom_id'];
+$id = $_SESSION['classroom_id'];
 ?>
 
 <body>
     <div class="">
-        <div class="d-flex flex-row ml-3 border-secondary" style="margin-top: -10px;"> 
+        <div class="d-flex flex-row ml-3 border-secondary" style="margin-top: -10px;">
             <div>
-                <a href="../../controllers/teach/class.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light p-1">Stream</a>
-                <a href="../../controllers/teach/classwork.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">Classwork</a>
-                <a href="../../controllers/teach/people.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">People</a>
-                <a href="#" class="text-white text-decoration-none border-0 btn btn-primary">Grades</a>
+                <a href="../../controllers/teach/steam/class.controller.php?classroom_id=<?= $id ?>"
+                    class="text-dark text-decoration-none btn btn-light ">Stream</a>
+                <a href="../../controllers/teach/classwork/classwork.get.id.controller.php?classroom_id=<?= $id ?>"
+                    class=" text-dark text-decoration-none btn btn-light ">Classwork</a>
+                <a href="../../controllers/teach/people/people.get.id.controller.php?classroom_id=<?= $id ?>"
+                    class="text-dark text-decoration-none btn btn-light  ">People</a>
+                <a href="#" class="text-white text-decoration-none border-1 btn btn-primary">Grades</a>
             </div>
             <div style="padding-right: 50px;">
                 <i class="fa fa-gear" style="font-size:25px; padding-right: 25px;"></i>
@@ -27,11 +28,11 @@ $id = $_GET['classroom_id'];
                 <i class="fa fa-plus"><span class="p-2">Create assigment</span></i>
             </a>
             <style>
-                #my-link:hover {
-                    background-color: lightgray;
-                    padding: 10px;
-                    border-radius: 10px;
-                }
+            #my-link:hover {
+                background-color: lightgray;
+                padding: 10px;
+                border-radius: 10px;
+            }
             </style>
         </div>
     </div>
