@@ -59,23 +59,22 @@ $assign = getAnAssignment($assignment_id);
                         </b></p>
                 </div>
             </div>
-            <div class=" ml-4 border-top border-primary">
-                <p class='mt-2'><?= $assign['description'] ?> </p>
-            </div>
-            <div class="col-8">
-                <p><?= $assign['description'] ?></p>
-                <?php
-                if (!empty($assign['path_file'])) {
-                ?>
-                    <a href="<?= $assign['path_file'] ?>" target="_blank" style="text-decoration: none;">
-                        <div class="d-flex flex-1 align-items-center rounded shadow-sm" style="border: 1px solid #EDEAE0;">
-                            <img src="../../assets/files/drive.png" height="60px" class="border-right p-2">
-                            <div class="card-title p-1" style="font-size: 15px;"><?= $assign['file'] ?></div>
-                        </div>
-                    </a>
-                <?php
-                }
-                ?>
+            <div class="ml-2 border-top border-primary">
+                <div class="col-8 mt-3">
+                    <p><?= $assign['description'] ?></p>
+                    <?php
+                    if (!empty($assign['path_file'])) {
+                    ?>
+                        <a href="<?= $assign['path_file'] ?>" target="_blank" style="text-decoration: none;">
+                            <div class="d-flex flex-1 align-items-center rounded shadow-sm" style="border: 1px solid #EDEAE0;">
+                                <img src="../../assets/files/drive.png" height="60px" class="border-right p-2">
+                                <div class="card-title p-1" style="font-size: 15px;"><?= $assign['file'] ?></div>
+                            </div>
+                        </a>
+                    <?php
+                    }
+                    ?>
+                </div>
             </div>
         </div>
     </div>
