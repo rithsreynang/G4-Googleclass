@@ -1,8 +1,10 @@
 <?php
+
 session_start();
 require_once "database/database.php";
 require_once "models/classroom/get.user.model.php";
 require_once "models/classroom/select.classrooms.model.php";
+
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $item = [
 	'home' => "",
@@ -185,3 +187,4 @@ if ($uri == "/home") {
 </div>
 <!-- End of Topbar -->
 </div>
+ 

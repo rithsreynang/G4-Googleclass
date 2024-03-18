@@ -18,6 +18,8 @@ $routes = [
     '/classwork-student' => 'controllers/enrollment/classwork/goto.classwork.controller.php',
     '/grade-teacher' => 'controllers/teach/grade/grades.controller.php',
     '/change-banner-class' => 'controllers/classroom/change.banner.controller.php',
+    '/instruction-assignment' => 'controllers/teach/assignment/view.assignment/go.instruction.contoller.php',
+    '/student-work' => 'controllers/teach/assignment/view.assignment/go.student.work.controller.php'
 ];
 if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];
