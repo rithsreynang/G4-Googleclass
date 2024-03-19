@@ -61,14 +61,29 @@ $studentNumber = count($students);
                 </div>
             </div>
         </div>
-        <div class="border-top pt-3 ">
+        <div class="border-top">
             <?php
             foreach ($teacherCreateClass as $teacher) {
             ?>
-            <div class="d-flex justify-content-between m-2">
-                <div class="">
-                    <img src="../../assets/images/profile/<?= $teacher['profile'] ?>" alt="profile "
-                        class="rounded-circle" style="width: 40px; height: 40px;">
+            <div class="d-flex justify-content-between mb-2">
+                <div class="d-flex align-items-center justify-content-center">
+                    <?php
+                    if (!empty($teacher['profile'])){    
+                    ?>
+                    <img class="rounded-circle" src="assets/images/profile/<?= $teacher['profile'] ?>" alt="avatar"
+                        style="height: 50px;">
+                    <?php
+                        }else{
+                        ?>
+                    <div class="bg-primary rounded-circle mt-2">
+                        <h2 class="text-white d-flex align-items-center justify-content-center"
+                            style="width: 50px; height: 45px">
+                            <b><?= $teacher['username'][0] ?></b>
+                        </h2>
+                    </div>
+                    <?php
+                    }
+                    ?>
                     <span style="padding-left: 15px;"><?= $teacher['username'] ?></span>
                 </div>
                 <a href="https://mail.google.com/mail/u/1/?view=cm&fs=1&to=<?= $teacher['email'] ?>&tf=1"
@@ -84,9 +99,24 @@ $studentNumber = count($students);
             foreach ($teachers as $teacher) {
             ?>
             <div class="d-flex justify-content-between m-2">
-                <div class="">
-                    <img src="../../assets/images/profile/<?= $teacher['profile'] ?>" alt="profile "
-                        class="rounded-circle" style="width: 40px; height: 40px;">
+                <div class="d-flex ">
+                    <?php
+                    if (!empty($teacher['profile'])){    
+                    ?>
+                    <img class="rounded-circle" src="assets/images/profile/<?= $teacher['profile'] ?>" alt="avatar"
+                        style="height: 50px;">
+                    <?php
+                            }else{
+                            ?>
+                    <div class="bg-primary rounded-circle mt-4">
+                        <h2 class="text-white d-flex align-items-center justify-content-center"
+                            style="width: 50px; height: 50px">
+                            <b><?= $teacher['username'][0] ?></b>
+                        </h2>
+                    </div>
+                    <?php
+                    }
+                    ?>
                     <span style="padding-left: 15px;"><?= $teacher['username'] ?></span>
                 </div>
                 <div class="d-flex align-items-center justify-content-center">
@@ -148,12 +178,29 @@ $studentNumber = count($students);
                 </div>
             </div>
         </div>
-        <div class="border-top ml-3 mr-3">
+        <div class="border-top">
             <?php foreach ($students as $student) { ?>
             <div class="d-flex align-items-center mt-4 mb-2 mr-1 justify-content-between">
-                <div>
-                    <img src="../../assets/images/profile/<?= $student["profile"] ?>" alt="profile "
-                        class="rounded-circle" style="width: 40px; height: 40px;">
+                <div class="d-flex justify-content-center align-items-center">
+                    <div>
+                        <?php
+                        if (!empty($student['profile'])){    
+                        ?>
+                        <img class="rounded-circle" src="assets/images/profile/<?= $student['profile'] ?>" alt="avatar"
+                            style="height: 50px;">
+                        <?php
+                        }else{
+                        ?>
+                        <div class="bg-primary rounded-circle">
+                            <h2 class="text-white d-flex align-items-center justify-content-center"
+                                style="width: 50px; height: 50px">
+                                <b><?= $user[1][0] ?></b>
+                            </h2>
+                        </div>
+                        <?php
+                        }
+                        ?>
+                    </div>
                     <span style="padding-left: 15px;"><?= $student["username"] ?></span>
                 </div>
                 <div class="d-flex align-items-center">

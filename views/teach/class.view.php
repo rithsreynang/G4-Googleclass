@@ -31,41 +31,89 @@ $index = 0;
     </div>
     <div class="">
         <div class="d-flex flex-column justify-content-center p-3">
-            <div class="d-flex align-items-center justify-content-center">
-                <div class="card shadow-sm p-2 d-flex flex-row col-6 m-3 bg-white">
-                    <div class="">
-                        <img src="../../assets/images/courses/4by3/<?= $class['banner'] ?>" alt="course image" class="card-img-top rounded">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="col-3 shadow-sm p-2 bg-white rounded" style="height: 170px;">
+                    <div class="card shadow-sm p-2 bg-white" style="height: 155px;">
+                        <p class="text-primary"><b>Upcoming</b></p>
+                        <?php
+                        foreach ($allAssignments as $assignment) {
+                            $curDate = date('Y-m-d h:i:sa');
+                            $dateline = $assignment['dateline'];
+                            if ($curDate < $dateline) {
+                        ?>
+                                <div style="font-size: 15px; margin-top: -13px">
+                                    <?php if (!empty($assignment['dateline'])) {
+                                        $date = date_create($assignment['dateline']);
+                                        echo "Due " . date_format($date, "M - d , H:i");
+                                        $hour =  date_format($date, "H");
+                                        if ($hour > 11) {
+                                            echo "pm";
+                                        } else {
+                                            echo "am";
+                                        }             
+                                    }
+                                    ?>
+                                    <br>
+                                    <a href="controllers/teach/assignment/view.assignment/student.work.controller.php?classroom_id=<?= $assignment['classroom_id'] ?>&assignment_id=<?= $assignment['assignment_id'] ?>" style="color: black;"><?= $assignment['title'] ?></a>
+                                    <br>
+                                </div>
+                                <br>
+                        <?php
+                            }
+                        }
+                        ?>
                     </div>
-                    <div class="col-7">
-                        <h4 class="mb-3 text-primary"><b><?= $class['classroom_name'] ?></b></h4>
-                        <?php
-                        if (!empty($class['section'])) {
-                        ?>
-                            <p style="margin-top: -12px" ;>Section : <?= $class['section'] ?>
-                            </p>
-                        <?php
-                        }
-                        if (!empty($class['subject'])) {
-                        ?>
-                            <p style="margin-top: -12px">Subject : <?= $class['subject'] ?></p>
-                        <?php
-                        }
-                        if (!empty($class['room'])) {
-                        ?>
-                            <p style="margin-top: -12px">Room : <?= $class['room'] ?></p>
-                        <?php
-                        }
-                        ?>
-                        <div class="d-flex align-items-center " style="margin-top: -20px">
-                            <h6>Class code : </h6>
-                            <p id="textBoard" class="mt-2 ml-2"><?= $class_code ?></p>
-                            <button class="btn btn-light ml-3" id="button-copy"><i class="fas fa-copy"></i></button>
+                </div>
+                <div class="d-flex align-items-center justify-content-center col-6">
+                    <div class="card shadow-sm p-2 d-flex flex-row align-items-center bg-white">
+                        <div class="">
+                            <img src="../../assets/images/courses/4by3/<?= $class['banner'] ?>" alt="course image" class="card-img-top rounded">
+                        </div>
+                        <div class="col-7 card ml-2">
+                            <h4 class="mb-3 text-primary"><b><?= $class['classroom_name'] ?></b></h4>
+                            <?php
+                            if (!empty($class['section'])) {
+                            ?>
+                                <p style="margin-top: -12px" ;>Section : <?= $class['section'] ?>
+                                </p>
+                            <?php
+                            }
+                            if (!empty($class['subject'])) {
+                            ?>
+                                <p style="margin-top: -12px">Subject : <?= $class['subject'] ?></p>
+                            <?php
+                            }
+                            if (!empty($class['room'])) {
+                            ?>
+                                <p style="margin-top: -12px">Room : <?= $class['room'] ?></p>
+                            <?php
+                            }
+                            ?>
+                            <div class="d-flex align-items-center " style="margin-top: -20px">
+                                <h6>Class code : </h6>
+                                <p id="textBoard" class="mt-2 ml-2"><?= $class_code ?></p>
+                                <button class="btn btn-light ml-3" id="button-copy"><i class="fas fa-copy"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="card shadow-sm bg-white p-2 rounded" style="height: 182px; width: 200px">
-                    <div class="card shadow-sm p-2 d-flex justify-content-center align-items-center">
-                        <img src="../../assets/images/profile/<?= $class['profile'] ?>" class="rounded-circle" style="height: 60px" width="60px">
+                <div class="card rounded p-2">
+                    <div class="card shadow-sm p-1 d-flex justify-content-center align-items-center">
+                        <?php
+                        if (!empty($class['profile'])) {
+                        ?>
+                            <img class="rounded-circle" src="assets/images/profile/<?= $class['profile'] ?>" alt="avatar" style="height: 40px;">
+                        <?php
+                        } else {
+                        ?>
+                            <div class="bg-primary rounded-circle mt-2">
+                                <h2 class="text-white d-flex align-items-center justify-content-center" style="width: 50px; height: 50px">
+                                    <b><?= $user[1][0] ?></b>
+                                </h2>
+                            </div>
+                        <?php
+                        }
+                        ?>
                         <p class="text-primary"><b><?= $class['username'] ?></b></p>
                         <p style="margin-top: -13px">Teacher of this class</p>
                         <a href="https://mail.google.com/mail/u/1/?view=cm&fs=1&to=<?= $class['email'] ?>&tf=1" target="_blank" class='d-flex align-items-center  justify-content-end w-60'>
@@ -75,30 +123,7 @@ $index = 0;
                 </div>
             </div>
             <div>
-                <div class="d-flex flex-row mt-4">
-                    <div class="col-3 pl-0">
-                        <div class="shadow-sm p-2 bg-white rounded">
-                            <div class="card shadow-sm p-2 bg-white">
-                                <p class="text-primary"><b>Uncoming</b></p>
-                                <?php
-                                foreach ($allAssignments as $assignment) {
-                                    $curdate = date('Y-m-d h:i:sa');
-                                    $dateline = $assignment['dateline'];
-                                    if ($curdate < $dateline) {
-                                ?>
-                                        <div style="font-size: 15px">Due
-                                            <?= $dateline ?>
-                                            <br>
-                                            <a href="controllers/teach/assignment/view.assignment/student.work.controller.php?classroom_id=<?= $assignment['classroom_id'] ?>&assignment_id=<?= $assignment['assignment_id'] ?>" style="color: black;"><?= $assignment['title'] ?></a>
-                                        </div>
-                                        <br>
-                                <?php
-                                    }
-                                }
-                                ?>
-                            </div>
-                        </div>
-                    </div>
+                <div class="d-flex flex-row align-items-center justify-content-center mt-4">
                     <div class="d-flex p-0 flex-column col-8">
                         <?php
                         foreach ($allAssignments as $assignment) {
@@ -119,6 +144,7 @@ $index = 0;
                                                 <?php if (!empty($assignment['dateline'])) {
                                                     // echo $assignment['dateline'];
                                                     $date = date_create($assignment['dateline']);
+
                                                     echo "Due " . date_format($date, "M - d , H:i");
                                                     $hour =  date_format($date, "H");
                                                     if ($hour > 11) {
@@ -145,9 +171,7 @@ $index = 0;
                                                 <li>
                                                     <a class="dropdown-item" href="../../controllers/teach/assignment/delete.assignment.controller.php?classroom_id=<?= $classroom_id ?>&assignment_id=<?= $assignment['assignment_id'] ?>">Delete</a>
                                                 </li>
-                                                <li>
-                                                    <a class="dropdown-item" href="#">Copy Link</a>
-                                                </li>
+
                                             </ul>
                                         </div>
                                     </div>
@@ -172,7 +196,8 @@ $index = 0;
                                                 <a href="<?= $assignment['path_file'] ?>" target="_blank" style="text-decoration: none;">
                                                     <div class="d-flex flex-1 align-items-center rounded shadow-sm" style="border: 1px solid #EDEAE0;">
                                                         <img src="../../assets/files/drive.png" height="60px" class="border-right p-2">
-                                                        <div class="card-title p-1" style="font-size: 15px;"><?= $assignment['file'] ?></div>
+                                                        <div class="card-title p-1" style="font-size: 15px;">
+                                                            <?= $assignment['file'] ?></div>
                                                     </div>
                                                 </a>
                                             <?php
@@ -206,9 +231,10 @@ $index = 0;
                             </div>
                         <?php
                         }
+
                         foreach ($allMaterials as $material) {
                         ?>
-                            <div class="card p-0 rounded border-0 mt-3 col-10">
+                            <div class="card p-0 rounded border-0 ">
                                 <div class="d-flex align-items-center border card-header p-0 justify-content-between col-12">
                                     <div class=" d-flex flex-row justify-content-between col-11" data-bs-toggle="collapse" href="#collapsematerial<?= $material['material_id'] ?>" role="button" aria-expanded="false" aria-controls="collapse<?= $index ?>">
                                         <div class="d-flex align-items-center">
@@ -247,7 +273,7 @@ $index = 0;
                                                 </li>
                                                 <li><a class="dropdown-item" href="../../controllers/teach/material/delete.material.controller.php?material_id=<?= $material['material_id'] ?>&classroom_id=<?= $material['classroom_id'] ?>">Delete</a>
                                                 </li>
-                                                <li><a class="dropdown-item" href="#">Copy Link</a></li>
+
                                             </ul>
                                         </div>
                                     </div>
@@ -258,7 +284,8 @@ $index = 0;
                                         <a href="<?= $material['path_file'] ?>" target="_blank" style="text-decoration: none;">
                                             <div class="d-flex align-items-center rounded mb-3 shadow-sm">
                                                 <img src="../../assets/files/drive.png" height="60px" class="border-right p-2">
-                                                <div class="card-title p-1" style="font-size: 15px;"><?= $material['file'] ?></div>
+                                                <div class="card-title p-1" style="font-size: 15px;">
+                                                    <?= $material['file'] ?></div>
                                             </div>
                                         </a>
                                         <a href="../../controllers/teach/assignment.detail/instructions.controller.php" class=" btn btn-primary">View Material</a>

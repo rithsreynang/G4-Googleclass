@@ -1,6 +1,9 @@
 <?php
-
 session_start();
+if (empty(isset($_SESSION['user']))){
+	header("Location: /");
+	exit;
+}
 require_once "database/database.php";
 require_once "models/classroom/get.user.model.php";
 require_once "models/classroom/select.classrooms.model.php";
@@ -116,12 +119,27 @@ if ($uri == "/home") {
             <div class="navbar  navbar-expand-lg p-1 h-1" style="height: 30px;">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link " href="#" id="navbarDropdownProfile" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <?php
+                                if (!empty($profileName)){    
+                            ?>
                             <img class="rounded-circle" src="assets/images/profile/<?= $profileName ?>" alt="avatar"
-                                style="height: 40px;">
+                                style="height: 50px;">
+                            <?php
+                            }else{
+                            ?>
+                            <div class="bg-primary rounded-circle mt-4">
+                                <h2 class="text-white d-flex align-items-center justify-content-center"
+                                    style="width: 50px; height: 50px">
+                                    <b><?= $user[1][0] ?></b>
+                                </h2>
+                            </div>
+                            <?php
+                            }
+                            ?>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right p-1 shadow-sm"
+                        <div class=" dropdown-menu dropdown-menu-right p-1 shadow-sm"
                             aria-labelledby="navbarDropdownProfile">
                             <ul class=" nav navbar bg-light d-flex justify-content-center">
                                 <li>
@@ -129,9 +147,23 @@ if ($uri == "/home") {
                                         style="width: 150px;">
                                         <!-- Avatar -->
                                         <div class="avatar me-3 m-1">
-                                            <img class="avatar-img rounded-circle shadow-sm"
-                                                src="assets/images/profile/<?= $profileName ?>" alt="avatar"
-                                                style="width: 40px;">
+                                            <?php
+                                             if (!empty($profileName)){    
+                                            ?>
+                                            <img class="rounded-circle" src="assets/images/profile/<?= $profileName ?>"
+                                                alt="avatar" style="height: 50px;">
+                                            <?php
+                                            }else{
+                                            ?>
+                                            <div class="bg-primary rounded-circle">
+                                                <h2 class="text-white d-flex align-items-center justify-content-center"
+                                                    style="width: 50px; height: 50px">
+                                                    <b><?= $user[1][0] ?></b>
+                                                </h2>
+                                            </div>
+                                            <?php
+                                            }
+                                            ?>
                                         </div>
                                         <div>
                                             <p class="h6 text-center" href="#"><?= $_SESSION['user'][0] ?></p>
@@ -141,7 +173,11 @@ if ($uri == "/home") {
                                     <hr>
                                 </li>
                                 <!-- Links -->
-                                <li><a type="button" class="dropdown-item" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-fw fa-user bg-light-soft-hover shadow"></i>Update profile</a></li>
+                                <li><a type="button" class="dropdown-item" data-toggle="modal"
+                                        data-target="#exampleModal"><i
+                                            class="fas fa-fw fa-user bg-light-soft-hover shadow"></i>Update
+                                        profile</a>
+                                </li>
                                 <li><a class="dropdown-item bg-danger text-white rounded" href="/signout"><i
                                             class="fas fa-fw fa-sign-out-alt"></i>Sign Out</a></li>
                             </ul>
@@ -151,40 +187,52 @@ if ($uri == "/home") {
             </div>
         </div>
         <div>
-
-        <!-- Button trigger modal -->
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-      <form action="../../controllers/user/update.profile.php" method="post" enctype="multipart/form-data">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Update Profile</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        </div>
-            <div class="modal-body">
-                <div class="bg-white">
-                        <div class="d-flex align-items-center justify-content-center">
-                        <img class="avatar-img rounded-circle shadow d-flex justify-content-center" src="assets/images/profile/<?= $profileName ?>" alt="avatar" alt="avatar" style="width: 100px;">
-
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <form action="../../controllers/user/update.profile.php" method="post"
+                        enctype="multipart/form-data">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Update Profile</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="bg-white">
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <?php
+                                if (!empty($profileName)){    
+                                        ?>
+                                        <img class="rounded-circle" src="assets/images/profile/<?= $profileName ?>"
+                                            alt="avatar" style="height: 50px;">
+                                        <?php
+                                        }else{
+                                        ?>
+                                        <div class="bg-primary rounded-circle">
+                                            <h2 class="text-white d-flex align-items-center justify-content-center"
+                                                style="width: 50px; height: 45px">
+                                                <b><?= $user[1][0] ?></b>
+                                            </h2>
+                                        </div>
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
+                                    <div class='m-3'>
+                                        <input type="file" class="form-control m-1" name="file"
+                                            placeholder="Choose image">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
                         </div>
-                        <div class='m-3'>
-                            <input type="file" class="form-control" name="file" placeholder="Choose image">
-                        </div>
-                    </div>
+                    </form>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
-            </div>
+            <!-- End of Topbar -->
         </div>
-    </form>
-  </div>
-</div>
-<!-- End of Topbar -->
-</div>
- 

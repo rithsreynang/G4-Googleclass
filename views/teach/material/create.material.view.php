@@ -1,6 +1,10 @@
 <?php
 session_start();
 $id = $_SESSION['classroom_id'];
+if (empty(isset($_SESSION['user']))){
+	header("Location: /");
+	exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,6 +53,18 @@ $id = $_SESSION['classroom_id'];
                 <!-- </a> -->
         </form>
     </div>
+
+    <div class="form-group">
+      <label for="files">Choose Files:</label>
+      <input type="file" class="form-control-file border p-2 rounded " id="files" name="file" multiple accept=".pdf, .doc, .docx" ">
+
+    </div>
+
+    
+      <button type="submit" class="btn btn-primary d-flex justify-content-end" style="margin-left: 94%;">Create</button>
+    <!-- </a> -->
+  </form>
+</div>
 
 </body>
 
