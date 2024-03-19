@@ -61,12 +61,12 @@ $studentNumber = count($students);
                 </div>
             </div>
         </div>
-        <div class="border-top pt-3 ">
+        <div class="border-top">
             <?php
             foreach ($teacherCreateClass as $teacher) {
             ?>
             <div class="d-flex justify-content-between mb-2">
-                <div class="">
+                <div class="d-flex align-items-center justify-content-center">
                     <?php
                     if (!empty($teacher['profile'])){    
                     ?>
@@ -75,10 +75,10 @@ $studentNumber = count($students);
                     <?php
                         }else{
                         ?>
-                    <div class="bg-primary rounded-circle mt-4">
+                    <div class="bg-primary rounded-circle mt-2">
                         <h2 class="text-white d-flex align-items-center justify-content-center"
-                            style="width: 50px; height: 50px">
-                            <b><?= $user[1][0] ?></b>
+                            style="width: 50px; height: 45px">
+                            <b><?= $teacher['username'][0] ?></b>
                         </h2>
                     </div>
                     <?php
@@ -99,7 +99,7 @@ $studentNumber = count($students);
             foreach ($teachers as $teacher) {
             ?>
             <div class="d-flex justify-content-between m-2">
-                <div class="">
+                <div class="d-flex ">
                     <?php
                     if (!empty($teacher['profile'])){    
                     ?>
@@ -111,7 +111,7 @@ $studentNumber = count($students);
                     <div class="bg-primary rounded-circle mt-4">
                         <h2 class="text-white d-flex align-items-center justify-content-center"
                             style="width: 50px; height: 50px">
-                            <b><?= $user[1][0] ?></b>
+                            <b><?= $teacher['username'][0] ?></b>
                         </h2>
                     </div>
                     <?php
