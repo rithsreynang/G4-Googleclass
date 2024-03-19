@@ -1,6 +1,11 @@
 <?php
 require_once "models/teach/assignment/get.an.assignment.model.php";
 session_start();
+if (empty(isset($_SESSION['user']))){
+	header("Location: /");
+	exit;
+}
+
 $classroom_id = $_SESSION['classroom_id'];
 $assignment_id = $_SESSION['assignment_id'];
 $assignment = getAssignment($classroom_id, $assignment_id);

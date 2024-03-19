@@ -1,6 +1,10 @@
 <?php
 require_once "models/teach/material/get.material/get.an.meterial.model.php";
 session_start();
+if (empty(isset($_SESSION['user']))){
+	header("Location: /");
+	exit;
+}
 $classroom_id = $_SESSION['classroom_id'];
 $material_id = $_SESSION['material_id'];
 $material = getMaterial($classroom_id, $material_id);

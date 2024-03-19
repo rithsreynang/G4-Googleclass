@@ -1,6 +1,10 @@
 <?php
 session_start();
 $id = $_SESSION['classroom_id'];
+if (empty(isset($_SESSION['user']))){
+	header("Location: /");
+	exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

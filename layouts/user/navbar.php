@@ -1,6 +1,9 @@
 <?php
-
 session_start();
+if (empty(isset($_SESSION['user']))){
+	header("Location: /");
+	exit;
+}
 require_once "database/database.php";
 require_once "models/classroom/get.user.model.php";
 require_once "models/classroom/select.classrooms.model.php";
