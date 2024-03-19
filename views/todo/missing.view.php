@@ -1,7 +1,6 @@
 <?php
 require_once "../../layouts/class/header.php";
 require_once "../../layouts/class/navbar.php";
-
 ?>
 
 <div class="border-bottom">

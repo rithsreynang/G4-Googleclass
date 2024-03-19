@@ -1,13 +1,20 @@
-<?php 
+<?php
 require_once "models/get.user.enroll/get.all.user.enroll.model.php";
+require_once "models/teach/assignment/get.an.assignment.model.php";
+
+$assignment_id = $_SESSION['assignment_id'];
+$classroom_id = $_SESSION['classroom_id'];
+$assign = getAnAssignment($assignment_id);
+
+$students = getAllstudentEnroller($classroom_id);
+// print_r($students);
 $assignment_id = $_SESSION['assignment_id'];
 $allStudentEnroll = getAllUserEnroller($_SESSION['classroom_id']);
-print_r($allStudentEnroll)
+
 ?>
 <div class="border-bottom">
     <div class="" style="margin-bottom:10px;">
-        <a href="../../controllers/teach/assignment/view.assignment/instruction.view.controller.php?assignment_id=<?= $assignment_id ?>"
-            class="btn btn-primary mt-2">Instruction</a>
+        <a href="../../controllers/teach/assignment/view.assignment/instruction.view.controller.php?assignment_id=<?= $assignment_id ?>" class="btn btn-primary mt-2">Instruction</a>
         <a href="#" class="text-white text-decoration-none btn btn-primary mt-2 link">Student work</a>
     </div>
 </div>
@@ -25,35 +32,40 @@ print_r($allStudentEnroll)
     </div>
 </div> -->
 <div class="d-flex justify-content-between">
-    <div class="list-student" style="width:38%; background: white-light">
-        <div class="d-flex">
+    <div class="list-student border-right" style="width:45%; background: white-light">
+        <div class="d-flex mr-2">
             <i class='fas fa-user text-dark m-3'></i>
             <p class="" style="margin-top: 13px;">All students</p>
         </div>
-        <div class="ml-2">
+        <div class="ml-2 d-flex justify-content flex-column mr-2">
             <?php
-        foreach($allStudentEnroll as $student){
+            foreach ($students as $student) { ?>
 
-?>
-            <div class="border m-1 p-2 d-flex justify-content-center align-items-center   ">
-                <p>Hello</p>
-            </div>
-
-            <?php
-            }
-?>
+                <div class="border m-1 p-2 shadow-sm d-flex justify-content-between align-items-center">
+                    <div class="d-flex mt-1">
+                        <img src="../../../assets/images/profile/<?= $student['profile'] ?>" alt="profile " class="rounded-circle" style="width: 40px; height: 40px;">
+                        <p class="mt-2 ml-2"><?= $student['username'] ?></p>
+                    </div>
+                    <div style="width: 50%">
+                        <form action="" class="d-flex">
+                            <input type="number" class="form-control ml-3" id="floatingNumber" placeholder="100" style="width: 45%;">
+                            <button class="btn btn-success ml-2">Return</button>
+                        </form>
+                    </div>
+                </div>
+            <?php } ?>
         </div>
     </div>
-    <div class="submit-homework" style="margin-right: 20px; width:55%">
-        <p style="font-size: 23px;">Homework 3</p>
+    <div class="submit-homework" style="margin-right: 20px; margin-top: 20px; width:50%">
+        <p class="text-primary" style="font-size: 23px;"><?= $assign['title'] ?></p>
         <div class="d-flex">
             <div class="mr-4">
-                <h4>0</h4>
+                <h4 class="text-dark">0</h4>
                 <p>Turned in</p>
             </div>
             <div class="border-right"></div>
             <div class="ml-4">
-                <h4>0</h4>
+                <h4 class="text-dark"><?= count($students) ?></h4>
                 <p>Assigned</p>
             </div>
         </div>
@@ -62,26 +74,6 @@ print_r($allStudentEnroll)
 <div>
 
 </div>
-
-
-
-<style>
-.dropdown-toggle {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.dropdown-toggle .fa-plus {
-    margin-right: 5px;
-}
-</style>
-
-<script>
-function updateSelectedText(text) {
-    document.getElementById('selectedText').innerText = text;
-}
-</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
