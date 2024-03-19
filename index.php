@@ -9,7 +9,7 @@ if (urlIs('/signin') || urlIs('/signup') || urlIs('/signout')) {
     require "user.router.php";
 }else if(urlIs('/steam-teacher')|| urlIs('/classwork-teacher') || urlIs('/people-teacher') || urlIs('/grade-teacher') || urlIs("/instruction-assignment") || urlIs("/student-work")) {
     require "user.router.php";
-}else if (urlIs('/steam-student') || (urlIs('/classwork-student')) || (urlIs('/people-student')) || (urlIs('/grade-student')) || (urlIs("/view-instruction-assignment"))){
+}else if (urlIs('/steam-student') || (urlIs('/classwork-student')) || (urlIs('/people-student')) || (urlIs('/grade-student')) || (urlIs("/view-instruction-assignment")) || (urlIs("/view-assigned")) || (urlIs("/view-missing")) || (urlIs("/view-student-work"))){
     require "user.router.php";
 } else if (urlIs('/create-assignment') || (urlIs("/update-assignment"))  || (urlIs('/update-material')) || (urlIs('/change-banner-classroom')) || (urlIs('/create-material'))) {
     require "classroom.router.php";

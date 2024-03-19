@@ -5,7 +5,8 @@ $routes = [
     '/home' => 'controllers/home/home.controller.php',
     '/calendar' => 'controllers/calendar/calendar.controller.php',
     '/todo' => 'controllers/todo/todo.controller.php',
-
+    '/view-assigned' => 'controllers/todo/assigned/go.assigned.controller.php',
+    '/view-missing' => 'controllers/todo/missing/go.missing.controller.php',
     '/teach' => 'controllers/teach/teach/controller.php',
     '/archive' => 'controllers/archive/archive.class.controller.php',
     '/enrollment' => 'controllers/enrollment/enrollment.controller.php',
@@ -21,6 +22,7 @@ $routes = [
     '/change-banner-class' => 'controllers/classroom/change.banner.controller.php',
     '/instruction-assignment' => 'controllers/teach/assignment/view.assignment/go.instruction.contoller.php',
     '/view-instruction-assignment' => 'controllers/enrollment/view-assignment/go.instruction.assignment.controller.php',
+    '/view-student-work' => 'controllers/enrollment/classwork/goto.view.mywork.controller.php',
     '/student-work' => 'controllers/teach/assignment/view.assignment/go.student.work.controller.php'
 ];
 if (array_key_exists($uri, $routes)) {
