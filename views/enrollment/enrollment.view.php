@@ -81,6 +81,35 @@ $user_name = getUser($email)['username'];
                                                 <li><a class="dropdown-item" href="#">Copy Link</a></li>
                                             </ul>
                                         </div>
+                                        <a class="ml-2" href="controllers/enrollment/view-assignment/instruction.controller.php?classroom_id=<?= $assignment['classroom_id'] ?>&assignment_id=<?= $assignment['assignment_id'] ?>" style="color: black;"><?= $assignment['title'] ?></a>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <p class="mt-3 fw-bold" style="margin-right: -20px;">
+                                            <?php if (!empty($assignment['dateline'])) {
+                                                // echo $assignment['dateline'];
+                                                $date = date_create($assignment['dateline']);
+                                                echo "Due " . date_format($date, "M - d , H:i");
+                                                $hour =  date_format($date, "H");
+                                                if ($hour > 11) {
+                                                    echo "pm";
+                                                } else {
+                                                    echo "am";
+                                                }
+                                            } else {
+                                                echo "No due date";
+                                            }
+                                            ?>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div style="margin-right: 20px;">
+                                    <div class="dropdown" style="color: blue">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="dropdown-toggle" type="button" id="viewAssignment" data-bs-toggle="dropdown" aria-expanded="false" width="22" height="22" fill="currentColor" class="bi bi-three-dots-vertical d-flex justify-content-center mr-5" viewBox="0 0 16 16">
+                                            <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
+                                        </svg>
+                                        <ul class="dropdown-menu" aria-labelledby="viewAssignment">
+                                            <li><a class="dropdown-item" href="#">Copy Link</a></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>

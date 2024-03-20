@@ -240,24 +240,16 @@ $index = 0;
                         </div>
 
                     </div>
-                    <div style="margin-right: 20px;">
-                        <div class="dropdown" style="color: blue">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="dropdown-toggle" type="button"
-                                id="dropdownMenuassignment" data-bs-toggle="dropdown" aria-expanded="false" width="22"
-                                height="22" fill="currentColor"
-                                class="bi bi-three-dots-vertical d-flex justify-content-center mr-5"
-                                viewBox="0 0 16 16">
-                                <path
-                                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
-                            </svg>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuassignment">
-                                <li><a class="dropdown-item"
-                                        href="../../controllers/teach/material/update.material/get.material.id.controller.php?classroom_id=<?= $id ?>&material_id=<?= $material['material_id'] ?>">Edit</a>
-                                </li>
-                                <li><a class="dropdown-item"
-                                        href="../../controllers/teach/material/delete.material/delete.material.controller.php?material_id=<?= $material['material_id'] ?>&classroom_id=<?= $material['classroom_id'] ?>">Delete</a>
-                                </li>
-                            </ul>
+                    <div class="collapse border rounded-bottom" id="collapse<?= $index ?>">
+                        <div class="col card-body">
+                            <p class="mb-3"> <?= $material['description'] ?></p>
+                            <a href="<?= $material['path_file'] ?>" target="_blank" style="text-decoration: none;">
+                                <div class="d-flex align-items-center rounded mb-3 shadow-sm">
+                                    <img src="../../assets/files/drive.png" height="60px" class="border-right p-2">
+                                    <div class="card-title p-1" style="font-size: 15px;"><?= $material['file'] ?></div>
+                                </div>
+                            </a>
+                            <a href="../../controllers/teach/material/view-materials/material.instruction.controller.php?material_id=<?= $material['material_id'] ?>" class=" btn btn-primary">View Material</a>
                         </div>
                     </div>
                 </div>
