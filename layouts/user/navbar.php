@@ -116,7 +116,7 @@ if ($uri == "/home") {
 <div id="content-wrapper " class="d-flex border-left shadow-sm flex-column col-10" style="background: #FFFFFE;">
     <div class="d-flex justify-content-end flex-column">
         <div class="d-flex justify-content-end align-items-center m-3">
-            <div class="navbar  navbar-expand-lg p-1 h-1" style="height: 30px;">
+            <div class="navbar   navbar-expand-lg p-1 h-1" style="height: 30px;">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item dropdown">
                         <a class="nav-link " href="#" id="navbarDropdownProfile" role="button" data-toggle="dropdown"
