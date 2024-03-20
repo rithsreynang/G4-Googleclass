@@ -210,7 +210,7 @@ $index = 0;
                                     <div class="card-title p-1" style="font-size: 15px;"><?= $material['file'] ?></div>
                                 </div>
                             </a>
-                            <a href="../../controllers/teach/assignment.detail/instructions.controller.php" class=" btn btn-primary">View Material</a>
+                            <a href="../../controllers/teach/material/view-materials/material.instruction.controller.php?material_id=<?= $material['material_id'] ?>" class=" btn btn-primary">View Material</a>
                         </div>
 
                     </div>
