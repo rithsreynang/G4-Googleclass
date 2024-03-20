@@ -45,8 +45,8 @@ $index = 0;
 </div>
 
 <div class="mt-4 pr-5 pl-5">
-    <div class="dropdown d-flex justify-content-start" style="margin-left: 170px;">
-        <button class="btn btn-primary border dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> <i class="fa fa-plus"><span class="p-2">Create</span></i>
+    <div class="dropdown d-flex justify-content-start" style="margin-left: 85px;">
+        <button class="btn alert-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><b> <i class="fa fa-plus"><span class="p-2">Create</span></i></b>
         </button>
         <ul class="dropdown-menu shadow-sm" aria-labelledby="dropdownMenuButton1">
             <li><a class="dropdown-item" href="../../../controllers/teach/assignment/create.assignment/assign.get.id.controller.php?user_id=<?= $user_id ?>">Assignment</a>
@@ -55,13 +55,16 @@ $index = 0;
             </li>
         </ul>
     </div>
-    <div class="d-flex flex-column align-items-center">
+    <div class="d-flex flex-column align-items-start mt-3" style="margin-left: 85px;">
         <?php
         if (count($allAssignments) > 0 or count($allMaterials) > 0) {
-            echo "<h4>Assignment</h4> <hr class='dropdown-divider border-primary' style='width: 680px;'>";
+            ?>
+            <h5 class="text-primary">Assignment</h5>
+            <hr class='dropdown-divider' style='width: 850px;'>
+        <?php
             foreach ($allAssignments as $assignment) {
         ?>
-                <div class="p-0  mt-3 col-8">
+                <div class="p-0  mt-2 col-11">
                     <div class="border rounded-top d-flex align-items-center p-0 bg-light justify-content-between col-12">
                         <div class=" d-flex flex-row justify-content-between col-11" data-bs-toggle="collapse" href="#collapse<?= $assignment['assignment_id'] ?>" role="button" aria-expanded="false" aria-controls="collapse<?= $assignment['assignment_id'] ?>">
                             <div class="d-flex align-items-center">
@@ -165,16 +168,16 @@ $index = 0;
             <?php
             if (count($allMaterials) > 0) {
             ?>
-                <h4 class="mt-5">Materials</h4>
-                <hr class="dropdown-divider border-primary " style="width: 680px;">
+                <h5 class="mt-3 text-primary">Materials</h5>
+                <hr class="dropdown-divider " style="width: 850px;">
             <?php
             }
             ?>
-            <div class="d-flex flex-column align-items-center mt-4" style="width: 680px;">
+            <div class="p-0  mt-1 col-11" >
                 <?php
                 foreach ($allMaterials as $material) {
                 ?>
-                    <div class="card p-0 rounded border-0 mt-3 col-12">
+                    <div class="card p-0 rounded border-0 mt-2 col-12">
                         <div class="d-flex align-items-center border card-header p-0 justify-content-between">
                             <div class=" d-flex flex-row justify-content-between col-11" data-bs-toggle="collapse" href="#collapse<?= $index ?>" role="button" aria-expanded="false" aria-controls="collapse<?= $index ?>">
                                 <div class="d-flex align-items-center">
@@ -202,7 +205,6 @@ $index = 0;
                                         ?>
                                     </p>
                                 </div>
-
                             </div>
                             <div style="margin-right: 10px;">
                                 <div class="dropdown">
