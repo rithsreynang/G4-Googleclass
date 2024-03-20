@@ -23,6 +23,7 @@ $routes = [
     '/instruction-assignment' => 'controllers/teach/assignment/view.assignment/go.instruction.contoller.php',
     '/view-instruction-assignment' => 'controllers/enrollment/view-assignment/go.instruction.assignment.controller.php',
     '/view-student-work' => 'controllers/enrollment/classwork/goto.view.mywork.controller.php',
+    '/student-view-material' => 'controllers/enrollment/view-assignment/go.details.material.controller.php',
     '/view-instruction-material' => 'controllers/teach/material/view-materials/go.material.instruction.controller.php',
     '/student-work' => 'controllers/teach/assignment/view.assignment/go.student.work.controller.php'
 ];
