@@ -207,7 +207,7 @@ $index = 0;
                 </div>
             </div>
             <div class="collapse border rounded-bottom p-3 card-body " id="collapse<?= $index ?>">
-                <a href="../../controllers/enrollment/instruction.controller.php" class="btn btn-primary">View
+                <a href="../../controllers/enrollment/view-assignment/details.material.controller.php?material_id=<?= $material['material_id'] ?>" class="btn btn-primary">View
                     Material</a>
             </div>
         </div>

@@ -55,9 +55,10 @@ $index = 0;
             </li>
         </ul>
     </div>
-    <div class="d-flex flex-column align-items-center ">
+    <div class="d-flex flex-column align-items-center">
         <?php
         if (count($allAssignments) > 0 or count($allMaterials) > 0) {
+            echo "<h4>Assignment</h4> <hr class='dropdown-divider border-primary' style='width: 680px;'>";
             foreach ($allAssignments as $assignment) {
         ?>
                 <div class="p-0  mt-3 col-8">
@@ -102,7 +103,6 @@ $index = 0;
                                     <li>
                                         <a class="dropdown-item" href="../../controllers/teach/assignment/delete.assignment/delete.assignment.controller.php?classroom_id=<?= $id ?>&assignment_id=<?= $assignment['assignment_id'] ?>">Delete</a>
                                     </li>
-
                                 </ul>
                             </div>
                         </div>
@@ -156,11 +156,17 @@ $index = 0;
                                 </div>
                             </div>
                         </div>
-
                         <a href="../../controllers/teach/assignment/view.assignment/instruction.view.controller.php?assignment_id=<?= $assignment['assignment_id'] ?>" class="btn btn-primary mt-2">View Instruction</a>
-
                     </div>
                 </div>
+            <?php
+            }
+            ?>
+            <?php
+            if (count($allMaterials) > 0) {
+            ?>
+                <h4 class="mt-5">Materials</h4>
+                <hr class="dropdown-divider border-primary " style="width: 680px;">
             <?php
             }
             ?>
