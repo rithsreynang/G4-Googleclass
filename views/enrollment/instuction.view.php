@@ -10,7 +10,7 @@ $assign = getAnAssignment($assignment_id);
     <p class="border-top mr-3"></p>
 </div>
 <div class="mt-2" style="margin-left: 5%; display:flex; justify-content:space-between;">
-    <div class="d-flex flex-column " style="width: 60%;">
+    <div class="d-flex flex-column " style="width: 68%;">
         <div class="d-flex align-items-center  p-0  justify-content-between">
             <div class=" d-flex flex-row justify-content-between col-11" data-bs-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="collapse">
                 <div class="d-flex align-items-center">
@@ -78,43 +78,20 @@ $assign = getAnAssignment($assignment_id);
             </div>
         </div>
     </div>
-    <div class="card shadow-sm" style="width: 30%; margin-right:40px">
+    <div class="card shadow-sm h-75 " style="width: 25%; margin-right:40px; color: black;">
         <div class="d-flex" style="display: flex; justify-content: space-between; padding-top: 20px;">
             <h5 style="padding-left: 17px;">Your work</h5>
-            <span class="d-flex justify-content-end" style="color:teal; padding-right:30px;">Assigned</span>
+            <span class="d-flex justify-content-end" style="color:green; padding-right:30px; font-size:17px">Assigned</span>
         </div>
-        <div class="card-body">
-            <div class="dropdown">
-                <button class="btn border border-8 shadow-sm" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="width: 250px">
-                    <i class="fa fa-plus" style=" color:#696969; font-size:15px; "><span class="p-2">Add or create</span></i>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="width: 250px; background:#F5F5F5;">
-                    <li><a class="dropdown-item" href="https://drive.google.com">Google drive</a></li>
-                    <li><a class="dropdown-item" href="#multiCollapseExample3" data-bs-toggle="collapse" href="#multiCollapseExample3" role="button" aria-expanded="false" aria-controls="multiCollapseExample3">Link</a></li>
-                    <li><a class="dropdown-item" href="#">File</a></li>
-                </ul>
-                <div class="row" style="width: 900px; ">
-                    <div class="col">
-                        <div class="collapse multi-collapse" id="multiCollapseExample3">
-                            <div class="card col-xl-12 d-flex flex-column justify-content-center align-items-center" style="position: fixed; top:0px; left:0;border:none;  height:100vh; width:100%; background-color: rgba(0,0,0,0.3); z-index:15;">
-                                <div class="bg-white p-3 col-xl-4 " style="width:40%; height:33vh; border-radius:10px;">
-                                    <form action="" method="post" enctype="multipart/form-data">
-                                        <p class="mt-1 mb-4">Add link</p>
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" id="floatingLink" placeholder="Link">
-                                        </div>
-                                        <div class="d-flex justify-content-end" style="margin-top: 20px;">
-                                            <a href="" class="btn btn-light">cancel</a>
-                                            <button type="submit" class="btn btn-light"><span style="color:teal;">Add link</span></button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button data-bs-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2" style="background:#696969; width: 250px;border: none; border-radius:5px; padding:7px; margin-top:15px">
+        <div class="card-body ">
+            <form action="controllers/enrollment/submite.assignment.controller.php" method="post" enctype="multipart/form-data">
+                <input type="file" id="imgupload" style="display: none;">
+                <a href="#" class="btn w-100 border " onclick="$('#imgupload').trigger('click'); return false;">+  Add or create</a>
+                
+            </form>
+              
+        
+            <button data-bs-toggle="collapse" href="#multiCollapseExample2" class="bg-primary mt-3" role="button" aria-expanded="false" aria-controls="multiCollapseExample2" style=" width: 260px;border: none; border-radius:5px; padding:7px; margin-top:15px">
                 <span class="text-white">Make as done</span>
             </button>
             <div class="row" style="width: 900px; ">
@@ -135,6 +112,7 @@ $assign = getAnAssignment($assignment_id);
                     </div>
                 </div>
             </div>
+                </div>
         </div>
     </div>
 </div>
