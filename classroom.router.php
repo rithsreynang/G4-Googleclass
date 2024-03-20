@@ -7,6 +7,7 @@ $routes = [
     '/create-material' => 'controllers/teach/material/create.material/create.material.form.controller.php',
     '/update-material' => 'controllers/teach/material/update.material/goto.form.update.material.controller.php',
     '/change-banner-classroom' => 'controllers/classroom/change.banner/goto.banner.controller.php',
+    '/calendar' => 'controllers/calendar/calendar.controller.php',
 ];
 if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];

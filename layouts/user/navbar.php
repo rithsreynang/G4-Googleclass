@@ -44,7 +44,7 @@ if ($uri == "/home") {
     </li>
     <!-- Nav Item - Charts -->
     <li class="nav-item ">
-        <a class="nav-link rounded-0" href="../../controllers/calendar/calendar.controller.php">
+        <a class="nav-link rounded-0" href="/calendar">
             <i class='far fa-calendar-alt text-dark' ​​></i>
             <span style='font-size: 17px' class="text-dark"><b>Calendar</b></span>
         </a>

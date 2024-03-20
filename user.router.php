@@ -3,7 +3,6 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $page = "";
 $routes = [
     '/home' => 'controllers/home/home.controller.php',
-    '/calendar' => 'controllers/calendar/calendar.controller.php',
     '/todo' => 'controllers/todo/todo.controller.php',
     '/view-assigned' => 'controllers/todo/assigned/go.assigned.controller.php',
     '/view-missing' => 'controllers/todo/missing/go.missing.controller.php',
@@ -29,7 +28,7 @@ if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];
 } else {
    http_response_code(404);
-   $page = 'views/errors/404.php';
+//    $page = 'views/errors/404.php';
 }
 require "layouts/user/header.php";
 require "./layouts/user/navbar.php";

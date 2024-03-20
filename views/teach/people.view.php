@@ -57,16 +57,16 @@ $studentNumber = count($students);
                 </b></a>
         </div>
     </div>
-    <div class="container card col-8 mt-3 shadow-sm">
+    <div class="container col-8 mt-3">
         <div>
-            <div class="d-flex flex-row justify-content-between">
-                <p style="font-size: 35px;">Teachers</p>
+            <div class="d-flex flex-row mt-3 justify-content-between align-items-center">
+                <h3>Teachers</h3>
                 <a data-bs-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false"
                     aria-controls="multiCollapseExample1">
-                    <i class="fa fa-user-plus" style="font-size: 20px; padding-top: 20px; padding-left: 15px; "></i>
+                    <i class="fa fa-user-plus" style="font-size: 20px; padding-left: 15px; "></i>
                 </a>
             </div>
-            <div class="row " style="width: 900px; ">
+            <div class="row" style="width: 900px; ">
                 <div class="col">
                     <div class="collapse multi-collapse" id="multiCollapseExample2">
                         <div class="card col-xl-12 d-flex flex-column justify-content-center align-items-center"
@@ -97,7 +97,7 @@ $studentNumber = count($students);
             <?php
             foreach ($teacherCreateClass as $teacher) {
             ?>
-            <div class="d-flex justify-content-between mb-2">
+            <div class="d-flex border bg-light mt-3 p-1 rounded justify-content-between">
                 <div class="d-flex align-items-center justify-content-center">
                     <?php
                     if (!empty($teacher['profile'])){    
@@ -107,9 +107,9 @@ $studentNumber = count($students);
                     <?php
                         }else{
                         ?>
-                    <div class="bg-primary rounded-circle mt-2">
+                    <div class="bg-primary" style="border-radius: 50%; width: 50px; height: 50px">
                         <h2 class="text-white d-flex align-items-center justify-content-center"
-                            style="width: 50px; height: 45px">
+                            >
                             <b><?= $teacher['username'][0] ?></b>
                         </h2>
                     </div>
@@ -130,7 +130,7 @@ $studentNumber = count($students);
             <?php }
             foreach ($teachers as $teacher) {
             ?>
-            <div class="d-flex justify-content-between m-2">
+            <div class="d-flex border bg-light mt-3 p-1 rounded justify-content-between">
                 <div class="d-flex ">
                     <?php
                     if (!empty($teacher['profile'])){    
@@ -140,7 +140,7 @@ $studentNumber = count($students);
                     <?php
                             }else{
                             ?>
-                    <div class="bg-primary rounded-circle mt-4">
+                    <div class="bg-primary mt-3" style="border-radius: 50%; width: 50px; height: 50px">
                         <h2 class="text-white d-flex align-items-center justify-content-center"
                             style="width: 50px; height: 50px">
                             <b><?= $teacher['username'][0] ?></b>
@@ -173,15 +173,15 @@ $studentNumber = count($students);
             <?php } ?>
         </div>
     </div>
-    <div class="container card col-8 mt-3 shadow-sm">
+    <div class="container col-8 mt-5">
         <div>
-            <div class="d-flex flex-row justify-content-between">
-                <p style="font-size: 35px;">Students</p>
-                <div class="d-flex">
-                    <p style="font-size: 20px; padding-top: 16px;"><?= $studentNumber . " students" ?></p>
+            <div class="d-flex justify-content-between align-items-center">
+                <h3>Students</h3>
+                <div class="d-flex mt-2">
+                    <p><?= $studentNumber . " students" ?></p>
                     <a data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false"
                         aria-controls="multiCollapseExample1">
-                        <i class="fa fa-user-plus" style="font-size: 20px; padding-top: 20px; padding-left: 15px; "></i>
+                        <i class="fa fa-user-plus ml-2" style="font-size: 20px;"></i>
                     </a>
                 </div>
             </div>
@@ -212,21 +212,20 @@ $studentNumber = count($students);
         </div>
         <div class="border-top">
             <?php foreach ($students as $student) { ?>
-            <div class="d-flex align-items-center mt-4 mb-2 mr-1 justify-content-between">
+            <div class="d-flex border bg-light mt-3 p-1 rounded justify-content-between">
                 <div class="d-flex justify-content-center align-items-center">
                     <div>
                         <?php
                         if (!empty($student['profile'])){    
                         ?>
-                        <img class="rounded-circle" src="assets/images/profile/<?= $student['profile'] ?>" alt="avatar"
-                            style="height: 50px;">
+                        <img src="assets/images/profile/<?= $student['profile'] ?>" alt="avatar"
+                            style="border-radius: 50%"; height="50px">
                         <?php
                         }else{
                         ?>
-                        <div class="bg-primary rounded-circle">
-                            <h2 class="text-white d-flex align-items-center justify-content-center"
-                                style="width: 50px; height: 50px">
-                                <b><?= $user[1][0] ?></b>
+                        <div class="bg-primary" style="border-radius: 50%; height: 50px; width: 50px">
+                            <h2 class="text-white d-flex align-items-center justify-content-center p-1">
+                                <b><?= $student['username'][0] ?></b>
                             </h2>
                         </div>
                         <?php

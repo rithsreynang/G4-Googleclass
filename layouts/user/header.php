@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="utf-8">
@@ -22,6 +23,8 @@
     <!-- Custom styles for this template-->
     <link href="../../vendor/custom/css/sb-admin-2.min.css" rel="stylesheet">
     <!-- <link rel="stylesheet" href="/vendor/css/style.css"> -->
+    
+    
     <style>
         body::-webkit-scrollbar {
             display: none;
@@ -32,4 +35,3 @@
 
 <body id="page-top" class='d-flex'>
     <div id="wrapper" class='nav-left'>
-        

@@ -38,7 +38,7 @@
                 <ul style="list-style-type: none" class="d-flex ">
                     <li class="mr-1">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#joinClass">
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#joinClass">
                             Join class
                         </button>
                         <!-- Modal -->
@@ -57,15 +57,15 @@
                                             <small class="text-danger"><?= $join ?></small>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button class="btn btn-primary" type="submit">Join Now</button>
+                                            <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                                            <button class="btn btn-warning" type="submit">Join Now</button>
                                         </div>
                                 </form>
                             </div>
                         </div>
                     </li>
                     <li>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addClassModal">
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#addClassModal">
                             Add Class
                         </button>
                         <!-- Modal -->
@@ -86,8 +86,8 @@
                                             <input type="text" class="form-control mt-3" name="room" placeholder="Room">
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Add class</button>
+                                            <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-warning">Add class</button>
                                         </div>
                                     </div>
                             </form>

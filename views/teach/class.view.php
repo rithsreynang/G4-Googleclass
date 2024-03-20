@@ -18,7 +18,7 @@ $index = 0;
 ?>
 <div class="mt-4">
     <div class="d-flex flex-row mb-3" style="margin-top: -60px">
-        <div class='nav-item d-flex align-items-center justify-content-center' style="width: 100%; gap: 10px">
+        <div class='nav-item d-flex align-items-center justify-content-center' style="width: 100%; gap: 10px; margin-left: 87px">
             <a href="#" class="text-white text-decoration-none border border-warning btn btn-warning"><b>
                     <div class="d-flex align-items-center justify-content-center"><svg
                             xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
