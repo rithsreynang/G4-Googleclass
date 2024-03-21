@@ -1,6 +1,6 @@
 <?php
-
 require_once "models/teach/assignment/get.an.assignment.model.php";
+
 $assignment_id = $_SESSION['assignment_id'];
 $classroom_id = $_SESSION['classroom_id'];
 $assign = getAnAssignment($assignment_id);
@@ -81,53 +81,27 @@ $assign = getAnAssignment($assignment_id);
     <div class="card shadow-sm" style="width: 30%; margin-right:40px">
         <div class="d-flex" style="display: flex; justify-content: space-between; padding-top: 20px;">
             <h5 style="padding-left: 17px;">Your work</h5>
-            <span class="d-flex justify-content-end" style="color:teal; padding-right:30px;">Assigned</span>
+            <span id="status" class="d-flex justify-content-end assigned-status" style="color:teal; padding-right:30px;">Assigned</span>
         </div>
         <div class="card-body">
-            <div class="dropdown">
-                <button class="btn border border-8 shadow-sm" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="width: 250px">
-                    <i class="fa fa-plus" style=" color:#696969; font-size:15px; "><span class="p-2">Add or create</span></i>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="width: 250px; background:#F5F5F5;">
-                    <li><a class="dropdown-item" href="https://drive.google.com">Google drive</a></li>
-                    <li><a class="dropdown-item" href="#multiCollapseExample3" data-bs-toggle="collapse" href="#multiCollapseExample3" role="button" aria-expanded="false" aria-controls="multiCollapseExample3">Link</a></li>
-                    <li><a class="dropdown-item" href="#">File</a></li>
-                </ul>
-                <div class="row" style="width: 900px; ">
-                    <div class="col">
-                        <div class="collapse multi-collapse" id="multiCollapseExample3">
-                            <div class="card col-xl-12 d-flex flex-column justify-content-center align-items-center" style="position: fixed; top:0px; left:0;border:none;  height:100vh; width:100%; background-color: rgba(0,0,0,0.3); z-index:15;">
-                                <div class="bg-white p-3 col-xl-4 " style="width:40%; height:33vh; border-radius:10px;">
-                                    <form action="" method="post" enctype="multipart/form-data">
-                                        <p class="mt-1 mb-4">Add link</p>
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" id="floatingLink" placeholder="Link">
-                                        </div>
-                                        <div class="d-flex justify-content-end" style="margin-top: 20px;">
-                                            <a href="" class="btn btn-light">cancel</a>
-                                            <button type="submit" class="btn btn-light"><span style="color:teal;">Add link</span></button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button data-bs-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2" style="background:#696969; width: 250px;border: none; border-radius:5px; padding:7px; margin-top:15px">
-                <span class="text-white">Make as done</span>
+            <button class="border border-8 shadow-sm" data-bs-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2" style="width: 250px;border: none; border-radius:5px; padding:7px; margin-top:15px">
+                <i class="fa fa-plus" style="color:#696969; font-size:15px;"><span class="p-2">Add or create</span></i>
             </button>
-            <div class="row" style="width: 900px; ">
+            <div class="row" style="width: 900px;">
                 <div class="col">
                     <div class="collapse multi-collapse" id="multiCollapseExample2">
-                        <div class="card col-xl-12 d-flex flex-column justify-content-center align-items-center" style="position: fixed; top:0px; left:0;border:none;  height:100vh; width:100%; background-color: rgba(0,0,0,0.3); z-index:15;">
-                            <div class="bg-white p-3 col-xl-4 " style="width:30%; height:33vh; border-radius:10px;">
-                                <form action="" method="post" enctype="multipart/form-data">
-                                    <p class="mt-1 mb-4">Make as done?</p>
-                                    <p class="mt-4" style="font-size: 14px;">You didn't attach work for "<?= $assign['title'] ?>", so your teacher will just see it's done.</p>
+                        <div class="card col-xl-12 d-flex flex-column justify-content-center align-items-center" style="position: fixed; top:0px; left:0;border:none; height:100vh; width:100%; background-color: rgba(0,0,0,0.3); z-index:15;">
+                            <div class="bg-white p-3 col-xl-4" style="width:40%; height:45vh; border-radius:10px;">
+                                <form action="#" method="post" enctype="multipart/form-data">
+                                    <p class="mt-1 mb-4">Add File</p>
+                                    <div class="form-group border mt-3 p-3 bg-white rounded">
+                                        <label for="files">Choose Files:</label>
+                                        <input type="file" class="form-control-file p-2 rounded" id="files" name="file_path">
+                                    </div>
                                     <div class="d-flex justify-content-end" style="margin-top: 20px;">
-                                        <a href="" class="btn btn-light">cancel</a>
-                                        <button type="submit" class="btn btn-light"><span style="color:teal;">Make as done</span></button>
+                                        <a href="" class="btn btn-light">Cancel</a>
+                                        <button type="submit" class="btn btn-light"><span style="color:teal;">Add
+                                                File</span></button>
                                     </div>
                                 </form>
                             </div>
@@ -135,10 +109,21 @@ $assign = getAnAssignment($assignment_id);
                     </div>
                 </div>
             </div>
+            <button class="border border-8 shadow-sm" id="done" style="width: 250px;border: none; border-radius:5px; padding:7px; margin-top:15px;">
+                <i class="fa fa-check-circle" style="color: teal;"><span class="p-2">Make as done</span></i>
+            </button>
         </div>
     </div>
-</div>
+    <script>
+        let statusChange = document.getElementById('status');
+        let buttonChange = document.getElementById('done');
 
+        buttonChange.addEventListener('click', function() {
+            statusChange.textContent = 'Turned In';
+            statusChange.style.color = 'blue';
+        });
+    </script>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

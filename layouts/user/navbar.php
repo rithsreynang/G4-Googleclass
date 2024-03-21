@@ -14,15 +14,15 @@ $item = [
 	'calendar' => "",
 	'enrollment' => "",
 	'teach' => "",
-	'todo' => "",
+	'view-assigned' => "",
 	'archive' => "",
 ];
 if ($uri == "/home") {
 	$item['home'] = "bg-light";
 } else if ($uri == "/archive") {
 	$item['archive'] = "bg-light";
-} else if ($uri == "/todo") {
-	$item['todo'] = "bg-light";
+} else if ($uri == "/view-assigned") {
+	$item['view-assigned'] = "bg-light";
 }
 ?>
 <!-- Sidebar -->
@@ -51,7 +51,7 @@ if ($uri == "/home") {
     </li>
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link rounded-0 <?= $item['todo'] ?>" href="/todo">
+        <a class="nav-link rounded-0 <?= $item['view-assigned'] ?>" href="/view-assigned">
             <i class='fas fa-book text-dark'></i>
             <span style='font-size: 17px' class="text-dark"><b>To do</b></span>
         </a>
