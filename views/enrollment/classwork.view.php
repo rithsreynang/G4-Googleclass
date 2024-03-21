@@ -133,7 +133,7 @@ $index = 0;
                     </div>
                 </div>
                 <div class="card-footer p-1 mt-1">
-                    <a href="../../controllers/enrollment/view-assignment/instruction.controller.php?assignment_id=<?= $assignment['assignment_id'] ?>"
+                    <a href="../../controllers/enrollment/view.assignment/instruction.controller.php?assignment_id=<?= $assignment['assignment_id'] ?>"
                         class="btn btn-primary">View
                         Instruction</a>
                 </div>
