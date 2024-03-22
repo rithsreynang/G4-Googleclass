@@ -1,19 +1,4 @@
-<?php
 
-require_once "models/teach/assignment/get.an.assignment.model.php";
-require_once "models/teach/assignment/get.all.assignments.model.php";
-require_once "models/teach/material/get.material/get.all.material.model.php";
-require_once "models/classroom/select.student.model.php";
-
-$id = $_SESSION['classroom_id'];
-$allAssignments = getAllAssignment($id);
-$allMaterials = getAllMaterials($id);
-$email = $_SESSION['user'][1];
-$user = getUser($email);
-$user_id = $user[0];
-$students = listStudents($id);
-$index = 0;
-?>
 <div class="border-bottom">
     <div class="" style="margin-bottom:10px;">
         <a href="../../controllers/todo/assigned/assigned.controller.php" class="text-dark text-decoration-none btn btn-light mt-2 link border border-8 shadow sm">
