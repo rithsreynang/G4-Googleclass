@@ -5,15 +5,12 @@ require_once "models/enrollment/get.file.submit.model.php";
 $assignment_id = $_SESSION['assignment_id'];
 $classroom_id = $_SESSION['classroom_id'];
 $assign = getAnAssignment($assignment_id);
-$user = getUser($email);
-$user_id = $user['user_id'];
-$file = getFile($assignment_id, $user_id);
-if (!empty(isset($file[0]['submit_status']))){
-    $done = $file[0]['submit_status'];
+$user = getUser($email)['user_id'];
+$file = getFile($assignment_id, $user);
+if (!empty($file)){
+    $file_name = $file[0]['file_path'];   
 }
-if (!empty($_FILES['file']['name'])) {
-    $file_name = $_FILES['file']['name'];
-}
+
 ?>
 <div>
     <p class="border-top mr-3"></p>
@@ -96,91 +93,71 @@ if (!empty($_FILES['file']['name'])) {
             <?php
             if (!empty(isset($file_name))) {
             ?>
-                <div class=" p-1 d-flex align-items-center border rounded">
-                    <img src="../../assets/files/drive.png" style="width: 50px">
-                    <a href="../../assets/files/submition.files/<?= $file_name ?>" class="text-decoration-none text-truncate" style="width: 12rem;"><?= $file_name ?></a>
-                </div>
-                <button data-bs-toggle="collapse" href="#turnin" class="bg-primary mt-3" role="button" aria-expanded="false" aria-controls="turnin" style=" width: 200px;border: none; border-radius:5px; padding:7px; margin-top:15px">
-                    <span class="text-white">Turn in</span>
-                </button>
-                <div class="row" style="width: 600px; ">
-                    <div class="col">
-                        <div class="collapse multi-collapse" id="trunin">
-                            <div class="card col-xl-12 d-flex flex-column justify-content-center align-items-center" style="position: fixed; top:0px; left:0;border:none;  height:100vh; width:100%; background-color: rgba(0,0,0,0.3); z-index:15;">
-                                <div class="bg-white p-3 col-xl-4 " style="width:30%; height:33vh; border-radius:10px;">
-                                    <form action="" method="post" enctype="multipart/form-data">
-                                        <p class="mt-1 mb-4">Make as done?</p>
-                                        <p class="mt-4" style="font-size: 14px;">You didn't attach work for
-                                            "<?= $assign['title'] ?>", so your teacher will just see it's done.</p>
-                                        <div class="d-flex justify-content-end" style="margin-top: 20px;">
-                                            <a href="" class="btn btn-light">cancel</a>
-                                            <button type="submit" class="btn btn-light"><span style="color:teal;">Make as
-                                                    done</span></button>
-                                        </div>
-                                    </form>
-                                </div>
+            <form action="../../controllers/enrollment/get.file.submit.assignment.controller.php?assign_id=<?= $assignment_id ?>&user_id=<?= $user ?>" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" id="imgupload" onchange="form.submit()" style="display: none;">
+                <a href="#" class="btn w-100 border " onclick="$('#imgupload').trigger('click'); return false;">+ Add or
+                    create</a>
+            </form>
+            <button data-bs-toggle="collapse" href="#makedone" class="bg-primary mt-3" role="button"
+                aria-expanded="false" aria-controls="makedone"
+                style=" width: 260px;border: none; border-radius:5px; padding:7px; margin-top:15px">
+                <span class="text-white">Make as done</span>
+            </button>
+            <div class="row" style="width: 600px; ">
+                <div class="col">
+                    <div class="collapse multi-collapse" id="makedone">
+                        <div class="card col-xl-12 d-flex flex-column justify-content-center align-items-center"
+                            style="position: fixed; top:0px; left:0;border:none;  height:100vh; width:100%; background-color: rgba(0,0,0,0.3); z-index:15;">
+                            <div class="bg-white p-3 col-xl-4 " style="width:30%; height:33vh; border-radius:10px;">
+                                <form action="" method="post" enctype="multipart/form-data">
+                                    <p class="mt-1 mb-4">Make as done?</p>
+                                    <p class="mt-4" style="font-size: 14px;">You didn't attach work for
+                                        "<?= $assign['title'] ?>", so your teacher will just see it's done.</p>
+                                    <div class="d-flex justify-content-end" style="margin-top: 20px;">
+                                        <a href="" class="btn btn-light">cancel</a>
+                                        <button type="submit" class="btn btn-light"><span style="color:teal;">Make as
+                                                done</span></button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
             <?php
             } else if (!empty($done)) {
 
             ?>
-                <div class="text-center">
-                    <p>No work attached</p>
-                </div>
-                <button data-bs-toggle="collapse" href="#makedone" class="bg-primary mt-3" role="button" aria-expanded="false" aria-controls="makedone" style=" width: 200px;border: none; border-radius:5px; padding:7px; margin-top:15px">
-                    <span class="text-white">UnSubmit</span>
-                </button>
-                <div class="row" style="width: 600px; ">
-                    <div class="col">
-                        <div class="collapse multi-collapse" id="makedone">
-                            <div class="card col-xl-12 d-flex flex-column justify-content-center align-items-center" style="position: fixed; top:0px; left:0;border:none;  height:100vh; width:100%; background-color: rgba(0,0,0,0.3); z-index:15;">
-                                <div class="bg-white p-3 col-xl-4 " style="width:30%; height:33vh; border-radius:10px;">
-                                    <form action="#" method="post" enctype="multipart/form-data">
-                                        <p class="mt-1 mb-4">Make as done?</p>
-                                        <p class="mt-4" style="font-size: 14px;">You didn't attach work for "<?= $assign['title'] ?>", so your teacher will just see it's done.</p>
-                                        <div class="d-flex justify-content-end" style="margin-top: 20px;">
-                                            <a href="" class="btn btn-light">cancel</a>
-                                            <a href="../../controllers/enrollment/submit/make.done.controller.php?assignment_id=<?= $assignment_id ?>&user_id=<?= $user_id ?>" class="btn">Make as done</a>
-                                        </div>
-                                    </form>
-                                </div>
+            <div class=" p-1 d-flex align-items-center border rounded">
+                    <img src="../../assets/files/drive.png" style="width: 50px">
+                    <a href="../../assets/files/submition.files/<?= $file_name ?>" class="text-decoration-none text-truncate" style="width: 12rem;"><?= $file_name ?></a>
+            </div>
+            <button data-bs-toggle="collapse" href="#turnin" class="bg-primary mt-3" role="button"
+                aria-expanded="false" aria-controls="turnin"
+                style=" width: 260px;border: none; border-radius:5px; padding:7px; margin-top:15px">
+                <span class="text-white">Turn in</span>
+            </button>
+            <div class="row" style="width: 600px; ">
+                <div class="col">
+                    <div class="collapse multi-collapse" id="trunin">
+                        <div class="card col-xl-12 d-flex flex-column justify-content-center align-items-center"
+                            style="position: fixed; top:0px; left:0;border:none;  height:100vh; width:100%; background-color: rgba(0,0,0,0.3); z-index:15;">
+                            <div class="bg-white p-3 col-xl-4 " style="width:30%; height:33vh; border-radius:10px;">
+                                <form action="" method="post" enctype="multipart/form-data">
+                                    <p class="mt-1 mb-4">Make as done?</p>
+                                    <p class="mt-4" style="font-size: 14px;">You didn't attach work for
+                                        "<?= $assign['title'] ?>", so your teacher will just see it's done.</p>
+                                    <div class="d-flex justify-content-end" style="margin-top: 20px;">
+                                        <a href="" class="btn btn-light">cancel</a>
+                                        <button type="submit" class="btn btn-light"><span style="color:teal;">Make as
+                                                done</span></button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-            <?php
-
-            } else {
-            ?>
-                <form action="../../controllers/enrollment/submit/make.done.controller.php" method="post" enctype="multipart/form-data">
-                    <input type="file" name="file" id="imgupload" onchange="form.submit()" style="display: none;">
-                    <a href="#" class="btn w-100 border " onclick="$('#imgupload').trigger('click'); return false;">+ Add or
-                        create</a>
-                </form>
-                <button data-bs-toggle="collapse" href="#makedone" class="bg-primary mt-3" role="button" aria-expanded="false" aria-controls="makedone" style=" width: 200px;border: none; border-radius:5px; padding:7px; margin-top:15px">
-                    <span class="text-white">Make as done</span>
-                </button>
-                <div class="row" style="width: 600px; ">
-                    <div class="col">
-                        <div class="collapse multi-collapse" id="makedone">
-                            <div class="card col-xl-12 d-flex flex-column justify-content-center align-items-center" style="position: fixed; top:0px; left:0;border:none;  height:100vh; width:100%; background-color: rgba(0,0,0,0.3); z-index:15;">
-                                <div class="bg-white p-3 col-xl-4 " style="width:30%; height:33vh; border-radius:10px;">
-                                    <form action="#" method="post" enctype="multipart/form-data">
-                                        <p class="mt-1 mb-4">Make as done?</p>
-                                        <p class="mt-4" style="font-size: 14px;">You didn't attach work for "<?= $assign['title'] ?>", so your teacher will just see it's done.</p>
-                                        <div class="d-flex justify-content-end" style="margin-top: 20px;">
-                                            <a href="" class="btn btn-light">cancel</a>
-                                            <a href="../../controllers/enrollment/submit/make.done.controller.php?assignment_id=<?= $assignment_id ?>&user_id=<?= $user_id ?>" class="btn">Make as done</a>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
             <?php
             }
             ?>
