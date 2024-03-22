@@ -13,12 +13,33 @@ $students = listStudents($id);
 $index = 0;
 ?>
 <div class="d-flex flex-row ml-3 border-secondary" style="margin-top: -10px;">
-    <div>
-        <a href="../../controllers/enrollment/steam/enrollment.controller.php?classroom_id=<?= $id ?>"
-            class="text-dark text-decoration-none border-0 btn btn-light  ">Stream</a>
-        <a href="#" class="text-white text-decoration-none border-0 btn btn-primary">Classwork</a>
-        <a href="../../controllers/enrollment/people/people.controller.php?classroom_id=<?= $id ?>"
-            class="text-dark text-decoration-none border-0 btn btn-light  ">People</a>
+    <div class='ml-5 pt-2 nav-item d-flex align-items-center justify-content-center  border-top' style="width: 100%; gap: 10px; margin-top: 20px; ">
+        <a href="../../controllers/enrollment/steam/enrollment.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">
+            <div class="d-flex align-items-center justify-content-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-houses mr-1" viewBox="0 0 16 16">
+                    <path d="M5.793 1a1 1 0 0 1 1.414 0l.647.646a.5.5 0 1 1-.708.708L6.5 1.707 2 6.207V12.5a.5.5 0 0 0 .5.5.5.5 0 0 1 0 1A1.5 1.5 0 0 1 1 12.5V7.207l-.146.147a.5.5 0 0 1-.708-.708zm3 1a1 1 0 0 1 1.414 0L12 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l1.854 1.853a.5.5 0 0 1-.708.708L15 8.207V13.5a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 4 13.5V8.207l-.146.147a.5.5 0 1 1-.708-.708zm.707.707L5 7.207V13.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5V7.207z" />
+                </svg> 
+                Stream
+            </div>
+              
+        </a>
+        <a href="#" class="text-white text-decoration-none border border-warning btn btn-warning">
+            <div class="d-flex align-items-center justify-content-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-workspace mr-1" viewBox="0 0 16 16">
+                    <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
+                    <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.4 5.4 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2z" />
+                </svg>
+                Classwork
+            </div>
+        </a>
+        <a href="../../controllers/enrollment/people/people.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">
+            <div class="d-flex align-items-center justify-content-center ">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-people-fill mr-1" viewBox="0 0 16 16">
+                    <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
+                </svg>
+                People
+            </div>
+        </a>
     </div>
     <div style="padding-right: 50px;">
         <i class="fa fa-gear" style="font-size:25px; padding-right: 25px;"></i>

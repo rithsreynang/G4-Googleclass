@@ -109,9 +109,9 @@ if ($uri == "/home") {
 </ul>
 <!-- Content Wrapper -->
 </div>
-<div id="content-wrapper " class="d-flex border-left shadow-sm flex-column col-10" style="background: #FFFFFE;">
+<div id="content-wrapper " class=" d-flex border-left shadow-sm flex-column col-10 " style="background: #FFFFFE; margin-top: -5px;">
     <div class="d-flex justify-content-end flex-column">
-        <div class="d-flex justify-content-between align-items-center m-3">
+        <div class="d-flex  align-items-center m-3">
             <?php
             if (!empty($_SESSION['classroom_id'])) {
                 $classroom = getAnClass($_SESSION['classroom_id']);
@@ -132,8 +132,10 @@ if ($uri == "/home") {
                 ) {
             ?>
                     <a href="../../../controllers/teach/steam/class.controller.php?classroom_id=<?= $_SESSION['classroom_id'] ?>" class="btn" data-toggle="tooltip" data-placement="top" title="Back to Stream">
-                        <p class="text-dark h5 " style="margin-left: -25px;"><b><i class="bi bi-chevron-compact-left"></i><?= $class_title ?> </b></p>
+                        <p class="text-dark h5 " style="margin-left: -30px;"><b><i class="bi bi-chevron-compact-left"></i><?= $class_title ?> </b></p>
                     </a>
+                    <div class="navbar   navbar-expand-lg p-1 h-1 " style="height: 30px; margin-left: 83%">
+
                 <?php
                 } else if (
                     urlIs("/view-student-work") ||
@@ -147,33 +149,36 @@ if ($uri == "/home") {
                 ) {
                 ?>
                     <a href="../../../controllers/enrollment/steam/enrollment.controller.php?classroom_id=<?= $_SESSION['classroom_id'] ?>" data-toggle="tooltip" data-placement="top" title="Back to Stream">
-                        <h5>
-                            <?= $class_title ?>
-                        </h5>
+                        <p class="text-dark h5" style="margin-left: -15px; margin-top: 20px;">
+                            <b>
+                                <i class="bi bi-chevron-compact-left"></i>
+                                <?= $class_title ?>
+                             </b>
+                        
+                        </p>
                     </a>
+                    <div class="navbar   navbar-expand-lg pt-3 h-1 " style="height: 30px; margin-left: 83%">
+
+            <?php
+            
+                } else if (
+                    urlIs("/home")
+                   
+                ) {
+                ?>
+                  <div class="navbar   navbar-expand-lg p-1 h-1 " style="height: 50px; margin-left: 90%">
+   
             <?php
                 }
             }
+            
             ?>
-            <div class="navbar   navbar-expand-lg p-1 h-1" style="height: 30px;">
+
+
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item dropdown">
                         <a class="nav-link " href="#" id="navbarDropdownProfile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <?php
-                            if (!empty($profileName)) {
-                            ?>
-                                <img class="rounded-circle" src="assets/images/profile/<?= $profileName ?>" alt="avatar" style="height: 50px;">
-                            <?php
-                            } else {
-                            ?>
-                                <div class="bg-primary rounded-circle mt-4">
-                                    <h2 class="text-white d-flex align-items-center justify-content-center" style="width: 50px; height: 50px">
-                                        <b><?= $user[1][0] ?></b>
-                                    </h2>
-                                </div>
-                            <?php
-                            }
-                            ?>
+                            <img class="rounded-circle" src="assets/images/profile/<?= $profileName ?>" alt="avatar" style="height: 50px;">
                         </a>
                         <div class=" dropdown-menu dropdown-menu-right p-1 shadow-sm" aria-labelledby="navbarDropdownProfile">
                             <ul class=" nav navbar bg-light d-flex justify-content-center">
@@ -205,7 +210,7 @@ if ($uri == "/home") {
                                     <hr>
                                 </li>
                                 <!-- Links -->
-                                <li><a type="button" class="dropdown-item" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-fw fa-user bg-light-soft-hover shadow"></i>Update
+                                <li><a type="button" class="dropdown-item mb-2 btn" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-fw fa-user bg-light-soft-hover shadow"></i>Update
                                         profile</a>
                                 </li>
                                 <li><a class="dropdown-item bg-danger text-white rounded" href="/signout"><i class="fas fa-fw fa-sign-out-alt"></i>Sign Out</a></li>
@@ -227,7 +232,7 @@ if ($uri == "/home") {
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <div class="bg-white">
+                                <div class="bg-white ">
                                     <div class="d-flex align-items-center justify-content-center">
                                         <?php
                                         if (!empty($profileName)) {
@@ -245,7 +250,7 @@ if ($uri == "/home") {
                                         }
                                         ?>
                                     </div>
-                                    <div class='m-3'>
+                                    <div class='m-3 '>
                                         <input type="file" class="form-control m-1" name="file" placeholder="Choose image">
                                     </div>
                                 </div>
