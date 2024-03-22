@@ -1,18 +1,22 @@
 <?php
-
-require_once "models/teach/assignment/get.an.assignment.model.php";
-require_once "models/teach/assignment/get.all.assignments.model.php";
-require_once "models/teach/material/get.material/get.all.material.model.php";
-require_once "models/classroom/select.student.model.php";
-
-$id = $_SESSION['classroom_id'];
-$allAssignments = getAllAssignment($id);
-$allMaterials = getAllMaterials($id);
-$email = $_SESSION['user'][1];
-$user = getUser($email);
-$user_id = $user[0];
-$students = listStudents($id);
-$index = 0;
+require_once "models/classroom/get.user.model.php";
+require_once "models/teach/assignment/get.user.assignment.php";
+$email_user = $_SESSION['user'][1];
+$user_id = getUser($email_user)['user_id'];
+$allAssignmentForEnrollStudent = allAssignmentForEnrollStudent($user_id);
+foreach ($allAssignmentForEnrollStudent as $assignment) {
+    $today = date("Y - M - d , H:i");
+    if (!empty($assignment['dateline'])) {
+        $date = date_create($assignment['dateline']);
+        $format_date = date_format($date, " Y - M - d , H:i");
+        if ($today > $format_date){
+            echo $today;
+            echo "<br>";
+            echo $format_date;
+            echo "<br>";
+        };
+    }
+};
 ?>
 <div class="border-bottom">
     <div class="" style="margin-bottom:10px;">

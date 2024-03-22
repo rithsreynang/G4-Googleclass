@@ -5,16 +5,10 @@
 // require_once "models/classroom/select.student.model.php";
 require_once "models/enrollment/get.assignment.teacher.assign.model.php";
 require_once "models/classroom/get.user.model.php";
-
+require_once "models/teach/assignment/get.user.assignment.php";
 $email_user = $_SESSION['user'][1];
 $user_id = getUser($email_user)['user_id'];
-
-
-$allAssignment = getAllAssignmentAssign($assign);
-print_r($assign);
-
-
-
+$allAssignmentForEnrollStudent = allAssignmentForEnrollStudent($user_id);
 ?>
 <div class="border-bottom">
     <div class="" style="margin-bottom:10px;">
@@ -26,7 +20,6 @@ print_r($assign);
         <a href="../../controllers/todo/todo-view/todo.controller.php" class="text-dark text-decoration-none btn btn-light mt-2 link border border-8 shadow sm">Done</a>
     </div>
 </div>
-
 <div>
     <div class="dropdown mt-4" style="margin-left: 5%;">
         <button class="btn border border-8 shadow-sm" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="width: 250px">
