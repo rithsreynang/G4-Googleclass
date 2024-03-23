@@ -1,5 +1,5 @@
 <?php
-    require_once "../../database/database.php";
+    require_once "../../../database/database.php";
     function submitFile( $assignment_id, $user_id, $file_path):bool
     {
         global $connection;

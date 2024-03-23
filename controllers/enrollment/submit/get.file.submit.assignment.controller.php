@@ -1,6 +1,6 @@
 <?php
    session_start();
-   require_once "../../models/enrollment/submit.file.assignment.model.php";
+   require_once "../../../models/enrollment/submit.file.assignment.model.php";
    if ($_SERVER['REQUEST_METHOD'] == 'POST'){
       $assignment_id = $_GET['assign_id'];
       $user_id = $_GET['user_id'];
@@ -18,10 +18,9 @@
             if ($fileError == 0 ){
                if ($fileSize < 10000000){
                   $fileNameNew = uniqid('',true).'.'.$fileActualExt;
-                  $fileDestination = '../../assets/files/submition.files/'.$fileName;
+                  $fileDestination = '../../../assets/files/submition.files/'.$fileName;
                   move_uploaded_file($fileTemName, $fileDestination);
                   $useToSubmit = useToSubmit($assignment_id, $user_id) ;
-                  print_r($useToSubmit);
                   if (count($useToSubmit) == 0){
                      submitFile($assignment_id, $user_id, $fileName);
                   }
