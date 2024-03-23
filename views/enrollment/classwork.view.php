@@ -238,12 +238,6 @@ $index = 0;
             ?>
     </div>
 
-
-
-
-
-
-
 </div>
 <?php
         } else {

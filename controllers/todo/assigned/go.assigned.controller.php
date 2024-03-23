@@ -1,4 +1,4 @@
 
 <?php
-require_once "views/todo/assigned.view.php";
+require "views/todo/assigned.view.php";
 ?>
