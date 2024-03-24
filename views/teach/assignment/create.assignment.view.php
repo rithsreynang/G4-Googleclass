@@ -7,8 +7,6 @@ if (empty(isset($_SESSION['user']))){
 $id = $_SESSION['classroom_id'];
 $user_id = $_SESSION['user_id'];
 ?>
-<!DOCTYPE html>
-<html lang="en">
 
 <head>
     <meta charset="UTF-8">
