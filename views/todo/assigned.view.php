@@ -39,7 +39,8 @@ $allAssignments = allAssignmentForEnrollStudent($user_id);
         $currentDate = date('Y-m-d H:i:s');
         foreach ($allAssignments as $assignment) :
             $deadline = $assignment['dateline'];
-            if ($currentDate <= $deadline) {
+            if ($currentDate <= $deadline ) {
+                if ($assignment['submit_status'] === null):
         ?>
                 <div class="card p-0 rounded mt-3 col-10">
                     <div class="d-flex align-items-center bg-light p-0 justify-content-between col-12" data-bs-toggle="collapse" href="#collapse<?= $assignment['assignment_id'] ?>" role="button" aria-expanded="false" aria-controls="collapse<?= $assignment['assignment_id'] ?>">
@@ -106,6 +107,7 @@ $allAssignments = allAssignmentForEnrollStudent($user_id);
                     </div>
                 </div>
             <?php
+            endif;
             } else if ($currentDate >= $deadline) {
                 // Hide the assignment title
             }
