@@ -73,7 +73,7 @@ $index = 0;
                         $dateline = $assignment['dateline'];                                                
                            
                                 if ($curDate < $dateline) {
-                          
+ 
                     ?>
                 <div style="font-size: 15px; margin-top: -13px">
                     <?php if (!empty($assignment['dateline'])) {

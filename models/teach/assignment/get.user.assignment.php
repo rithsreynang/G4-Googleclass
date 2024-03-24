@@ -16,19 +16,3 @@ function  allAssignmentForEnrollStudent($id): array
         return [];
     }
 }
-function  allMaterialsForEnrollStudent($id): array
-{
-    global $connection;
-    $statement = $connection->prepare("SELECT materials.material_id,
-    materials.title, materials.description, materials.date_post,
-    materials.file, materials.path_file
-    FROM classroom_enroll INNER JOIN classroom ON classroom_enroll.classroom_id = classroom.classroom_id
-    INNER JOIN materials ON classroom.classroom_id = materials.classroom_id 
-    WHERE classroom_enroll.user_id = :id and classroom_enroll.role = 'student'");
-    $statement->execute([":id" => $id]);
-    if ($statement->rowCount() > 0) {
-        return $statement->fetchAll();
-    } else {
-        return [];
-    }
-}
