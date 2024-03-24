@@ -80,15 +80,15 @@ else if (!empty($file) && ($file['submit_status'] == 'assign')){
             </div>
         </div>
     </div>
-    <div class="card shadow-sm mt-4 col-3 p-0">
+    <div class="card shadow-sm mt-5 col-3 p-0 h-75">
         <div class="d-flex mt-2">
-            <h5 class='pl-3'>Your work</h5>
+            <h5 class='pl-4'>Your work</h5>
         </div>
-        <div class="card-body" style="height: 120px; margin-top: -20px">
+        <div class="card-body" style="height: 100px; margin-top: 15px">
             <?php
             if (isset($file_name)) {
             ?>
-            <div class="border rounded rounded d-flex align-items-center">
+            <div class="  border rounded rounded d-flex align-items-center">
                 <img src="../../../assets/files/drive.png" style="width: 55px">
                 <a href="../../../assets/files/submition.files/<?= $file_name ?>" style="width: 8rem;"
                     class=" ml-2 text-truncate"><?= $file_name ?>
@@ -107,7 +107,7 @@ else if (!empty($file) && ($file['submit_status'] == 'assign')){
                 <button data-bs-toggle="collapse" href="#turnInAssignment" class="bg-primary mt-3" role="button"
                     aria-expanded="false" aria-controls="turnInAssignment"
                     style=" width: 232px;border: none; border-radius:5px; padding:7px; margin-top:15px">
-                    <span class="text-white">Turn in </span>
+                    <span class="text-white ">Turn in </span>
                 </button>
                 <div class="row" style="width: 600px; ">
                     <div class="col">
