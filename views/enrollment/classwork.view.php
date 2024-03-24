@@ -13,29 +13,38 @@ $students = listStudents($id);
 $index = 0;
 ?>
 <div class="d-flex flex-row ml-3 border-secondary" style="margin-top: -10px;">
-    <div class='ml-5 pt-2 nav-item d-flex align-items-center justify-content-center  border-top' style="width: 100%; gap: 10px; margin-top: 20px; ">
-        <a href="../../controllers/enrollment/steam/enrollment.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">
+    <div class='ml-5 pt-2 nav-item d-flex align-items-center justify-content-center  border-top'
+        style="width: 100%; gap: 10px; margin-top: 20px; ">
+        <a href="../../controllers/enrollment/steam/enrollment.controller.php?classroom_id=<?= $id ?>"
+            class="text-dark text-decoration-none border-0 btn btn-light  ">
             <div class="d-flex align-items-center justify-content-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-houses mr-1" viewBox="0 0 16 16">
-                    <path d="M5.793 1a1 1 0 0 1 1.414 0l.647.646a.5.5 0 1 1-.708.708L6.5 1.707 2 6.207V12.5a.5.5 0 0 0 .5.5.5.5 0 0 1 0 1A1.5 1.5 0 0 1 1 12.5V7.207l-.146.147a.5.5 0 0 1-.708-.708zm3 1a1 1 0 0 1 1.414 0L12 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l1.854 1.853a.5.5 0 0 1-.708.708L15 8.207V13.5a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 4 13.5V8.207l-.146.147a.5.5 0 1 1-.708-.708zm.707.707L5 7.207V13.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5V7.207z" />
-                </svg> 
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                    class="bi bi-houses mr-1" viewBox="0 0 16 16">
+                    <path
+                        d="M5.793 1a1 1 0 0 1 1.414 0l.647.646a.5.5 0 1 1-.708.708L6.5 1.707 2 6.207V12.5a.5.5 0 0 0 .5.5.5.5 0 0 1 0 1A1.5 1.5 0 0 1 1 12.5V7.207l-.146.147a.5.5 0 0 1-.708-.708zm3 1a1 1 0 0 1 1.414 0L12 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l1.854 1.853a.5.5 0 0 1-.708.708L15 8.207V13.5a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 4 13.5V8.207l-.146.147a.5.5 0 1 1-.708-.708zm.707.707L5 7.207V13.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5V7.207z" />
+                </svg>
                 Stream
             </div>
-              
+
         </a>
-        <a href="#" class="text-white text-decoration-none border border-warning btn btn-warning">
+        <a href="#" class="text-white text-decoration-none  btn btn-primary">
             <div class="d-flex align-items-center justify-content-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-workspace mr-1" viewBox="0 0 16 16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                    class="bi bi-person-workspace mr-1" viewBox="0 0 16 16">
                     <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
-                    <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.4 5.4 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2z" />
+                    <path
+                        d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.4 5.4 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2z" />
                 </svg>
                 Classwork
             </div>
         </a>
-        <a href="../../controllers/enrollment/people/people.controller.php?classroom_id=<?= $id ?>" class="text-dark text-decoration-none border-0 btn btn-light  ">
+        <a href="../../controllers/enrollment/people/people.controller.php?classroom_id=<?= $id ?>"
+            class="text-dark text-decoration-none border-0 btn btn-light  ">
             <div class="d-flex align-items-center justify-content-center ">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-people-fill mr-1" viewBox="0 0 16 16">
-                    <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                    class="bi bi-people-fill mr-1" viewBox="0 0 16 16">
+                    <path
+                        d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
                 </svg>
                 People
             </div>
@@ -49,8 +58,8 @@ $index = 0;
 
 <div class="mt-4" style="margin-left: 15%;">
     <a class="btn btn-light border border-8 shadow-sm"
-        href="../../controllers/enrollment/classwork/viewmywork.controller.php"
-        style="width: 200px;">View all assignment</a>
+        href="../../controllers/enrollment/classwork/viewmywork.controller.php" style="width: 200px;">View all
+        assignment</a>
     <div class="d-flex flex-column ">
         <?php
         if (count($allAssignments) > 0 or count($allMaterials) > 0) {
@@ -58,9 +67,9 @@ $index = 0;
             echo "<h4 class='mt-5'>Assignments</h4> <hr class='dropdown-divider border-primary' style='width: 790px;'>    ";
             foreach ($allAssignments as $assignment) {
         ?>
-        <div class="card p-0 rounded mt-3 col-10">
-            <div class="d-flex align-items-center bg-light p-0  justify-content-between col-12">
-                <div class=" d-flex flex-row justify-content-between col-11" data-bs-toggle="collapse"
+        <div class="border  p-0 rounded mt-3 col-10">
+            <div class="d-flex align-items-center p-0 bg-light rounded justify-content-between col-12">
+                <div class=" d-flex flex-row justify-content-between col-12" data-bs-toggle="collapse"
                     href="#collapse<?= $assignment['assignment_id'] ?>" role="button" aria-expanded="false"
                     aria-controls="collapse<?= $assignment['assignment_id'] ?>">
                     <div class="d-flex align-items-center">
@@ -75,7 +84,7 @@ $index = 0;
                         <p class="ml-2 mt-3"><?= $assignment['title'] ?></p>
                     </div>
                     <div class="d-flex align-items-center justify-content-between">
-                        <p class="mt-3 fw-bold" style="margin-right: -20px;">
+                        <p class="mt-3 fw-bold">
                             <?php if (!empty($assignment['dateline'])) {
                                         // echo $assignment['dateline'];
                                         $date = date_create($assignment['dateline']);
@@ -93,23 +102,9 @@ $index = 0;
                         </p>
                     </div>
                 </div>
-                <div style="margin-right: 20px;">
-                    <div class="dropdown" style="color: blue">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="dropdown-toggle" type="button"
-                            id="dropdownMenuassignment" data-bs-toggle="dropdown" aria-expanded="false" width="22"
-                            height="22" fill="currentColor"
-                            class="bi bi-three-dots-vertical d-flex justify-content-center mr-5" viewBox="0 0 16 16">
-                            <path
-                                d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
-                        </svg>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuassignment">
-                            <li><a class="dropdown-item" href="#">Copy Link</a></li>
-                        </ul>
-                    </div>
-                </div>
             </div>
             <div class="collapse border-top p-3 card-body " id="collapse<?= $assignment['assignment_id'] ?>">
-                <p>Post <?php
+                <p class=''>Post <?php
                                 $post = date_create($assignment['post_date']);
                                 echo date_format($post, "M - d , H:i");
                                 $hour =  date_format($post, "H");
@@ -120,41 +115,24 @@ $index = 0;
                                 }
                                 ?></p>
                 <div class="row">
-                    <div class="col-8">
-                        <p><?= $assignment['description'] ?></p>
-                        <?php
-                                if (!empty($assignment['path_file'])) {
-                                ?>
-                        <a href="<?= $assignment['path_file'] ?>" target="_blank" style="text-decoration: none;">
-                            <div class="d-flex flex-1 align-items-center rounded shadow-sm"
-                                style="border: 1px solid #EDEAE0;">
-                                <img src="../../assets/files/drive.png" height="60px" class="border-right p-2">
-                                <div class="card-title p-1" style="font-size: 15px;"><?= $assignment['file'] ?></div>
-                            </div>
-                        </a>
-                        <?php
+                    <p class='ml-3'><?= $assignment['description'] ?></p>
+                    <?php
+                    if (!empty($assignment['path_file'])) {
+                    ?>
+                    <a href="<?= $assignment['path_file'] ?>" target="_blank" style="text-decoration: none;">
+                        <div class="d-flex flex-1 align-items-center rounded shadow-sm"
+                            style="border: 1px solid #EDEAE0;">
+                            <img src="../../assets/files/drive.png" height="60px" class="border-right p-2">
+                            <div class="card-title p-1" style="font-size: 15px;"><?= $assignment['file'] ?></div>
+                        </div>
+                    </a>
+                    <?php
                                 }
                                 ?>
-                    </div>
-                    <div class="col">
-                        <div class="row">
-                            <div class="border-left col">
-                                <h2>0</h2>
-                                <p>Turn in</p>
-                            </div>
-                            <div class="border-left col">
-                                <h2><?= count($students) ?></h2>
-                                <p>Assign</p>
-                            </div>
-                            <div class="border-left col">
-                                <h2>0</h2>
-                                <p>Grades</p>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="card-footer p-1 mt-1">
-                    <a href="../../controllers/enrollment/view-assignment/instruction.controller.php?assignment_id=<?= $assignment['assignment_id'] ?>"
+                    <a href="../../controllers/enrollment/view.assignment/instruction.controller.php?assignment_id=<?= $assignment['assignment_id'] ?>"
                         class="btn btn-primary">View
                         Instruction</a>
                 </div>
@@ -228,7 +206,8 @@ $index = 0;
                 </div>
             </div>
             <div class="collapse border rounded-bottom p-3 card-body " id="collapse<?= $index ?>">
-                <a href="../../controllers/enrollment/view-assignment/details.material.controller.php?material_id=<?= $material['material_id'] ?>" class="btn btn-primary">View
+                <a href="../../controllers/enrollment/view.material/details.material.controller.php?material_id=<?= $material['material_id'] ?>"
+                    class="btn btn-primary">View
                     Material</a>
             </div>
         </div>
@@ -237,12 +216,6 @@ $index = 0;
             }
             ?>
     </div>
-
-
-
-
-
-
 
 </div>
 <?php
