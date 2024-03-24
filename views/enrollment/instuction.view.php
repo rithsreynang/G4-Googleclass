@@ -8,6 +8,10 @@ $assign = getAnAssignment($assignment_id);
 $user = getUser($email);
 $user_id = $user['user_id'];
 $file = getFile($assignment_id, $user_id);
+date_default_timezone_set("Asia/Phnom_Penh");
+$date_missing =  date('m/d/Y h:i:s a', time());
+
+
 if (!empty($file) && (!empty($file['submit_status'] == 'turnin')) && (empty($file['file_path']))){
     $done = 'makeDone';
 }
