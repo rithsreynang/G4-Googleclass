@@ -2,17 +2,52 @@
 session_start();
 // Check if the user is already logged in, redirect to the dashboard
 if (isset($_SESSION['success'])) {
-    header("Location: /home");
-    exit;
+	header("Location: /home");
+	exit;
+}
+$error = [
+	'email' => '',
+	'password' => '',
+];
+$isEmail = false;
+require "database/database.php";
+require "models/signup.model.php";
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	if (!empty($_POST['email'])) {
+		$email = $_POST['email'];
+		$user = accountExist($email);
+		if (count($user) > 0) {
+			$isEmail = true;
+		} else {
+			$error['email'] = "Email doesn't exit!";
+		}
+	} else {
+		$error['email'] = 'please complete email';
+	}
+	if (!empty($_POST['password'])) {
+		if ($isEmail) {
+			if (password_verify($_POST['password'], $user['password'])) {
+				$_SESSION['success'] = "Login successful";
+				$_SESSION['user'] = [$user['username'], $user['email'], $user['password']];
+				header("Location: /home");
+			} else {
+				$error['password'] = 'Wrong password';
+				$_SESSION['error'] = "Wrong Email";
+			}
+		}
+	} else {
+		$error['password'] = 'please complete your password';
+	}
+	$password = $_POST['password'];
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 	<title>E - Classroom</title>
 	<!-- Meta Tags -->
+	<link rel="shortcut icon" href="assets/images/favicon.ico">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="author" content="Webestica.com">
@@ -54,7 +89,7 @@ if (isset($_SESSION['success'])) {
 								<!-- Title -->
 								<h1 class="fs-2 mt-3">Login Account</h1>
 								<!-- Form START -->
-								<form action="../../controllers/user/check_login.controller.php" method='POST'>
+								<form action="#" method='POST'>
 									<!-- Email -->
 									<div class="mb-4">
 										<label for="exampleInputEmail1" class="form-label">Email address *</label>
@@ -62,6 +97,7 @@ if (isset($_SESSION['success'])) {
 											<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="bi bi-envelope-fill"></i></span>
 											<input type="email" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1" name='email'>
 										</div>
+										<small class="text-danger"><?= $error['email'] ?></small>
 									</div>
 									<!-- Password -->
 									<div class="mb-4">
@@ -70,6 +106,7 @@ if (isset($_SESSION['success'])) {
 											<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-key"></i></span>
 											<input type="password" name="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="password" id="inputPassword5">
 										</div>
+										<small class="text-danger"><?= $error['password'] ?></small>
 									</div>
 									<!-- Button  -->
 									<div class="align-items-center mt-0">
@@ -82,7 +119,7 @@ if (isset($_SESSION['success'])) {
 
 								<!-- Sign up link -->
 								<div class="mt-4 text-center">
-									<span>Don't have account yet ? <a href="/user-signup"> Signup</a></span>
+									<span>Don't have account yet ? <a href="/signup"> Signup</a></span>
 								</div>
 							</div>
 						</div> <!-- Row END -->

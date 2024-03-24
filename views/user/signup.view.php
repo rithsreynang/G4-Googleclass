@@ -5,13 +5,73 @@ if (isset($_SESSION['success'])) {
   header("Location: /home");
   exit;
 }
+$error = [
+  'username' => '',
+  'password' => '',
+  'email' => '',
+];
+$value = [
+  'username' => '',
+  'email' => '',
+];
+$isUsername = false;
+$isPassword = false;
+$isEmail = false;
+
+require "models/signup.model.php";
+require "database/database.php";
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $regex = "/^[a-zA-Z\s\d\.\!\@\#\$]+$/";
+  if (!empty($_POST['username'])) {
+    $value['username'] = htmlspecialchars($_POST['username']);
+    $isUsername = true;
+  } else {
+    $error['username'] = 'please complete your name';
+    $userBorder = 'border-danger border-3';
+  }
+  if (!empty($_POST['password'])) {
+    if (strlen(trim($_POST['password'])) > 7) {
+      if (preg_match($regex, htmlspecialchars($_POST['password']))) {
+        $password = htmlspecialchars($_POST['password']);
+        $password_encrypt = password_hash($password, PASSWORD_BCRYPT);
+        $isPassword = true;
+      } else {
+        $error['password'] = 'wrong password';
+      }
+    } else {
+      $error['password'] = 'password must have more than 7 letters';
+    }
+  } else {
+    $error['password'] = 'please complete password';
+  }
+  if (!empty($_POST['email'])) {
+    $email = htmlspecialchars($_POST['email']);
+    $user = accountExist($email);
+    if (count($user) == 0) {
+      $isEmail = true;
+      $value['email'] = $_POST['email'];
+    } else {
+      $error['email'] = 'Email already used';
+      $_SESSION['error'] = "Email already used";
+    }
+  } else {
+    $error['email'] = 'please complete your email';
+  }
+};
+if ($isUsername && $isEmail && $isPassword) {
+  createAccount($value['username'], $email, $password_encrypt);
+  $_SESSION['success'] = "Account successfully created";
+  $_SESSION['user'] = [$value['username'], $value['email'], $password_encrypt];
+  header("Location: /home");
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <title>E - Classroom</title>
-
+  <link rel="shortcut icon" href="assets/images/favicon.ico">
   <!-- Meta Tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -49,7 +109,7 @@ if (isset($_SESSION['success'])) {
                 <h2 class="fw-bold">Welcome to E - Classroom</h2>
               </div>
               <!-- SVG Image -->
-              <img src="assets/images/element/06.svg" class="mt-7" alt="">
+              <img src="assets/images/element/06.svg" class="mt-7">
             </div>
           </div>
           <!-- Right -->
@@ -60,23 +120,24 @@ if (isset($_SESSION['success'])) {
                 <h1 class="fs-2">Create Account !</h1>
                 <!-- <p class="lead mb-4">Nice to see you! Please log in with your account.</p> -->
                 <!-- Form START -->
-                <form action="../../controllers/user/create_user.controller.php" method="post">
+                <form action="#" method="post">
                   <!-- Username -->
                   <div class="mb-4">
                     <label for="InputUsername" class="form-label">Username *</label>
                     <div class="input-group input-group-lg">
                       <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fa fa-user"></i></span>
-                      <input type="username" name="username" class="form-control border-0 bg-light rounded-end ps-1" placeholder="username" id="exampleInputUsername">
+                      <input type="username" name="username" value="<?= $value['username'] ?>" class="form-control border-0 bg-light rounded-end ps-1 <?= $userBorder ?>" placeholder="username" id="exampleInputUsername"><br>
                     </div>
+                    <small class="form-text text-danger"><?= $error['username'] ?></small>
                   </div>
                   <!-- Email -->
                   <div class="mb-4">
                     <label for="exampleInputEmail1" class="form-label">Email address *</label>
                     <div class="input-group input-group-lg">
                       <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="bi bi-envelope-fill"></i></span>
-                      <input type="email" name='email' class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1">
+                      <input type="email" name='email' value="<?= $value['email'] ?>" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1">
                     </div>
-
+                    <small class="form-text text-danger"><?= $error['email'] ?></small>
                   </div>
                   <!-- Password -->
                   <div class="mb-4">
@@ -85,6 +146,7 @@ if (isset($_SESSION['success'])) {
                       <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-key"></i></span>
                       <input type="password" name="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="password" id="inputPassword5">
                     </div>
+                    <small class="form-text text-danger"><?= $error['password'] ?></small>
                   </div>
                   <!-- Button -->
                   <div class="align-items-center mt-0">
@@ -96,7 +158,7 @@ if (isset($_SESSION['success'])) {
                 <!-- Form END -->
                 <!-- Sign up link -->
                 <div class="mt-4 text-center">
-                  <span>Have Account Already? <a href=" /user-signin">Login</a></span>
+                  <span>Have Account Already? <a href=" /signin">Login</a></span>
                 </div>
               </div>
             </div> <!-- Row END -->
