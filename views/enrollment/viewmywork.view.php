@@ -5,7 +5,7 @@ require_once "models/teach/assignment/get.user.assignment.php";
 
 $email_user = $_SESSION['user'][1];
 $user_id = getUser($email_user)['user_id'];
-$allAssignments = allAssignmentForEnrollStudent($user_id);
+$allAssignmentsAssign = allAssignmentForEnrollStudent($user_id);
 $email = $_SESSION['user'][1];
 $user = getUser($email);
 $user_id = $user[0];
@@ -24,7 +24,7 @@ $profileName = $user[4];
         <?php
         date_default_timezone_set("Asia/Phnom_Penh");
         $currentDate = date('Y-m-d H:i:s');
-        foreach ($allAssignments as $assignment) :
+        foreach ($allAssignmentsAssign as $assignment) :
             $deadline = $assignment['dateline'];
             if ($currentDate <= $deadline) {
         ?>
