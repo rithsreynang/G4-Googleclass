@@ -1,5 +1,6 @@
 <?php
 session_start();
+print_r($_SESSION['user'][1]);
 require "../../models/update.profile.user.model.php";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $file = $_FILES['file'];
@@ -17,9 +18,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $fileNameNew = uniqid('', true) . '.' . $fileActualExt;
                 $fileDestination = '../../assets/images/profile/' . $fileNameNew;
                 move_uploaded_file($fileTemName, $fileDestination);
-                $profileUpload = uploadProfile($fileNameNew, $_SESSION['user'][1]);
-                if ($profileUpload){
+                if (uploadProfile($fileNameNew, $_SESSION['user'][1])){
                     header("Location: /home");
+                }
+                else{
+                    echo "Can not update profile. Try to update again.";
                 }
             }
         } 
