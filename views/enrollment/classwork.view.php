@@ -131,10 +131,13 @@ $index = 0;
                                 ?>
 
                 </div>
-                <div class="card-footer p-1 mt-1">
+                <div class="card-footer p-1 mt-2">
                     <a href="../../controllers/enrollment/view.assignment/instruction.controller.php?assignment_id=<?= $assignment['assignment_id'] ?>"
-                        class="btn btn-primary">View
-                        Instruction</a>
+                        class="btn btn-primary mt-2">
+                        <i class='fas fa-clipboard'>
+                            <span>View instruction</span>
+                        </i>
+                    </a>
                 </div>
 
             </div>
