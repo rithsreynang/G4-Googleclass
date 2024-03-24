@@ -4,20 +4,15 @@
     <nav class="navbar navbar-expand-xl">
         <div class="container-fluid px-3 px-xl-5">
             <!-- Logo START -->
-            <a class="navbar-brand" href="/">
-                <h3>
-                    <span class="text-danger display-6 ">E</span>
-                    <span class="text-danger">-Classroom</span>
-                </h3>
-                <!-- <img class="light-mode-item navbar-brand-item" src="assets/images/logo.svg" alt="logo"> -->
-                <!-- <img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo"> -->
+            <a class="navbar-brand" href="/" style="margin-left: 70px;">
+                <img class="light-mode-item navbar-brand-item" src="assets/images/logo.svg" alt="logo">
             </a>
-            <div class="d-flex ml-1">
+            <div class="d-flex justify-content-between ml-1 " style="width:180px; margin-right: 60px">
                 <a href="/signup">
                     <h3 class="btn bg-light text-success">sign up</h3>
                 </a>
                 <a href="/signin">
-                    <h3 class="btn bg-secondary text-light">sign in</h3>
+                    <h3 class="btn bg-danger text-light"><b>sign in</b></h3>
                 </a>
             </div>
         </div>
