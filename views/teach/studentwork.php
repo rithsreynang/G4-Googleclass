@@ -1,9 +1,4 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
-    integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N">
-
-<div class="">
+<div class="d-flex">
     <div class="p-2 d-flex flex-row justify-content-between border-bottom border-top border-secondary">
         <div>
             <a href="" class="p-4 my-2 pb-0 text-dark text-decoration-none border-0 ">Instructions</a>
@@ -77,7 +72,7 @@
                     </div>
                 </div>
                 <div class="accept">
-                    
+
                 </div>
             </div>
         </div>
