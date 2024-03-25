@@ -1,3 +1,5 @@
+
+
 <?php
 require_once "models/get.user.enroll/get.all.user.enroll.model.php";
 require_once "models/teach/assignment/get.an.assignment.model.php";
@@ -10,8 +12,6 @@ $students = getAllstudentEnrollerAssign($classroom_id);
 $assignment_id = $_SESSION['assignment_id'];
 $allStudentEnroll = getAllUserEnroller($_SESSION['classroom_id']);
 $submits = getSubmits($assignment_id);
-$scores = getScore($assignment_id);
-$editAlready = getStudentEditScore($classroom_id);
 ?>
 <div>
     <div class="border-bottom">
@@ -21,7 +21,7 @@ $editAlready = getStudentEditScore($classroom_id);
                     <path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783" />
                 </svg>Instruction
             </a>
-            <a href="#" class="text-white text-decoration-none btn btn-warning mt-2 link">
+            <a href="#" class="text-white text-decoration-none btn btn-primary mt-2 link">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-workspace mr-1" viewBox="0 0 16 16">
                     <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
                     <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.4 5.4 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2z" />
@@ -44,8 +44,7 @@ $editAlready = getStudentEditScore($classroom_id);
                             <p class="mt-2 ml-2"><?= $student['username'] ?></p>
                         </div>
                         <div class="">
-
-                            <form action="../../../controllers/teach/assignment/view.assignment/edit.score.controller.php?assignment_id=<?= $assignment_id ?>&user_id=<?= $student['user_id'] ?>" class="d-flex justify-content-center" method="post">
+                        <form action="../../../controllers/teach/assignment/view.assignment/edit.score.controller.php?assignment_id=<?= $assignment_id ?>&user_id=<?= $student['user_id'] ?>" class="d-flex justify-content-center" method="post">
                                 <div class='border bg-light rounded p-2 d-flex align-items-center justify-content-center'>
                                     <input type="number" class="form-control-plaintext" name="score" style='outline: none' value="<?= $assign['score'] ?>" class='col-6 text-center'>
                                     <p class='col-6 mt-3'>/<?= $assign['score'] ?></p>
@@ -57,23 +56,7 @@ $editAlready = getStudentEditScore($classroom_id);
                         </div>
                     </div>
                 <?php }
-                foreach ($editAlready as $edit) {
-                ?>
-                    <div class="border rounded m-1 p-2 shadow-sm d-flex justify-content-between align-items-center">
-                        <div class="d-flex mt-1 col-6">
-                            <img class="rounded-circle" src="assets/images/profile/<?= $edit['profile'] ?>" alt="avatar" style="height: 50px; width: 50px">
-                            <p class="mt-2 ml-2"><?= $edit['username'] ?></p>
-                        </div>
-                        <div class="">
-                            <div class='border bg-light rounded p-2 d-flex align-items-center justify-content-center'>
-                                <input type="number" class="form-control-plaintext" name="score" style='outline: none' value="<?= $assign['score'] ?>" class='col-6 text-center'>
-                                <p class='col-6 mt-3'>/<?= $assign['score'] ?></p>
-                            </div>
-                        </div>
-                    </div>
-                <?php
-                }
-                ?>
+                ?>                      
             </div>
         </div>
         <div class="col-6">
@@ -101,8 +84,7 @@ $editAlready = getStudentEditScore($classroom_id);
                             <img src="../../../assets/files/drive.png" style='width: 70px'>
                             <a href="../../../assets/files/submition.files/<?= $submit['file_path'] ?>" class='text-truncate ml-3 text-decoration-none'><?= $submit['file_path'] ?></a>
                         </div>
-
-                    </div>
+                        </div>
                 <?php
                 }
                 ?>

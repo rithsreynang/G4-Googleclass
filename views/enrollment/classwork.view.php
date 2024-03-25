@@ -58,8 +58,11 @@ $index = 0;
 
 <div class="mt-4" style="margin-left: 15%;">
     <a class="btn btn-light border border-8 shadow-sm"
-        href="../../controllers/enrollment/classwork/viewmywork.controller.php" style="width: 200px;">View all
-        assignment</a>
+        href="../../controllers/enrollment/classwork/viewmywork.controller.php" style="width: 200px;">
+        <i class='fas fa-clipboard'>
+            <span>View all assignments</span>
+        </i>
+    </a>
     <div class="d-flex flex-column ">
         <?php
         if (count($allAssignments) > 0 or count($allMaterials) > 0) {

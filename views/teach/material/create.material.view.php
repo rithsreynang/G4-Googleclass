@@ -2,8 +2,8 @@
 session_start();
 $id = $_SESSION['classroom_id'];
 if (empty(isset($_SESSION['user']))){
-	header("Location: /");
-	exit;
+  header("Location: /");
+  exit;
 }
 ?>
 <!DOCTYPE html>
@@ -18,51 +18,49 @@ if (empty(isset($_SESSION['user']))){
     <title>Classwork_material </title>
 </head>
 
-<body style="background: #F2F3F4;">
-    <div class="pt-3 d-flex flex-row border-bottom" style="font-size:20px;background: #FFFF;">
-
-        <a href="../../../controllers/teach/classwork.controller.php?classroom_id=<?= $id ?>"
-            class="ml-5 text-dark text-decoration-none border-0 " style=" margin-right: 25px;"><i
-                class="fa fa-close"></i></a>
-        <i class="fa fa-file-text-o" style=" margin-right: 25px; margin-top: 8px;"></i>
-        <p>Meterial</p>
-    </div>
-
-    <div class="container mt-5 border p-3 rounded  border-primary border-4" style="background: #FFFF;">
-
-        <form
-            action="../../../controllers/teach/material/create.material/drop.material.controller.php?classroom_id=<?= $id ?>"
-            method="post" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="title">Title:</label>
-                <input type="text" class="form-control" id="title" name="title"
-                    placeholder="Enter the title of material...">
-            </div>
-
-            <div class="form-group">
-                <label for="description">Description:</label>
-                <textarea class="form-control" id="description" name="description" rows="3"
-                    placeholder="Enter the description of the material.. "></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="files">Choose Files:</label>
-                <input type="file" class="form-control-file border p-2 rounded " id="files" name="file" require>
-                <button type="submit" class="btn btn-primary d-flex justify-content-end"
-                    style="margin-left: 94%;">Create</button>
-                <!-- </a> -->
-        </form>
-    </div>
-
-    <div class="form-group">
-      <label for="files">Choose Files:</label>
-      <input type="file" class="form-control-file border p-2 rounded " id="files" name="file" multiple accept=".pdf, .doc, .docx" ">
-
-    </div>
-
+<body >
+<div class="card col-xl-12 d-flex flex-column justify-content-center align-items-center" style="position: fixed; top:0px; left:0;  height:100vh; width:100%; background-color: rgba(0,0,0,0.2); z-index:10;">
+    <div class="bg-white p-3 col-xl-6 rounded d-flex flex-column border border-5 border-primary" >
+        <div class=" fw-bold mt-2 d-flex flex-row border-bottom border-primary w-100" style="font-size:20px;  font-weight: bold; ">
+            <i class="fa fa-file-text-o" style=" margin-right: 25px; margin-top: 8px; margin-left: 20px;"></i>
+             <p> Update meterial</p>
+        </div>
     
-      <button type="submit" class="btn btn-primary d-flex justify-content-end" style="margin-left: 94%;">Create</button>
-    <!-- </a> -->
+
+        <div class="container mt-3 p-3 " style="background: #FFFF;">
+
+            <form
+                action="../../../controllers/teach/material/create.material/drop.material.controller.php?classroom_id=<?= $id ?>"
+                method="post" enctype="multipart/form-data">
+                <div class="col-12">
+                    <div class="form-group p-3 bg-light rounded mt-3 " style="width:100%; font-size:20px;  font-weight: bold;">
+                        <label for="title">Title:</label>
+                        <input type="text" class="form-control border border-primary" id="title" name="title"
+                            placeholder="Enter the title of material...">
+                    </div>
+
+                    <div class="form-group p-3 bg-light rounded" style="font-size:20px;  font-weight: bold;">
+                        <label for="description">Description:</label>
+                        <textarea class="form-control border border-primary" id="description" name="description" rows="3"
+                            placeholder="Enter the description of the material.. "></textarea>
+                    </div>
+
+
+
+                    <div class="form-group p-3">
+                        <label for="files" style="font-size:20px;  font-weight: bold;">Choose Files:</label>
+                        <input type="file" class="form-control-file border p-2 rounded border-primary" id="files" name="file" multiple accept=".pdf, .doc, .docx" ">
+
+                    </div>
+
+                    
+                    <div class="d-flex justify-content-end mt-3">
+                        <a onclick="history.back()" class="ml-3 btn btn-light border border-primary text-dark text-decoration-none border-0 " style=" margin-right: 25px;">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </div>
+                
+                </div>    <!-- </a> -->
+    </div>
   </form>
 </div>
 
