@@ -10,19 +10,19 @@ require_once "models/classroom/select.classrooms.model.php";
 require_once "models/classroom/select.classroom.model.php";
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $item = [
-	'home' => "",
-	'calendar' => "",
-	'enrollment' => "",
-	'teach' => "",
-	'view-assigned' => "",
-	'archive' => "",
+    'home' => "",
+    'calendar' => "",
+    'enrollment' => "",
+    'teach' => "",
+    'view-assigned' => "",
+    'archive' => "",
 ];
 if ($uri == "/home") {
     $item['home'] = "bg-light";
 } else if ($uri == "/archive") {
-	$item['archive'] = "bg-light";
+    $item['archive'] = "bg-light";
 } else if ($uri == "/view-assigned") {
-	$item['view-assigned'] = "bg-light";
+    $item['view-assigned'] = "bg-light";
 }
 ?>
 <!-- Sidebar -->
@@ -58,8 +58,7 @@ if ($uri == "/home") {
     </li>
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link collapsed " href="/#" data-toggle="collapse" data-target="#listTeach" aria-expanded="true"
-            aria-controls="listTeach">
+        <a class="nav-link collapsed " href="/#" data-toggle="collapse" data-target="#listTeach" aria-expanded="true" aria-controls="listTeach">
             <i class='fas fa-chalkboard-teacher text-dark'></i>
             <span style='font-size: 17px' class="text-dark"><b>Teaching</b></span>
         </a>
@@ -73,16 +72,14 @@ if ($uri == "/home") {
                 $classroom = getClassroomsUnarchive($user_id);
                 foreach ($classroom as $class) {
                 ?>
-                <a class="collapse-item"
-                    href="../../controllers/teach/steam/class.controller.php?classroom_id=<?= $class['classroom_id'] ?>"><?= $class['classroom_name'] ?>
-                </a>
+                    <a class="collapse-item" href="../../controllers/teach/steam/class.controller.php?classroom_id=<?= $class['classroom_id'] ?>"><?= $class['classroom_name'] ?>
+                    </a>
                 <?php } ?>
             </div>
         </div>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/#" data-toggle="collapse" data-target="#listenroll" aria-expanded="true"
-            aria-controls="listenroll">
+        <a class="nav-link" href="/#" data-toggle="collapse" data-target="#listenroll" aria-expanded="true" aria-controls="listenroll">
             <i class='fas fa-chalkboard-teacher text-dark'></i>
             <span style="font-size: 17px" class="text-dark"><b>Enrollment</b></span>
         </a>
@@ -92,8 +89,7 @@ if ($uri == "/home") {
                 $classroom = getClasses($user_id);
                 foreach ($classroom as $class) {
                 ?>
-                <a class="collapse-item"
-                    href="../../controllers/enrollment/steam/enrollment.controller.php?classroom_id=<?= $class[0] ?>"><?= $class[1] ?></a>
+                    <a class="collapse-item" href="../../controllers/enrollment/steam/enrollment.controller.php?classroom_id=<?= $class[0] ?>"><?= $class[1] ?></a>
                 <?php  } ?>
             </div>
         </div>
@@ -113,39 +109,38 @@ if ($uri == "/home") {
 </ul>
 <!-- Content Wrapper -->
 </div>
-<div id="content-wrapper " class=" d-flex border-left shadow-sm flex-column col-10 " style="background: #FFFFFE;">
+<div id="content-wrapper " class=" d-flex border-left border-dark flex-column col-10 " style="background: #FFFFFE;">
     <div class="d-flex justify-content-end flex-column">
         <div class="d-flex align-items-center 
             <?php
-                if (empty($class_title)){
-                    echo ' justify-content-between';
-                }else{
-                    echo ' justify-content-end';
-                }
-                ?>
+            if (empty($class_title)) {
+                echo ' justify-content-between';
+            } else {
+                echo ' justify-content-end';
+            }
+            ?>
                 mt-2">
             <div class=''>
                 <?php
-                    if (!empty($_SESSION['classroom_id'])) {
-                        $classroom = getAnClass($_SESSION['classroom_id']);
-                        $class_title = $classroom[0][1];
-                        if (
-                            urlIs('/steam-teacher') ||
-                            urlIs('/classwork-teacher') ||
-                            urlIs('/people-teacher') ||
-                            urlIs('/grade-teacher') ||
-                            urlIs("/student-work") ||
-                            urlIs('/create-assignment') ||
-                            urlIs("/update-assignment")  ||
-                            urlIs('/update-material') ||
-                            urlIs('/create-material')   
-                        ){
-                    ?>
-                <a href="../../../controllers/teach/steam/class.controller.php?classroom_id=<?= $_SESSION['classroom_id'] ?>"
-                    class="" data-toggle="tooltip" data-placement="top" title="Back to Stream">
-                    <p class="text-primary h5 text-decoration-none ml-1 mt-3"><b><?= $class_title ?></b></p>
-                </a>
-                <?php
+                if (!empty($_SESSION['classroom_id'])) {
+                    $classroom = getAnClass($_SESSION['classroom_id']);
+                    $class_title = $classroom[0][1];
+                    if (
+                        urlIs('/steam-teacher') ||
+                        urlIs('/classwork-teacher') ||
+                        urlIs('/people-teacher') ||
+                        urlIs('/grade-teacher') ||
+                        urlIs("/student-work") ||
+                        urlIs('/create-assignment') ||
+                        urlIs("/update-assignment")  ||
+                        urlIs('/update-material') ||
+                        urlIs('/create-material')
+                    ) {
+                ?>
+                        <a href="../../../controllers/teach/steam/class.controller.php?classroom_id=<?= $_SESSION['classroom_id'] ?>" class="" data-toggle="tooltip" data-placement="top" title="Back to Stream">
+                            <p class="text-primary h5 text-decoration-none ml-1 mt-3"><b><?= $class_title ?></b></p>
+                        </a>
+                    <?php
                     } else if (
                         urlIs("/view-student-work") ||
                         urlIs("/view-assigned") ||
@@ -158,26 +153,23 @@ if ($uri == "/home") {
                         urlIs('/grade-student') ||
                         urlIs("/view-instruction-material") ||
                         urlIs("/view-instruction-assignment")
-                        ) {
+                    ) {
                     ?>
-                <a href="../../../controllers/enrollment/steam/enrollment.controller.php?classroom_id=<?= $_SESSION['classroom_id'] ?>"
-                    class="text-decoration-none" data-toggle="tooltip" data-placement="top" title="Back to Stream">
-                    <p class="text-primary h5 ml-1 mt-3 text-decoration-none " style=" width: 200px">
-                        <b><?= $class_title ?></b>
-                    </p>
-                </a>
+                        <a href="../../../controllers/enrollment/steam/enrollment.controller.php?classroom_id=<?= $_SESSION['classroom_id'] ?>" class="text-decoration-none" data-toggle="tooltip" data-placement="top" title="Back to Stream">
+                            <p class="text-primary h5 ml-1 mt-3 text-decoration-none " style=" width: 200px">
+                                <b><?= $class_title ?></b>
+                            </p>
+                        </a>
                 <?php
+                    }
                 }
-                }
-            ?>
+                ?>
             </div>
             <div>
                 <div class="text-right">
-                    <img type="button" src="assets/images/profile/<?= $profileName ?>" data-toggle="modal"
-                        data-target="#profileView" style="width: 50px; height: 50px; border-radius: 50%;">
+                    <img type="button" src="assets/images/profile/<?= $profileName ?>" data-toggle="modal" data-target="#profileView" style="width: 50px; height: 50px; border-radius: 50%;">
                 </div>
-                <div class="modal fade" id="profileView" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal fade" id="profileView" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -188,8 +180,7 @@ if ($uri == "/home") {
                             </div>
                             <div class="modal-body">
                                 <div class="avatar d-flex me-3 m-1 justify-content-center align-items-center">
-                                    <img class="rounded-circle" src="assets/images/profile/<?= $profileName ?>"
-                                        alt="avatar" style="width: 100px; height: 100px; border-radius: 50%;">
+                                    <img class="rounded-circle" src="assets/images/profile/<?= $profileName ?>" alt="avatar" style="width: 100px; height: 100px; border-radius: 50%;">
                                 </div>
                                 <div class="d-flex flex-column  p-3">
                                     <div class=''>
@@ -206,17 +197,13 @@ if ($uri == "/home") {
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <form action="../../controllers/user/update.profile.php" method="POST"
-                                    enctype="multipart/form-data">
-                                    <input type="file" name="file" id="profileUpload" onchange="form.submit()"
-                                        style="display: none;">
+                                <form action="../../controllers/user/update.profile.php" method="POST" enctype="multipart/form-data">
+                                    <input type="file" name="file" id="profileUpload" onchange="form.submit()" style="display: none;">
 
-                                    <a href="#" class="text-dark p-2 btn dropdown-item bg-light-soft-hover"
-                                        onclick="$(' #profileUpload').trigger('click'); return false;">Update
+                                    <a href="#" class="text-dark p-2 btn dropdown-item bg-light-soft-hover" onclick="$(' #profileUpload').trigger('click'); return false;">Update
                                         Profile</a>
                                 </form>
-                                <a class="btn bg-danger text-white rounded" href="/signout"><i
-                                        class="fas fa-fw fa-sign-out-alt"></i>Sign
+                                <a class="btn bg-danger text-white rounded" href="/signout"><i class="fas fa-fw fa-sign-out-alt"></i>Sign
                                     Out</a>
                             </div>
                         </div>

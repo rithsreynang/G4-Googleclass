@@ -60,7 +60,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-                                        <button class="btn btn-warning" type="submit">Join Now</button>
+                                        <button class="btn btn-primary" type="submit">Join Now</button>
                                     </div>
                             </form>
                         </div>
@@ -94,7 +94,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-warning">Add class</button>
+                                        <button type="submit" class="btn btn-primary">Add class</button>
                                     </div>
                                 </div>
                         </form>
@@ -107,7 +107,7 @@
         <?php
             foreach ($classroom as $class) :
             ?>
-        <div class="card shadow-sm m-3 rounded" style="width:245px;">
+        <div class="card  shadow-sm m-3 rounded" style="width:245px;">
             <!-- hi -->
             <img class="card-image-top rounded m-2" src="../../assets/images/courses/4by3/<?= $class['banner'] ?>">
             <div class="navbar  navbar-expand-lg navbar-light p-1 h-1" style="height: 20px;">
@@ -191,7 +191,7 @@
         <?php endforeach;
             foreach ($classEnroll as $class) :
             ?>
-        <div class="card m-3 shadow-sm rounded" style="width:245px;">
+        <div class="card bg-opacity-30 m-3 shadow-sm rounded" style="width:245px;">
             <img class="card-image-top rounded m-2" src="../../assets/images/courses/4by3/<?= $class['banner'] ?>">
             <div class="navbar  navbar-expand-lg navbar-light p-1 h-1" style="height: 20px;">
                 <ul class="navbar-nav mr-auto">
