@@ -4,7 +4,7 @@ function allAssignmentForEnrollStudent($id): array
 {
     global $connection;
     $statement = $connection->prepare("SELECT assignments.assignment_id, assignments.title, assignments.dateline, 
-    assignments.description, submition.submit_status
+    assignments.description, assignments.file, assignments.path_file, submition.submit_status
     FROM assignments
     INNER JOIN classroom ON assignments.classroom_id = classroom.classroom_id
     INNER JOIN classroom_enroll ON classroom.classroom_id = classroom_enroll.classroom_id
@@ -13,7 +13,7 @@ function allAssignmentForEnrollStudent($id): array
     WHERE classroom_enroll.user_id = :id and classroom_enroll.role = 'student' AND (submition.submit_status IS NULL OR submition.submit_status = 0)");
     $statement->execute([":id" => $id]);
     if ($statement->rowCount() > 0) {
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $statement->fetchAll();
     } else {
         return [];
     }

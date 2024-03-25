@@ -2,12 +2,14 @@
 require_once "models/teach/assignment/get.an.assignment.model.php";
 require_once "models/classroom/get.user.model.php";
 require_once "models/enrollment/get.file.submit.model.php";
+
 $assignment_id = $_SESSION['assignment_id'];
 $classroom_id = $_SESSION['classroom_id'];
 $assign = getAnAssignment($assignment_id);
 $user = getUser($email);
 $user_id = $user['user_id'];
 $file = getFile($assignment_id, $user_id);
+
 if (!empty($file) && (!empty($file['submit_status'] == 'turnin')) && (empty($file['file_path']))){
     $done = 'makeDone';
 }
@@ -138,7 +140,7 @@ else if (!empty($file) && ($file['submit_status'] == 'assign')){
                 </div>
                 <button data-bs-toggle="collapse" href="#unsubmitassignment" class="bg-primary mt-3" role="button"
                     aria-expanded="false" aria-controls="unsubmitassignment"
-                    style=" width: 232px;border: none; border-radius:5px; padding:7px; margin-top:15px">
+                    style=" width: 210px;border: none; border-radius:5px; padding:7px; margin-top:15px">
                     <span class="text-white">Unsubmit </span>
                 </button>
                 <div class="row" style="width: 600px; ">
@@ -177,7 +179,7 @@ else if (!empty($file) && ($file['submit_status'] == 'assign')){
                 </div>
                 <button data-bs-toggle="collapse" href="#updateSubmit" class="bg-primary mt-3" role="button"
                     aria-expanded="false" aria-controls="updateSubmit"
-                    style=" width: 232px;border: none; border-radius:5px; padding:7px; margin-top:1px">
+                    style=" width: 210px;border: none; border-radius:5px; padding:7px; margin-top:1px">
                     <span class="text-white">Unsubmit </span>
                 </button>
                 <div class="row" style="width: 600px; ">
@@ -219,7 +221,7 @@ else if (!empty($file) && ($file['submit_status'] == 'assign')){
                 </form>
                 <button data-bs-toggle="collapse" href="#makedone" class="bg-primary mt-3" role="button"
                     aria-expanded="false" aria-controls="makedone"
-                    style="width: 232px; border: none; border-radius:5px; padding:7px; margin-top:15px">
+                    style="width: 210px; border: none; border-radius:5px; padding:7px; margin-top:15px">
                     <span class="text-white">Make as done</span>
                 </button>
                 <div class="row" style="width: 600px; ">
