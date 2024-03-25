@@ -14,3 +14,4 @@ function turnInAssignment(int $assignment_id, int $user_id)
         ":user_id" => $user_id
     ]);
 }
+

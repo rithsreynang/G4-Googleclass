@@ -4,7 +4,7 @@ require_once "models/enrollment/get.all.submit.model.php";
 require_once "models/classroom/get.user.model.php";
 $user_id =  getUser($_SESSION['user'][1])['user_id'];
 $assignmentDone = getAllAssignmentSumit($user_id);
-// print_r($assignmentSubmit);
+
 ?>
 
 <div class="border-bottom">

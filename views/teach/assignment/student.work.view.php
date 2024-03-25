@@ -1,10 +1,10 @@
 
-
 <?php
 require_once "models/get.user.enroll/get.all.user.enroll.model.php";
 require_once "models/teach/assignment/get.an.assignment.model.php";
 require_once "models/teach/assignment/get.turnin.model.php";
 require_once "models/teach/assignment/get.score.model.php";
+
 $assignment_id = $_SESSION['assignment_id'];
 $classroom_id = $_SESSION['classroom_id'];
 $assign = getAnAssignment($assignment_id);
@@ -12,6 +12,7 @@ $students = getAllstudentEnrollerAssign($classroom_id);
 $assignment_id = $_SESSION['assignment_id'];
 $allStudentEnroll = getAllUserEnroller($_SESSION['classroom_id']);
 $submits = getSubmits($assignment_id);
+
 ?>
 <div>
     <div class="border-bottom">
@@ -21,7 +22,7 @@ $submits = getSubmits($assignment_id);
                     <path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783" />
                 </svg>Instruction
             </a>
-            <a href="#" class="text-white text-decoration-none btn btn-prima mt-2 link">
+            <a href="#" class="text-white text-decoration-none btn btn-primary mt-2 link">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-workspace mr-1" viewBox="0 0 16 16">
                     <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
                     <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.4 5.4 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2z" />
@@ -37,8 +38,22 @@ $submits = getSubmits($assignment_id);
             <div class="ml-2 d-flex justify-content flex-column mr-2">
                 <?php
                 foreach ($students as $student) {
+                   $score_user =  getScore($assignment_id, $student['user_id']);
+                   if (count($score_user) != 0){
                 ?>
                     <div class="border rounded m-1 p-2 shadow-sm d-flex justify-content-between align-items-center">
+                        <div class="d-flex col-6">
+                            <img class="rounded-circle" src="assets/images/profile/<?= $student['profile'] ?>" alt="avatar" style="height: 50px; width: 50px">
+                            <p class="mt-2 ml-2"><?= $student['username'] ?></p>
+                        </div>
+                        <div class="mt-2">
+                            <p>Score : <?= $score_user['score'] ?></p>
+                        </div>
+                    </div>
+                   
+                <?php }else if (count($score_user) == 0){
+                ?>   
+                <div class="border rounded m-1 p-2 shadow-sm d-flex justify-content-between align-items-center">
                         <div class="d-flex mt-1 col-6">
                             <img class="rounded-circle" src="assets/images/profile/<?= $student['profile'] ?>" alt="avatar" style="height: 50px; width: 50px">
                             <p class="mt-2 ml-2"><?= $student['username'] ?></p>
@@ -55,8 +70,9 @@ $submits = getSubmits($assignment_id);
                             </form>
                         </div>
                     </div>
-                <?php }
-                ?>                      
+                <?php
+                }}
+                ?>
             </div>
         </div>
         <div class="col-6">
@@ -78,7 +94,7 @@ $submits = getSubmits($assignment_id);
                 ?>
                     <div class="border rounded mb-2 p-0 d-flex align-items-center" style='height: 90px'>
                         <div class=" text-center col-2">
-                            <img src="../../../assets/images/profile/<?= $submit['profile'] ?>" class='bg-danger' style="width:50px; height: 50px; border-radius: 50%;" ata-toggle="tooltip" data-placement="top" title="<?= $submit['username'] ?>">
+                            <img src="../../../assets/images/profile/<?= $submit['profile'] ?>" style="width:50px; height: 50px; border-radius: 50%;" ata-toggle="tooltip" data-placement="top" title="<?= $submit['username'] ?>">
                         </div>
                         <div class=' d-flex ml-3 align-items-center bg-light rounded col-9' ata-toggle="tooltip" data-placement="top" title="<?= $submit['file_path'] ?>">
                             <img src="../../../assets/files/drive.png" style='width: 70px'>

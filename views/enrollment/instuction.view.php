@@ -2,13 +2,14 @@
 require_once "models/teach/assignment/get.an.assignment.model.php";
 require_once "models/classroom/get.user.model.php";
 require_once "models/enrollment/get.file.submit.model.php";
-
+require_once "models/teach/assignment/get.score.model.php";
 $assignment_id = $_SESSION['assignment_id'];
 $classroom_id = $_SESSION['classroom_id'];
 $assign = getAnAssignment($assignment_id);
 $user = getUser($email);
 $user_id = $user['user_id'];
 $file = getFile($assignment_id, $user_id);
+$score_user =  getScore($assignment_id, $user_id);
 if (!empty($file) && (!empty($file['submit_status'] == 'turnin')) && (empty($file['file_path']))){
     $done = 'makeDone';
 }
@@ -22,7 +23,7 @@ else if (!empty($file) && ($file['submit_status'] == 'assign')){
 
 ?>
 <div class=" d-flex border-top border-secondary" style="margin-top: 12px">
-    <div class="pl-5 d-flex flex-column col-9 mt-4">
+    <div class="pl-5 d-flex flex-column col-8 mt-4">
         <div class="d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center">
                 <div class="rounded-circle d-flex" style="background-color: #289AE3 ; padding: 10px; color: white">
@@ -38,9 +39,17 @@ else if (!empty($file) && ($file['submit_status'] == 'assign')){
         <div class="ml-4">
             <div class="ml-4 mt-2">
                 <p><?= "Post on" . " " . $assign['post_date'] ?></p>
-                <div class="d-flex justify-content-between">
-                    <p><b><?= $assign['score'] ?> points</b></p>
-                    <p><b>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class=" d-flex align-items-center" style="width: 200px;"><?php
+                        if (!empty($score_user)){
+                        ?>
+                        <p class=""><b><?=$score_user['score'] ?>/</b></p>
+                    <?php
+                    }
+                    ?>
+                        <p class=""><b><?= $assign['score'] ?> points</b></p>
+                    </div>
+                    <p >
                             <?php if (!empty($assign['dateline'])) {
                                 $date = date_create($assign['dateline']);
                                 echo "Due " . date_format($date, "M - d , H:i");
@@ -54,7 +63,7 @@ else if (!empty($file) && ($file['submit_status'] == 'assign')){
                                 echo "No due date";
                             }
                             ?>
-                        </b></p>
+                        </p></b>
                 </div>
             </div>
             <div class="ml-2 border-top">
@@ -88,7 +97,7 @@ else if (!empty($file) && ($file['submit_status'] == 'assign')){
             <div class="  border rounded rounded d-flex align-items-center">
                 <img src="../../../assets/files/drive.png" style="width: 55px">
                 <a href="../../../assets/files/submition.files/<?= $file_name ?>" style="width: 8rem;"
-                    class=" ml-2 text-truncate"><?= $file_name ?>
+                    class=" ml-2 text-truncate text-decoration-none"><?= $file_name ?>
                 </a>
                 <a href="../../controllers/enrollment/submit/delete.submit.controller.php?submit_id=<?= $file['submit_id']?> "
                     data-toggle="tooltip" data-placement="top" title="Delete this file!">
@@ -103,8 +112,8 @@ else if (!empty($file) && ($file['submit_status'] == 'assign')){
             <div>
                 <button data-bs-toggle="collapse" href="#turnInAssignment" class="bg-primary mt-3" role="button"
                     aria-expanded="false" aria-controls="turnInAssignment"
-                    style=" width: 232px;border: none; border-radius:5px; padding:7px; margin-top:15px">
-                    <span class="text-white ">Turn in </span>
+                    style=" width: 210px;border: none; border-radius:5px; padding:7px; margin-top:15px">
+                    <span class="text-white">Turn in </span>
                 </button>
                 <div class="row" style="width: 600px; ">
                     <div class="col">
@@ -170,7 +179,7 @@ else if (!empty($file) && ($file['submit_status'] == 'assign')){
             } else if(isset($turnIn)) {
             ?>
             <div>
-                <div class=" border rounded d-flex align-items-center" style="width: 232px;">
+                <div class=" border rounded d-flex align-items-center">
                     <img src="../../../assets/files/drive.png" style="width: 60px">
                     <a href="../../../assets/files/submition.files/<?= $turnIn
                     ?>" style="width: 8rem;" class=" ml-2 text-truncate "><?= $turnIn ?>
