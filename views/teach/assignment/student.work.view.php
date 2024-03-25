@@ -8,8 +8,7 @@ require_once "models/teach/assignment/get.score.model.php";
 $assignment_id = $_SESSION['assignment_id'];
 $classroom_id = $_SESSION['classroom_id'];
 $assign = getAnAssignment($assignment_id);
-$students = getAllstudentEnrollerAssign($classroom_id);
-$assignment_id = $_SESSION['assignment_id'];
+$students = getAllstudentEnroller($classroom_id);
 $allStudentEnroll = getAllUserEnroller($_SESSION['classroom_id']);
 $submits = getSubmits($assignment_id);
 
