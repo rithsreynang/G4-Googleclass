@@ -11,4 +11,6 @@ function insertScore($assign_id, $user_id, $score)
     ]);
     $statement->rowCount() > 0;
 }
+
+
 ?>

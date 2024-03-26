@@ -1,7 +1,13 @@
 <?php
+
+require_once "models/teach/assignment/get.score.model.php";
+
 $id = $_SESSION['classroom_id'];
 $email = $_SESSION['user'][1];
-$user_id = getUser($email)[0];
+$user_id = getUser($email)['user_id'];
+
+$grades = gradeStudent($id);
+// print_r($grades);
 
 ?>
 
@@ -48,15 +54,33 @@ $user_id = getUser($email)[0];
             </div>
         </b></a>
 </div>
-
-<div class="d-flex flex-column align-items-center ml-5 mr-5" style="margin-top: 7%; font-size: 20px; ">
-    <img src="../../assets/images/classroom/02.jpg" alt="" width=300px; height=300px;>
-    <p>Create assignment to see grades</p>
-    <div>
-        <a class="dropdown-item text-decoration-none btn bg-primary text-white"
-            href="../../../controllers/teach/assignment/create.assignment/assign.get.id.controller.php?user_id=<?= $user_id ?>">Create
-            Assignment </a>
+<div class="container mt-4">
+    <div class="table-responsive">
+        <table class="table align-middle">
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Assignment Title</th>
+                    <th>Scores</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($grades as $grade): ?>
+                <tr>
+                    <td>
+                        <div class="d-flex">
+                            <img src="../../assets/images/profile/<?= $grade['profile'] ?>" alt="avatar" style="border-radius: 50%
+                            ; height:40px; width: 40px">
+                            <span class="ml-2" style="margin-top: 10px;">         
+                                <?= $grade['username'] ?>
+                            </span>
+                        </div>
+                    </td>
+                    <td><?= $grade['title'] ?></td>
+                    <td><?= $grade['score'] ?></td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
     </div>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
