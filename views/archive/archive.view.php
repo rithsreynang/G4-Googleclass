@@ -33,7 +33,7 @@
 					</div>
 					<div class="card-body p-2">
 						<div class="nav-list d-flex justify-content-between">
-							<a href="../../controllers/teach/class.controller.php?classroom_id=<?= $class['classroom_id'] ?>" style="text-decoration: none; color: black;">
+							<a href="../../controllers/teach/steam/class.controller.php?classroom_id=<?= $class['classroom_id'] ?>" style="text-decoration: none; color: black;">
 								<p class="card-title"><?= $class['classroom_name'] ?></p>
 							</a>
 						</div>
