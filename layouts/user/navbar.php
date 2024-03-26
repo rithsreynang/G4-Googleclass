@@ -200,12 +200,13 @@ if ($uri == "/home") {
                                 <form action="../../controllers/user/update.profile.php" method="POST" enctype="multipart/form-data">
                                     <input type="file" name="file" id="profileUpload" onchange="form.submit()" style="display: none;">
 
-                                    <a href="#" class="text-dark p-2 btn dropdown-item bg-light-soft-hover" onclick="$(' #profileUpload').trigger('click'); return false;">Update
+                                    <a href="#" class="text-white p-2 btn bg-primary dropdown-item " onclick="$(' #profileUpload').trigger('click'); return false;">Update
                                         Profile</a>
                                 </form>
-                                <a class="btn bg-danger text-white rounded" href="/signout"><i class="fas fa-fw fa-sign-out-alt"></i>Sign
+                                <a class="btn bg-danger text-white" href="/signout"><i class="fas fa-fw fa-sign-out-alt"></i>Sign
                                     Out</a>
                             </div>
+                            
                         </div>
                     </div>
                 </div>

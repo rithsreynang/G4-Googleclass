@@ -1,5 +1,5 @@
 <?php
-require_once "../../../../models/teach/material/update.material/update.material.model.php";
+require_once "../../../models/teach/material/update.material/update.material.model.php";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $classroom_id = $_GET['classroom_id'];
     $material_id=  $_GET['material_id'];
@@ -32,5 +32,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     $meterial= updateMaterial($material_id, $title, $description, $fileDestination, $fileName);
-    header("Location: ../classwork.controller.php?classroom_id=$classroom_id");
+    header("Location: /classwork-teacher");
 }
