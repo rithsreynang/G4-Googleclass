@@ -86,7 +86,7 @@ else if (!empty($file) && ($file['submit_status'] == 'assign')){
             </div>
         </div>
     </div>
-    <div class="card shadow-sm mt-5 col-3 p-0 h-75">
+    <div class="card shadow-sm mt-5 col-3 p-0 h-100">
         <div class="d-flex mt-2">
             <h5 class='pl-4'>Your work</h5>
         </div>
